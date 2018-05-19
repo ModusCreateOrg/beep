@@ -5,13 +5,14 @@
                 <ion-buttons slot="start">
                     <ion-back-button></ion-back-button>
                 </ion-buttons>
-                <ion-title>qqqq</ion-title>
+                <ion-title>account page</ion-title>
             </ion-toolbar>
         </ion-header>
 
         <ion-content class="content" padding>
             <h1>Acc placeholder</h1>
-            <ion-button @click="goToHome">to home</ion-button>
+            <ion-button @click="goToHome">go home with history</ion-button>
+            <ion-button @click="popToHome">drop all history</ion-button>
         </ion-content>
     </ion-page>
 </template>
@@ -24,6 +25,9 @@ export default {
     methods: {
         goToHome() {
             this.$glob.nav.push(Home)
+        },
+        popToHome() {
+            this.$glob.nav.popToRoot()
         }
     },
 }

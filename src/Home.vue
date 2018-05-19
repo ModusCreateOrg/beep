@@ -5,13 +5,13 @@
                 <ion-buttons slot="start">
                     <ion-back-button></ion-back-button>
                 </ion-buttons>
-                <ion-title>qweqweqweqweaaaa</ion-title>
+                <ion-title>home</ion-title>
             </ion-toolbar>
         </ion-header>
 
         <ion-content class="content" padding>
                 <ion-button expand="full" type="submit" @click="goToPWd">
-                    qweqw
+                    check password
                 </ion-button>
         </ion-content>
     </ion-page>

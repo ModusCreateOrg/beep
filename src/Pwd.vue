@@ -5,7 +5,7 @@
                 <ion-buttons slot="start">
                     <ion-back-button></ion-back-button>
                 </ion-buttons>
-                <ion-title>qqqq</ion-title>
+                <ion-title>Password checking</ion-title>
             </ion-toolbar>
         </ion-header>
 
@@ -13,7 +13,8 @@
             <form @submit="checkHash">
                 <ion-list>
                     <ion-item>
-                        <ion-icon :name="pwdIcon" slot="start"></ion-icon>
+                        <ion-icon v-show="!showPwd" name="lock" slot="start"></ion-icon>
+                        <ion-icon v-show="showPwd" name="unlock" slot="start"></ion-icon>
                         <ion-input :type="pwdType" :value="pwd" @input="pwd=$event.target.value" placeholder="Password"></ion-input>
                         <ion-button v-show="pwd" @click="togglePwdType" slot="end" fill="clear" size="small">
                             {{showPwdText}}
@@ -27,7 +28,7 @@
                     </span>
                     <span v-else>Have I been pwned?</span>
                 </ion-button>
-                <ion-button @click="goToAcc">to acc</ion-button>
+                <ion-button @click="goToAcc">check account</ion-button>
             </form>
         </ion-content>
     </ion-page>
