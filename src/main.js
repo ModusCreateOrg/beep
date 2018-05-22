@@ -3,7 +3,8 @@ import Home from './Home.vue'
 import mixins from './mixins'
 import {Delegate} from './framework-delegate'
 
-const glob = { nav: null }
+const nav = document.querySelector('ion-nav')
+const glob = { nav: nav }
 
 glob.install = function () {
     Object.defineProperty(Vue.prototype, '$glob', {
@@ -14,12 +15,9 @@ glob.install = function () {
 Vue.use(glob)
 Vue.config.ignoredElements = [/^ion-/]
 
-const app = new Vue().$mount('#app')
-
-document.querySelector('ion-nav')
-    .componentOnReady()
-    .then((nav) => {
-        nav.delegate = Delegate
-        nav.root = Home
-        app.$glob.nav = nav
+// Init Ionic's NavController by setting the root (home) page
+nav.componentOnReady()
+    .then((obj) => {
+        obj.delegate = Delegate
+        obj.root = Home
     })

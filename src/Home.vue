@@ -10,7 +10,7 @@
         </ion-header>
 
         <ion-content class="content" padding>
-                <ion-button expand="full" type="submit" @click="goToPWd">
+                <ion-button expand="full" type="submit" @click="goToPwd">
                     check password
                 </ion-button>
         </ion-content>
@@ -25,7 +25,7 @@ import Pwd from './Pwd.vue'
 export default {
     name: 'home',
      methods: {
-         goToPWd() {
+         goToPwd() {
              this.$glob.nav.push(Pwd)
          }
      },

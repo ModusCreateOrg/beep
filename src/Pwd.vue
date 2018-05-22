@@ -10,7 +10,7 @@
         </ion-header>
 
         <ion-content class="content" padding>
-            <form @submit="checkHash">
+            <form @submit="checkHash" autocomplete="off">
                 <ion-list>
                     <ion-item>
                         <ion-icon v-show="!showPwd" name="lock" slot="start"></ion-icon>
@@ -51,6 +51,7 @@ export default {
             showPwd: false,
             requestPending: false,
             pwned: false,
+            count: 0,
         }
     },
     computed: {
@@ -77,7 +78,7 @@ export default {
         checkHash(e) {
             e.preventDefault()
 
-            // Check for empty pwdwords or pending requests
+            // Check for empty passwords or pending requests
             if (!this.validatePwd() || this.requestPending) {
                 return
             }
@@ -88,22 +89,60 @@ export default {
 
             axios.get(baseURL + hash.substr(0, 5))
                 .then(res => {
-                    this.pwd = ''
-                    this.pwned = !!~res.data.indexOf(hash.substr(5).toUpperCase())
-                    this.showAlert(
-                        'Alert',
-                        'Subtitle',
-                        'This is an alert message.',
-                        ['OK']
-                    )
+                    this.search(hash.substr(5).toUpperCase(), res.data)
+                    this.notify()
                 })
                 .catch(err => {
                     console.log('Error:', err)
                 })
                 .finally(() => {
-                    // Unblock subsequent requests
+                    // Reset and unblock subsequent requests
+                    this.pwd = ''
                     this.requestPending = false
                 })
+        },
+        search(hash, text) {
+            var i = 0
+            var row = ''
+
+            while (i < text.length) {
+                var j = text.indexOf("\n", i)
+
+                if (j === -1) {
+                    j = text.length;
+                }
+
+                row = text.substr(i, j - i)
+
+                if (row.indexOf(hash) > -1) {
+                    var breachData = row.split(':')
+
+                    if (breachData.length !== 2) {
+                        throw new Error("Unexpected data")
+                    }
+
+                    this.pwned = true
+                    this.count = breachData[1]
+
+                    return
+                }
+
+                i = j + 1;
+            }
+
+            this.pwned = false
+            this.count = 0
+        },
+        notify() {
+            var btns = ['Yay!']
+            var msg = 'You are secure, for now...'
+
+            if (this.pwned) {
+                btns = ['Doh!']
+                msg = `You've been pwned across ${this.count} domains`
+            }
+
+            this.showAlert('Beep', null, msg, btns)
         }
     },
 }

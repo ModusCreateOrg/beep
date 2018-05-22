@@ -10,6 +10,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "@ionic/core": "^4.0.0-alpha.7",
     "axios": "^0.18.0",
     "sha1": "^1.1.1",
     "vue": "^2.5.2"
