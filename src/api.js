@@ -8,9 +8,14 @@ export default {
         return ctrl
     },
     async newAlertController(props) {
-        const ctrl = await initComponent('ion-alert-controller')
-        const alert = await ctrl.create(props)
-        return await alert.present()
+        return this.newAbstractController('ion-alert-controller', props)
+    },
+    async newLoadingController(props) {
+        return this.newAbstractController('ion-loading-controller', props)
+    },
+    async newAbstractController(tag, props) {
+        const controller = await initComponent(tag)
+        return await controller.create(props)
     }
 }
 

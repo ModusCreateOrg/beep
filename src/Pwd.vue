@@ -70,7 +70,7 @@ export default {
         togglePwdType() {
             this.showPwd = !this.showPwd
         },
-        checkHash(e) {
+        async checkHash(e) {
             e.preventDefault()
 
             // Check for empty passwords or pending requests
@@ -81,6 +81,11 @@ export default {
             const hash = sha1(this.pwd)
 
             this.requestPending = true
+
+            const loading = await this.$glob.api.newLoadingController({
+                content: 'Fetching breach details...',
+            })
+            loading.present()
 
             axios.get(baseURL + hash.substr(0, 5))
                 .then(res => {
@@ -95,6 +100,7 @@ export default {
                     // Reset and unblock subsequent requests
                     this.pwd = ''
                     this.requestPending = false
+                    loading.dismiss()
                 })
         },
         search(hash, text) {
@@ -139,7 +145,7 @@ export default {
                 subHeader: null,
                 message: msg,
                 buttons: btns,
-            })
+            }).then(o => o.present())
         }
     },
 }
