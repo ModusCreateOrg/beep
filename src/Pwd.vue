@@ -28,7 +28,7 @@
                     </span>
                     <span v-else>Have I been pwned?</span>
                 </ion-button>
-                <ion-button @click="goToAcc">check account</ion-button>
+                <ion-button @click="goToAcc">go to account page</ion-button>
             </form>
         </ion-content>
     </ion-page>
@@ -37,14 +37,12 @@
 <script>
 import sha1 from 'sha1'
 import axios from 'axios'
-import mixins from './mixins'
 import Acc from './Acc.vue'
 
 const baseURL = "https://api.pwnedpasswords.com/range/"
 
 export default {
     name: 'pwd',
-    mixins: [mixins],
     data() {
         return {
             pwd: '',
@@ -89,7 +87,8 @@ export default {
 
             axios.get(baseURL + hash.substr(0, 5))
                 .then(res => {
-                    this.search(hash.substr(5).toUpperCase(), res.data)
+                    this.count = this.search(hash.substr(5).toUpperCase(), res.data)
+                    this.pwned = this.count > 0
                     this.notify()
                 })
                 .catch(err => {
@@ -121,17 +120,13 @@ export default {
                         throw new Error("Unexpected data")
                     }
 
-                    this.pwned = true
-                    this.count = breachData[1]
-
-                    return
+                    return breachData[1]
                 }
 
                 i = j + 1;
             }
 
-            this.pwned = false
-            this.count = 0
+            return 0
         },
         notify() {
             var btns = ['Yay!']
@@ -142,7 +137,12 @@ export default {
                 msg = `You've been pwned across ${this.count} domains`
             }
 
-            this.showAlert('Beep', null, msg, btns)
+            this.$glob.api.newAlertController({
+                header: 'Beep',
+                subHeader: null,
+                message: msg,
+                buttons: btns,
+            })
         }
     },
 }
