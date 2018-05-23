@@ -15,7 +15,7 @@
                     <ion-item>
                         <ion-icon v-show="!showPwd" name="lock" slot="start"></ion-icon>
                         <ion-icon v-show="showPwd" name="unlock" slot="start"></ion-icon>
-                        <ion-input :type="pwdType" :value="pwd" @input="pwd=$event.target.value" placeholder="Password"></ion-input>
+                        <ion-input :type="pwdType" :value="pwd" @input="pwd = $event.target.value" placeholder="Password"></ion-input>
                         <ion-button v-show="pwd" @click="togglePwdType" slot="end" fill="clear" size="small">
                             {{showPwdText}}
                         </ion-button>
@@ -53,9 +53,6 @@ export default {
         }
     },
     computed: {
-        pwdIcon() {
-            return this.showPwd ? 'unlock' : 'lock'
-        },
         pwdType() {
             return this.showPwd ? 'text' : 'password'
         },
