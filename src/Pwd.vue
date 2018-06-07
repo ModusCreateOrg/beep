@@ -89,7 +89,7 @@ export default {
 
             axios.get(baseURL + hash.substr(0, 5))
                 .then(res => {
-                    this.count = this.search(hash.substr(5), res.data)
+                    this.count = this.search(hash.substr(5).toUpperCase(), res.data)
                     this.pwned = this.count > 0
                     this.notify()
                 })
@@ -104,7 +104,7 @@ export default {
                 })
         },
         search(hash, text) {
-            let startIndex = text.search(new RegExp(hash, "i"));
+            let startIndex = text.indexOf(hash);
             if (startIndex === -1) {
                 return 0
             }
