@@ -122,8 +122,8 @@ export default {
             return breachData[1]
         },
         notify() {
-            var btns = ['Yay!']
-            var msg = 'You are secure, for now...'
+            let btns = ['Yay!']
+            let msg = 'You are secure, for now...'
 
             if (this.pwned) {
                 btns = ['Doh!']
