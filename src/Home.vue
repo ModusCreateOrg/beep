@@ -10,26 +10,33 @@
         </ion-header>
 
         <ion-content class="content" padding>
-                <ion-button expand="full" type="submit" @click="goToPwd">
-                    check password
-                </ion-button>
+            <ion-button expand="full" type="submit" @click="goToAcc">
+                Check Account
+            </ion-button>
+            <ion-button expand="full" type="submit" @click="goToPwd">
+                Check Password
+            </ion-button>
         </ion-content>
     </ion-page>
 
 </template>
 
 <script>
-import Pwd from './Pwd.vue'
+    import Pwd from './Pwd.vue'
+    import Acc from './Acc.vue'
 
 
-export default {
-    name: 'home',
-     methods: {
-         goToPwd() {
-             this.$glob.nav.push(Pwd)
-         }
-     },
-}
+    export default {
+        name: 'home',
+        methods: {
+            goToAcc() {
+                this.$glob.nav.push(Acc)
+            },
+            goToPwd() {
+                this.$glob.nav.push(Pwd)
+            }
+        },
+    }
 </script>
 
 <style></style>

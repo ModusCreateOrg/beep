@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Home from './Home.vue'
-import mixins from './mixins'
+import Acc from './Acc.vue'
 import api from './api'
 
 
