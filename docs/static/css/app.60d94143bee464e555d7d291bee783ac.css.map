@@ -1,1 +1,0 @@
-{"version":3,"sources":["app.60d94143bee464e555d7d291bee783ac.css"],"names":[],"mappings":"AAkCA,cACI,qBAAwB,CAC3B","file":"app.60d94143bee464e555d7d291bee783ac.css","sourcesContent":["\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nion-spinner * {\n    stroke: white !important\n}\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"]}
