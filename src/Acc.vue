@@ -34,7 +34,7 @@
                                     <h1>{{breach.Title}}</h1>
                                 </div>
                                 <div class="breach-image-holder">
-                                    <img :src="baseImageUrl + breach.Name + '.' + breach.LogoType">
+                                    <img :src="getImageUrl(breach)">
                                 </div>
                             </div>
                         </ion-card-title>
@@ -78,7 +78,6 @@
                 requestPending: false,
                 isSubmitted: false,
                 pwnedSummary: '',
-                baseImageUrl: 'https://haveibeenpwned.com/Content/Images/PwnedLogos/',
                 breaches: []
             }
         },
@@ -104,24 +103,15 @@
                 axios.get(baseURL + this.email + '?includeUnverified=true')
                     .then(response => {
                         this.breaches = response.data
-                        this.pwnedSummary =
-                            `<i>${this.email}</i> is
-                            <strong>
-                               <ion-badge color="danger">pwned ${this.breaches.length} times</ion-badge>
-                            </strong>`
+                        this.buildPwnedSummary()
                     })
                     .catch(error => {
-                        this.breaches = [];
+                        this.breaches = []
                         if (error.response.status !== 404) {
                             this.pwnedSummary = 'Oops something went wrong...'
                             return
                         }
-
-                        this.pwnedSummary =
-                            `<i>${this.email}</i> is
-                            <strong>
-                               <ion-badge color="success">NOT pwned</ion-badge>
-                            </strong>`
+                        this.buildPwnedSummary()
                     })
                     .finally(() => {
                         this.email = ''
@@ -130,18 +120,33 @@
                         loading.dismiss()
                     })
             }, formatDate(date) {
-                date = new Date(date);
+                date = new Date(date)
                 const monthNames = [
                     "Jan", "Feb", "Mar", "Apr",
                     "May", "Jun", "Jul", "Aug",
                     "Sep", "Oct", "Nov", "Dec"
-                ];
+                ]
 
-                let day = date.getDate();
-                let monthIndex = date.getMonth();
-                let year = date.getFullYear();
+                return `${date.getDate()} ${monthNames[date.getMonth()]} ${date.getFullYear()}`
+            }, getImageUrl(breach) {
+                const baseImageUrl = 'https://haveibeenpwned.com/Content/Images/PwnedLogos/'
 
-                return day + ' ' + monthNames[monthIndex] + ' ' + year;
+                return baseImageUrl + breach.Name + '.' + breach.LogoType
+            }, buildPwnedSummary() {
+                if (this.breaches.length) {
+                    this.pwnedSummary =
+                        `<i>${this.email}</i> is
+                    <strong>
+                       <ion-badge color="danger">pwned ${this.breaches.length} times</ion-badge>
+                    </strong>`
+                    return
+                }
+
+                this.pwnedSummary =
+                    `<i>${this.email}</i> is
+                        <strong>
+                           <ion-badge color="success">NOT pwned</ion-badge>
+                        </strong>`
             }
         },
     }
