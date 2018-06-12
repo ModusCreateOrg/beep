@@ -119,7 +119,8 @@
                         this.requestPending = false
                         loading.dismiss()
                     })
-            }, formatDate(date) {
+            },
+            formatDate(date) {
                 date = new Date(date)
                 const monthNames = [
                     "Jan", "Feb", "Mar", "Apr",
@@ -128,11 +129,13 @@
                 ]
 
                 return `${date.getDate()} ${monthNames[date.getMonth()]} ${date.getFullYear()}`
-            }, getImageUrl(breach) {
+            },
+            getImageUrl(breach) {
                 const baseImageUrl = 'https://haveibeenpwned.com/Content/Images/PwnedLogos/'
 
                 return baseImageUrl + breach.Name + '.' + breach.LogoType
-            }, buildPwnedSummary() {
+            },
+            buildPwnedSummary() {
                 if (this.breaches.length) {
                     this.pwnedSummary =
                         `<i>${this.email}</i> is
