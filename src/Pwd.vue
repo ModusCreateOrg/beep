@@ -10,26 +10,24 @@
         </ion-header>
 
         <ion-content class="content" padding>
-            <form @submit="checkHash" autocomplete="off">
-                <ion-list>
-                    <ion-item>
-                        <ion-icon v-show="!showPwd" name="lock" slot="start"></ion-icon>
-                        <ion-icon v-show="showPwd" name="unlock" slot="start"></ion-icon>
-                        <ion-input :type="pwdType" :value="pwd" @input="pwd = $event.target.value" placeholder="Password"></ion-input>
-                        <ion-button v-show="pwd" @click="togglePwdType" slot="end" fill="clear" size="small">
-                            {{showPwdText}}
-                        </ion-button>
-                    </ion-item>
-                </ion-list>
+            <ion-list>
+                <ion-item>
+                    <ion-icon v-show="!showPwd" name="lock" slot="start"></ion-icon>
+                    <ion-icon v-show="showPwd" name="unlock" slot="start"></ion-icon>
+                    <ion-input :type="pwdType" :value="pwd" @input="pwd = $event.target.value" placeholder="Password"></ion-input>
+                    <ion-button v-show="pwd" @click="togglePwdType" slot="end" fill="clear" size="small">
+                        {{showPwdText}}
+                    </ion-button>
+                </ion-item>
+            </ion-list>
 
-                <ion-button expand="full" type="submit" :disabled="!validatePwd()">
-                    <span v-if="requestPending">
-                        <ion-spinner></ion-spinner>
-                    </span>
-                    <span v-else>Have I been pwned?</span>
-                </ion-button>
-                <ion-button @click="goToAcc">go to account page</ion-button>
-            </form>
+            <ion-button expand="full" type="submit" :disabled="!validatePwd()" @click="checkHash">
+                <span v-if="requestPending">
+                    <ion-spinner></ion-spinner>
+                </span>
+                <span v-else>Have I been pwned?</span>
+            </ion-button>
+            <ion-button @click="goToAcc">go to account page</ion-button>
         </ion-content>
     </ion-page>
 </template>
@@ -38,6 +36,7 @@
 import sha1 from 'sha1'
 import axios from 'axios'
 import Acc from './Acc.vue'
+
 
 const baseURL = "https://api.pwnedpasswords.com/range/"
 
@@ -70,24 +69,24 @@ export default {
         togglePwdType() {
             this.showPwd = !this.showPwd
         },
-        async checkHash(e) {
-            e.preventDefault()
-
-            // Check for empty passwords or pending requests
-            if (!this.validatePwd() || this.requestPending) {
-                return
+        getURL(hashPart) {
+            return baseURL + hashPart
+        },
+        checkHash() {
+            if (this.validatePwd() && !this.requestPending) {
+                this.sendRequest()
             }
-
+        },
+        async sendRequest() {
             const hash = sha1(this.pwd)
-
-            this.requestPending = true
-
             const loading = await this.$glob.api.newLoadingController({
                 content: 'Fetching breach details...',
             })
-            loading.present()
 
-            axios.get(baseURL + hash.substr(0, 5))
+            loading.present()
+            this.requestPending = true
+
+            axios.get(this.getURL(hash.substr(0, 5)))
                 .then(res => {
                     this.count = this.search(hash.substr(5).toUpperCase(), res.data)
                     this.pwned = this.count > 0
@@ -104,7 +103,7 @@ export default {
                 })
         },
         search(hash, text) {
-            let startIndex = text.indexOf(hash);
+            const startIndex = text.indexOf(hash);
             if (startIndex === -1) {
                 return 0
             }
@@ -114,7 +113,7 @@ export default {
                 endIndex = text.substr(startIndex).length;
             }
 
-            let breachData = text.substr(startIndex, endIndex - startIndex).split(':');
+            const breachData = text.substr(startIndex, endIndex - startIndex).split(':');
             if (breachData.length !== 2) {
                 throw new Error("Unexpected data")
             }
