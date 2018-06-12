@@ -109,7 +109,7 @@ export default {
             this.includeUnverified = !this.includeUnverified
         },
         checkAccount() {
-            if (this.validateEmail() || !this.requestPending) {
+            if (this.validateEmail() && !this.requestPending) {
                 this.sendRequest()
             }
         },
