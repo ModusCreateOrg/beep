@@ -30,24 +30,14 @@ export function removeViewFromDom(parentElement, childElement) {
 }
 
 const Delegate = {
-    attachViewToDom: attachViewToDom,
-    removeViewFromDom: removeViewFromDom,
-};
+    attachViewToDom,
+    removeViewFromDom,
+}
 
 export { Delegate }
 
-export function shouldWrapInIonPage(element) {
+function shouldWrapInIonPage(element) {
     return isElementModal(element) || isElementNav(element)
-}
-
-function getOrAppendElement(tagName) {
-    if (element = document.querySelector(tagName)) {
-        return element;
-    }
-
-    return document.body.appendChild(
-        document.createElement(tagName)
-    );
 }
 
 function isElementNav(element) {

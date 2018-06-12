@@ -5,7 +5,7 @@ import api from './api'
 
 
 const glob = {
-    api: api,
+    api,
     nav: api.newNavController(Home).then(e => glob.nav = e),
 }
 

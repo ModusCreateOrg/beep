@@ -3,7 +3,7 @@ import { Delegate } from './framework-delegate'
 
 export default {
     async newNavController(root) {
-        const ctrl = await initComponent('ion-nav')
+        const ctrl = await initComponent('ion-nav', 'ion-app')
         ctrl.root = root
         return ctrl
     },
@@ -19,19 +19,19 @@ export default {
     }
 }
 
-function initComponent(tag) {
-    const element = getOrAppendElement(tag)
+function initComponent(tag, wrapper = 'body') {
+    const element = getOrAppendElement(tag, document.querySelector(wrapper))
     element.delegate = Delegate
     return element.componentOnReady()
 }
 
-function getOrAppendElement(tag) {
-    var element
+function getOrAppendElement(tag, wrapper) {
+    let element
 
     if (element = document.querySelector(tag)) {
         return element
     }
 
-    return document.body.appendChild(document.createElement(tag));
+    return wrapper.appendChild(document.createElement(tag));
 }
 
