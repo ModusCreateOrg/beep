@@ -104,36 +104,26 @@ export default {
                 })
         },
         search(hash, text) {
-            var i = 0
-            var row = ''
-
-            while (i < text.length) {
-                var j = text.indexOf("\n", i)
-
-                if (j === -1) {
-                    j = text.length;
-                }
-
-                row = text.substr(i, j - i)
-
-                if (row.indexOf(hash) > -1) {
-                    var breachData = row.split(':')
-
-                    if (breachData.length !== 2) {
-                        throw new Error("Unexpected data")
-                    }
-
-                    return breachData[1]
-                }
-
-                i = j + 1;
+            let startIndex = text.indexOf(hash);
+            if (startIndex === -1) {
+                return 0
             }
 
-            return 0
+            let endIndex = text.indexOf('\n', startIndex);
+            if (endIndex === -1) {
+                endIndex = text.substr(startIndex).length;
+            }
+
+            let breachData = text.substr(startIndex, endIndex - startIndex).split(':');
+            if (breachData.length !== 2) {
+                throw new Error("Unexpected data")
+            }
+
+            return breachData[1]
         },
         notify() {
-            var btns = ['Yay!']
-            var msg = 'You are secure, for now...'
+            let btns = ['Yay!']
+            let msg = 'You are secure, for now...'
 
             if (this.pwned) {
                 btns = ['Doh!']
