@@ -12,8 +12,8 @@
         <ion-content class="content" padding>
             <ion-list>
                 <ion-item>
-                    <ion-icon name="mail" slot="start"></ion-icon>
-                    <ion-input type="email" :value="email" @input="email = $event.target.value.trim()"></ion-input>
+                    <ion-icon name="person" slot="start"></ion-icon>
+                    <ion-input type="text" :value="account" @input="account = $event.target.value.trim()"></ion-input>
                 </ion-item>
                 <ion-item>
                     <ion-checkbox @change="toggleIncludeUnverified" :checked="includeUnverified"></ion-checkbox>
@@ -21,7 +21,7 @@
                 </ion-item>
             </ion-list>
 
-            <ion-button expand="full" @click="checkAccount" :disabled="!validateEmail()">
+            <ion-button expand="full" @click="checkAccount" :disabled="!validateAccount">
                 <span v-if="requestPending">
                     <ion-spinner></ion-spinner>
                 </span>
@@ -47,7 +47,7 @@ export default {
     name: 'acc',
     data() {
         return {
-            email: '',
+            account: '',
             pwnedSummary: '',
             requestPending: false,
             isSubmitted: false,
@@ -56,13 +56,12 @@ export default {
         }
     },
     methods: {
-        validateEmail() {
-            const re = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-            return re.test(String(this.email).toLowerCase());
+        validateAccount() {
+            return this.account.length > 0;
         },
         getURL() {
             const baseURL = 'https://haveibeenpwned.com/api/v2/breachedaccount/'
-            let url = baseURL + this.email
+            let url = baseURL + this.account
             if (this.includeUnverified) {
                 url += '?includeUnverified=true'
             }
@@ -72,7 +71,7 @@ export default {
             this.includeUnverified = !this.includeUnverified
         },
         checkAccount() {
-            if (this.email.length && !this.requestPending) {
+            if (!this.requestPending) {
                 this.sendRequest()
             }
         },
@@ -98,7 +97,7 @@ export default {
                     this.buildPwnedSummary()
                 })
                 .finally(() => {
-                    this.email = ''
+                    this.account = ''
                     this.isSubmitted = true
                     this.requestPending = false
                     loading.dismiss()
@@ -107,7 +106,7 @@ export default {
         buildPwnedSummary() {
             if (this.breaches.length) {
                 this.pwnedSummary =
-                    `<i>${this.email}</i> is
+                    `<i>${this.account}</i> is
                     <strong>
                         <ion-badge color="danger">pwned ${this.breaches.length} times</ion-badge>
                     </strong>`
@@ -115,7 +114,7 @@ export default {
             }
 
             this.pwnedSummary =
-                `<i>${this.email}</i> is
+                `<i>${this.account}</i> is
                 <strong>
                     <ion-badge color="success">NOT pwned</ion-badge>
                 </strong>`
