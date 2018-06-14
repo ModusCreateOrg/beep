@@ -36,17 +36,17 @@
 </template>
 
 <script>
+const baseImageURL = 'https://haveibeenpwned.com/Content/Images/PwnedLogos/'
+
 export default {
     name: 'breach',
     props: ['breach'],
     methods: {
         getImageURL(breach) {
-            const baseImageURL = 'https://haveibeenpwned.com/Content/Images/PwnedLogos/'
-
             return baseImageURL + breach.Name + '.' + breach.LogoType
         },
-        formatDate(date) {
-            date = new Date(date)
+        formatDate(d) {
+            const date = new Date(d)
             const monthNames = [
                 "Jan", "Feb", "Mar", "Apr",
                 "May", "Jun", "Jul", "Aug",

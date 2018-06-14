@@ -13,7 +13,7 @@
             <ion-list>
                 <ion-item>
                     <ion-icon name="person" slot="start"></ion-icon>
-                    <ion-input type="text" :value="account" @input="account = $event.target.value.trim()"></ion-input>
+                    <ion-input type="text" :value="account" @input="account = $event.target.value"></ion-input>
                 </ion-item>
                 <ion-item>
                     <ion-checkbox @change="toggleIncludeUnverified" :checked="includeUnverified"></ion-checkbox>
@@ -21,7 +21,7 @@
                 </ion-item>
             </ion-list>
 
-            <ion-button expand="full" @click="checkAccount" :disabled="!validateAccount">
+            <ion-button expand="full" @click="checkAccount" :disabled="!validateAccount()">
                 <span v-if="requestPending">
                     <ion-spinner></ion-spinner>
                 </span>
@@ -30,8 +30,14 @@
 
             <div>
                 <ion-card no-margin v-if="isSubmitted">
-                    <ion-card-content>
-                        <p v-html="pwnedSummary" text-center></p>
+                    <ion-card-content text-center>
+                        <i>{{accountChecked}}</i> is
+                        <strong>
+                            <ion-badge :color="breaches.length ? 'danger' : 'success'">
+                                <span v-if="breaches.length">pwned {{breaches.length}} times</span>
+                                <span v-else>not pwned, yet...</span>
+                            </ion-badge>
+                        </strong>
                     </ion-card-content>
                 </ion-card>
                 <breach v-for="(breach, index) in breaches" :key="index" :breach="breach"></breach>
@@ -43,12 +49,15 @@
 <script>
 import axios from 'axios'
 
+
+const baseURL = 'https://haveibeenpwned.com/api/v2/breachedaccount/'
+
 export default {
     name: 'acc',
     data() {
         return {
             account: '',
-            pwnedSummary: '',
+            accountChecked: '',
             requestPending: false,
             isSubmitted: false,
             includeUnverified: false,
@@ -57,10 +66,9 @@ export default {
     },
     methods: {
         validateAccount() {
-            return this.account.length > 0;
+            return this.account.trim()
         },
         getURL() {
-            const baseURL = 'https://haveibeenpwned.com/api/v2/breachedaccount/'
             let url = baseURL + this.account
             if (this.includeUnverified) {
                 url += '?includeUnverified=true'
@@ -71,9 +79,15 @@ export default {
             this.includeUnverified = !this.includeUnverified
         },
         checkAccount() {
-            if (!this.requestPending) {
+            if (!this.requestPending && this.validateAccount()) {
+                this.reset()
                 this.sendRequest()
             }
+        },
+        reset() {
+            this.isSubmitted = false
+            this.breaches = []
+            this.accountChecked = this.account
         },
         async sendRequest() {
             const loading = await this.$glob.api.newLoadingController({
@@ -86,15 +100,14 @@ export default {
             axios.get(this.getURL())
                 .then(response => {
                     this.breaches = response.data
-                    this.buildPwnedSummary()
                 })
-                .catch(error => {
-                    this.breaches = []
-                    if (error.response.status !== 404) {
-                        this.pwnedSummary = 'Oops something went wrong...'
+                .catch(err => {
+                    // 404 means account not pwned
+                    if (err.response && err.response.status === 404) {
+                        this.breaches = []
                         return
                     }
-                    this.buildPwnedSummary()
+                    this.showError()
                 })
                 .finally(() => {
                     this.account = ''
@@ -103,21 +116,12 @@ export default {
                     loading.dismiss()
                 })
         },
-        buildPwnedSummary() {
-            if (this.breaches.length) {
-                this.pwnedSummary =
-                    `<i>${this.account}</i> is
-                    <strong>
-                        <ion-badge color="danger">pwned ${this.breaches.length} times</ion-badge>
-                    </strong>`
-                return
-            }
-
-            this.pwnedSummary =
-                `<i>${this.account}</i> is
-                <strong>
-                    <ion-badge color="success">NOT pwned</ion-badge>
-                </strong>`
+        showError() {
+            this.$glob.api.newAlertController({
+                header: 'Error',
+                message: 'Something went wrong...',
+                buttons: ['OK'],
+            }).then(e => e.present())
         }
     },
 }

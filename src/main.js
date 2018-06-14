@@ -17,5 +17,5 @@ glob.install = function () {
 
 Vue.use(glob)
 Vue.config.ignoredElements = [/^ion-/]
-Vue.component('breach', Breach);
+Vue.component('breach', Breach)
 

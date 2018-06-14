@@ -64,7 +64,7 @@ export default {
             this.$glob.nav.push(Acc)
         },
         validatePwd() {
-            return !!(this.pwd = this.pwd.trim())
+            return this.pwd.trim()
         },
         togglePwdType() {
             this.showPwd = !this.showPwd
