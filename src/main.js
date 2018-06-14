@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Home from './Home.vue'
-import Acc from './Acc.vue'
+import Breach from './Breach.vue'
 import api from './api'
 
 
@@ -17,3 +17,5 @@ glob.install = function () {
 
 Vue.use(glob)
 Vue.config.ignoredElements = [/^ion-/]
+Vue.component('breach', Breach);
+

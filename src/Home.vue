@@ -24,7 +24,6 @@
     import Pwd from './Pwd.vue'
     import Acc from './Acc.vue'
 
-
     export default {
         name: 'home',
         methods: {
