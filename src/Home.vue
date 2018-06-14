@@ -21,21 +21,18 @@
 </template>
 
 <script>
-    import Pwd from './Pwd.vue'
-    import Acc from './Acc.vue'
+import Pwd from './Pwd.vue'
+import Acc from './Acc.vue'
 
-
-    export default {
-        name: 'home',
-        methods: {
-            goToAcc() {
-                this.$glob.nav.push(Acc)
-            },
-            goToPwd() {
-                this.$glob.nav.push(Pwd)
-            }
+export default {
+    name: 'home',
+    methods: {
+        goToAcc() {
+            this.$glob.nav.push(Acc)
         },
-    }
+        goToPwd() {
+            this.$glob.nav.push(Pwd)
+        }
+    },
+}
 </script>
-
-<style></style>
