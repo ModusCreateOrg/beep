@@ -41,95 +41,95 @@
 </template>
 
 <script>
-    import axios from 'axios'
+import axios from 'axios'
 
-    export default {
-        name: 'acc',
-        data() {
-            return {
-                email: '',
-                pwnedSummary: '',
-                requestPending: false,
-                isSubmitted: false,
-                includeUnverified: false,
-                breaches: [],
+export default {
+    name: 'acc',
+    data() {
+        return {
+            email: '',
+            pwnedSummary: '',
+            requestPending: false,
+            isSubmitted: false,
+            includeUnverified: false,
+            breaches: [],
+        }
+    },
+    methods: {
+        validateEmail() {
+            const re = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+            return re.test(String(this.email).toLowerCase());
+        },
+        getURL() {
+            const baseURL = 'https://haveibeenpwned.com/api/v2/breachedaccount/'
+            let url = baseURL + this.email
+            if (this.includeUnverified) {
+                url += '?includeUnverified=true'
+            }
+            return url
+        },
+        toggleIncludeUnverified() {
+            this.includeUnverified = !this.includeUnverified
+        },
+        checkAccount() {
+            if (this.email.length && !this.requestPending) {
+                this.sendRequest()
             }
         },
-        methods: {
-            validateEmail() {
-                const re = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-                return re.test(String(this.email).toLowerCase());
-            },
-            getURL() {
-                const baseURL = 'https://haveibeenpwned.com/api/v2/breachedaccount/'
-                let url = baseURL + this.email
-                if (this.includeUnverified) {
-                    url += '?includeUnverified=true'
-                }
-                return url
-            },
-            toggleIncludeUnverified() {
-                this.includeUnverified = !this.includeUnverified
-            },
-            checkAccount() {
-                if (this.email.length && !this.requestPending) {
-                    this.sendRequest()
-                }
-            },
-            async sendRequest() {
-                const loading = await this.$glob.api.newLoadingController({
-                    content: 'Fetching breach details...',
+        async sendRequest() {
+            const loading = await this.$glob.api.newLoadingController({
+                content: 'Fetching breach details...',
+            })
+
+            loading.present()
+            this.requestPending = true
+
+            axios.get(this.getURL())
+                .then(response => {
+                    this.breaches = response.data
+                    this.buildPwnedSummary()
                 })
-
-                loading.present()
-                this.requestPending = true
-
-                axios.get(this.getURL())
-                    .then(response => {
-                        this.breaches = response.data
-                        this.buildPwnedSummary()
-                    })
-                    .catch(error => {
-                        this.breaches = []
-                        if (error.response.status !== 404) {
-                            this.pwnedSummary = 'Oops something went wrong...'
-                            return
-                        }
-                        this.buildPwnedSummary()
-                    })
-                    .finally(() => {
-                        this.email = ''
-                        this.isSubmitted = true
-                        this.requestPending = false
-                        loading.dismiss()
-                    })
-            },
-            buildPwnedSummary() {
-                if (this.breaches.length) {
-                    this.pwnedSummary =
-                        `<i>${this.email}</i> is
-                        <strong>
-                            <ion-badge color="danger">pwned ${this.breaches.length} times</ion-badge>
-                        </strong>`
-                    return
-                }
-
+                .catch(error => {
+                    this.breaches = []
+                    if (error.response.status !== 404) {
+                        this.pwnedSummary = 'Oops something went wrong...'
+                        return
+                    }
+                    this.buildPwnedSummary()
+                })
+                .finally(() => {
+                    this.email = ''
+                    this.isSubmitted = true
+                    this.requestPending = false
+                    loading.dismiss()
+                })
+        },
+        buildPwnedSummary() {
+            if (this.breaches.length) {
                 this.pwnedSummary =
                     `<i>${this.email}</i> is
                     <strong>
-                        <ion-badge color="success">NOT pwned</ion-badge>
+                        <ion-badge color="danger">pwned ${this.breaches.length} times</ion-badge>
                     </strong>`
+                return
             }
-        },
-    }
+
+            this.pwnedSummary =
+                `<i>${this.email}</i> is
+                <strong>
+                    <ion-badge color="success">NOT pwned</ion-badge>
+                </strong>`
+        }
+    },
+}
 </script>
 
 <style>
-    ion-icon {
-        font-size: 25px;
-    }
+ion-icon {
+    font-size: 25px;
+}
 
-    ion-spinner * {
-        stroke: white !important
-    }
+ion-spinner * {
+    stroke: white !important
+}
 </style>
