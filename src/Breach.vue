@@ -4,7 +4,7 @@
             <ion-card-title>
                 <div class="breach-head">
                     <div class="breach-name">
-                        <h1>{{breach.Title}}</h1>
+                        <h1>{{breach.Name}}</h1>
                     </div>
                     <div class="breach-image-holder">
                         <img :src="getImageURL(breach)">
