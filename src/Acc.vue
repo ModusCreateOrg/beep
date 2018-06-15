@@ -69,9 +69,9 @@ export default {
             return this.account.trim()
         },
         getURL() {
-            let url = baseURL + this.account + '?truncateResponse=true'
+            let url = baseURL + this.account
             if (this.includeUnverified) {
-                url += '&includeUnverified=true'
+                url += '?includeUnverified=true'
             }
             return url
         },
