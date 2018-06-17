@@ -48,12 +48,16 @@
 
 <script>
 import axios from 'axios'
+import Breach from './Breach.vue'
 
 
 const baseURL = 'https://haveibeenpwned.com/api/v2/breachedaccount/'
 
 export default {
     name: 'acc',
+    components: {
+        Breach,
+    },
     data() {
         return {
             account: '',
