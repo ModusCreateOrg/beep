@@ -32,7 +32,8 @@ export default {
             this.$router.push('/acc')
         },
         goToPwd() {
-            this.$glob.nav.push(Pwd)
+            // this.$glob.nav.push(Pwd)
+            this.$router.push('/pwd')
         }
     },
 }
