@@ -28,10 +28,12 @@ export default {
     name: 'home',
     methods: {
         goToAcc() {
-            this.$glob.nav.push(Acc)
+            //this.$glob.nav.push(Acc)
+            this.$router.push('/acc')
         },
         goToPwd() {
-            this.$glob.nav.push(Pwd)
+            // this.$glob.nav.push(Pwd)
+            this.$router.push('/pwd')
         }
     },
 }
