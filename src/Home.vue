@@ -23,9 +23,10 @@
 <script>
 import Pwd from './Pwd.vue'
 import Acc from './Acc.vue'
-
+import {Delegate} from './framework-delegate'
 export default {
     name: 'home',
+    delegate: Delegate,
     methods: {
         goToAcc() {
             //this.$glob.nav.push(Acc)

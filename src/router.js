@@ -16,6 +16,14 @@ Router.install = function (Vue) {
         extends: RouterView,
         render(_, { props, children, parent, data }) {
             return RouterView.options.render(_, { props, children, parent, data })
+        },
+        methods: {
+            canGoBack(depth = 1) {
+                this.stackCtrl.canGoBack(depth)
+            },
+            pop(depth = 1) {
+                this.stackCtrl.pop(depth)
+            }
         }
     })
 }
