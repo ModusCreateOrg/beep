@@ -26,12 +26,12 @@ function initComponent(tag, wrapper = 'body') {
 }
 
 function getOrAppendElement(tag, wrapper) {
-    let element
+    let element = document.querySelector(tag)
 
-    if (element = document.querySelector(tag)) {
+    if (element) {
         return element
     }
 
-    return wrapper.appendChild(document.createElement(tag));
+    return wrapper.appendChild(document.createElement(tag))
 }
 

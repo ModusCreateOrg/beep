@@ -24,9 +24,9 @@ export function removeViewFromDom(parentElement, childElement) {
         childElement.__vue__.$destroy()
     }
 
-    parentElement.removeChild(childElement);
+    parentElement.removeChild(childElement)
 
-    return Promise.resolve();
+    return Promise.resolve()
 }
 
 const Delegate = {
@@ -41,10 +41,10 @@ function shouldWrapInIonPage(element) {
 }
 
 function isElementNav(element) {
-    return element.tagName.toUpperCase() === 'ION-NAV';
+    return element.tagName.toUpperCase() === 'ION-NAV'
 }
 
 function isElementModal(element) {
-    return element.classList.contains('modal-wrapper');
+    return element.classList.contains('modal-wrapper')
 }
 
