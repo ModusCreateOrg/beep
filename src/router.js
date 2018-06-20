@@ -14,37 +14,29 @@ Router.install = function (Vue) {
     Vue.component('ion-router-view', {
         name: 'IonRouterView',
         extends: RouterView,
-        render(_, { props, children, parent, data }) {
-            console.log(parent, 'router render')
+        render(h, { props, children, parent, data }) {
+            // Create @ionic/core router outlet
+            const vNode= h('ion-router-outlet', [
+                // Call to native router's render method
+                RouterView.options.render(h, { props, children, parent, data })
+            ])
 
-            // call to native router's render method
-            const vNode = RouterView.options.render(_, { props, children, parent, data })
-
-            // wrap the above result in ionic core's outlet
-            const vNode2= _('ion-router-outlet', [vNode])
-
-            // ionic core's method
-            transition(vNode2, cache[name], 1, true, true)
+            // ionic core's animation method
+            /* transition(to, from, ...args) */
 
             // this renders to screen
-            return vNode2
+            return vNode
         },
     })
 
-    // this is incomplete, at this point it was just yanked from Ionic's repo
     async function transition(enteringView, leavingView, direction, animated, showGoBack) {
-        console.log('transition method called')
-
-        const enteringEl = enteringView ? enteringView.element : undefined
-        const leavingEl = leavingView ? leavingView.element : undefined
-        const containerEl = document.querySelector('ion-router-outlet')//this.containerEl
+        const enteringEl = enteringView ? enteringView.elm : undefined
+        const leavingEl = leavingView ? leavingView.elm : undefined
+        const containerEl = document.querySelector('ion-router-outlet')
 
         if (!enteringEl || enteringEl === leavingEl) {
             return
         }
-
-        enteringEl.classList.add('ion-page', 'hide-page')
-        containerEl.appendChild(enteringEl)
 
         await containerEl.componentOnReady()
         await containerEl.commit(enteringEl, leavingEl, {
