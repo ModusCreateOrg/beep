@@ -9,41 +9,51 @@ export default class Router extends VueRouter {
 
 Router.install = function (Vue) {
     VueRouter.install(Vue)
-    const RouterView = Vue.component('router-view')
 
     Vue.component('ion-router-view', {
         name: 'IonRouterView',
-        extends: RouterView,
-        render(h, { props, children, parent, data }) {
-            // Create @ionic/core router outlet
-            const vNode= h('ion-router-outlet', [
-                // Call to native router's render method
-                RouterView.options.render(h, { props, children, parent, data })
-            ])
-
-            // ionic core's animation method
-            /* transition(to, from, ...args) */
-
-            // this renders to screen
-            return vNode
+        data() {
+            return {
+                views: 0,
+                animated: true,
+                enteringEl: null,
+                leavingEl: null,
+            }
         },
+        methods: {
+            beforeEnter(enteringEl) {
+                enteringEl.style.opacity = 0
+                this.enteringEl = enteringEl
+            },
+            beforeLeave(leavingEl) {
+                leavingEl.style.opacity = 0
+                this.transition(this.enteringEl, leavingEl, 1)
+                this.views++
+            },
+            canGoBack() {
+                return this.views > 0 && this.$router.currentRoute.path.length > 1
+            },
+            async transition(enteringEl, leavingEl, direction) {
+                const containerEl = document.querySelector('ion-router-outlet')
+
+                if (!enteringEl || enteringEl === leavingEl) {
+                    return
+                }
+
+                await containerEl.componentOnReady()
+                await containerEl.commit(enteringEl, leavingEl, {
+                    duration: !this.animated ? 0 : undefined,
+                    direction: direction === 1 ? 'forward' : 'back',
+                    deepWait: true,
+                    showGoBack: this.canGoBack(),
+                })
+            },
+        },
+        template: `<ion-router-outlet>
+            <transition v-on:before-enter="beforeEnter" v-on:before-leave="beforeLeave">
+                <router-view></router-view>
+            </transition>
+        </ion-router-outlet>`
     })
 
-    async function transition(enteringView, leavingView, direction, animated, showGoBack) {
-        const enteringEl = enteringView ? enteringView.elm : undefined
-        const leavingEl = leavingView ? leavingView.elm : undefined
-        const containerEl = document.querySelector('ion-router-outlet')
-
-        if (!enteringEl || enteringEl === leavingEl) {
-            return
-        }
-
-        await containerEl.componentOnReady()
-        await containerEl.commit(enteringEl, leavingEl, {
-            duration: !animated ? 0 : undefined,
-            direction: direction === 1 ? 'forward' : 'back',
-            deepWait: true,
-            showGoBack,
-        })
-    }
 }
