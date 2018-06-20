@@ -23,7 +23,7 @@ Vue.config.ignoredElements = [/^ion-/]
 
 // Option 1
 // Extend `ion-router-outlet` with a Vue directive
-// <ion-router-outlet v-vue-router></ion-router-outlet>
+// Example: <ion-router-outlet v-vue-router></ion-router-outlet>
 Vue.directive('vue-router', {
     inserted: async function(el) {
         await el.componentOnReady()
@@ -33,21 +33,12 @@ Vue.directive('vue-router', {
 })
 
 // Option 2
-// Render `ion-router-outlet` from Vue
-Vue.component('home', Home)
-Vue.component('VueRouterOutlet', {
-    name: 'VueRouterOutlet',
-    functional: true,
-    render(_, { props, children, parent, data }) {
-        console.log(parent)
-        return _('ion-router-outlet', [_('home')])
-    },
-})
+// See router.js
 
 new Vue({
     router: new Router({
         routes: [
-            // { path: '/', component: Home },
+            { path: '/', component: Home },
             { path: '/acc', component: Acc },
             { path: '/pwd', component: Pwd },
         ]
