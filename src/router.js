@@ -17,7 +17,6 @@ Router.install = function (Vue) {
                 views: 0,
                 animated: true,
                 enteringEl: null,
-                leavingEl: null,
             }
         },
         methods: {
@@ -50,7 +49,7 @@ Router.install = function (Vue) {
             },
         },
         template: `<ion-router-outlet>
-            <transition v-on:before-enter="beforeEnter" v-on:before-leave="beforeLeave">
+            <transition v-bind:css="false" v-on:before-enter="beforeEnter" v-on:before-leave="beforeLeave">
                 <router-view></router-view>
             </transition>
         </ion-router-outlet>`
