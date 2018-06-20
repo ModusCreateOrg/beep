@@ -10,7 +10,7 @@ export default class Router extends VueRouter {
 Router.install = function (Vue) {
     VueRouter.install(Vue)
 
-    Vue.component('ion-router-view', {
+    Vue.component('IonRouterView', {
         name: 'IonRouterView',
         data() {
             return {
