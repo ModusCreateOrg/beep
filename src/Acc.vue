@@ -3,7 +3,7 @@
         <ion-header>
             <ion-toolbar>
                 <ion-buttons slot="start">
-                    <ion-back-button @click="$router.direction=-1;$router.go(-1)"></ion-back-button>
+                    <ion-back-button></ion-back-button>
                 </ion-buttons>
                 <ion-title>Account page</ion-title>
             </ion-toolbar>

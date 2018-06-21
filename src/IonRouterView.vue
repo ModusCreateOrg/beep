@@ -1,5 +1,5 @@
 <template>
-    <ion-router-outlet>
+    <ion-router-outlet ref="ionRouterOutlet" @click="catchIonicGoBack">
         <transition
             mode="in-out"
             v-bind:css="false"
@@ -22,43 +22,74 @@ export default {
     name: 'IonRouterView',
     data() {
         return {
-            animated: true,
-            enteringEl: null,
             leavingEl: null,
+            enteringEl: null,
         }
     },
+    props: {
+        animated: {
+            type: Boolean,
+            default: true,
+        },
+    },
     methods: {
-        beforeEnter(element) {
-            this.enteringEl = element
+        catchIonicGoBack(event) {
+            let defaultHref
+
+            if (!event.target || event.target.parentElement.tagName !== 'ION-BACK-BUTTON') {
+                return
+            }
+
+            if (this.$router.canGoBack()) {
+                event.preventDefault()
+                this.$router.back()
+            } else if (undefined !== (defaultHref = event.target.parentElement.defaultHref)) {
+                event.preventDefault()
+                this.$router.push(defaultHref)
+            }
         },
-        enter(element, done) {
-            done()
-        },
-        afterEnter(el) {},
-        enterCancelled(el) {},
-        beforeLeave(element) {
-            this.leavingEl = element
-        },
-        leave(element, done) {
-            this.transition(this.enteringEl, element).then(() => done())
-        },
-        afterLeave(el) {},
-        leaveCancelled(el) {},
         async transition(enteringEl, leavingEl) {
-            const ionRouter = document.querySelector('ion-router-outlet')
+            const ionRouterOutlet = this.$refs.ionRouterOutlet
 
             if (!enteringEl || enteringEl === leavingEl) {
                 return
             }
 
-            await ionRouter.componentOnReady()
-            await ionRouter.commit(enteringEl, leavingEl, {
+            await ionRouterOutlet.componentOnReady()
+            await ionRouterOutlet.commit(enteringEl, leavingEl, {
                 duration: !this.animated ? 0 : undefined,
                 direction: this.$router.direction === 1 ? 'forward' : 'back',
                 deepWait: true,
                 showGoBack: this.$router.canGoBack(),
             })
         },
+        beforeEnter(element) {
+            this.enteringEl = element
+        },
+        beforeLeave(element) {
+            this.leavingEl = element
+
+            if (this.animated && this.$router.direction > 0) {
+                this.enteringEl.style.opacity = 0
+            }
+        },
+        leave(element, done) {
+            if (!this.animated) {
+                return done()
+            }
+
+            this.transition(this.enteringEl, element).then(() => {
+                this.enteringEl.style.opacity = 1
+                done()
+            })
+        },
+        enter(element, done) {
+            done()
+        },
+        afterEnter(el) {},
+        enterCancelled(el) {},
+        afterLeave(el) {},
+        leaveCancelled(el) {},
     },
 }
 </script>
