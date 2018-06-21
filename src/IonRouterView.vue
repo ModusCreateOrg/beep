@@ -40,7 +40,6 @@ export default {
             this.leavingEl = element
         },
         leave(element, done) {
-            element.style.opacity=0
             this.transition(this.enteringEl, element).then(() => done())
         },
         afterLeave(el) {},

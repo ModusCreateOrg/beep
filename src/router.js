@@ -2,6 +2,7 @@ import VueRouter from 'vue-router'
 import IonRouterView from './IonRouterView.vue'
 
 
+// TODO: hook into history back/forward events and +/- 1 viewCount
 export default class Router extends VueRouter {
     constructor(...args) {
         super(...args)
@@ -19,7 +20,6 @@ export default class Router extends VueRouter {
         this.direction = n > 0 ? 1 : -1
     }
     canGoBack() {
-        // TODO: hook into history back event and -1 viewCount
         return this.viewCount > 0 && this.currentRoute.path.length > 1
     }
 }
