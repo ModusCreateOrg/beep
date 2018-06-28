@@ -2,12 +2,21 @@ import VueRouter from 'vue-router'
 import IonRouterView from './IonRouterView.vue'
 
 
-// TODO: hook into history back/forward events and +/- 1 viewCount
 export default class Router extends VueRouter {
     constructor(...args) {
         super(...args)
         this.direction = args.direction || 1
         this.viewCount = args.viewCount || 0
+        this.prevRoute = this.history.current
+        this.extendHistory()
+    }
+    extendHistory() {
+        this.history._updateRoute = this.history.updateRoute
+        this.history.updateRoute = (route) => {
+            this.direction = this.guessDirection(route)
+            this.viewCount += this.direction
+            this.history._updateRoute(route)
+        }
     }
     push(...args) {
         super.push(...args)
@@ -21,6 +30,13 @@ export default class Router extends VueRouter {
     }
     canGoBack() {
         return this.viewCount > 0 && this.currentRoute.path.length > 1
+    }
+    guessDirection(route) {
+        if (this.prevRoute.fullPath === route.fullPath) {
+            return -1
+        }
+        this.prevRoute = this.history.current
+        return 1
     }
 }
 
