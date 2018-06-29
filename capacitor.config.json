@@ -1,0 +1,6 @@
+{
+  "appId": "com.moduscreate.beep",
+  "appName": "beep-capacitor",
+  "bundledWebRuntime": false,
+  "webDir": "dist"
+}
