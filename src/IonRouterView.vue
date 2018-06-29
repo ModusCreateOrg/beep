@@ -34,16 +34,21 @@ export default {
     },
     methods: {
         catchIonicGoBack(event) {
+            if (!event.target) {
+                return
+            }
+
+            const backButton = event.target.closest('ion-back-button')
             let defaultHref
 
-            if (!event.target || event.target.parentElement.tagName !== 'ION-BACK-BUTTON') {
+            if (!backButton) {
                 return
             }
 
             if (this.$router.canGoBack()) {
                 event.preventDefault()
                 this.$router.back()
-            } else if (undefined !== (defaultHref = event.target.parentElement.defaultHref)) {
+            } else if (undefined !== (defaultHref = backButton.defaultHref)) {
                 event.preventDefault()
                 this.$router.push(defaultHref)
             }
