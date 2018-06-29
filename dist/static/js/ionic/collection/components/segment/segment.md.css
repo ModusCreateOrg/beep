@@ -1,0 +1,15 @@
+ion-segment {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  width: 100%; }
+
+.segment-md {
+  font-family: "Roboto", "Helvetica Neue", sans-serif; }
+
+.segment-md.segment-disabled {
+  opacity: 0.3;
+  pointer-events: none; }

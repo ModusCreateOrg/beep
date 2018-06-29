@@ -1,0 +1,5 @@
+/*!
+ * (C) Ionic http://ionicframework.com - MIT License
+ * Built with http://stenciljs.com
+ */
+Ionic.loadBundle("ggtoqmf3",["exports"],function(e){window.Ionic.h;var n=function(){function e(){this.duration=300}return e.prototype.onStatusTap=function(){var e=this;this.queue.read(function(){var n=e.win.innerWidth,t=e.win.innerWidth,o=e.win.document.elementFromPoint(n/2,t/2);if(o){var i=o.closest("ion-scroll");i&&i.componentOnReady().then(function(){e.queue.write(function(){i.scrollToTop(e.duration)})})}})},Object.defineProperty(e,"is",{get:function(){return"ion-status-tap"},enumerable:!0,configurable:!0}),Object.defineProperty(e,"properties",{get:function(){return{duration:{type:Number,attr:"duration"},queue:{context:"queue"},win:{context:"window"}}},enumerable:!0,configurable:!0}),Object.defineProperty(e,"listeners",{get:function(){return[{name:"window:statusTap",method:"onStatusTap"}]},enumerable:!0,configurable:!0}),e}();e.IonStatusTap=n,Object.defineProperty(e,"__esModule",{value:!0})});

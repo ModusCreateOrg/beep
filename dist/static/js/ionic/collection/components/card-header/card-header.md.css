@@ -1,0 +1,9 @@
+ion-card-header {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; }
+
+.card-header-md {
+  padding: 16px; }

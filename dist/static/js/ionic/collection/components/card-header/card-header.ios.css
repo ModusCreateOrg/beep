@@ -1,0 +1,13 @@
+ion-card-header {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; }
+
+.card-header-ios {
+  padding: 20px 20px 16px; }
+
+.card-header-translucent-ios {
+  background-color: rgba(var(--ion-background-ios-color-rgb, var(--ion-background-color-rgb, 255, 255, 255)), 0.9);
+  backdrop-filter: saturate(180%) blur(30px); }

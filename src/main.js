@@ -8,7 +8,6 @@ import api from './api'
 
 const glob = {
     api,
-    // nav: api.newNavController(Home).then(e => glob.nav = e),
 }
 
 glob.install = function () {

@@ -1,0 +1,5 @@
+/*!
+ * (C) Ionic http://ionicframework.com - MIT License
+ * Built with http://stenciljs.com
+ */
+const{h:n}=window.Ionic;function t(n){return d(n,/iPad/i)}function i(n){return d(n,/iPhone/i)}function r(n){return d(n,/iPad|iPhone|iPod/i)}function e(n){return!r(n)}function a(n){const t=n.innerWidth,i=n.innerHeight,r=Math.min(t,i),e=Math.max(t,i);return r>390&&r<520&&e>620&&e<800}function o(n){const t=n.innerWidth,i=n.innerHeight,r=Math.min(t,i),e=Math.max(t,i);return r>460&&r<820&&e>780&&e<1400}function u(n){return m(n,"(any-pointer:coarse)")}function c(n){return s(n)||function(t){const i=n.Capacitor;return!(!i||!i.isNative)}()}function s(n){const t=n;return!!(t.cordova||t.phonegap||t.PhoneGap)}function h(n){return d(n,/electron/)}function f(n){return r(n)&&u(n)}function d(n,t){return t.test(n.navigator.userAgent)}function m(n,t,i=!1){return n.matchMedia?n.matchMedia(t).matches:i}export{e as a,s as b,h as c,r as d,t as e,i as f,a as g,o as h,m as i,u as j,c as k,f as l};

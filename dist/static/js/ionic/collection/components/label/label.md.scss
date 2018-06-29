@@ -1,0 +1,67 @@
+@import "./label";
+@import "./label.md.vars";
+
+// Material Design Label
+// --------------------------------------------------
+
+.label-md {
+  @include margin($label-md-margin-top, $label-md-margin-end, $label-md-margin-bottom, $label-md-margin-start);
+
+  font-family: $label-md-font-family;
+}
+
+[text-wrap] .label-md {
+  font-size: $label-md-text-wrap-font-size;
+  line-height: $label-md-text-wrap-line-height;
+}
+
+
+// Material Design Default Label Inside An Input/Select Item
+// --------------------------------------------------
+
+.item-interactive .label-md {
+  color: $label-md-text-color;
+}
+
+
+// Material Design Stacked & Floating Labels
+// --------------------------------------------------
+
+.label-md-stacked {
+  font-size: 12px;
+}
+
+.label-md-floating {
+  @include transform(translate3d(0, 27px, 0));
+  @include transform-origin(start, top);
+
+  transition: transform 150ms ease-in-out;
+}
+
+.label-md-stacked,
+.label-md-floating {
+  @include margin(null, null, 0, 0);
+}
+
+.item-input-has-focus .label-md-stacked,
+.item-input-has-focus .label-md-floating {
+  color: $label-md-text-color-focused;
+}
+
+.item-input-has-focus .label-md-floating,
+.item-input-has-value .label-md-floating {
+  @include transform(translate3d(0, 0, 0), scale(.8));
+}
+
+
+// Generate Material Design Label colors
+// --------------------------------------------------
+
+@each $color-name, $color-value in $colors-md {
+  $color-base: ion-color($colors-md, $color-name, base, md);
+
+  .label-md-#{$color-name},
+  .item-interactive .label-md-#{$color-name} {
+    color: $color-base;
+  }
+}

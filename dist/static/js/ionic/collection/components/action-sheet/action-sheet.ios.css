@@ -1,0 +1,132 @@
+ion-action-sheet {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  position: fixed;
+  z-index: 1000;
+  display: block;
+  touch-action: none; }
+
+.action-sheet-wrapper {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  transform: translate3d(0,  100%,  0);
+  position: absolute;
+  z-index: 10;
+  display: block;
+  width: 100%;
+  max-width: 500px;
+  pointer-events: none; }
+
+.action-sheet-button {
+  width: 100%;
+  border: 0;
+  font-family: inherit; }
+  .action-sheet-button:active, .action-sheet-button:focus {
+    outline: none; }
+
+.action-sheet-button-inner {
+  display: flex;
+  flex-flow: row nowrap;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%; }
+
+.action-sheet-container {
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-end;
+  height: 100%;
+  max-height: 100%; }
+
+.action-sheet-group {
+  overflow: scroll;
+  overscroll-behavior: contain;
+  flex-shrink: 2;
+  pointer-events: all; }
+
+.action-sheet-group-cancel {
+  overflow: hidden;
+  flex-shrink: 0; }
+
+.action-sheet-ios {
+  text-align: center;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Roboto", sans-serif; }
+
+.action-sheet-ios .action-sheet-wrapper {
+  margin: constant(safe-area-inset-top) auto constant(safe-area-inset-bottom);
+  margin: env(safe-area-inset-top) auto env(safe-area-inset-bottom); }
+
+.action-sheet-ios .action-sheet-container {
+  padding: 0 10px; }
+
+.action-sheet-ios .action-sheet-group {
+  border-radius: 13px;
+  margin-bottom: 8px;
+  background: var(--ion-overlay-ios-background-color, var(--ion-overlay-background-color, #f9f9f9)); }
+
+.action-sheet-ios .action-sheet-group:first-child {
+  margin-top: 10px; }
+
+.action-sheet-ios .action-sheet-group:last-child {
+  margin-bottom: 10px; }
+
+.action-sheet-translucent-ios .action-sheet-group {
+  background: rgba(var(--ion-background-ios-color-rgb, var(--ion-background-color-rgb, 255, 255, 255)), 0.8);
+  backdrop-filter: saturate(180%) blur(20px); }
+
+.action-sheet-ios .action-sheet-title {
+  padding: 14px 14px 13px;
+  text-align: center;
+  border-bottom: 0.55px solid rgba(var(--ion-text-ios-color-rgb, var(--ion-text-color-rgb, 0, 0, 0)), 0.2);
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--ion-text-ios-color-step-600, var(--ion-text-color-step-600, #999999)); }
+
+.action-sheet-ios .action-sheet-sub-title {
+  padding: 15px 0 0;
+  font-size: 12px; }
+
+.action-sheet-ios .action-sheet-button {
+  margin: 0;
+  padding: 18px;
+  height: 56px;
+  border-bottom: 0.55px solid rgba(var(--ion-text-ios-color-rgb, var(--ion-text-color-rgb, 0, 0, 0)), 0.2);
+  font-size: 20px;
+  color: var(--ion-color-ios-primary, var(--ion-color-primary, #3880ff));
+  background: transparent;
+  contain: strict; }
+
+.action-sheet-ios .action-sheet-button .action-sheet-icon {
+  margin-top: -10px;
+  padding-right: 0.1em;
+  height: 0.7em;
+  font-size: 1.4em; }
+
+.action-sheet-ios .action-sheet-button:last-child {
+  border-bottom-color: transparent; }
+
+.action-sheet-ios .action-sheet-button.activated {
+  margin-top: -0.55px;
+  border-top: 0.55px solid rgba(var(--ion-text-ios-color-rgb, var(--ion-text-color-rgb, 0, 0, 0)), 0.1);
+  border-bottom-color: rgba(var(--ion-text-ios-color-rgb, var(--ion-text-color-rgb, 0, 0, 0)), 0.1);
+  background: rgba(var(--ion-text-ios-color-rgb, var(--ion-text-color-rgb, 0, 0, 0)), 0.1); }
+
+.action-sheet-ios .action-sheet-selected {
+  font-weight: bold;
+  background: var(--ion-background-ios-color, var(--ion-background-color, #fff)); }
+
+.action-sheet-ios .action-sheet-destructive {
+  color: var(--ion-color-ios-danger, var(--ion-color-danger, #f04141)); }
+
+.action-sheet-ios .action-sheet-cancel {
+  font-weight: 600;
+  background: var(--ion-background-ios-color, var(--ion-background-color, #fff)); }

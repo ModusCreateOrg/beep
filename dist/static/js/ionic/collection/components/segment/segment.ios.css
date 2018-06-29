@@ -1,0 +1,22 @@
+ion-segment {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  width: 100%; }
+
+.segment-ios {
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Roboto", sans-serif; }
+
+.segment-ios.segment-disabled {
+  opacity: 0.4;
+  pointer-events: none; }
+
+.toolbar-ios .segment-ios {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  position: absolute; }

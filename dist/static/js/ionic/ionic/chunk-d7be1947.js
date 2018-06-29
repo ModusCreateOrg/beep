@@ -1,0 +1,5 @@
+/*!
+ * (C) Ionic http://ionicframework.com - MIT License
+ * Built with http://stenciljs.com
+ */
+const{h:n}=window.Ionic;function r(n,r,t){const e={};return o(t).forEach(t=>{e[t]=!0,n&&(e[`${t}-${n}`]=!0,r&&(e[`${t}-${r}`]=!0,e[`${t}-${n}-${r}`]=!0))}),e}function t(n){const r={};for(let t=0;t<n.length;t++)r[n[t]]=!0;return r}function e(n,r){return n?{[n]:!0,[`${n}-${r}`]:!0}:{}}function o(n){return n?(Array.isArray(n)?n:n.split(" ")).filter(n=>null!=n).map(n=>n.trim()).filter(n=>""!==n):[]}function c(n){const r={};return o(n).forEach(n=>r[n]=!0),r}async function i(n,r,t,e){if(r&&"#"!==r[0]&&-1===r.indexOf("://")){const o=n.document.querySelector("ion-router");if(o)return t&&t.preventDefault(),await o.componentOnReady(),o.push(r,e)}return Promise.resolve()}export{r as a,c as b,i as c,t as d,e};

@@ -7,6 +7,7 @@ const merge = require('webpack-merge')
 const baseWebpackConfig = require('./webpack.base.conf')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const HtmlWebpackIncludeAssetsPlugin = require('html-webpack-include-assets-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
@@ -56,6 +57,16 @@ const webpackConfig = merge(baseWebpackConfig, {
       cssProcessorOptions: config.build.productionSourceMap
         ? { safe: true, map: { inline: false } }
         : { safe: true }
+    }),
+    new CopyWebpackPlugin([
+      {
+        from: path.resolve(__dirname, '../node_modules/@ionic/core/dist'),
+        to: config.build.ionicDirectory,
+      }
+    ]),
+    new HtmlWebpackIncludeAssetsPlugin({
+      assets: [config.build.ionicDirectory + '/ionic.js'],
+      append: false
     }),
     // generate dist index.html with correct asset hash for caching.
     // you can customize output by editing /index.html

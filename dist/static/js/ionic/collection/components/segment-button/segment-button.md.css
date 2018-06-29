@@ -1,0 +1,102 @@
+ion-segment-button {
+  display: flex;
+  flex: 1; }
+
+.segment-button {
+  border-radius: 0;
+  margin-left: 0;
+  margin-right: 0;
+  text-align: center;
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border: 0;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
+  font-kerning: none;
+  user-select: none;
+  contain: content; }
+  .segment-button:active, .segment-button:focus {
+    outline: none; }
+
+.segment-button-md {
+  padding: 0 6px;
+  flex: 1;
+  height: 42px;
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+  border-bottom-color: rgba(0, 0, 0, 0.1);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 40px;
+  text-transform: uppercase;
+  color: var(--ion-toolbar-md-color-active, var(--ion-toolbar-color-active, #4a4a4a));
+  background-color: transparent;
+  opacity: 0.7;
+  transition: 100ms all linear; }
+  .segment-button-md ion-icon {
+    font-size: 26px;
+    line-height: 40px; }
+  .segment-button-md.activated, .segment-button-md.segment-checked {
+    border-color: var(--ion-toolbar-md-color-active, var(--ion-toolbar-color-active, #4a4a4a));
+    opacity: 1; }
+
+.segment-md .segment-button-disabled {
+  opacity: 0.3;
+  pointer-events: none; }
+
+.segment-md-primary .segment-button {
+  color: var(--ion-color-md-primary, var(--ion-color-primary, #3880ff)); }
+  .segment-md-primary .segment-button.activated, .segment-md-primary .segment-button.segment-checked {
+    border-color: var(--ion-color-md-primary, var(--ion-color-primary, #3880ff));
+    color: var(--ion-color-md-primary, var(--ion-color-primary, #3880ff)); }
+
+.segment-md-secondary .segment-button {
+  color: var(--ion-color-md-secondary, var(--ion-color-secondary, #0cd1e8)); }
+  .segment-md-secondary .segment-button.activated, .segment-md-secondary .segment-button.segment-checked {
+    border-color: var(--ion-color-md-secondary, var(--ion-color-secondary, #0cd1e8));
+    color: var(--ion-color-md-secondary, var(--ion-color-secondary, #0cd1e8)); }
+
+.segment-md-tertiary .segment-button {
+  color: var(--ion-color-md-tertiary, var(--ion-color-tertiary, #7044ff)); }
+  .segment-md-tertiary .segment-button.activated, .segment-md-tertiary .segment-button.segment-checked {
+    border-color: var(--ion-color-md-tertiary, var(--ion-color-tertiary, #7044ff));
+    color: var(--ion-color-md-tertiary, var(--ion-color-tertiary, #7044ff)); }
+
+.segment-md-success .segment-button {
+  color: var(--ion-color-md-success, var(--ion-color-success, #10dc60)); }
+  .segment-md-success .segment-button.activated, .segment-md-success .segment-button.segment-checked {
+    border-color: var(--ion-color-md-success, var(--ion-color-success, #10dc60));
+    color: var(--ion-color-md-success, var(--ion-color-success, #10dc60)); }
+
+.segment-md-warning .segment-button {
+  color: var(--ion-color-md-warning, var(--ion-color-warning, #ffce00)); }
+  .segment-md-warning .segment-button.activated, .segment-md-warning .segment-button.segment-checked {
+    border-color: var(--ion-color-md-warning, var(--ion-color-warning, #ffce00));
+    color: var(--ion-color-md-warning, var(--ion-color-warning, #ffce00)); }
+
+.segment-md-danger .segment-button {
+  color: var(--ion-color-md-danger, var(--ion-color-danger, #f04141)); }
+  .segment-md-danger .segment-button.activated, .segment-md-danger .segment-button.segment-checked {
+    border-color: var(--ion-color-md-danger, var(--ion-color-danger, #f04141));
+    color: var(--ion-color-md-danger, var(--ion-color-danger, #f04141)); }
+
+.segment-md-light .segment-button {
+  color: var(--ion-color-md-light, var(--ion-color-light, #f4f5f8)); }
+  .segment-md-light .segment-button.activated, .segment-md-light .segment-button.segment-checked {
+    border-color: var(--ion-color-md-light, var(--ion-color-light, #f4f5f8));
+    color: var(--ion-color-md-light, var(--ion-color-light, #f4f5f8)); }
+
+.segment-md-medium .segment-button {
+  color: var(--ion-color-md-medium, var(--ion-color-medium, #989aa2)); }
+  .segment-md-medium .segment-button.activated, .segment-md-medium .segment-button.segment-checked {
+    border-color: var(--ion-color-md-medium, var(--ion-color-medium, #989aa2));
+    color: var(--ion-color-md-medium, var(--ion-color-medium, #989aa2)); }
+
+.segment-md-dark .segment-button {
+  color: var(--ion-color-md-dark, var(--ion-color-dark, #222428)); }
+  .segment-md-dark .segment-button.activated, .segment-md-dark .segment-button.segment-checked {
+    border-color: var(--ion-color-md-dark, var(--ion-color-dark, #222428));
+    color: var(--ion-color-md-dark, var(--ion-color-dark, #222428)); }

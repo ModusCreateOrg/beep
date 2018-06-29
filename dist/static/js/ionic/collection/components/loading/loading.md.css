@@ -1,0 +1,55 @@
+ion-loading {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  position: fixed;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  touch-action: none;
+  contain: strict; }
+
+ion-loading-controller {
+  display: none; }
+
+.loading-wrapper {
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  opacity: 0; }
+
+.loading-md {
+  font-family: "Roboto", "Helvetica Neue", sans-serif;
+  font-size: 14px; }
+
+.loading-md .loading-wrapper {
+  border-radius: 2px;
+  padding: 24px;
+  max-width: 280px;
+  max-height: 90%;
+  color: var(--ion-text-md-color-step-150, var(--ion-text-color-step-150, #262626));
+  background: var(--ion-background-md-color-step-50, var(--ion-background-color-step-50, #f2f2f2));
+  box-shadow: 0 16px 20px rgba(0, 0, 0, 0.4); }
+
+.loading-md .loading-spinner + .loading-content {
+  margin-left: 16px; }
+
+.loading-md .spinner-lines-md line,
+.loading-md .spinner-lines-small-md line {
+  stroke: var(--ion-color-md-primary, var(--ion-color-primary, #3880ff)); }
+
+.loading-md .spinner-bubbles circle {
+  fill: var(--ion-color-md-primary, var(--ion-color-primary, #3880ff)); }
+
+.loading-md .spinner-circles circle {
+  fill: var(--ion-color-md-primary, var(--ion-color-primary, #3880ff)); }
+
+.loading-md .spinner-crescent circle {
+  stroke: var(--ion-color-md-primary, var(--ion-color-primary, #3880ff)); }
+
+.loading-md .spinner-dots circle {
+  fill: var(--ion-color-md-primary, var(--ion-color-primary, #3880ff)); }

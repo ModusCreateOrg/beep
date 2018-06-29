@@ -1,0 +1,23 @@
+ion-backdrop {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  z-index: 2;
+  display: block;
+  cursor: pointer;
+  opacity: .01;
+  transform: translateZ(0);
+  touch-action: none;
+  contain: strict; }
+  ion-backdrop.backdrop-hide {
+    background: transparent; }
+  ion-backdrop.backdrop-no-tappable {
+    cursor: auto; }
+
+body.backdrop-no-scroll {
+  overflow: hidden; }
+
+.backdrop-ios {
+  background-color: var(--ion-backdrop-ios-color, var(--ion-backdrop-color, #000)); }

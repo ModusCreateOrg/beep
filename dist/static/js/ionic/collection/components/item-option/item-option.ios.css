@@ -1,0 +1,92 @@
+.item-option-button {
+  padding: 0 0.7em;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  font-size: 1em;
+  color: inherit;
+  background: none; }
+  .item-option-button:active, .item-option-button:focus {
+    outline: none; }
+
+.item-option-button-inner {
+  display: flex;
+  flex-direction: column;
+  flex-flow: row nowrap;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%; }
+
+.item-option-button [slot="icon-only"] {
+  padding: 0;
+  min-width: .9em;
+  font-size: 1.8em; }
+
+.item-option-expandable {
+  flex-shrink: 0;
+  transition-duration: 0;
+  transition-property: none;
+  transition-timing-function: cubic-bezier(0.65, 0.05, 0.36, 1); }
+
+.item-sliding-active-swipe-right .item-options-end .item-option-expandable {
+  transition-duration: .6s;
+  transition-property: padding-left;
+  padding-left: 90%;
+  order: 1; }
+
+.item-sliding-active-swipe-left .item-options-start .item-option-expandable {
+  transition-duration: .6s;
+  transition-property: padding-right;
+  padding-right: 90%;
+  order: -1; }
+
+.item-option-ios {
+  font-size: 16px;
+  color: var(--ion-color-ios-primary-contrast, var(--ion-color-primary-contrast, #fff));
+  background-color: var(--ion-color-ios-primary, var(--ion-color-primary, #3880ff)); }
+
+.list-ios .item-options-end ion-item-option:last-child {
+  padding-right: calc(constant(safe-area-inset-right) + 0.7em);
+  padding-right: calc(env(safe-area-inset-right) + 0.7em); }
+
+.list-ios .item-options-start ion-item-option:first-child {
+  padding-left: calc(constant(safe-area-inset-left) + 0.7em);
+  padding-left: calc(env(safe-area-inset-left) + 0.7em); }
+
+.item-option-ios-primary {
+  color: var(--ion-color-ios-primary-contrast, var(--ion-color-primary-contrast, #fff));
+  background-color: var(--ion-color-ios-primary, var(--ion-color-primary, #3880ff)); }
+
+.item-option-ios-secondary {
+  color: var(--ion-color-ios-secondary-contrast, var(--ion-color-secondary-contrast, #fff));
+  background-color: var(--ion-color-ios-secondary, var(--ion-color-secondary, #0cd1e8)); }
+
+.item-option-ios-tertiary {
+  color: var(--ion-color-ios-tertiary-contrast, var(--ion-color-tertiary-contrast, #fff));
+  background-color: var(--ion-color-ios-tertiary, var(--ion-color-tertiary, #7044ff)); }
+
+.item-option-ios-success {
+  color: var(--ion-color-ios-success-contrast, var(--ion-color-success-contrast, #fff));
+  background-color: var(--ion-color-ios-success, var(--ion-color-success, #10dc60)); }
+
+.item-option-ios-warning {
+  color: var(--ion-color-ios-warning-contrast, var(--ion-color-warning-contrast, #fff));
+  background-color: var(--ion-color-ios-warning, var(--ion-color-warning, #ffce00)); }
+
+.item-option-ios-danger {
+  color: var(--ion-color-ios-danger-contrast, var(--ion-color-danger-contrast, #fff));
+  background-color: var(--ion-color-ios-danger, var(--ion-color-danger, #f04141)); }
+
+.item-option-ios-light {
+  color: var(--ion-color-ios-light-contrast, var(--ion-color-light-contrast, #000));
+  background-color: var(--ion-color-ios-light, var(--ion-color-light, #f4f5f8)); }
+
+.item-option-ios-medium {
+  color: var(--ion-color-ios-medium-contrast, var(--ion-color-medium-contrast, #fff));
+  background-color: var(--ion-color-ios-medium, var(--ion-color-medium, #989aa2)); }
+
+.item-option-ios-dark {
+  color: var(--ion-color-ios-dark-contrast, var(--ion-color-dark-contrast, #fff));
+  background-color: var(--ion-color-ios-dark, var(--ion-color-dark, #222428)); }

@@ -1,0 +1,25 @@
+@import "./segment";
+@import "./segment.ios.vars";
+
+// iOS Segment
+// --------------------------------------------------
+
+.segment-ios {
+  font-family: $segment-ios-font-family;
+}
+
+.segment-ios.segment-disabled {
+  opacity: $segment-ios-opacity-disabled;
+
+  pointer-events: none;
+}
+
+
+// iOS Segment in Toolbar
+// --------------------------------------------------
+
+.toolbar-ios .segment-ios {
+  @include position(0, 0, 0, 0);
+
+  position: absolute;
+}

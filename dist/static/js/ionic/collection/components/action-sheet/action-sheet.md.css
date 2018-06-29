@@ -1,0 +1,106 @@
+ion-action-sheet {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  position: fixed;
+  z-index: 1000;
+  display: block;
+  touch-action: none; }
+
+.action-sheet-wrapper {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  transform: translate3d(0,  100%,  0);
+  position: absolute;
+  z-index: 10;
+  display: block;
+  width: 100%;
+  max-width: 500px;
+  pointer-events: none; }
+
+.action-sheet-button {
+  width: 100%;
+  border: 0;
+  font-family: inherit; }
+  .action-sheet-button:active, .action-sheet-button:focus {
+    outline: none; }
+
+.action-sheet-button-inner {
+  display: flex;
+  flex-flow: row nowrap;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%; }
+
+.action-sheet-container {
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-end;
+  height: 100%;
+  max-height: 100%; }
+
+.action-sheet-group {
+  overflow: scroll;
+  overscroll-behavior: contain;
+  flex-shrink: 2;
+  pointer-events: all; }
+
+.action-sheet-group-cancel {
+  overflow: hidden;
+  flex-shrink: 0; }
+
+.action-sheet-md {
+  font-family: "Roboto", "Helvetica Neue", sans-serif; }
+
+.action-sheet-md .action-sheet-title {
+  padding: 11px 16px 17px;
+  text-align: left;
+  text-align: start;
+  font-size: 16px;
+  color: var(--ion-text-md-color-step-400, var(--ion-text-color-step-400, #666666)); }
+
+.action-sheet-md .action-sheet-sub-title {
+  padding: 16px 0 0;
+  font-size: 14px; }
+
+.action-sheet-md .action-sheet-group {
+  background-color: var(--ion-overlay-md-background-color, var(--ion-overlay-background-color, #fafafa)); }
+
+.action-sheet-md .action-sheet-group:first-child {
+  padding-top: 8px; }
+
+.action-sheet-md .action-sheet-group:last-child {
+  padding-bottom: 8px; }
+
+.action-sheet-md .action-sheet-button {
+  padding: 0 16px;
+  text-align: left;
+  text-align: start;
+  position: relative;
+  overflow: hidden;
+  height: 48px;
+  font-size: 16px;
+  color: var(--ion-text-md-color-step-150, var(--ion-text-color-step-150, #262626));
+  background: transparent;
+  contain: strict; }
+
+.action-sheet-md .action-sheet-button.activated {
+  background: var(--ion-background-md-color-step-50, var(--ion-background-color-step-50, #f2f2f2)); }
+
+.action-sheet-md .action-sheet-icon {
+  margin: 0 32px 0 0;
+  font-size: 24px; }
+
+.action-sheet-md .action-sheet-button-inner {
+  justify-content: flex-start; }
+
+.action-sheet-md .action-sheet-selected {
+  font-weight: bold; }

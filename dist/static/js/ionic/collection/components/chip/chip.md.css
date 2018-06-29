@@ -1,0 +1,139 @@
+ion-chip {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  align-self: center;
+  font-weight: normal;
+  vertical-align: middle; }
+
+ion-chip > ion-icon {
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px; }
+
+ion-chip ion-icon {
+  font-size: 18px; }
+
+.chip-md {
+  border-radius: 16px;
+  margin: 2px 0;
+  height: 32px;
+  font-family: "Roboto", "Helvetica Neue", sans-serif;
+  font-size: 13px;
+  color: var(--ion-text-md-color-step-150, var(--ion-text-color-step-150, #262626));
+  background: rgba(var(--ion-text-md-color-rgb, var(--ion-text-color-rgb, 0, 0, 0)), 0.1); }
+
+.chip-md > ion-label {
+  margin: 0 10px; }
+
+.chip-md > ion-icon {
+  color: var(--ion-color-md-primary-contrast, var(--ion-color-primary-contrast, #fff));
+  background-color: var(--ion-color-md-primary, var(--ion-color-primary, #3880ff)); }
+
+.chip-md ion-avatar {
+  width: 32px;
+  height: 32px; }
+
+.chip-md-primary {
+  color: var(--ion-color-md-primary-contrast, var(--ion-color-primary-contrast, #fff));
+  background-color: var(--ion-color-md-primary, var(--ion-color-primary, #3880ff)); }
+
+.chip-md .icon-md-primary {
+  color: var(--ion-color-md-primary-contrast, var(--ion-color-primary-contrast, #fff));
+  background-color: var(--ion-color-md-primary, var(--ion-color-primary, #3880ff)); }
+  .chip-md .icon-md-primary svg {
+    fill: var(--ion-color-md-primary-contrast, var(--ion-color-primary-contrast, #fff));
+    stroke: var(--ion-color-md-primary-contrast, var(--ion-color-primary-contrast, #fff)); }
+
+.chip-md-secondary {
+  color: var(--ion-color-md-secondary-contrast, var(--ion-color-secondary-contrast, #fff));
+  background-color: var(--ion-color-md-secondary, var(--ion-color-secondary, #0cd1e8)); }
+
+.chip-md .icon-md-secondary {
+  color: var(--ion-color-md-secondary-contrast, var(--ion-color-secondary-contrast, #fff));
+  background-color: var(--ion-color-md-secondary, var(--ion-color-secondary, #0cd1e8)); }
+  .chip-md .icon-md-secondary svg {
+    fill: var(--ion-color-md-secondary-contrast, var(--ion-color-secondary-contrast, #fff));
+    stroke: var(--ion-color-md-secondary-contrast, var(--ion-color-secondary-contrast, #fff)); }
+
+.chip-md-tertiary {
+  color: var(--ion-color-md-tertiary-contrast, var(--ion-color-tertiary-contrast, #fff));
+  background-color: var(--ion-color-md-tertiary, var(--ion-color-tertiary, #7044ff)); }
+
+.chip-md .icon-md-tertiary {
+  color: var(--ion-color-md-tertiary-contrast, var(--ion-color-tertiary-contrast, #fff));
+  background-color: var(--ion-color-md-tertiary, var(--ion-color-tertiary, #7044ff)); }
+  .chip-md .icon-md-tertiary svg {
+    fill: var(--ion-color-md-tertiary-contrast, var(--ion-color-tertiary-contrast, #fff));
+    stroke: var(--ion-color-md-tertiary-contrast, var(--ion-color-tertiary-contrast, #fff)); }
+
+.chip-md-success {
+  color: var(--ion-color-md-success-contrast, var(--ion-color-success-contrast, #fff));
+  background-color: var(--ion-color-md-success, var(--ion-color-success, #10dc60)); }
+
+.chip-md .icon-md-success {
+  color: var(--ion-color-md-success-contrast, var(--ion-color-success-contrast, #fff));
+  background-color: var(--ion-color-md-success, var(--ion-color-success, #10dc60)); }
+  .chip-md .icon-md-success svg {
+    fill: var(--ion-color-md-success-contrast, var(--ion-color-success-contrast, #fff));
+    stroke: var(--ion-color-md-success-contrast, var(--ion-color-success-contrast, #fff)); }
+
+.chip-md-warning {
+  color: var(--ion-color-md-warning-contrast, var(--ion-color-warning-contrast, #fff));
+  background-color: var(--ion-color-md-warning, var(--ion-color-warning, #ffce00)); }
+
+.chip-md .icon-md-warning {
+  color: var(--ion-color-md-warning-contrast, var(--ion-color-warning-contrast, #fff));
+  background-color: var(--ion-color-md-warning, var(--ion-color-warning, #ffce00)); }
+  .chip-md .icon-md-warning svg {
+    fill: var(--ion-color-md-warning-contrast, var(--ion-color-warning-contrast, #fff));
+    stroke: var(--ion-color-md-warning-contrast, var(--ion-color-warning-contrast, #fff)); }
+
+.chip-md-danger {
+  color: var(--ion-color-md-danger-contrast, var(--ion-color-danger-contrast, #fff));
+  background-color: var(--ion-color-md-danger, var(--ion-color-danger, #f04141)); }
+
+.chip-md .icon-md-danger {
+  color: var(--ion-color-md-danger-contrast, var(--ion-color-danger-contrast, #fff));
+  background-color: var(--ion-color-md-danger, var(--ion-color-danger, #f04141)); }
+  .chip-md .icon-md-danger svg {
+    fill: var(--ion-color-md-danger-contrast, var(--ion-color-danger-contrast, #fff));
+    stroke: var(--ion-color-md-danger-contrast, var(--ion-color-danger-contrast, #fff)); }
+
+.chip-md-light {
+  color: var(--ion-color-md-light-contrast, var(--ion-color-light-contrast, #000));
+  background-color: var(--ion-color-md-light, var(--ion-color-light, #f4f5f8)); }
+
+.chip-md .icon-md-light {
+  color: var(--ion-color-md-light-contrast, var(--ion-color-light-contrast, #000));
+  background-color: var(--ion-color-md-light, var(--ion-color-light, #f4f5f8)); }
+  .chip-md .icon-md-light svg {
+    fill: var(--ion-color-md-light-contrast, var(--ion-color-light-contrast, #000));
+    stroke: var(--ion-color-md-light-contrast, var(--ion-color-light-contrast, #000)); }
+
+.chip-md-medium {
+  color: var(--ion-color-md-medium-contrast, var(--ion-color-medium-contrast, #fff));
+  background-color: var(--ion-color-md-medium, var(--ion-color-medium, #989aa2)); }
+
+.chip-md .icon-md-medium {
+  color: var(--ion-color-md-medium-contrast, var(--ion-color-medium-contrast, #fff));
+  background-color: var(--ion-color-md-medium, var(--ion-color-medium, #989aa2)); }
+  .chip-md .icon-md-medium svg {
+    fill: var(--ion-color-md-medium-contrast, var(--ion-color-medium-contrast, #fff));
+    stroke: var(--ion-color-md-medium-contrast, var(--ion-color-medium-contrast, #fff)); }
+
+.chip-md-dark {
+  color: var(--ion-color-md-dark-contrast, var(--ion-color-dark-contrast, #fff));
+  background-color: var(--ion-color-md-dark, var(--ion-color-dark, #222428)); }
+
+.chip-md .icon-md-dark {
+  color: var(--ion-color-md-dark-contrast, var(--ion-color-dark-contrast, #fff));
+  background-color: var(--ion-color-md-dark, var(--ion-color-dark, #222428)); }
+  .chip-md .icon-md-dark svg {
+    fill: var(--ion-color-md-dark-contrast, var(--ion-color-dark-contrast, #fff));
+    stroke: var(--ion-color-md-dark-contrast, var(--ion-color-dark-contrast, #fff)); }

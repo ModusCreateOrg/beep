@@ -1,0 +1,54 @@
+.menu-button button {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-align: center;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  position: relative;
+  z-index: 0;
+  display: inline-flex;
+  flex-flow: row nowrap;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  outline: none;
+  line-height: 1;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  text-transform: none;
+  white-space: nowrap;
+  cursor: pointer;
+  vertical-align: top;
+  vertical-align: -webkit-baseline-middle;
+  transition: background-color, opacity 100ms linear;
+  font-kerning: none;
+  user-select: none; }
+
+.menu-button-md .menu-button-inner {
+  margin: 2px 6px 0 0;
+  padding: 0 5px;
+  min-width: 44px;
+  height: 32px;
+  border: 0;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: var(--ion-toolbar-md-text-color, var(--ion-toolbar-text-color, #424242));
+  background-color: transparent;
+  box-shadow: none; }
+  .menu-button-md .menu-button-inner.activated {
+    opacity: 0.4; }
+
+.menu-button-md ion-icon {
+  padding-right: 0.3em;
+  margin: 0;
+  padding: 0 6px;
+  text-align: left;
+  text-align: start;
+  font-size: 24px;
+  font-weight: normal;
+  line-height: 0.67;
+  pointer-events: none; }

@@ -1,0 +1,61 @@
+ion-loading {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  position: fixed;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  touch-action: none;
+  contain: strict; }
+
+ion-loading-controller {
+  display: none; }
+
+.loading-wrapper {
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  opacity: 0; }
+
+.loading-ios {
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Roboto", sans-serif;
+  font-size: 14px; }
+
+.loading-ios .loading-wrapper {
+  border-radius: 8px;
+  padding: 24px 34px;
+  max-width: 270px;
+  max-height: 90%;
+  color: var(--ion-text-ios-color, var(--ion-text-color, #000));
+  background-color: var(--ion-background-ios-color-step-50, var(--ion-background-color-step-50, #f2f2f2)); }
+
+.loading-translucent-ios .loading-wrapper {
+  background-color: rgba(var(--ion-background-ios-color-rgb, var(--ion-background-color-rgb, 255, 255, 255)), 0.8);
+  backdrop-filter: saturate(180%) blur(20px); }
+
+.loading-ios .loading-content {
+  font-weight: bold; }
+
+.loading-ios .loading-spinner + .loading-content {
+  margin-left: 16px; }
+
+.loading-ios .spinner-lines-ios line,
+.loading-ios .spinner-lines-small-ios line {
+  stroke: var(--ion-text-ios-color-step-400, var(--ion-text-color-step-400, #666666)); }
+
+.loading-ios .spinner-bubbles circle {
+  fill: var(--ion-text-ios-color-step-400, var(--ion-text-color-step-400, #666666)); }
+
+.loading-ios .spinner-circles circle {
+  fill: var(--ion-text-ios-color-step-400, var(--ion-text-color-step-400, #666666)); }
+
+.loading-ios .spinner-crescent circle {
+  stroke: var(--ion-text-ios-color-step-400, var(--ion-text-color-step-400, #666666)); }
+
+.loading-ios .spinner-dots circle {
+  fill: var(--ion-text-ios-color-step-400, var(--ion-text-color-step-400, #666666)); }

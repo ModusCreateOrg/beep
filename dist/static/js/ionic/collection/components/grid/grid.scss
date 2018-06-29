@@ -1,0 +1,28 @@
+@import "./grid.vars";
+
+// Grid
+// --------------------------------------------------
+
+ion-grid {
+  @include make-grid();
+
+  &[fixed] {
+    @include make-grid-max-widths();
+  }
+}
+
+// Row
+// --------------------------------------------------
+
+ion-row {
+  @include make-row();
+}
+
+// Columns
+// --------------------------------------------------
+
+ion-col {
+  @include make-column-base();
+}
+
+@include make-grid-columns();

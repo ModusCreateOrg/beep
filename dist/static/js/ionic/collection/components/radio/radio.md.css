@@ -1,0 +1,163 @@
+ion-radio {
+  box-sizing: border-box;
+  position: relative;
+  display: inline-block; }
+
+ion-radio input {
+  left: 0;
+  top: 0;
+  margin: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  appearance: none; }
+  ion-radio input:active, ion-radio input:focus {
+    outline: none; }
+
+ion-radio .radio-icon {
+  box-sizing: border-box; }
+
+.radio-md .radio-icon {
+  left: 0;
+  top: 0;
+  margin: 0;
+  border-radius: 50%;
+  position: relative;
+  display: block;
+  width: 16px;
+  height: 16px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: var(--ion-text-md-color-step-600, var(--ion-text-color-step-600, #999999));
+  contain: layout size style; }
+
+.radio-md .radio-inner {
+  left: 2px;
+  top: 2px;
+  border-radius: 50%;
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background-color: var(--ion-color-md-primary, var(--ion-color-primary, #3880ff));
+  transform: scale3d(0, 0, 0);
+  transition: transform 280ms cubic-bezier(0.4, 0, 0.2, 1); }
+
+.radio-md.radio-checked .radio-icon {
+  border-color: var(--ion-color-md-primary, var(--ion-color-primary, #3880ff)); }
+
+.radio-md.radio-checked .radio-inner {
+  transform: scale3d(1, 1, 1); }
+
+.radio-md.radio-disabled,
+.item-md.item-radio-disabled ion-label {
+  opacity: 0.3;
+  pointer-events: none; }
+
+.radio-key .radio-icon::after {
+  border-radius: 50%;
+  left: -12px;
+  top: -12px;
+  position: absolute;
+  display: block;
+  width: 36px;
+  height: 36px;
+  background: var(--ion-color-md-primary-tint, var(--ion-color-primary-tint, #4c8dff));
+  content: "";
+  opacity: .2; }
+
+.item-md .radio-md {
+  margin: 9px 10px 9px 0;
+  position: static;
+  display: block; }
+  .item-md .radio-md[slot="start"] {
+    margin: 11px 36px 10px 4px; }
+
+.item-radio.item-md ion-label {
+  margin-left: 0; }
+
+.item-radio-checked.item-md ion-label {
+  color: var(--ion-color-md-primary, var(--ion-color-primary, #3880ff)); }
+
+.item-radio-md-primary.item-radio-checked ion-label {
+  color: var(--ion-color-md-primary, var(--ion-color-primary, #3880ff)); }
+
+.radio-md-primary.radio-checked .radio-icon {
+  border-color: var(--ion-color-md-primary, var(--ion-color-primary, #3880ff)); }
+
+.radio-md-primary .radio-inner {
+  background-color: var(--ion-color-md-primary, var(--ion-color-primary, #3880ff)); }
+
+.item-radio-md-secondary.item-radio-checked ion-label {
+  color: var(--ion-color-md-secondary, var(--ion-color-secondary, #0cd1e8)); }
+
+.radio-md-secondary.radio-checked .radio-icon {
+  border-color: var(--ion-color-md-secondary, var(--ion-color-secondary, #0cd1e8)); }
+
+.radio-md-secondary .radio-inner {
+  background-color: var(--ion-color-md-secondary, var(--ion-color-secondary, #0cd1e8)); }
+
+.item-radio-md-tertiary.item-radio-checked ion-label {
+  color: var(--ion-color-md-tertiary, var(--ion-color-tertiary, #7044ff)); }
+
+.radio-md-tertiary.radio-checked .radio-icon {
+  border-color: var(--ion-color-md-tertiary, var(--ion-color-tertiary, #7044ff)); }
+
+.radio-md-tertiary .radio-inner {
+  background-color: var(--ion-color-md-tertiary, var(--ion-color-tertiary, #7044ff)); }
+
+.item-radio-md-success.item-radio-checked ion-label {
+  color: var(--ion-color-md-success, var(--ion-color-success, #10dc60)); }
+
+.radio-md-success.radio-checked .radio-icon {
+  border-color: var(--ion-color-md-success, var(--ion-color-success, #10dc60)); }
+
+.radio-md-success .radio-inner {
+  background-color: var(--ion-color-md-success, var(--ion-color-success, #10dc60)); }
+
+.item-radio-md-warning.item-radio-checked ion-label {
+  color: var(--ion-color-md-warning, var(--ion-color-warning, #ffce00)); }
+
+.radio-md-warning.radio-checked .radio-icon {
+  border-color: var(--ion-color-md-warning, var(--ion-color-warning, #ffce00)); }
+
+.radio-md-warning .radio-inner {
+  background-color: var(--ion-color-md-warning, var(--ion-color-warning, #ffce00)); }
+
+.item-radio-md-danger.item-radio-checked ion-label {
+  color: var(--ion-color-md-danger, var(--ion-color-danger, #f04141)); }
+
+.radio-md-danger.radio-checked .radio-icon {
+  border-color: var(--ion-color-md-danger, var(--ion-color-danger, #f04141)); }
+
+.radio-md-danger .radio-inner {
+  background-color: var(--ion-color-md-danger, var(--ion-color-danger, #f04141)); }
+
+.item-radio-md-light.item-radio-checked ion-label {
+  color: var(--ion-color-md-light, var(--ion-color-light, #f4f5f8)); }
+
+.radio-md-light.radio-checked .radio-icon {
+  border-color: var(--ion-color-md-light, var(--ion-color-light, #f4f5f8)); }
+
+.radio-md-light .radio-inner {
+  background-color: var(--ion-color-md-light, var(--ion-color-light, #f4f5f8)); }
+
+.item-radio-md-medium.item-radio-checked ion-label {
+  color: var(--ion-color-md-medium, var(--ion-color-medium, #989aa2)); }
+
+.radio-md-medium.radio-checked .radio-icon {
+  border-color: var(--ion-color-md-medium, var(--ion-color-medium, #989aa2)); }
+
+.radio-md-medium .radio-inner {
+  background-color: var(--ion-color-md-medium, var(--ion-color-medium, #989aa2)); }
+
+.item-radio-md-dark.item-radio-checked ion-label {
+  color: var(--ion-color-md-dark, var(--ion-color-dark, #222428)); }
+
+.radio-md-dark.radio-checked .radio-icon {
+  border-color: var(--ion-color-md-dark, var(--ion-color-dark, #222428)); }
+
+.radio-md-dark .radio-inner {
+  background-color: var(--ion-color-md-dark, var(--ion-color-dark, #222428)); }

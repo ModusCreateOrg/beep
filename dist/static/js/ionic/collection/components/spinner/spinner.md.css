@@ -1,0 +1,182 @@
+ion-spinner {
+  position: relative;
+  display: inline-block;
+  width: 28px;
+  height: 28px; }
+
+ion-spinner svg {
+  left: 0;
+  top: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: translateZ(0); }
+
+ion-spinner.spinner-paused svg {
+  animation-play-state: paused; }
+
+.spinner-lines line,
+.spinner-lines-small line {
+  stroke-width: 4px;
+  stroke-linecap: round; }
+
+.spinner-lines svg,
+.spinner-lines-small svg {
+  animation: spinner-fade-out 1s linear infinite; }
+
+.spinner-bubbles svg {
+  animation: spinner-scale-out 1s linear infinite; }
+
+.spinner-circles svg {
+  animation: spinner-fade-out 1s linear infinite; }
+
+.spinner-crescent circle {
+  fill: transparent;
+  stroke-width: 4px;
+  stroke-dasharray: 128px;
+  stroke-dashoffset: 82px; }
+
+.spinner-crescent svg {
+  animation: spinner-rotate 1s linear infinite; }
+
+.spinner-dots circle {
+  stroke-width: 0; }
+
+.spinner-dots svg {
+  transform-origin: center;
+  animation: spinner-dots 1s linear infinite; }
+
+@keyframes spinner-fade-out {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
+@keyframes spinner-scale-out {
+  0% {
+    transform: scale(1, 1); }
+  100% {
+    transform: scale(0, 0); } }
+
+@keyframes spinner-rotate {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }
+
+@keyframes spinner-dots {
+  0% {
+    opacity: .9;
+    transform: scale(1, 1); }
+  50% {
+    opacity: .3;
+    transform: scale(0.4, 0.4); }
+  100% {
+    opacity: .9;
+    transform: scale(1, 1); } }
+
+.spinner-lines-md line,
+.spinner-lines-small-md line {
+  stroke: var(--ion-text-md-color-step-400, var(--ion-text-color-step-400, #666666)); }
+
+.spinner-bubbles-md circle {
+  fill: var(--ion-text-md-color, var(--ion-text-color, #000)); }
+
+.spinner-circles-md circle {
+  fill: var(--ion-text-md-color-step-400, var(--ion-text-color-step-400, #666666)); }
+
+.spinner-crescent-md circle {
+  stroke: var(--ion-text-md-color, var(--ion-text-color, #000)); }
+
+.spinner-dots-md circle {
+  fill: var(--ion-text-md-color-step-300, var(--ion-text-color-step-300, #4d4d4d)); }
+
+.spinner-md-primary.spinner-lines line,
+.spinner-md-primary.spinner-lines-small line,
+.spinner-md-primary.spinner-crescent circle {
+  stroke: var(--ion-color-md-primary, var(--ion-color-primary, #3880ff)); }
+
+.spinner-md-primary.spinner-bubbles circle,
+.spinner-md-primary.spinner-circles circle,
+.spinner-md-primary.spinner-dots circle {
+  fill: var(--ion-color-md-primary, var(--ion-color-primary, #3880ff)); }
+
+.spinner-md-secondary.spinner-lines line,
+.spinner-md-secondary.spinner-lines-small line,
+.spinner-md-secondary.spinner-crescent circle {
+  stroke: var(--ion-color-md-secondary, var(--ion-color-secondary, #0cd1e8)); }
+
+.spinner-md-secondary.spinner-bubbles circle,
+.spinner-md-secondary.spinner-circles circle,
+.spinner-md-secondary.spinner-dots circle {
+  fill: var(--ion-color-md-secondary, var(--ion-color-secondary, #0cd1e8)); }
+
+.spinner-md-tertiary.spinner-lines line,
+.spinner-md-tertiary.spinner-lines-small line,
+.spinner-md-tertiary.spinner-crescent circle {
+  stroke: var(--ion-color-md-tertiary, var(--ion-color-tertiary, #7044ff)); }
+
+.spinner-md-tertiary.spinner-bubbles circle,
+.spinner-md-tertiary.spinner-circles circle,
+.spinner-md-tertiary.spinner-dots circle {
+  fill: var(--ion-color-md-tertiary, var(--ion-color-tertiary, #7044ff)); }
+
+.spinner-md-success.spinner-lines line,
+.spinner-md-success.spinner-lines-small line,
+.spinner-md-success.spinner-crescent circle {
+  stroke: var(--ion-color-md-success, var(--ion-color-success, #10dc60)); }
+
+.spinner-md-success.spinner-bubbles circle,
+.spinner-md-success.spinner-circles circle,
+.spinner-md-success.spinner-dots circle {
+  fill: var(--ion-color-md-success, var(--ion-color-success, #10dc60)); }
+
+.spinner-md-warning.spinner-lines line,
+.spinner-md-warning.spinner-lines-small line,
+.spinner-md-warning.spinner-crescent circle {
+  stroke: var(--ion-color-md-warning, var(--ion-color-warning, #ffce00)); }
+
+.spinner-md-warning.spinner-bubbles circle,
+.spinner-md-warning.spinner-circles circle,
+.spinner-md-warning.spinner-dots circle {
+  fill: var(--ion-color-md-warning, var(--ion-color-warning, #ffce00)); }
+
+.spinner-md-danger.spinner-lines line,
+.spinner-md-danger.spinner-lines-small line,
+.spinner-md-danger.spinner-crescent circle {
+  stroke: var(--ion-color-md-danger, var(--ion-color-danger, #f04141)); }
+
+.spinner-md-danger.spinner-bubbles circle,
+.spinner-md-danger.spinner-circles circle,
+.spinner-md-danger.spinner-dots circle {
+  fill: var(--ion-color-md-danger, var(--ion-color-danger, #f04141)); }
+
+.spinner-md-light.spinner-lines line,
+.spinner-md-light.spinner-lines-small line,
+.spinner-md-light.spinner-crescent circle {
+  stroke: var(--ion-color-md-light, var(--ion-color-light, #f4f5f8)); }
+
+.spinner-md-light.spinner-bubbles circle,
+.spinner-md-light.spinner-circles circle,
+.spinner-md-light.spinner-dots circle {
+  fill: var(--ion-color-md-light, var(--ion-color-light, #f4f5f8)); }
+
+.spinner-md-medium.spinner-lines line,
+.spinner-md-medium.spinner-lines-small line,
+.spinner-md-medium.spinner-crescent circle {
+  stroke: var(--ion-color-md-medium, var(--ion-color-medium, #989aa2)); }
+
+.spinner-md-medium.spinner-bubbles circle,
+.spinner-md-medium.spinner-circles circle,
+.spinner-md-medium.spinner-dots circle {
+  fill: var(--ion-color-md-medium, var(--ion-color-medium, #989aa2)); }
+
+.spinner-md-dark.spinner-lines line,
+.spinner-md-dark.spinner-lines-small line,
+.spinner-md-dark.spinner-crescent circle {
+  stroke: var(--ion-color-md-dark, var(--ion-color-dark, #222428)); }
+
+.spinner-md-dark.spinner-bubbles circle,
+.spinner-md-dark.spinner-circles circle,
+.spinner-md-dark.spinner-dots circle {
+  fill: var(--ion-color-md-dark, var(--ion-color-dark, #222428)); }

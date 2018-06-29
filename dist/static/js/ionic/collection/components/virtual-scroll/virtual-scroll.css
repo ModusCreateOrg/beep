@@ -1,0 +1,16 @@
+ion-virtual-scroll {
+  position: relative;
+  display: block;
+  width: 100%;
+  contain: strict; }
+
+.virtual-loading {
+  opacity: 0; }
+
+.virtual-item {
+  left: 0;
+  right: 0;
+  top: 0;
+  position: absolute;
+  transition-duration: 0ms;
+  will-change: transform; }

@@ -1,0 +1,158 @@
+ion-toggle {
+  display: inline-block;
+  contain: content;
+  touch-action: none;
+  user-select: none; }
+
+ion-toggle ion-gesture {
+  display: block;
+  width: 100%;
+  height: 100%;
+  visibility: inherit; }
+
+.toggle-cover {
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  outline: none;
+  font-family: inherit;
+  font-style: inherit;
+  font-variant: inherit;
+  line-height: 1;
+  text-transform: none;
+  background: transparent;
+  cursor: pointer; }
+
+ion-toggle input {
+  left: 0;
+  top: 0;
+  margin: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  pointer-events: none;
+  appearance: none; }
+
+ion-toggle :focus {
+  outline: none; }
+
+.toggle-key input {
+  border: 2px solid #5e9ed6; }
+
+.toggle-md {
+  padding: 12px;
+  box-sizing: content-box;
+  position: relative;
+  width: 36px;
+  height: 14px;
+  contain: strict; }
+
+.toggle-md .toggle-icon {
+  border-radius: 14px;
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(var(--ion-item-md-border-color-rgb, var(--ion-item-border-color-rgb, 0, 0, 0)), 0.13);
+  transition: background-color 300ms;
+  pointer-events: none; }
+
+.toggle-md .toggle-inner {
+  left: 0;
+  top: -3px;
+  border-radius: 50%;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: var(--ion-background-md-color, var(--ion-background-color, #fff));
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  transition-duration: 300ms;
+  transition-property: transform, background-color;
+  will-change: transform, background-color;
+  contain: strict; }
+
+.toggle-md.toggle-checked .toggle-icon {
+  background-color: rgba(var(--ion-color-md-primary-rgb, var(--ion-color-primary-rgb, 56, 128, 255)), 0.5); }
+
+.toggle-md.toggle-checked .toggle-inner {
+  transform: translate3d(16px,  0,  0);
+  background-color: var(--ion-color-md-primary, var(--ion-color-primary, #3880ff)); }
+
+.toggle-md.toggle-disabled,
+.item-md.item-toggle-disabled ion-label {
+  opacity: 0.3;
+  pointer-events: none; }
+
+.toggle-md.toggle-disabled ion-radio {
+  opacity: 0.3; }
+
+.item-md .toggle-md[slot] {
+  margin: 0;
+  padding: 12px 8px 12px 16px;
+  cursor: pointer; }
+
+.item-md .toggle-md[slot="start"] {
+  padding: 12px 18px 12px 2px; }
+
+.item-md.item-toggle ion-label {
+  margin-left: 0; }
+
+.toggle-md-primary.toggle-checked .toggle-icon {
+  background-color: var(--ion-color-md-primary-tint, var(--ion-color-primary-tint, #4c8dff)); }
+
+.toggle-md-primary.toggle-checked .toggle-inner {
+  background-color: var(--ion-color-md-primary, var(--ion-color-primary, #3880ff)); }
+
+.toggle-md-secondary.toggle-checked .toggle-icon {
+  background-color: var(--ion-color-md-secondary-tint, var(--ion-color-secondary-tint, #24d6ea)); }
+
+.toggle-md-secondary.toggle-checked .toggle-inner {
+  background-color: var(--ion-color-md-secondary, var(--ion-color-secondary, #0cd1e8)); }
+
+.toggle-md-tertiary.toggle-checked .toggle-icon {
+  background-color: var(--ion-color-md-tertiary-tint, var(--ion-color-tertiary-tint, #7e57ff)); }
+
+.toggle-md-tertiary.toggle-checked .toggle-inner {
+  background-color: var(--ion-color-md-tertiary, var(--ion-color-tertiary, #7044ff)); }
+
+.toggle-md-success.toggle-checked .toggle-icon {
+  background-color: var(--ion-color-md-success-tint, var(--ion-color-success-tint, #28e070)); }
+
+.toggle-md-success.toggle-checked .toggle-inner {
+  background-color: var(--ion-color-md-success, var(--ion-color-success, #10dc60)); }
+
+.toggle-md-warning.toggle-checked .toggle-icon {
+  background-color: var(--ion-color-md-warning-tint, var(--ion-color-warning-tint, #ffd31a)); }
+
+.toggle-md-warning.toggle-checked .toggle-inner {
+  background-color: var(--ion-color-md-warning, var(--ion-color-warning, #ffce00)); }
+
+.toggle-md-danger.toggle-checked .toggle-icon {
+  background-color: var(--ion-color-md-danger-tint, var(--ion-color-danger-tint, #f25454)); }
+
+.toggle-md-danger.toggle-checked .toggle-inner {
+  background-color: var(--ion-color-md-danger, var(--ion-color-danger, #f04141)); }
+
+.toggle-md-light.toggle-checked .toggle-icon {
+  background-color: var(--ion-color-md-light-tint, var(--ion-color-light-tint, #f5f6f9)); }
+
+.toggle-md-light.toggle-checked .toggle-inner {
+  background-color: var(--ion-color-md-light, var(--ion-color-light, #f4f5f8)); }
+
+.toggle-md-medium.toggle-checked .toggle-icon {
+  background-color: var(--ion-color-md-medium-tint, var(--ion-color-medium-tint, #a2a4ab)); }
+
+.toggle-md-medium.toggle-checked .toggle-inner {
+  background-color: var(--ion-color-md-medium, var(--ion-color-medium, #989aa2)); }
+
+.toggle-md-dark.toggle-checked .toggle-icon {
+  background-color: var(--ion-color-md-dark-tint, var(--ion-color-dark-tint, #383a3e)); }
+
+.toggle-md-dark.toggle-checked .toggle-inner {
+  background-color: var(--ion-color-md-dark, var(--ion-color-dark, #222428)); }

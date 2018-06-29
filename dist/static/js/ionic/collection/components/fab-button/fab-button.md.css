@@ -1,0 +1,215 @@
+.fab-button {
+  text-align: center;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 50%;
+  position: relative;
+  z-index: 0;
+  display: block;
+  overflow: hidden;
+  width: 56px;
+  height: 56px;
+  border: 0;
+  font-size: 14px;
+  line-height: 56px;
+  text-overflow: ellipsis;
+  text-transform: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color, opacity 100ms linear;
+  background-clip: padding-box;
+  font-kerning: none;
+  user-select: none;
+  contain: strict; }
+  .fab-button:active, .fab-button:focus {
+    outline: none; }
+
+.fab-button ion-icon {
+  font-size: 24px;
+  line-height: 1; }
+
+.fab-button-inner {
+  display: flex;
+  flex-flow: row nowrap;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  transition: all ease-in-out 300ms;
+  transition-property: transform, opacity; }
+
+ion-fab-button[mini] .fab-button {
+  margin: 8px;
+  width: 40px;
+  height: 40px;
+  line-height: 40px; }
+
+.fab-button-close-icon {
+  left: 0;
+  right: 0;
+  top: 0;
+  position: absolute;
+  display: flex;
+  height: 100%;
+  opacity: 0;
+  transform: scale(0.4) rotateZ(-45deg);
+  transition: all ease-in-out 300ms;
+  transition-property: transform, opacity; }
+
+.fab-button-close-icon .icon-inner {
+  margin: auto; }
+
+.fab-button-close-active .fab-button-close-icon {
+  opacity: 1;
+  transform: scale(1) rotateZ(0deg); }
+
+.fab-button-close-active .fab-button-inner {
+  opacity: 0;
+  transform: scale(0.4) rotateZ(45deg); }
+
+.fab-button-md {
+  color: var(--ion-color-md-primary-contrast, var(--ion-color-primary-contrast, #fff));
+  background-color: var(--ion-color-md-primary, var(--ion-color-primary, #3880ff));
+  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.14), 0 4px 5px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1), background-color 300ms cubic-bezier(0.4, 0, 0.2, 1), color 300ms cubic-bezier(0.4, 0, 0.2, 1); }
+
+.fab-button-md.activated {
+  background-color: var(--ion-color-md-primary-tint, var(--ion-color-primary-tint, #4c8dff));
+  box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.4), 0 4px 7px 0 rgba(0, 0, 0, 0.1); }
+
+.fab-button-md .icon {
+  fill: var(--ion-color-md-primary-contrast, var(--ion-color-primary-contrast, #fff)); }
+
+.fab-button-md-in-list {
+  color: var(--ion-color-md-light-contrast, var(--ion-color-light-contrast, #000));
+  background-color: var(--ion-color-md-light, var(--ion-color-light, #f4f5f8));
+  transition: transform 200ms ease 10ms, opacity 200ms ease 10ms, box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1), background-color 300ms cubic-bezier(0.4, 0, 0.2, 1), color 300ms cubic-bezier(0.4, 0, 0.2, 1); }
+
+.fab-button-md-in-list.activated {
+  background-color: var(--ion-color-md-light-tint, var(--ion-color-light-tint, #f5f6f9)); }
+
+.fab-button-md-in-list .icon {
+  fill: var(--ion-color-md-light-contrast, var(--ion-color-light-contrast, #000)); }
+
+.fab-button-md .button-effect {
+  background-color: var(--ion-color-md-primary-contrast, var(--ion-color-primary-contrast, #fff)); }
+
+.fab-button-md-primary {
+  color: var(--ion-color-md-primary-contrast, var(--ion-color-primary-contrast, #fff));
+  background-color: var(--ion-color-md-primary, var(--ion-color-primary, #3880ff)); }
+
+.fab-button-md-primary .icon {
+  fill: var(--ion-color-md-primary-contrast, var(--ion-color-primary-contrast, #fff)); }
+
+.fab-button-md-primary.activated {
+  background-color: var(--ion-color-md-primary-tint, var(--ion-color-primary-tint, #4c8dff)); }
+
+.fab-button-md-primary .ripple-effect {
+  background-color: var(--ion-color-md-primary-contrast, var(--ion-color-primary-contrast, #fff)); }
+
+.fab-button-md-secondary {
+  color: var(--ion-color-md-secondary-contrast, var(--ion-color-secondary-contrast, #fff));
+  background-color: var(--ion-color-md-secondary, var(--ion-color-secondary, #0cd1e8)); }
+
+.fab-button-md-secondary .icon {
+  fill: var(--ion-color-md-secondary-contrast, var(--ion-color-secondary-contrast, #fff)); }
+
+.fab-button-md-secondary.activated {
+  background-color: var(--ion-color-md-secondary-tint, var(--ion-color-secondary-tint, #24d6ea)); }
+
+.fab-button-md-secondary .ripple-effect {
+  background-color: var(--ion-color-md-secondary-contrast, var(--ion-color-secondary-contrast, #fff)); }
+
+.fab-button-md-tertiary {
+  color: var(--ion-color-md-tertiary-contrast, var(--ion-color-tertiary-contrast, #fff));
+  background-color: var(--ion-color-md-tertiary, var(--ion-color-tertiary, #7044ff)); }
+
+.fab-button-md-tertiary .icon {
+  fill: var(--ion-color-md-tertiary-contrast, var(--ion-color-tertiary-contrast, #fff)); }
+
+.fab-button-md-tertiary.activated {
+  background-color: var(--ion-color-md-tertiary-tint, var(--ion-color-tertiary-tint, #7e57ff)); }
+
+.fab-button-md-tertiary .ripple-effect {
+  background-color: var(--ion-color-md-tertiary-contrast, var(--ion-color-tertiary-contrast, #fff)); }
+
+.fab-button-md-success {
+  color: var(--ion-color-md-success-contrast, var(--ion-color-success-contrast, #fff));
+  background-color: var(--ion-color-md-success, var(--ion-color-success, #10dc60)); }
+
+.fab-button-md-success .icon {
+  fill: var(--ion-color-md-success-contrast, var(--ion-color-success-contrast, #fff)); }
+
+.fab-button-md-success.activated {
+  background-color: var(--ion-color-md-success-tint, var(--ion-color-success-tint, #28e070)); }
+
+.fab-button-md-success .ripple-effect {
+  background-color: var(--ion-color-md-success-contrast, var(--ion-color-success-contrast, #fff)); }
+
+.fab-button-md-warning {
+  color: var(--ion-color-md-warning-contrast, var(--ion-color-warning-contrast, #fff));
+  background-color: var(--ion-color-md-warning, var(--ion-color-warning, #ffce00)); }
+
+.fab-button-md-warning .icon {
+  fill: var(--ion-color-md-warning-contrast, var(--ion-color-warning-contrast, #fff)); }
+
+.fab-button-md-warning.activated {
+  background-color: var(--ion-color-md-warning-tint, var(--ion-color-warning-tint, #ffd31a)); }
+
+.fab-button-md-warning .ripple-effect {
+  background-color: var(--ion-color-md-warning-contrast, var(--ion-color-warning-contrast, #fff)); }
+
+.fab-button-md-danger {
+  color: var(--ion-color-md-danger-contrast, var(--ion-color-danger-contrast, #fff));
+  background-color: var(--ion-color-md-danger, var(--ion-color-danger, #f04141)); }
+
+.fab-button-md-danger .icon {
+  fill: var(--ion-color-md-danger-contrast, var(--ion-color-danger-contrast, #fff)); }
+
+.fab-button-md-danger.activated {
+  background-color: var(--ion-color-md-danger-tint, var(--ion-color-danger-tint, #f25454)); }
+
+.fab-button-md-danger .ripple-effect {
+  background-color: var(--ion-color-md-danger-contrast, var(--ion-color-danger-contrast, #fff)); }
+
+.fab-button-md-light {
+  color: var(--ion-color-md-light-contrast, var(--ion-color-light-contrast, #000));
+  background-color: var(--ion-color-md-light, var(--ion-color-light, #f4f5f8)); }
+
+.fab-button-md-light .icon {
+  fill: var(--ion-color-md-light-contrast, var(--ion-color-light-contrast, #000)); }
+
+.fab-button-md-light.activated {
+  background-color: var(--ion-color-md-light-tint, var(--ion-color-light-tint, #f5f6f9)); }
+
+.fab-button-md-light .ripple-effect {
+  background-color: var(--ion-color-md-light-contrast, var(--ion-color-light-contrast, #000)); }
+
+.fab-button-md-medium {
+  color: var(--ion-color-md-medium-contrast, var(--ion-color-medium-contrast, #fff));
+  background-color: var(--ion-color-md-medium, var(--ion-color-medium, #989aa2)); }
+
+.fab-button-md-medium .icon {
+  fill: var(--ion-color-md-medium-contrast, var(--ion-color-medium-contrast, #fff)); }
+
+.fab-button-md-medium.activated {
+  background-color: var(--ion-color-md-medium-tint, var(--ion-color-medium-tint, #a2a4ab)); }
+
+.fab-button-md-medium .ripple-effect {
+  background-color: var(--ion-color-md-medium-contrast, var(--ion-color-medium-contrast, #fff)); }
+
+.fab-button-md-dark {
+  color: var(--ion-color-md-dark-contrast, var(--ion-color-dark-contrast, #fff));
+  background-color: var(--ion-color-md-dark, var(--ion-color-dark, #222428)); }
+
+.fab-button-md-dark .icon {
+  fill: var(--ion-color-md-dark-contrast, var(--ion-color-dark-contrast, #fff)); }
+
+.fab-button-md-dark.activated {
+  background-color: var(--ion-color-md-dark-tint, var(--ion-color-dark-tint, #383a3e)); }
+
+.fab-button-md-dark .ripple-effect {
+  background-color: var(--ion-color-md-dark-contrast, var(--ion-color-dark-contrast, #fff)); }

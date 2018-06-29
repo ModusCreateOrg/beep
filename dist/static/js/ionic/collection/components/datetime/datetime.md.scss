@@ -1,0 +1,15 @@
+@import "./datetime";
+@import "./datetime.md.vars";
+
+// Material Design Datetime
+// --------------------------------------------------
+
+.datetime-md {
+  @include padding($datetime-md-padding-top, $datetime-md-padding-end, $datetime-md-padding-bottom, $datetime-md-padding-start);
+
+  font-family: $datetime-md-font-family;
+}
+
+.datetime-md .datetime-placeholder {
+  color: $datetime-md-placeholder-color;
+}

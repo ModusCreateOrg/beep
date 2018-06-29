@@ -1,0 +1,65 @@
+@import "./label";
+@import "./label.ios.vars";
+
+// iOS Label
+// --------------------------------------------------
+
+.label-ios {
+  @include margin($label-ios-margin-top, $label-ios-margin-end, $label-ios-margin-bottom, $label-ios-margin-start);
+
+  font-family: $label-ios-font-family;
+}
+
+[text-wrap] .label-ios {
+  font-size: $label-ios-text-wrap-font-size;
+  line-height: $label-ios-text-wrap-line-height;
+}
+
+
+// iOS Default Label Inside An Input/Select Item
+// --------------------------------------------------
+
+.item-interactive .label-ios {
+  color: $label-ios-text-color;
+}
+
+
+// iOS Stacked & Floating Labels
+// --------------------------------------------------
+
+.label-ios-stacked {
+  @include margin(null, null, 4px, null);
+
+  font-size: 12px;
+}
+
+.label-ios-floating {
+  @include margin(null, null, 0, null);
+  @include transform(translate3d(0, 27px, 0));
+  @include transform-origin(start, top);
+
+  transition: transform 150ms ease-in-out;
+}
+
+.item-input-has-focus .label-ios-floating,
+.item-input-has-value .label-ios-floating {
+  @include transform(translate3d(0, 0, 0), scale(.8));
+}
+
+.item-input-has-focus .label-ios-stacked,
+.item-input-has-focus .label-ios-floating {
+  color: $label-ios-text-color-focused;
+}
+
+
+// Generate iOS Label colors
+// --------------------------------------------------
+
+@each $color-name, $color-value in $colors-ios {
+  $color-base: ion-color($colors-ios, $color-name, base, ios);
+
+  .label-ios-#{$color-name},
+  .item-interactive .label-ios-#{$color-name} {
+    color: $color-base;
+  }
+}

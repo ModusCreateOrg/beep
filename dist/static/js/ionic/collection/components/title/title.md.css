@@ -1,0 +1,45 @@
+ion-title {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  transform: translateZ(0); }
+
+.toolbar-title {
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap; }
+
+.toolbar-title-md {
+  padding: 0 12px;
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--ion-toolbar-md-text-color, var(--ion-toolbar-text-color, #424242)); }
+
+.toolbar-primary .toolbar-title-md {
+  color: var(--ion-color-md-primary-contrast, var(--ion-color-primary-contrast, #fff)); }
+
+.toolbar-secondary .toolbar-title-md {
+  color: var(--ion-color-md-secondary-contrast, var(--ion-color-secondary-contrast, #fff)); }
+
+.toolbar-tertiary .toolbar-title-md {
+  color: var(--ion-color-md-tertiary-contrast, var(--ion-color-tertiary-contrast, #fff)); }
+
+.toolbar-success .toolbar-title-md {
+  color: var(--ion-color-md-success-contrast, var(--ion-color-success-contrast, #fff)); }
+
+.toolbar-warning .toolbar-title-md {
+  color: var(--ion-color-md-warning-contrast, var(--ion-color-warning-contrast, #fff)); }
+
+.toolbar-danger .toolbar-title-md {
+  color: var(--ion-color-md-danger-contrast, var(--ion-color-danger-contrast, #fff)); }
+
+.toolbar-light .toolbar-title-md {
+  color: var(--ion-color-md-light-contrast, var(--ion-color-light-contrast, #000)); }
+
+.toolbar-medium .toolbar-title-md {
+  color: var(--ion-color-md-medium-contrast, var(--ion-color-medium-contrast, #fff)); }
+
+.toolbar-dark .toolbar-title-md {
+  color: var(--ion-color-md-dark-contrast, var(--ion-color-dark-contrast, #fff)); }

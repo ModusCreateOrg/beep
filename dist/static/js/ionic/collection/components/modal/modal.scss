@@ -1,0 +1,52 @@
+@import "./modal.vars";
+
+// Modals
+// --------------------------------------------------
+
+ion-modal {
+  @include position(0, 0, 0, 0);
+
+  position: absolute;
+
+  display: block;
+
+  contain: strict;
+}
+
+ion-modal-controller {
+  display: none;
+}
+
+
+@media not all and (min-width: $modal-inset-min-width) and (min-height: $modal-inset-min-height-small) {
+  ion-modal ion-backdrop {
+    display: none;
+  }
+}
+
+.modal-wrapper {
+  z-index: 10;
+
+  height: 100%;
+
+  contain: strict;
+
+  @media only screen and (min-width: $modal-inset-min-width) and (min-height: $modal-inset-min-height-small) {
+    @include position(calc(50% - (#{$modal-inset-height-small}/2)), null, null, calc(50% - (#{$modal-inset-width}/2)));
+
+    position: absolute;
+
+    width: $modal-inset-width;
+    height: $modal-inset-height-small;
+  }
+
+  @media only screen and (min-width: $modal-inset-min-width) and (min-height: $modal-inset-min-height-large) {
+    @include position(calc(50% - (#{$modal-inset-height-large}/2)), null, null, calc(50% - (#{$modal-inset-width}/2)));
+
+    position: absolute;
+
+    width: $modal-inset-width;
+    height: $modal-inset-height-large;
+  }
+}
+

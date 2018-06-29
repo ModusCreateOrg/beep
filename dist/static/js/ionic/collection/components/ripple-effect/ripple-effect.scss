@@ -1,0 +1,44 @@
+@import "../../themes/ionic.globals";
+@import "../../themes/ionic.theme.default";
+
+
+// Material Design Ripple Effect
+// --------------------------------------------------
+// Only Material uses the button effect, so by default
+// it's display none, and .md sets to display block.
+
+ion-ripple-effect {
+  @include position(0, 0, 0, 0);
+
+  position: absolute;
+
+  contain: strict;
+}
+
+.ripple-effect {
+  @include border-radius(50%);
+  position: absolute;
+
+  background-color: $ripple-background-color;
+  opacity: 0;
+
+  will-change: transform, opacity;
+  pointer-events: none;
+  animation-name: rippleAnimation;
+  animation-duration: 200ms;
+  animation-timing-function: ease-out;
+
+  contain: strict;
+}
+
+@keyframes rippleAnimation {
+  0% {
+    opacity: .2;
+    transform: scale(.1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}

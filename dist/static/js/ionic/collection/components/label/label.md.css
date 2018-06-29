@@ -1,0 +1,110 @@
+ion-label {
+  margin: 0;
+  display: block;
+  overflow: hidden;
+  flex: 1;
+  font-size: inherit;
+  text-overflow: ellipsis;
+  white-space: nowrap; }
+
+.item-input ion-label {
+  flex: initial;
+  max-width: 200px;
+  pointer-events: none; }
+
+[text-wrap] ion-label {
+  white-space: normal; }
+
+.label-fixed {
+  flex: 0 0 100px;
+  width: 100px;
+  min-width: 100px;
+  max-width: 200px; }
+
+.item-label-stacked ion-label,
+.item-label-floating ion-label {
+  align-self: stretch;
+  width: auto;
+  max-width: 100%; }
+
+.label-stacked,
+.label-floating {
+  margin-bottom: 0; }
+
+.item-label-stacked .input-wrapper,
+.item-label-floating .input-wrapper {
+  flex: 1;
+  flex-direction: column; }
+
+.item-label-stacked ion-select,
+.item-label-floating ion-select {
+  align-self: stretch;
+  max-width: 100%; }
+
+.label-md {
+  margin: 13px 8px 13px 0;
+  font-family: "Roboto", "Helvetica Neue", sans-serif; }
+
+[text-wrap] .label-md {
+  font-size: 14px;
+  line-height: 1.5; }
+
+.item-interactive .label-md {
+  color: var(--ion-text-md-color-step-600, var(--ion-text-color-step-600, #999999)); }
+
+.label-md-stacked {
+  font-size: 12px; }
+
+.label-md-floating {
+  transform: translate3d(0,  27px,  0);
+  transform-origin: left top;
+  transition: transform 150ms ease-in-out; }
+
+.label-md-stacked,
+.label-md-floating {
+  margin-left: 0;
+  margin-bottom: 0; }
+
+.item-input-has-focus .label-md-stacked,
+.item-input-has-focus .label-md-floating {
+  color: var(--ion-color-md-primary, var(--ion-color-primary, #3880ff)); }
+
+.item-input-has-focus .label-md-floating,
+.item-input-has-value .label-md-floating {
+  transform: translate3d(0,  0,  0) scale(0.8); }
+
+.label-md-primary,
+.item-interactive .label-md-primary {
+  color: var(--ion-color-md-primary, var(--ion-color-primary, #3880ff)); }
+
+.label-md-secondary,
+.item-interactive .label-md-secondary {
+  color: var(--ion-color-md-secondary, var(--ion-color-secondary, #0cd1e8)); }
+
+.label-md-tertiary,
+.item-interactive .label-md-tertiary {
+  color: var(--ion-color-md-tertiary, var(--ion-color-tertiary, #7044ff)); }
+
+.label-md-success,
+.item-interactive .label-md-success {
+  color: var(--ion-color-md-success, var(--ion-color-success, #10dc60)); }
+
+.label-md-warning,
+.item-interactive .label-md-warning {
+  color: var(--ion-color-md-warning, var(--ion-color-warning, #ffce00)); }
+
+.label-md-danger,
+.item-interactive .label-md-danger {
+  color: var(--ion-color-md-danger, var(--ion-color-danger, #f04141)); }
+
+.label-md-light,
+.item-interactive .label-md-light {
+  color: var(--ion-color-md-light, var(--ion-color-light, #f4f5f8)); }
+
+.label-md-medium,
+.item-interactive .label-md-medium {
+  color: var(--ion-color-md-medium, var(--ion-color-medium, #989aa2)); }
+
+.label-md-dark,
+.item-interactive .label-md-dark {
+  color: var(--ion-color-md-dark, var(--ion-color-dark, #222428)); }

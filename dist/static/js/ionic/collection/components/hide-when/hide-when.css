@@ -1,0 +1,5 @@
+ion-hide-when.show-content {
+  display: block; }
+
+ion-hide-when.hide-content {
+  display: none !important; }

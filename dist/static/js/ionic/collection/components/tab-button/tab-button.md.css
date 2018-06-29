@@ -1,0 +1,161 @@
+ion-tab-button {
+  margin: 0;
+  text-align: center;
+  border-radius: 0;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 0;
+  display: block;
+  overflow: hidden;
+  flex: 1;
+  height: 100%;
+  border: 0;
+  text-decoration: none;
+  background: none;
+  user-select: none; }
+
+ion-tab-button a {
+  text-decoration: none; }
+
+.tab-cover {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  color: inherit;
+  background: transparent;
+  cursor: pointer; }
+  .tab-cover:active, .tab-cover:focus {
+    outline: none; }
+
+.tab-btn-disabled {
+  pointer-events: none; }
+  .tab-btn-disabled > .tab-cover {
+    opacity: .4; }
+
+.tab-button-text,
+.tab-button-icon {
+  display: none;
+  overflow: hidden;
+  align-self: center;
+  min-width: 26px;
+  max-width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap; }
+
+.has-icon .tab-button-icon,
+.has-title .tab-button-text {
+  display: block; }
+
+.has-title-only .tab-button-text {
+  white-space: normal; }
+
+.layout-icon-start .tab-button {
+  flex-direction: row; }
+
+.layout-icon-end .tab-button {
+  flex-direction: row-reverse; }
+
+.layout-icon-bottom .tab-button {
+  flex-direction: column-reverse; }
+
+.layout-icon-start .tab-button,
+.layout-icon-end .tab-button,
+.layout-icon-hide .tab-button,
+.layout-title-hide .tab-button {
+  justify-content: center; }
+
+.layout-icon-hide .tab-button-icon,
+.layout-title-hide .tab-button-text {
+  display: none; }
+
+.tab-badge {
+  right: 4%;
+  top: 6%;
+  right: calc(50% - 50px);
+  padding: 1px 6px;
+  position: absolute;
+  height: auto;
+  font-size: 12px;
+  line-height: 16px; }
+
+.has-icon .tab-badge {
+  right: calc(50% - 30px); }
+
+.layout-icon-bottom .tab-badge,
+.layout-icon-start .tab-badge,
+.layout-icon-end .tab-badge {
+  right: calc(50% - 50px); }
+
+.tab-button-md {
+  max-width: 168px;
+  font-weight: normal;
+  color: var(--ion-tabbar-md-text-color, var(--ion-text-md-color-step-400, var(--ion-text-color-step-400, #666666)));
+  fill: var(--ion-tabbar-md-text-color, var(--ion-text-md-color-step-400, var(--ion-text-color-step-400, #666666))); }
+
+.tab-button-md.focused {
+  background: var(--ion-tabbar-md-background-color-focused, var(--ion-tabbar-background-color-focused, #dadada)); }
+
+.tab-button-md .tab-cover {
+  padding: 8px 12px 10px 12px;
+  display: flex; }
+
+.scrollable .tab-button-md {
+  overflow: hidden;
+  flex: 1 0 auto; }
+
+.tab-button-md.tab-selected {
+  color: var(--ion-tabbar-md-text-color-active, var(--ion-tabbar-text-color-active, #488aff));
+  fill: var(--ion-tabbar-md-text-color-active, var(--ion-tabbar-text-color-active, #488aff)); }
+
+.placement-top .tab-button-md.tab-selected .tab-button-icon,
+.placement-top .tab-button-md.tab-selected .tab-button-text {
+  transform: inherit; }
+
+.tab-button-md .tab-button-text {
+  margin: 0;
+  transform-origin: center bottom;
+  font-size: 12px;
+  text-transform: none;
+  transition: transform 0.3s ease-in-out; }
+
+.tab-button-md.tab-selected .tab-button-text {
+  transform: scale3d(1.16667, 1.16667, 1);
+  transition: transform 0.3s ease-in-out; }
+
+.layout-icon-top .tab-button-md .has-icon .tab-button-text {
+  margin-bottom: -2px; }
+
+.layout-icon-bottom .tab-button-md .tab-button-text {
+  transform-origin: center top;
+  margin-top: -2px; }
+
+.tab-button-md .tab-button-icon {
+  transform-origin: center center;
+  width: 24px;
+  height: 24px;
+  font-size: 24px;
+  transition: transform 0.3s ease-in-out; }
+
+.tab-button-md.tab-selected .tab-button-icon {
+  transform: translate3d(0,  -2px,  0); }
+
+.layout-icon-end .tab-button-md.tab-selected .tab-button-icon {
+  transform: translate3d(2px,  0,  0); }
+
+.layout-icon-bottom .tab-button-md.tab-selected .tab-button-icon {
+  transform: translate3d(0,  2px,  0); }
+
+.layout-icon-start .tab-button-md.tab-selected .tab-button-icon {
+  transform: translate3d(-2px,  0,  0); }
+
+.layout-icon-hide .tab-button-md,
+.layout-title-hide .tab-button-md,
+.tab-button-md.icon-only,
+.tab-button-md.has-title-only {
+  justify-content: center; }

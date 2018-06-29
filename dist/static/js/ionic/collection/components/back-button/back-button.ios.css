@@ -1,0 +1,97 @@
+.back-button {
+  display: none; }
+
+.can-go-back > ion-header .back-button,
+.back-button.show-back-button {
+  display: inline-block; }
+
+.back-button button {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-align: center;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  position: relative;
+  z-index: 0;
+  display: inline-flex;
+  flex-flow: row nowrap;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  outline: none;
+  line-height: 1;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  text-transform: none;
+  white-space: nowrap;
+  cursor: pointer;
+  vertical-align: top;
+  vertical-align: -webkit-baseline-middle;
+  transition: background-color, opacity 100ms linear;
+  user-select: none;
+  font-kerning: none; }
+
+.back-button-inner {
+  display: flex;
+  flex-flow: row nowrap;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%; }
+
+.back-button-text {
+  display: flex;
+  align-items: center; }
+
+.back-button-ios {
+  padding: 0;
+  margin: 0;
+  z-index: 99;
+  overflow: visible;
+  min-height: 32px;
+  border: 0;
+  font-size: 17px;
+  line-height: 1;
+  color: var(--ion-color-ios-primary, var(--ion-color-primary, #3880ff));
+  background-color: transparent;
+  transform: translateZ(0); }
+  .back-button-ios.activated {
+    opacity: .4; }
+
+.back-button-ios ion-icon {
+  padding: 0;
+  margin: 0 -5px 0 -4px;
+  display: inherit;
+  font-size: 1.85em;
+  pointer-events: none; }
+
+.back-button-ios-primary {
+  color: var(--ion-color-ios-primary, var(--ion-color-primary, #3880ff)); }
+
+.back-button-ios-secondary {
+  color: var(--ion-color-ios-secondary, var(--ion-color-secondary, #0cd1e8)); }
+
+.back-button-ios-tertiary {
+  color: var(--ion-color-ios-tertiary, var(--ion-color-tertiary, #7044ff)); }
+
+.back-button-ios-success {
+  color: var(--ion-color-ios-success, var(--ion-color-success, #10dc60)); }
+
+.back-button-ios-warning {
+  color: var(--ion-color-ios-warning, var(--ion-color-warning, #ffce00)); }
+
+.back-button-ios-danger {
+  color: var(--ion-color-ios-danger, var(--ion-color-danger, #f04141)); }
+
+.back-button-ios-light {
+  color: var(--ion-color-ios-light, var(--ion-color-light, #f4f5f8)); }
+
+.back-button-ios-medium {
+  color: var(--ion-color-ios-medium, var(--ion-color-medium, #989aa2)); }
+
+.back-button-ios-dark {
+  color: var(--ion-color-ios-dark, var(--ion-color-dark, #222428)); }

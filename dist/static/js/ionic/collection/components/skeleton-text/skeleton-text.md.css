@@ -1,0 +1,13 @@
+ion-skeleton-text {
+  display: inline-block;
+  width: 100%;
+  pointer-events: none;
+  user-select: none; }
+
+ion-skeleton-text span {
+  display: inline-block;
+  font-size: 8px; }
+
+.skeleton-text-md span {
+  background-color: var(--ion-text-md-color, var(--ion-text-color, #000));
+  opacity: 0.1; }

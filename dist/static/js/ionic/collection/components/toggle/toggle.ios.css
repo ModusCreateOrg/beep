@@ -1,0 +1,147 @@
+ion-toggle {
+  display: inline-block;
+  contain: content;
+  touch-action: none;
+  user-select: none; }
+
+ion-toggle ion-gesture {
+  display: block;
+  width: 100%;
+  height: 100%;
+  visibility: inherit; }
+
+.toggle-cover {
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  outline: none;
+  font-family: inherit;
+  font-style: inherit;
+  font-variant: inherit;
+  line-height: 1;
+  text-transform: none;
+  background: transparent;
+  cursor: pointer; }
+
+ion-toggle input {
+  left: 0;
+  top: 0;
+  margin: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  pointer-events: none;
+  appearance: none; }
+
+ion-toggle :focus {
+  outline: none; }
+
+.toggle-key input {
+  border: 2px solid #5e9ed6; }
+
+.toggle-ios {
+  box-sizing: content-box;
+  position: relative;
+  width: 51px;
+  height: 32px;
+  contain: strict; }
+
+.toggle-ios .toggle-icon {
+  border-radius: 16px;
+  position: relative;
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  background-color: var(--ion-background-ios-color-step-50, var(--ion-background-color-step-50, #f2f2f2));
+  transition: background-color 300ms;
+  pointer-events: none; }
+
+.toggle-ios .toggle-icon::before {
+  left: 2px;
+  right: 2px;
+  top: 2px;
+  bottom: 2px;
+  border-radius: 16px;
+  position: absolute;
+  background-color: var(--ion-item-ios-background-color, var(--ion-background-ios-color, var(--ion-background-color, #fff)));
+  content: "";
+  transform: scale3d(1, 1, 1);
+  transition: transform 300ms; }
+
+.toggle-ios .toggle-inner {
+  left: 2px;
+  top: 2px;
+  border-radius: 14px;
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  background-color: var(--ion-item-ios-background-color, var(--ion-background-ios-color, var(--ion-background-color, #fff)));
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.16), 0 3px 1px rgba(0, 0, 0, 0.1);
+  transition: transform 300ms, width 120ms ease-in-out 80ms, left 110ms ease-in-out 80ms, right 110ms ease-in-out 80ms;
+  will-change: transform;
+  contain: strict; }
+
+.toggle-ios.toggle-checked .toggle-icon {
+  background-color: var(--ion-color-ios-primary, var(--ion-color-primary, #3880ff)); }
+
+.toggle-ios.toggle-activated .toggle-icon::before,
+.toggle-ios.toggle-checked .toggle-icon::before {
+  transform: scale3d(0, 0, 0); }
+
+.toggle-ios.toggle-checked .toggle-inner {
+  transform: translate3d(19px,  0,  0); }
+
+.toggle-ios.toggle-activated.toggle-checked .toggle-inner::before {
+  transform: scale3d(0, 0, 0); }
+
+.toggle-ios.toggle-activated .toggle-inner {
+  width: 34px; }
+
+.toggle-ios.toggle-activated.toggle-checked .toggle-inner {
+  left: -4px; }
+
+.toggle-ios.toggle-disabled,
+.item-ios.item-toggle-disabled ion-label {
+  opacity: 0.3;
+  pointer-events: none; }
+
+.item-ios .toggle-ios[slot] {
+  margin: 0;
+  padding: 6px 8px 5px 16px; }
+
+.item-ios .toggle-ios[slot="start"] {
+  padding: 6px 16px 5px 0; }
+
+.toggle-ios-primary.toggle-checked .toggle-icon {
+  background-color: var(--ion-color-ios-primary, var(--ion-color-primary, #3880ff)); }
+
+.toggle-ios-secondary.toggle-checked .toggle-icon {
+  background-color: var(--ion-color-ios-secondary, var(--ion-color-secondary, #0cd1e8)); }
+
+.toggle-ios-tertiary.toggle-checked .toggle-icon {
+  background-color: var(--ion-color-ios-tertiary, var(--ion-color-tertiary, #7044ff)); }
+
+.toggle-ios-success.toggle-checked .toggle-icon {
+  background-color: var(--ion-color-ios-success, var(--ion-color-success, #10dc60)); }
+
+.toggle-ios-warning.toggle-checked .toggle-icon {
+  background-color: var(--ion-color-ios-warning, var(--ion-color-warning, #ffce00)); }
+
+.toggle-ios-danger.toggle-checked .toggle-icon {
+  background-color: var(--ion-color-ios-danger, var(--ion-color-danger, #f04141)); }
+
+.toggle-ios-light.toggle-checked .toggle-icon {
+  background-color: var(--ion-color-ios-light, var(--ion-color-light, #f4f5f8)); }
+
+.toggle-ios-medium.toggle-checked .toggle-icon {
+  background-color: var(--ion-color-ios-medium, var(--ion-color-medium, #989aa2)); }
+
+.toggle-ios-dark.toggle-checked .toggle-icon {
+  background-color: var(--ion-color-ios-dark, var(--ion-color-dark, #222428)); }
