@@ -79,11 +79,11 @@ export default {
         beforeLeave(element) {
             this.leavingEl = element
 
-            if (!this.animated || this.$router.direction < 0) {
+            if (!this.enteringEl || !this.animated || this.$router.direction < 0) {
                 return;
             }
 
-            if (this.enteringEl && this.isAndroid) {
+            if (this.isAndroid) {
                 this.enteringEl.style.opacity = 0
             }
         },
