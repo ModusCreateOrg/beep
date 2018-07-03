@@ -32,11 +32,6 @@ export default {
             default: true,
         },
     },
-    computed: {
-        isAndroid() {
-            return this.$root.$el.classList.contains('md')
-        }
-    },
     methods: {
         catchIonicGoBack(event) {
             if (!event.target) {
@@ -65,6 +60,8 @@ export default {
                 return
             }
 
+            enteringEl.classList.add('ion-page', 'hide-page')
+
             await ionRouterOutlet.componentOnReady()
             await ionRouterOutlet.commit(enteringEl, leavingEl, {
                 duration: !this.animated ? 0 : undefined,
@@ -81,10 +78,6 @@ export default {
 
             if (!this.enteringEl || !this.animated || this.$router.direction < 0) {
                 return;
-            }
-
-            if (this.isAndroid) {
-                this.enteringEl.style.opacity = 0
             }
         },
         leave(element, done) {
