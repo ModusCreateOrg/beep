@@ -5,10 +5,8 @@ import Pwd from './Pwd.vue'
 import Router from './router'
 import api from './api'
 
-
 const glob = {
     api,
-    // nav: api.newNavController(Home).then(e => glob.nav = e),
 }
 
 glob.install = function () {
@@ -23,6 +21,7 @@ Vue.config.ignoredElements = [/^ion-/]
 
 new Vue({
     router: new Router({
+        mode: 'history',
         routes: [
             { path: '/', component: Home },
             { path: '/acc', component: Acc },
