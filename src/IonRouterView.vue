@@ -60,6 +60,8 @@ export default {
                 return
             }
 
+            enteringEl.classList.add('ion-page', 'hide-page')
+
             await ionRouterOutlet.componentOnReady()
             await ionRouterOutlet.commit(enteringEl, leavingEl, {
                 duration: !this.animated ? 0 : undefined,
@@ -74,8 +76,8 @@ export default {
         beforeLeave(element) {
             this.leavingEl = element
 
-            if (this.animated && this.$router.direction > 0) {
-                this.enteringEl.style.opacity = 0
+            if (!this.enteringEl || !this.animated || this.$router.direction < 0) {
+                return;
             }
         },
         leave(element, done) {
@@ -83,10 +85,7 @@ export default {
                 return done()
             }
 
-            this.transition(this.enteringEl, element).then(() => {
-                this.enteringEl.style.opacity = 1
-                done()
-            })
+            this.transition(this.enteringEl, element).then(() => done())
         },
         enter(element, done) {
             done()
