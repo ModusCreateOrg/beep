@@ -1,0 +1,258 @@
+.fab-button {
+  text-align: center;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 50%;
+  position: relative;
+  z-index: 0;
+  display: block;
+  overflow: hidden;
+  width: 56px;
+  height: 56px;
+  border: 0;
+  font-size: 14px;
+  line-height: 56px;
+  text-overflow: ellipsis;
+  text-transform: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color, opacity 100ms linear;
+  background-clip: padding-box;
+  font-kerning: none;
+  user-select: none;
+  contain: strict; }
+  .fab-button:active, .fab-button:focus {
+    outline: none; }
+
+.fab-button ion-icon {
+  font-size: 24px;
+  line-height: 1; }
+
+.fab-button-inner {
+  display: flex;
+  flex-flow: row nowrap;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  transition: all ease-in-out 300ms;
+  transition-property: transform, opacity; }
+
+ion-fab-button[mini] .fab-button {
+  margin: 8px;
+  width: 40px;
+  height: 40px;
+  line-height: 40px; }
+
+.fab-button-close-icon {
+  left: 0;
+  right: 0;
+  top: 0;
+  position: absolute;
+  display: flex;
+  height: 100%;
+  opacity: 0;
+  transform: scale(0.4) rotateZ(-45deg);
+  transition: all ease-in-out 300ms;
+  transition-property: transform, opacity; }
+
+.fab-button-close-icon .icon-inner {
+  margin: auto; }
+
+.fab-button-close-active .fab-button-close-icon {
+  opacity: 1;
+  transform: scale(1) rotateZ(0deg); }
+
+.fab-button-close-active .fab-button-inner {
+  opacity: 0;
+  transform: scale(0.4) rotateZ(45deg); }
+
+.fab-button-ios {
+  color: var(--ion-color-ios-primary-contrast, var(--ion-color-primary-contrast, #fff));
+  background-color: var(--ion-color-ios-primary, var(--ion-color-primary, #3880ff));
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  transition: 0.2s transform cubic-bezier(0.25, 1.11, 0.78, 1.59); }
+
+.fab-button-ios.activated {
+  background-color: var(--ion-color-ios-primary-tint, var(--ion-color-primary-tint, #4c8dff));
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  transform: scale(1.1);
+  transition: 0.2s transform ease-out; }
+
+.fab-button-ios .icon {
+  font-size: 28px;
+  fill: var(--ion-color-ios-primary-contrast, var(--ion-color-primary-contrast, #fff)); }
+
+.fab-button-ios-in-list {
+  color: var(--ion-color-ios-light-contrast, var(--ion-color-light-contrast, #000));
+  background-color: var(--ion-color-ios-light, var(--ion-color-light, #f4f5f8));
+  transition: transform 200ms ease 10ms, opacity 200ms ease 10ms; }
+
+.fab-button-ios-in-list.activated {
+  background-color: var(--ion-color-ios-light-tint, var(--ion-color-light-tint, #f5f6f9)); }
+
+.fab-button-ios-in-list .icon {
+  fill: var(--ion-color-ios-light-contrast, var(--ion-color-light-contrast, #000)); }
+
+.fab-translucent-ios {
+  background-color: rgba(var(--ion-color-ios-primary-rgb, var(--ion-color-primary-rgb, 56, 128, 255)), 0.9);
+  backdrop-filter: saturate(180%) blur(20px); }
+
+.fab-translucent-ios-in-list {
+  background-color: rgba(var(--ion-background-ios-color-rgb, var(--ion-background-color-rgb, 255, 255, 255)), 0.8); }
+
+.fab-button-ios-primary {
+  color: var(--ion-color-ios-primary-contrast, var(--ion-color-primary-contrast, #fff));
+  background-color: var(--ion-color-ios-primary, var(--ion-color-primary, #3880ff)); }
+
+.fab-button-ios-primary .icon {
+  fill: var(--ion-color-ios-primary-contrast, var(--ion-color-primary-contrast, #fff)); }
+
+.fab-button-ios-primary.activated {
+  background-color: var(--ion-color-ios-primary-tint, var(--ion-color-primary-tint, #4c8dff)); }
+
+.fab-translucent-ios-primary {
+  background-color: rgba(var(--ion-color-ios-primary-rgb, var(--ion-color-primary-rgb, 56, 128, 255)), 0.9);
+  opacity: .8; }
+
+.fab-translucent-ios-primary.activated {
+  opacity: 1; }
+
+.fab-button-ios-secondary {
+  color: var(--ion-color-ios-secondary-contrast, var(--ion-color-secondary-contrast, #fff));
+  background-color: var(--ion-color-ios-secondary, var(--ion-color-secondary, #0cd1e8)); }
+
+.fab-button-ios-secondary .icon {
+  fill: var(--ion-color-ios-secondary-contrast, var(--ion-color-secondary-contrast, #fff)); }
+
+.fab-button-ios-secondary.activated {
+  background-color: var(--ion-color-ios-secondary-tint, var(--ion-color-secondary-tint, #24d6ea)); }
+
+.fab-translucent-ios-secondary {
+  background-color: rgba(var(--ion-color-ios-secondary-rgb, var(--ion-color-secondary-rgb, 12, 209, 232)), 0.9);
+  opacity: .8; }
+
+.fab-translucent-ios-secondary.activated {
+  opacity: 1; }
+
+.fab-button-ios-tertiary {
+  color: var(--ion-color-ios-tertiary-contrast, var(--ion-color-tertiary-contrast, #fff));
+  background-color: var(--ion-color-ios-tertiary, var(--ion-color-tertiary, #7044ff)); }
+
+.fab-button-ios-tertiary .icon {
+  fill: var(--ion-color-ios-tertiary-contrast, var(--ion-color-tertiary-contrast, #fff)); }
+
+.fab-button-ios-tertiary.activated {
+  background-color: var(--ion-color-ios-tertiary-tint, var(--ion-color-tertiary-tint, #7e57ff)); }
+
+.fab-translucent-ios-tertiary {
+  background-color: rgba(var(--ion-color-ios-tertiary-rgb, var(--ion-color-tertiary-rgb, 112, 68, 255)), 0.9);
+  opacity: .8; }
+
+.fab-translucent-ios-tertiary.activated {
+  opacity: 1; }
+
+.fab-button-ios-success {
+  color: var(--ion-color-ios-success-contrast, var(--ion-color-success-contrast, #fff));
+  background-color: var(--ion-color-ios-success, var(--ion-color-success, #10dc60)); }
+
+.fab-button-ios-success .icon {
+  fill: var(--ion-color-ios-success-contrast, var(--ion-color-success-contrast, #fff)); }
+
+.fab-button-ios-success.activated {
+  background-color: var(--ion-color-ios-success-tint, var(--ion-color-success-tint, #28e070)); }
+
+.fab-translucent-ios-success {
+  background-color: rgba(var(--ion-color-ios-success-rgb, var(--ion-color-success-rgb, 16, 220, 96)), 0.9);
+  opacity: .8; }
+
+.fab-translucent-ios-success.activated {
+  opacity: 1; }
+
+.fab-button-ios-warning {
+  color: var(--ion-color-ios-warning-contrast, var(--ion-color-warning-contrast, #fff));
+  background-color: var(--ion-color-ios-warning, var(--ion-color-warning, #ffce00)); }
+
+.fab-button-ios-warning .icon {
+  fill: var(--ion-color-ios-warning-contrast, var(--ion-color-warning-contrast, #fff)); }
+
+.fab-button-ios-warning.activated {
+  background-color: var(--ion-color-ios-warning-tint, var(--ion-color-warning-tint, #ffd31a)); }
+
+.fab-translucent-ios-warning {
+  background-color: rgba(var(--ion-color-ios-warning-rgb, var(--ion-color-warning-rgb, 255, 206, 0)), 0.9);
+  opacity: .8; }
+
+.fab-translucent-ios-warning.activated {
+  opacity: 1; }
+
+.fab-button-ios-danger {
+  color: var(--ion-color-ios-danger-contrast, var(--ion-color-danger-contrast, #fff));
+  background-color: var(--ion-color-ios-danger, var(--ion-color-danger, #f04141)); }
+
+.fab-button-ios-danger .icon {
+  fill: var(--ion-color-ios-danger-contrast, var(--ion-color-danger-contrast, #fff)); }
+
+.fab-button-ios-danger.activated {
+  background-color: var(--ion-color-ios-danger-tint, var(--ion-color-danger-tint, #f25454)); }
+
+.fab-translucent-ios-danger {
+  background-color: rgba(var(--ion-color-ios-danger-rgb, var(--ion-color-danger-rgb, 240, 65, 65)), 0.9);
+  opacity: .8; }
+
+.fab-translucent-ios-danger.activated {
+  opacity: 1; }
+
+.fab-button-ios-light {
+  color: var(--ion-color-ios-light-contrast, var(--ion-color-light-contrast, #000));
+  background-color: var(--ion-color-ios-light, var(--ion-color-light, #f4f5f8)); }
+
+.fab-button-ios-light .icon {
+  fill: var(--ion-color-ios-light-contrast, var(--ion-color-light-contrast, #000)); }
+
+.fab-button-ios-light.activated {
+  background-color: var(--ion-color-ios-light-tint, var(--ion-color-light-tint, #f5f6f9)); }
+
+.fab-translucent-ios-light {
+  background-color: rgba(var(--ion-color-ios-light-rgb, var(--ion-color-light-rgb, 244, 245, 248)), 0.9);
+  opacity: .8; }
+
+.fab-translucent-ios-light.activated {
+  opacity: 1; }
+
+.fab-button-ios-medium {
+  color: var(--ion-color-ios-medium-contrast, var(--ion-color-medium-contrast, #fff));
+  background-color: var(--ion-color-ios-medium, var(--ion-color-medium, #989aa2)); }
+
+.fab-button-ios-medium .icon {
+  fill: var(--ion-color-ios-medium-contrast, var(--ion-color-medium-contrast, #fff)); }
+
+.fab-button-ios-medium.activated {
+  background-color: var(--ion-color-ios-medium-tint, var(--ion-color-medium-tint, #a2a4ab)); }
+
+.fab-translucent-ios-medium {
+  background-color: rgba(var(--ion-color-ios-medium-rgb, var(--ion-color-medium-rgb, 152, 154, 162)), 0.9);
+  opacity: .8; }
+
+.fab-translucent-ios-medium.activated {
+  opacity: 1; }
+
+.fab-button-ios-dark {
+  color: var(--ion-color-ios-dark-contrast, var(--ion-color-dark-contrast, #fff));
+  background-color: var(--ion-color-ios-dark, var(--ion-color-dark, #222428)); }
+
+.fab-button-ios-dark .icon {
+  fill: var(--ion-color-ios-dark-contrast, var(--ion-color-dark-contrast, #fff)); }
+
+.fab-button-ios-dark.activated {
+  background-color: var(--ion-color-ios-dark-tint, var(--ion-color-dark-tint, #383a3e)); }
+
+.fab-translucent-ios-dark {
+  background-color: rgba(var(--ion-color-ios-dark-rgb, var(--ion-color-dark-rgb, 34, 36, 40)), 0.9);
+  opacity: .8; }
+
+.fab-translucent-ios-dark.activated {
+  opacity: 1; }

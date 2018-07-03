@@ -1,0 +1,9 @@
+ion-header {
+  position: relative;
+  z-index: 10;
+  display: block;
+  order: -1;
+  width: 100%; }
+
+.header-translucent-ios {
+  backdrop-filter: saturate(180%) blur(20px); }

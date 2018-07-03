@@ -1,0 +1,66 @@
+@import "../../themes/ionic.globals";
+
+// Searchbar
+// --------------------------------------------------
+
+ion-searchbar {
+  @include font-smoothing();
+
+  box-sizing: border-box;
+
+  position: relative;
+  display: flex;
+
+  align-items: center;
+
+  width: 100%;
+}
+
+.searchbar-icon {
+  // Don't let them tap on the icon
+  pointer-events: none;
+}
+
+.searchbar-input-container {
+  position: relative;
+  display: block;
+
+  flex-shrink: 1;
+
+  width: 100%;
+}
+
+.searchbar-input {
+  @include appearance(none);
+
+  box-sizing: border-box;
+
+  display: block;
+
+  width: 100%;
+
+  border: 0;
+  font-family: inherit;
+
+  &:active,
+  &:focus {
+    outline: none;
+  }
+
+  &::-webkit-search-cancel-button {
+    display: none;
+  }
+}
+
+.searchbar-clear-icon {
+  @include margin(0);
+  @include padding(0);
+
+  display: none;
+
+  min-height: 0;
+}
+
+.searchbar-has-value.searchbar-has-focus .searchbar-clear-icon {
+  display: block;
+}

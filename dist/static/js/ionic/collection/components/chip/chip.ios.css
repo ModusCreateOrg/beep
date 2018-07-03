@@ -1,0 +1,139 @@
+ion-chip {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  align-self: center;
+  font-weight: normal;
+  vertical-align: middle; }
+
+ion-chip > ion-icon {
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px; }
+
+ion-chip ion-icon {
+  font-size: 18px; }
+
+.chip-ios {
+  border-radius: 16px;
+  margin: 2px 0;
+  height: 32px;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Roboto", sans-serif;
+  font-size: 13px;
+  color: var(--ion-text-ios-color-step-150, var(--ion-text-color-step-150, #262626));
+  background: rgba(var(--ion-text-ios-color-rgb, var(--ion-text-color-rgb, 0, 0, 0)), 0.1); }
+
+.chip-ios > ion-label {
+  margin: 0 10px; }
+
+.chip-ios > ion-icon {
+  color: var(--ion-color-ios-primary-contrast, var(--ion-color-primary-contrast, #fff));
+  background-color: var(--ion-color-ios-primary, var(--ion-color-primary, #3880ff)); }
+
+.chip-ios ion-avatar {
+  width: 32px;
+  height: 32px; }
+
+.chip-ios-primary {
+  color: var(--ion-color-ios-primary-contrast, var(--ion-color-primary-contrast, #fff));
+  background-color: var(--ion-color-ios-primary, var(--ion-color-primary, #3880ff)); }
+
+.chip-ios .icon-ios-primary {
+  color: var(--ion-color-ios-primary-contrast, var(--ion-color-primary-contrast, #fff));
+  background-color: var(--ion-color-ios-primary, var(--ion-color-primary, #3880ff)); }
+  .chip-ios .icon-ios-primary svg {
+    fill: var(--ion-color-ios-primary-contrast, var(--ion-color-primary-contrast, #fff));
+    stroke: var(--ion-color-ios-primary-contrast, var(--ion-color-primary-contrast, #fff)); }
+
+.chip-ios-secondary {
+  color: var(--ion-color-ios-secondary-contrast, var(--ion-color-secondary-contrast, #fff));
+  background-color: var(--ion-color-ios-secondary, var(--ion-color-secondary, #0cd1e8)); }
+
+.chip-ios .icon-ios-secondary {
+  color: var(--ion-color-ios-secondary-contrast, var(--ion-color-secondary-contrast, #fff));
+  background-color: var(--ion-color-ios-secondary, var(--ion-color-secondary, #0cd1e8)); }
+  .chip-ios .icon-ios-secondary svg {
+    fill: var(--ion-color-ios-secondary-contrast, var(--ion-color-secondary-contrast, #fff));
+    stroke: var(--ion-color-ios-secondary-contrast, var(--ion-color-secondary-contrast, #fff)); }
+
+.chip-ios-tertiary {
+  color: var(--ion-color-ios-tertiary-contrast, var(--ion-color-tertiary-contrast, #fff));
+  background-color: var(--ion-color-ios-tertiary, var(--ion-color-tertiary, #7044ff)); }
+
+.chip-ios .icon-ios-tertiary {
+  color: var(--ion-color-ios-tertiary-contrast, var(--ion-color-tertiary-contrast, #fff));
+  background-color: var(--ion-color-ios-tertiary, var(--ion-color-tertiary, #7044ff)); }
+  .chip-ios .icon-ios-tertiary svg {
+    fill: var(--ion-color-ios-tertiary-contrast, var(--ion-color-tertiary-contrast, #fff));
+    stroke: var(--ion-color-ios-tertiary-contrast, var(--ion-color-tertiary-contrast, #fff)); }
+
+.chip-ios-success {
+  color: var(--ion-color-ios-success-contrast, var(--ion-color-success-contrast, #fff));
+  background-color: var(--ion-color-ios-success, var(--ion-color-success, #10dc60)); }
+
+.chip-ios .icon-ios-success {
+  color: var(--ion-color-ios-success-contrast, var(--ion-color-success-contrast, #fff));
+  background-color: var(--ion-color-ios-success, var(--ion-color-success, #10dc60)); }
+  .chip-ios .icon-ios-success svg {
+    fill: var(--ion-color-ios-success-contrast, var(--ion-color-success-contrast, #fff));
+    stroke: var(--ion-color-ios-success-contrast, var(--ion-color-success-contrast, #fff)); }
+
+.chip-ios-warning {
+  color: var(--ion-color-ios-warning-contrast, var(--ion-color-warning-contrast, #fff));
+  background-color: var(--ion-color-ios-warning, var(--ion-color-warning, #ffce00)); }
+
+.chip-ios .icon-ios-warning {
+  color: var(--ion-color-ios-warning-contrast, var(--ion-color-warning-contrast, #fff));
+  background-color: var(--ion-color-ios-warning, var(--ion-color-warning, #ffce00)); }
+  .chip-ios .icon-ios-warning svg {
+    fill: var(--ion-color-ios-warning-contrast, var(--ion-color-warning-contrast, #fff));
+    stroke: var(--ion-color-ios-warning-contrast, var(--ion-color-warning-contrast, #fff)); }
+
+.chip-ios-danger {
+  color: var(--ion-color-ios-danger-contrast, var(--ion-color-danger-contrast, #fff));
+  background-color: var(--ion-color-ios-danger, var(--ion-color-danger, #f04141)); }
+
+.chip-ios .icon-ios-danger {
+  color: var(--ion-color-ios-danger-contrast, var(--ion-color-danger-contrast, #fff));
+  background-color: var(--ion-color-ios-danger, var(--ion-color-danger, #f04141)); }
+  .chip-ios .icon-ios-danger svg {
+    fill: var(--ion-color-ios-danger-contrast, var(--ion-color-danger-contrast, #fff));
+    stroke: var(--ion-color-ios-danger-contrast, var(--ion-color-danger-contrast, #fff)); }
+
+.chip-ios-light {
+  color: var(--ion-color-ios-light-contrast, var(--ion-color-light-contrast, #000));
+  background-color: var(--ion-color-ios-light, var(--ion-color-light, #f4f5f8)); }
+
+.chip-ios .icon-ios-light {
+  color: var(--ion-color-ios-light-contrast, var(--ion-color-light-contrast, #000));
+  background-color: var(--ion-color-ios-light, var(--ion-color-light, #f4f5f8)); }
+  .chip-ios .icon-ios-light svg {
+    fill: var(--ion-color-ios-light-contrast, var(--ion-color-light-contrast, #000));
+    stroke: var(--ion-color-ios-light-contrast, var(--ion-color-light-contrast, #000)); }
+
+.chip-ios-medium {
+  color: var(--ion-color-ios-medium-contrast, var(--ion-color-medium-contrast, #fff));
+  background-color: var(--ion-color-ios-medium, var(--ion-color-medium, #989aa2)); }
+
+.chip-ios .icon-ios-medium {
+  color: var(--ion-color-ios-medium-contrast, var(--ion-color-medium-contrast, #fff));
+  background-color: var(--ion-color-ios-medium, var(--ion-color-medium, #989aa2)); }
+  .chip-ios .icon-ios-medium svg {
+    fill: var(--ion-color-ios-medium-contrast, var(--ion-color-medium-contrast, #fff));
+    stroke: var(--ion-color-ios-medium-contrast, var(--ion-color-medium-contrast, #fff)); }
+
+.chip-ios-dark {
+  color: var(--ion-color-ios-dark-contrast, var(--ion-color-dark-contrast, #fff));
+  background-color: var(--ion-color-ios-dark, var(--ion-color-dark, #222428)); }
+
+.chip-ios .icon-ios-dark {
+  color: var(--ion-color-ios-dark-contrast, var(--ion-color-dark-contrast, #fff));
+  background-color: var(--ion-color-ios-dark, var(--ion-color-dark, #222428)); }
+  .chip-ios .icon-ios-dark svg {
+    fill: var(--ion-color-ios-dark-contrast, var(--ion-color-dark-contrast, #fff));
+    stroke: var(--ion-color-ios-dark-contrast, var(--ion-color-dark-contrast, #fff)); }

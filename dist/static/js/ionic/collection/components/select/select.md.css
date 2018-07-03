@@ -1,0 +1,92 @@
+ion-select {
+  display: flex;
+  overflow: hidden; }
+
+.item .select {
+  max-width: 45%; }
+
+.select-cover {
+  left: 0;
+  top: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: transparent;
+  cursor: pointer; }
+
+.select-text {
+  overflow: hidden;
+  flex: 1;
+  min-width: 16px;
+  font-size: inherit;
+  text-overflow: ellipsis;
+  white-space: nowrap; }
+
+.item-multiple-inputs ion-select {
+  position: relative; }
+
+.select-disabled,
+.item-select-disabled ion-label {
+  opacity: .4;
+  pointer-events: none; }
+
+.select-popover ion-list {
+  margin: -1px 0; }
+
+.select-option {
+  display: none; }
+
+.select button:focus {
+  outline: none; }
+
+.select-key button {
+  border: 2px solid #5e9ed6; }
+
+.item-label-stacked .select,
+.item-label-floating .select {
+  max-width: 100%; }
+
+.select-md {
+  padding: 13px 8px 13px 16px;
+  font-family: "Roboto", "Helvetica Neue", sans-serif;
+  color: var(--ion-text-md-color, var(--ion-text-color, #000)); }
+
+.select-md .select-placeholder {
+  color: var(--ion-text-md-color-step-600, var(--ion-text-color-step-600, #999999)); }
+
+.select-md .item-select ion-label {
+  margin-left: 0; }
+
+.select-md .select-icon {
+  position: relative;
+  width: 12px;
+  height: 19px; }
+
+.select-md .select-icon .select-icon-inner {
+  left: 5px;
+  top: 50%;
+  margin-top: -3px;
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-top: 5px solid;
+  border-right: 5px solid transparent;
+  border-left: 5px solid transparent;
+  color: var(--ion-text-md-color-step-600, var(--ion-text-color-step-600, #999999));
+  pointer-events: none; }
+
+.item-label-stacked .select-md,
+.item-label-floating .select-md {
+  padding-left: 0;
+  padding-top: 8px;
+  padding-bottom: 8px; }
+
+.select-popover-md .radio-icon {
+  display: none; }
+
+.select-popover-md .item-radio-checked {
+  background-color: var(--ion-background-md-color-step-150, var(--ion-background-color-step-150, #d9d9d9)); }
+
+.select-popover-md .item-radio-checked ion-label {
+  color: initial; }

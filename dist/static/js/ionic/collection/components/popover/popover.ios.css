@@ -1,0 +1,71 @@
+ion-popover {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.popover-wrapper {
+  z-index: 10;
+  opacity: 0; }
+
+.popover-content {
+  position: absolute;
+  z-index: 10;
+  display: flex;
+  overflow: auto;
+  flex-direction: column; }
+
+.popover-content ion-content,
+.popover-content ion-scroll {
+  contain: none; }
+
+.popover-content ion-scroll {
+  position: relative; }
+
+ion-popover-controller {
+  display: none; }
+
+.popover-ios .popover-content {
+  border-radius: 10px;
+  width: 200px;
+  min-width: 0;
+  min-height: 0;
+  max-height: 90%;
+  color: var(--ion-text-ios-color, var(--ion-text-color, #000));
+  background-color: var(--ion-background-ios-color, var(--ion-background-color, #fff)); }
+
+.popover-ios .popover-arrow {
+  position: absolute;
+  display: block;
+  overflow: hidden;
+  width: 20px;
+  height: 10px; }
+
+.popover-ios .popover-arrow::after {
+  left: 3px;
+  top: 3px;
+  border-radius: 3px;
+  position: absolute;
+  z-index: 10;
+  width: 14px;
+  height: 14px;
+  background-color: var(--ion-background-ios-color, var(--ion-background-color, #fff));
+  content: "";
+  transform: rotate(45deg); }
+
+.popover-ios.popover-bottom .popover-arrow {
+  top: auto;
+  bottom: -10px; }
+
+.popover-ios.popover-bottom .popover-arrow::after {
+  top: -6px; }
+
+.popover-translucent-ios .popover-content,
+.popover-translucent-ios .popover-arrow::after {
+  background: rgba(var(--ion-background-ios-color-rgb, var(--ion-background-color-rgb, 255, 255, 255)), 0.8);
+  backdrop-filter: saturate(180%) blur(20px); }

@@ -1,0 +1,127 @@
+@import "./searchbar";
+@import "./searchbar.md.vars";
+
+// Material Design Searchbar
+// --------------------------------------------------
+
+.searchbar-md {
+  @include padding($searchbar-md-padding-top, $searchbar-md-padding-end, $searchbar-md-padding-bottom, $searchbar-md-padding-start);
+
+  font-family: $searchbar-md-font-family;
+
+  background: $searchbar-md-background;
+}
+
+
+// Searchbar Search Icon
+// -----------------------------------------
+
+.searchbar-search-icon-md {
+  @include position(11px, null, null, 16px);
+  @include svg-background-image($searchbar-md-input-search-icon-svg, true);
+
+  width: $searchbar-md-input-search-icon-size + 1;
+  height: $searchbar-md-input-search-icon-size + 1;
+}
+
+
+// Searchbar Cancel Icon
+// -----------------------------------------
+
+.searchbar-cancel-button-md {
+  @include position(0, null, null, 10px);
+  @include margin(0);
+
+  display: none;
+
+  height: 100%;
+
+  border: 0;
+  font-size: $searchbar-md-cancel-button-font-size;
+
+  color: $searchbar-md-cancel-button-color;
+  background-color: $searchbar-md-cancel-button-background-color;
+}
+
+// Searchbar Search & Cancel Icon
+// -----------------------------------------
+
+.searchbar-search-icon-md,
+.searchbar-cancel-button-md {
+  position: absolute;
+
+  background-repeat: no-repeat;
+  background-size: $searchbar-md-input-search-icon-size;
+}
+
+.searchbar-search-icon-md.activated,
+.searchbar-cancel-button-md.activated {
+  background-color: transparent;
+}
+
+
+// Searchbar Input Field
+// -----------------------------------------
+
+.searchbar-md .searchbar-input {
+  @include placeholder($searchbar-md-input-placeholder-color);
+  @include padding(6px, 55px);
+  @include border-radius($searchbar-md-input-border-radius);
+  @include background-position(start, 8px, center);
+
+  height: $searchbar-md-input-height;
+
+  font-size: 16px;
+  font-weight: 400;
+
+  line-height: $searchbar-md-input-line-height;
+  color: $searchbar-md-input-text-color;
+
+  background-color: $searchbar-md-input-background-color;
+  box-shadow: $searchbar-md-input-box-shadow;
+}
+
+
+// Searchbar Clear Input Icon
+// -----------------------------------------
+
+.searchbar-md .searchbar-clear-icon {
+  @include position(0, 13px, null, null);
+  @include svg-background-image($searchbar-md-input-clear-icon-svg);
+  @include padding(0);
+  @include background-position(center);
+
+  position: absolute;
+
+  width: $searchbar-md-input-clear-icon-size;
+  height: 100%;
+
+  border: 0;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: $searchbar-md-input-clear-icon-size;
+}
+
+.searchbar-md .searchbar-clear-icon.activated {
+  background-color: transparent;
+}
+
+
+// Searchbar Focused
+// -----------------------------------------
+
+.searchbar-has-focus.searchbar-show-cancel .searchbar-search-icon-md {
+  display: none;
+}
+
+.searchbar-has-focus.searchbar-show-cancel .searchbar-cancel-button-md {
+  display: inline-flex;
+}
+
+
+// Searchbar in Toolbar
+// -----------------------------------------
+
+.toolbar .searchbar-md {
+  @include padding(3px);
+}

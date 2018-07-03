@@ -1,0 +1,41 @@
+ion-scroll {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  z-index: 1;
+  display: block;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  will-change: scroll-position;
+  contain: size style layout; }
+  ion-scroll .focus-input {
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 0;
+    background: none;
+    opacity: 0;
+    appearance: none; }
+  ion-scroll.overscroll::before, ion-scroll.overscroll::after {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    content: ""; }
+  ion-scroll.overscroll::before {
+    bottom: -1px; }
+  ion-scroll.overscroll::after {
+    top: -1px; }
+  ion-scroll > .scroll-inner {
+    min-height: 100%; }
+
+.scroll-md {
+  font-family: "Roboto", "Helvetica Neue", sans-serif;
+  color: var(--ion-text-md-color, var(--ion-text-color, #000));
+  background-color: var(--ion-background-md-color, var(--ion-background-color, #fff)); }
+  .scroll-md hr {
+    background-color: var(--ion-background-md-color-step-50, var(--ion-background-color-step-50, #f2f2f2)); }

@@ -1,0 +1,9 @@
+@import "./footer";
+@import "./footer.ios.vars";
+
+// iOS Footer
+// --------------------------------------------------
+
+.footer-translucent-ios {
+  backdrop-filter: $footer-ios-translucent-filter;
+}

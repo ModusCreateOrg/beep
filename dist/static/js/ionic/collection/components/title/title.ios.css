@@ -1,0 +1,57 @@
+ion-title {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  transform: translateZ(0); }
+
+.toolbar-title {
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap; }
+
+.toolbar-ios ion-title {
+  left: 0;
+  top: 0;
+  padding: 0 90px 1px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: translateZ(0);
+  pointer-events: none; }
+
+.toolbar-title-ios {
+  text-align: center;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -.03em;
+  color: var(--ion-toolbar-ios-text-color, var(--ion-toolbar-text-color, var(--ion-text-color, #000)));
+  pointer-events: auto; }
+
+.toolbar-primary .toolbar-title-ios {
+  color: var(--ion-color-ios-primary-contrast, var(--ion-color-primary-contrast, #fff)); }
+
+.toolbar-secondary .toolbar-title-ios {
+  color: var(--ion-color-ios-secondary-contrast, var(--ion-color-secondary-contrast, #fff)); }
+
+.toolbar-tertiary .toolbar-title-ios {
+  color: var(--ion-color-ios-tertiary-contrast, var(--ion-color-tertiary-contrast, #fff)); }
+
+.toolbar-success .toolbar-title-ios {
+  color: var(--ion-color-ios-success-contrast, var(--ion-color-success-contrast, #fff)); }
+
+.toolbar-warning .toolbar-title-ios {
+  color: var(--ion-color-ios-warning-contrast, var(--ion-color-warning-contrast, #fff)); }
+
+.toolbar-danger .toolbar-title-ios {
+  color: var(--ion-color-ios-danger-contrast, var(--ion-color-danger-contrast, #fff)); }
+
+.toolbar-light .toolbar-title-ios {
+  color: var(--ion-color-ios-light-contrast, var(--ion-color-light-contrast, #000)); }
+
+.toolbar-medium .toolbar-title-ios {
+  color: var(--ion-color-ios-medium-contrast, var(--ion-color-medium-contrast, #fff)); }
+
+.toolbar-dark .toolbar-title-ios {
+  color: var(--ion-color-ios-dark-contrast, var(--ion-color-dark-contrast, #fff)); }

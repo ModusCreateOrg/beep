@@ -1,0 +1,100 @@
+ion-label {
+  margin: 0;
+  display: block;
+  overflow: hidden;
+  flex: 1;
+  font-size: inherit;
+  text-overflow: ellipsis;
+  white-space: nowrap; }
+
+.item-input ion-label {
+  flex: initial;
+  max-width: 200px;
+  pointer-events: none; }
+
+[text-wrap] ion-label {
+  white-space: normal; }
+
+.label-fixed {
+  flex: 0 0 100px;
+  width: 100px;
+  min-width: 100px;
+  max-width: 200px; }
+
+.item-label-stacked ion-label,
+.item-label-floating ion-label {
+  align-self: stretch;
+  width: auto;
+  max-width: 100%; }
+
+.label-stacked,
+.label-floating {
+  margin-bottom: 0; }
+
+.item-label-stacked .input-wrapper,
+.item-label-floating .input-wrapper {
+  flex: 1;
+  flex-direction: column; }
+
+.item-label-stacked ion-select,
+.item-label-floating ion-select {
+  align-self: stretch;
+  max-width: 100%; }
+
+.label-ios {
+  margin: 11px 8px 11px 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Roboto", sans-serif; }
+
+[text-wrap] .label-ios {
+  font-size: 14px;
+  line-height: 1.5; }
+
+.label-ios-stacked {
+  margin-bottom: 4px;
+  font-size: 12px; }
+
+.label-ios-floating {
+  margin-bottom: 0;
+  transform: translate3d(0,  27px,  0);
+  transform-origin: left top;
+  transition: transform 150ms ease-in-out; }
+
+.item-input-has-focus .label-ios-floating,
+.item-input-has-value .label-ios-floating {
+  transform: translate3d(0,  0,  0) scale(0.8); }
+
+.label-ios-primary,
+.item-interactive .label-ios-primary {
+  color: var(--ion-color-ios-primary, var(--ion-color-primary, #3880ff)); }
+
+.label-ios-secondary,
+.item-interactive .label-ios-secondary {
+  color: var(--ion-color-ios-secondary, var(--ion-color-secondary, #0cd1e8)); }
+
+.label-ios-tertiary,
+.item-interactive .label-ios-tertiary {
+  color: var(--ion-color-ios-tertiary, var(--ion-color-tertiary, #7044ff)); }
+
+.label-ios-success,
+.item-interactive .label-ios-success {
+  color: var(--ion-color-ios-success, var(--ion-color-success, #10dc60)); }
+
+.label-ios-warning,
+.item-interactive .label-ios-warning {
+  color: var(--ion-color-ios-warning, var(--ion-color-warning, #ffce00)); }
+
+.label-ios-danger,
+.item-interactive .label-ios-danger {
+  color: var(--ion-color-ios-danger, var(--ion-color-danger, #f04141)); }
+
+.label-ios-light,
+.item-interactive .label-ios-light {
+  color: var(--ion-color-ios-light, var(--ion-color-light, #f4f5f8)); }
+
+.label-ios-medium,
+.item-interactive .label-ios-medium {
+  color: var(--ion-color-ios-medium, var(--ion-color-medium, #989aa2)); }
+
+.label-ios-dark,
+.item-interactive .label-ios-dark {
+  color: var(--ion-color-ios-dark, var(--ion-color-dark, #222428)); }

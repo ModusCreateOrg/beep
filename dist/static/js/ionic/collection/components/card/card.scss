@@ -1,0 +1,18 @@
+@import "../../themes/ionic.globals";
+
+// Card
+// --------------------------------------------------
+
+ion-card {
+  @include font-smoothing();
+
+  position: relative;
+  display: block;
+  overflow: hidden;
+}
+
+ion-card img {
+  display: block;
+
+  width: 100%;
+}

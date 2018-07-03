@@ -1,0 +1,305 @@
+ion-card-content {
+  position: relative;
+  display: block; }
+
+.card-content-ios {
+  padding: 20px;
+  font-size: 16px;
+  line-height: 1.4; }
+
+.card-ios-primary .card-content-ios {
+  color: var(--ion-color-ios-primary-contrast, var(--ion-color-primary-contrast, #fff)); }
+
+.card-ios-primary .card-content-ios-primary {
+  color: var(--ion-color-ios-primary, var(--ion-color-primary, #3880ff)); }
+
+.card-ios-primary .card-content-ios-secondary {
+  color: var(--ion-color-ios-secondary, var(--ion-color-secondary, #0cd1e8)); }
+
+.card-ios-primary .card-content-ios-tertiary {
+  color: var(--ion-color-ios-tertiary, var(--ion-color-tertiary, #7044ff)); }
+
+.card-ios-primary .card-content-ios-success {
+  color: var(--ion-color-ios-success, var(--ion-color-success, #10dc60)); }
+
+.card-ios-primary .card-content-ios-warning {
+  color: var(--ion-color-ios-warning, var(--ion-color-warning, #ffce00)); }
+
+.card-ios-primary .card-content-ios-danger {
+  color: var(--ion-color-ios-danger, var(--ion-color-danger, #f04141)); }
+
+.card-ios-primary .card-content-ios-light {
+  color: var(--ion-color-ios-light, var(--ion-color-light, #f4f5f8)); }
+
+.card-ios-primary .card-content-ios-medium {
+  color: var(--ion-color-ios-medium, var(--ion-color-medium, #989aa2)); }
+
+.card-ios-primary .card-content-ios-dark {
+  color: var(--ion-color-ios-dark, var(--ion-color-dark, #222428)); }
+
+.card-content-ios-primary {
+  color: var(--ion-color-ios-dark, var(--ion-color-dark, #222428)); }
+
+.card-ios-secondary .card-content-ios {
+  color: var(--ion-color-ios-secondary-contrast, var(--ion-color-secondary-contrast, #fff)); }
+
+.card-ios-secondary .card-content-ios-primary {
+  color: var(--ion-color-ios-primary, var(--ion-color-primary, #3880ff)); }
+
+.card-ios-secondary .card-content-ios-secondary {
+  color: var(--ion-color-ios-secondary, var(--ion-color-secondary, #0cd1e8)); }
+
+.card-ios-secondary .card-content-ios-tertiary {
+  color: var(--ion-color-ios-tertiary, var(--ion-color-tertiary, #7044ff)); }
+
+.card-ios-secondary .card-content-ios-success {
+  color: var(--ion-color-ios-success, var(--ion-color-success, #10dc60)); }
+
+.card-ios-secondary .card-content-ios-warning {
+  color: var(--ion-color-ios-warning, var(--ion-color-warning, #ffce00)); }
+
+.card-ios-secondary .card-content-ios-danger {
+  color: var(--ion-color-ios-danger, var(--ion-color-danger, #f04141)); }
+
+.card-ios-secondary .card-content-ios-light {
+  color: var(--ion-color-ios-light, var(--ion-color-light, #f4f5f8)); }
+
+.card-ios-secondary .card-content-ios-medium {
+  color: var(--ion-color-ios-medium, var(--ion-color-medium, #989aa2)); }
+
+.card-ios-secondary .card-content-ios-dark {
+  color: var(--ion-color-ios-dark, var(--ion-color-dark, #222428)); }
+
+.card-content-ios-secondary {
+  color: var(--ion-color-ios-dark, var(--ion-color-dark, #222428)); }
+
+.card-ios-tertiary .card-content-ios {
+  color: var(--ion-color-ios-tertiary-contrast, var(--ion-color-tertiary-contrast, #fff)); }
+
+.card-ios-tertiary .card-content-ios-primary {
+  color: var(--ion-color-ios-primary, var(--ion-color-primary, #3880ff)); }
+
+.card-ios-tertiary .card-content-ios-secondary {
+  color: var(--ion-color-ios-secondary, var(--ion-color-secondary, #0cd1e8)); }
+
+.card-ios-tertiary .card-content-ios-tertiary {
+  color: var(--ion-color-ios-tertiary, var(--ion-color-tertiary, #7044ff)); }
+
+.card-ios-tertiary .card-content-ios-success {
+  color: var(--ion-color-ios-success, var(--ion-color-success, #10dc60)); }
+
+.card-ios-tertiary .card-content-ios-warning {
+  color: var(--ion-color-ios-warning, var(--ion-color-warning, #ffce00)); }
+
+.card-ios-tertiary .card-content-ios-danger {
+  color: var(--ion-color-ios-danger, var(--ion-color-danger, #f04141)); }
+
+.card-ios-tertiary .card-content-ios-light {
+  color: var(--ion-color-ios-light, var(--ion-color-light, #f4f5f8)); }
+
+.card-ios-tertiary .card-content-ios-medium {
+  color: var(--ion-color-ios-medium, var(--ion-color-medium, #989aa2)); }
+
+.card-ios-tertiary .card-content-ios-dark {
+  color: var(--ion-color-ios-dark, var(--ion-color-dark, #222428)); }
+
+.card-content-ios-tertiary {
+  color: var(--ion-color-ios-dark, var(--ion-color-dark, #222428)); }
+
+.card-ios-success .card-content-ios {
+  color: var(--ion-color-ios-success-contrast, var(--ion-color-success-contrast, #fff)); }
+
+.card-ios-success .card-content-ios-primary {
+  color: var(--ion-color-ios-primary, var(--ion-color-primary, #3880ff)); }
+
+.card-ios-success .card-content-ios-secondary {
+  color: var(--ion-color-ios-secondary, var(--ion-color-secondary, #0cd1e8)); }
+
+.card-ios-success .card-content-ios-tertiary {
+  color: var(--ion-color-ios-tertiary, var(--ion-color-tertiary, #7044ff)); }
+
+.card-ios-success .card-content-ios-success {
+  color: var(--ion-color-ios-success, var(--ion-color-success, #10dc60)); }
+
+.card-ios-success .card-content-ios-warning {
+  color: var(--ion-color-ios-warning, var(--ion-color-warning, #ffce00)); }
+
+.card-ios-success .card-content-ios-danger {
+  color: var(--ion-color-ios-danger, var(--ion-color-danger, #f04141)); }
+
+.card-ios-success .card-content-ios-light {
+  color: var(--ion-color-ios-light, var(--ion-color-light, #f4f5f8)); }
+
+.card-ios-success .card-content-ios-medium {
+  color: var(--ion-color-ios-medium, var(--ion-color-medium, #989aa2)); }
+
+.card-ios-success .card-content-ios-dark {
+  color: var(--ion-color-ios-dark, var(--ion-color-dark, #222428)); }
+
+.card-content-ios-success {
+  color: var(--ion-color-ios-dark, var(--ion-color-dark, #222428)); }
+
+.card-ios-warning .card-content-ios {
+  color: var(--ion-color-ios-warning-contrast, var(--ion-color-warning-contrast, #fff)); }
+
+.card-ios-warning .card-content-ios-primary {
+  color: var(--ion-color-ios-primary, var(--ion-color-primary, #3880ff)); }
+
+.card-ios-warning .card-content-ios-secondary {
+  color: var(--ion-color-ios-secondary, var(--ion-color-secondary, #0cd1e8)); }
+
+.card-ios-warning .card-content-ios-tertiary {
+  color: var(--ion-color-ios-tertiary, var(--ion-color-tertiary, #7044ff)); }
+
+.card-ios-warning .card-content-ios-success {
+  color: var(--ion-color-ios-success, var(--ion-color-success, #10dc60)); }
+
+.card-ios-warning .card-content-ios-warning {
+  color: var(--ion-color-ios-warning, var(--ion-color-warning, #ffce00)); }
+
+.card-ios-warning .card-content-ios-danger {
+  color: var(--ion-color-ios-danger, var(--ion-color-danger, #f04141)); }
+
+.card-ios-warning .card-content-ios-light {
+  color: var(--ion-color-ios-light, var(--ion-color-light, #f4f5f8)); }
+
+.card-ios-warning .card-content-ios-medium {
+  color: var(--ion-color-ios-medium, var(--ion-color-medium, #989aa2)); }
+
+.card-ios-warning .card-content-ios-dark {
+  color: var(--ion-color-ios-dark, var(--ion-color-dark, #222428)); }
+
+.card-content-ios-warning {
+  color: var(--ion-color-ios-dark, var(--ion-color-dark, #222428)); }
+
+.card-ios-danger .card-content-ios {
+  color: var(--ion-color-ios-danger-contrast, var(--ion-color-danger-contrast, #fff)); }
+
+.card-ios-danger .card-content-ios-primary {
+  color: var(--ion-color-ios-primary, var(--ion-color-primary, #3880ff)); }
+
+.card-ios-danger .card-content-ios-secondary {
+  color: var(--ion-color-ios-secondary, var(--ion-color-secondary, #0cd1e8)); }
+
+.card-ios-danger .card-content-ios-tertiary {
+  color: var(--ion-color-ios-tertiary, var(--ion-color-tertiary, #7044ff)); }
+
+.card-ios-danger .card-content-ios-success {
+  color: var(--ion-color-ios-success, var(--ion-color-success, #10dc60)); }
+
+.card-ios-danger .card-content-ios-warning {
+  color: var(--ion-color-ios-warning, var(--ion-color-warning, #ffce00)); }
+
+.card-ios-danger .card-content-ios-danger {
+  color: var(--ion-color-ios-danger, var(--ion-color-danger, #f04141)); }
+
+.card-ios-danger .card-content-ios-light {
+  color: var(--ion-color-ios-light, var(--ion-color-light, #f4f5f8)); }
+
+.card-ios-danger .card-content-ios-medium {
+  color: var(--ion-color-ios-medium, var(--ion-color-medium, #989aa2)); }
+
+.card-ios-danger .card-content-ios-dark {
+  color: var(--ion-color-ios-dark, var(--ion-color-dark, #222428)); }
+
+.card-content-ios-danger {
+  color: var(--ion-color-ios-dark, var(--ion-color-dark, #222428)); }
+
+.card-ios-light .card-content-ios {
+  color: var(--ion-color-ios-light-contrast, var(--ion-color-light-contrast, #000)); }
+
+.card-ios-light .card-content-ios-primary {
+  color: var(--ion-color-ios-primary, var(--ion-color-primary, #3880ff)); }
+
+.card-ios-light .card-content-ios-secondary {
+  color: var(--ion-color-ios-secondary, var(--ion-color-secondary, #0cd1e8)); }
+
+.card-ios-light .card-content-ios-tertiary {
+  color: var(--ion-color-ios-tertiary, var(--ion-color-tertiary, #7044ff)); }
+
+.card-ios-light .card-content-ios-success {
+  color: var(--ion-color-ios-success, var(--ion-color-success, #10dc60)); }
+
+.card-ios-light .card-content-ios-warning {
+  color: var(--ion-color-ios-warning, var(--ion-color-warning, #ffce00)); }
+
+.card-ios-light .card-content-ios-danger {
+  color: var(--ion-color-ios-danger, var(--ion-color-danger, #f04141)); }
+
+.card-ios-light .card-content-ios-light {
+  color: var(--ion-color-ios-light, var(--ion-color-light, #f4f5f8)); }
+
+.card-ios-light .card-content-ios-medium {
+  color: var(--ion-color-ios-medium, var(--ion-color-medium, #989aa2)); }
+
+.card-ios-light .card-content-ios-dark {
+  color: var(--ion-color-ios-dark, var(--ion-color-dark, #222428)); }
+
+.card-content-ios-light {
+  color: var(--ion-color-ios-dark, var(--ion-color-dark, #222428)); }
+
+.card-ios-medium .card-content-ios {
+  color: var(--ion-color-ios-medium-contrast, var(--ion-color-medium-contrast, #fff)); }
+
+.card-ios-medium .card-content-ios-primary {
+  color: var(--ion-color-ios-primary, var(--ion-color-primary, #3880ff)); }
+
+.card-ios-medium .card-content-ios-secondary {
+  color: var(--ion-color-ios-secondary, var(--ion-color-secondary, #0cd1e8)); }
+
+.card-ios-medium .card-content-ios-tertiary {
+  color: var(--ion-color-ios-tertiary, var(--ion-color-tertiary, #7044ff)); }
+
+.card-ios-medium .card-content-ios-success {
+  color: var(--ion-color-ios-success, var(--ion-color-success, #10dc60)); }
+
+.card-ios-medium .card-content-ios-warning {
+  color: var(--ion-color-ios-warning, var(--ion-color-warning, #ffce00)); }
+
+.card-ios-medium .card-content-ios-danger {
+  color: var(--ion-color-ios-danger, var(--ion-color-danger, #f04141)); }
+
+.card-ios-medium .card-content-ios-light {
+  color: var(--ion-color-ios-light, var(--ion-color-light, #f4f5f8)); }
+
+.card-ios-medium .card-content-ios-medium {
+  color: var(--ion-color-ios-medium, var(--ion-color-medium, #989aa2)); }
+
+.card-ios-medium .card-content-ios-dark {
+  color: var(--ion-color-ios-dark, var(--ion-color-dark, #222428)); }
+
+.card-content-ios-medium {
+  color: var(--ion-color-ios-dark, var(--ion-color-dark, #222428)); }
+
+.card-ios-dark .card-content-ios {
+  color: var(--ion-color-ios-dark-contrast, var(--ion-color-dark-contrast, #fff)); }
+
+.card-ios-dark .card-content-ios-primary {
+  color: var(--ion-color-ios-primary, var(--ion-color-primary, #3880ff)); }
+
+.card-ios-dark .card-content-ios-secondary {
+  color: var(--ion-color-ios-secondary, var(--ion-color-secondary, #0cd1e8)); }
+
+.card-ios-dark .card-content-ios-tertiary {
+  color: var(--ion-color-ios-tertiary, var(--ion-color-tertiary, #7044ff)); }
+
+.card-ios-dark .card-content-ios-success {
+  color: var(--ion-color-ios-success, var(--ion-color-success, #10dc60)); }
+
+.card-ios-dark .card-content-ios-warning {
+  color: var(--ion-color-ios-warning, var(--ion-color-warning, #ffce00)); }
+
+.card-ios-dark .card-content-ios-danger {
+  color: var(--ion-color-ios-danger, var(--ion-color-danger, #f04141)); }
+
+.card-ios-dark .card-content-ios-light {
+  color: var(--ion-color-ios-light, var(--ion-color-light, #f4f5f8)); }
+
+.card-ios-dark .card-content-ios-medium {
+  color: var(--ion-color-ios-medium, var(--ion-color-medium, #989aa2)); }
+
+.card-ios-dark .card-content-ios-dark {
+  color: var(--ion-color-ios-dark, var(--ion-color-dark, #222428)); }
+
+.card-content-ios-dark {
+  color: var(--ion-color-ios-dark, var(--ion-color-dark, #222428)); }

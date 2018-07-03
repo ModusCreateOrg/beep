@@ -1,0 +1,15 @@
+@import "./card-header";
+@import "./card-header.ios.vars";
+
+// iOS Card Header
+// --------------------------------------------------
+
+.card-header-ios {
+  @include padding($card-ios-header-padding-top, $card-ios-header-padding-end, $card-ios-header-padding-bottom, $card-ios-header-padding-start);
+}
+
+.card-header-translucent-ios {
+  background-color: $card-ios-header-translucent-background-color;
+
+  backdrop-filter: $card-ios-header-translucent-filter;
+}

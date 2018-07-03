@@ -1,0 +1,170 @@
+ion-item-divider {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  z-index: 100;
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 30px; }
+
+ion-item-divider[sticky] {
+  position: sticky;
+  top: 0; }
+
+.item-divider-inner {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  overflow: hidden;
+  flex: 1;
+  flex-direction: inherit;
+  align-items: inherit;
+  align-self: stretch;
+  min-height: inherit;
+  border: 0; }
+
+.item-divider-wrapper {
+  display: flex;
+  overflow: hidden;
+  flex: 1;
+  flex-direction: inherit;
+  align-items: inherit;
+  align-self: stretch;
+  text-overflow: ellipsis; }
+
+.item-divider-md {
+  padding-left: 16px;
+  border-bottom: 1px solid rgba(var(--ion-item-md-border-color-rgb, var(--ion-item-border-color-rgb, 0, 0, 0)), 0.13);
+  font-family: "Roboto", "Helvetica Neue", sans-serif;
+  font-size: 14px;
+  color: var(--ion-text-md-color-step-600, var(--ion-text-color-step-600, #999999));
+  background-color: var(--ion-background-md-color, var(--ion-background-color, #fff)); }
+
+.item-divider-md .item-divider-inner {
+  padding-right: 8px; }
+
+.item-divider-md [slot="start"],
+.item-divider-md [slot="end"] {
+  margin: 0 8px 0 0; }
+
+.item-divider-md ion-icon[slot="start"],
+.item-divider-md ion-icon[slot="end"] {
+  margin-left: 0;
+  margin-top: 11px;
+  margin-bottom: 10px; }
+
+.item-divider-md ion-icon[slot="start"] + .item-inner,
+.item-divider-md ion-icon[slot="start"] + .item-interactive {
+  margin-left: 24px; }
+
+.item-divider-md ion-avatar[slot="start"],
+.item-divider-md ion-thumbnail[slot="start"] {
+  margin: 8px 16px 8px 0; }
+
+.item-divider-md ion-avatar[slot="end"],
+.item-divider-md ion-thumbnail[slot="end"] {
+  margin: 8px; }
+
+.item-divider-md h1 {
+  margin: 0 0 2px;
+  font-size: 24px;
+  font-weight: normal; }
+
+.item-divider-md h2 {
+  margin: 2px 0;
+  font-size: 16px;
+  font-weight: normal; }
+
+.item-divider-md h3,
+.item-divider-md h4,
+.item-divider-md h5,
+.item-divider-md h6 {
+  margin: 2px 0;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: normal; }
+
+.item-divider-md p {
+  margin: 0 0 2px;
+  overflow: inherit;
+  font-size: 14px;
+  line-height: normal;
+  text-overflow: inherit;
+  color: var(--ion-text-md-color-step-400, var(--ion-text-color-step-400, #666666)); }
+
+.item-divider-md-primary {
+  color: var(--ion-color-md-primary-contrast, var(--ion-color-primary-contrast, #fff));
+  background-color: var(--ion-color-md-primary, var(--ion-color-primary, #3880ff)); }
+  .item-divider-md-primary p {
+    color: var(--ion-color-md-primary-contrast, var(--ion-color-primary-contrast, #fff)); }
+  .item-divider-md-primary.activated {
+    background-color: var(--ion-color-md-primary-tint, var(--ion-color-primary-tint, #4c8dff)); }
+
+.item-divider-md-secondary {
+  color: var(--ion-color-md-secondary-contrast, var(--ion-color-secondary-contrast, #fff));
+  background-color: var(--ion-color-md-secondary, var(--ion-color-secondary, #0cd1e8)); }
+  .item-divider-md-secondary p {
+    color: var(--ion-color-md-secondary-contrast, var(--ion-color-secondary-contrast, #fff)); }
+  .item-divider-md-secondary.activated {
+    background-color: var(--ion-color-md-secondary-tint, var(--ion-color-secondary-tint, #24d6ea)); }
+
+.item-divider-md-tertiary {
+  color: var(--ion-color-md-tertiary-contrast, var(--ion-color-tertiary-contrast, #fff));
+  background-color: var(--ion-color-md-tertiary, var(--ion-color-tertiary, #7044ff)); }
+  .item-divider-md-tertiary p {
+    color: var(--ion-color-md-tertiary-contrast, var(--ion-color-tertiary-contrast, #fff)); }
+  .item-divider-md-tertiary.activated {
+    background-color: var(--ion-color-md-tertiary-tint, var(--ion-color-tertiary-tint, #7e57ff)); }
+
+.item-divider-md-success {
+  color: var(--ion-color-md-success-contrast, var(--ion-color-success-contrast, #fff));
+  background-color: var(--ion-color-md-success, var(--ion-color-success, #10dc60)); }
+  .item-divider-md-success p {
+    color: var(--ion-color-md-success-contrast, var(--ion-color-success-contrast, #fff)); }
+  .item-divider-md-success.activated {
+    background-color: var(--ion-color-md-success-tint, var(--ion-color-success-tint, #28e070)); }
+
+.item-divider-md-warning {
+  color: var(--ion-color-md-warning-contrast, var(--ion-color-warning-contrast, #fff));
+  background-color: var(--ion-color-md-warning, var(--ion-color-warning, #ffce00)); }
+  .item-divider-md-warning p {
+    color: var(--ion-color-md-warning-contrast, var(--ion-color-warning-contrast, #fff)); }
+  .item-divider-md-warning.activated {
+    background-color: var(--ion-color-md-warning-tint, var(--ion-color-warning-tint, #ffd31a)); }
+
+.item-divider-md-danger {
+  color: var(--ion-color-md-danger-contrast, var(--ion-color-danger-contrast, #fff));
+  background-color: var(--ion-color-md-danger, var(--ion-color-danger, #f04141)); }
+  .item-divider-md-danger p {
+    color: var(--ion-color-md-danger-contrast, var(--ion-color-danger-contrast, #fff)); }
+  .item-divider-md-danger.activated {
+    background-color: var(--ion-color-md-danger-tint, var(--ion-color-danger-tint, #f25454)); }
+
+.item-divider-md-light {
+  color: var(--ion-color-md-light-contrast, var(--ion-color-light-contrast, #000));
+  background-color: var(--ion-color-md-light, var(--ion-color-light, #f4f5f8)); }
+  .item-divider-md-light p {
+    color: var(--ion-color-md-light-contrast, var(--ion-color-light-contrast, #000)); }
+  .item-divider-md-light.activated {
+    background-color: var(--ion-color-md-light-tint, var(--ion-color-light-tint, #f5f6f9)); }
+
+.item-divider-md-medium {
+  color: var(--ion-color-md-medium-contrast, var(--ion-color-medium-contrast, #fff));
+  background-color: var(--ion-color-md-medium, var(--ion-color-medium, #989aa2)); }
+  .item-divider-md-medium p {
+    color: var(--ion-color-md-medium-contrast, var(--ion-color-medium-contrast, #fff)); }
+  .item-divider-md-medium.activated {
+    background-color: var(--ion-color-md-medium-tint, var(--ion-color-medium-tint, #a2a4ab)); }
+
+.item-divider-md-dark {
+  color: var(--ion-color-md-dark-contrast, var(--ion-color-dark-contrast, #fff));
+  background-color: var(--ion-color-md-dark, var(--ion-color-dark, #222428)); }
+  .item-divider-md-dark p {
+    color: var(--ion-color-md-dark-contrast, var(--ion-color-dark-contrast, #fff)); }
+  .item-divider-md-dark.activated {
+    background-color: var(--ion-color-md-dark-tint, var(--ion-color-dark-tint, #383a3e)); }

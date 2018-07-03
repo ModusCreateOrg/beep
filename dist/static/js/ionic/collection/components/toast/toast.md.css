@@ -1,0 +1,52 @@
+ion-toast {
+  left: 0;
+  top: 0;
+  position: absolute;
+  z-index: 1000;
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  contain: strict; }
+
+.toast-container {
+  display: flex;
+  align-items: center;
+  pointer-events: auto;
+  contain: content; }
+
+.toast-button {
+  font-size: 15px; }
+
+.toast-message {
+  flex: 1; }
+
+.toast-md {
+  font-family: "Roboto", "Helvetica Neue", sans-serif; }
+
+.toast-md .toast-wrapper {
+  left: 0;
+  right: 0;
+  margin: auto;
+  position: absolute;
+  z-index: 10;
+  display: block;
+  width: 100%;
+  max-width: 700px;
+  background: var(--ion-text-md-color-step-150, var(--ion-text-color-step-150, #262626)); }
+
+.toast-md .toast-wrapper.toast-top {
+  transform: translate3d(0,  -100%,  0);
+  top: 0; }
+
+.toast-md .toast-wrapper.toast-bottom {
+  transform: translate3d(0,  100%,  0);
+  bottom: 0; }
+
+.toast-md .toast-wrapper.toast-middle {
+  opacity: .01; }
+
+.toast-md .toast-message {
+  padding: 19px 16px 17px;
+  font-size: 15px;
+  color: var(--ion-background-md-color, var(--ion-background-color, #fff)); }

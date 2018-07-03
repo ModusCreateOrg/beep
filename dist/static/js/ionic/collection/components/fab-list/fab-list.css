@@ -1,0 +1,44 @@
+ion-fab-list {
+  margin: 66px 0;
+  position: absolute;
+  top: 0;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  min-width: 56px;
+  min-height: 56px; }
+
+.fab-list-active {
+  display: flex; }
+
+.fab-button-in-list {
+  margin: 8px 0;
+  width: 40px;
+  height: 40px;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0); }
+
+.fab-button-in-list.fab-button-show {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1); }
+
+.fab-list-side-start .fab-button-in-list,
+.fab-list-side-end .fab-button-in-list {
+  margin: 0 8px; }
+
+.fab-list-side-top {
+  top: auto;
+  bottom: 0;
+  flex-direction: column-reverse; }
+
+.fab-list-side-start {
+  margin: 0 66px;
+  right: 0;
+  flex-direction: row-reverse; }
+
+.fab-list-side-end {
+  margin: 0 66px;
+  left: 0;
+  flex-direction: row; }

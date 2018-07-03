@@ -1,0 +1,52 @@
+@import "./back-button";
+@import "./back-button.md.vars";
+
+// MD Back Button
+// --------------------------------------------------
+
+.back-button-md {
+  @include margin(1px, 6px, 0, 0);
+  @include padding(0, 5px);
+
+  min-width: 44px;
+  height: 32px;
+
+  border: 0;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+
+  color: $back-button-md-color;
+  background-color: transparent;
+
+  box-shadow: none;
+
+  &.activated {
+    opacity: .4;
+  }
+}
+
+.back-button-md ion-icon {
+  @include padding-horizontal(null, .3em);
+  @include margin(0);
+  @include padding(0, 6px);
+  @include text-align(start);
+
+  font-size: 24px;
+  font-weight: normal;
+  line-height: .67;
+
+  pointer-events: none;
+}
+
+
+// Generate Material Design Back Button Colors
+// --------------------------------------------------
+
+@each $color-name, $color-value in $colors-md {
+  $base-color: ion-color($colors-md, $color-name, base, md);
+
+  .back-button-md-#{$color-name} {
+    color: $base-color;
+  }
+}

@@ -1,0 +1,24 @@
+@import "./menu";
+@import "./menu.md.vars";
+
+// Material Design Menu
+// --------------------------------------------------
+
+.menu-md .menu-inner {
+  background: $menu-md-background;
+}
+
+.menu-md.menu-type-overlay .menu-inner {
+  box-shadow: $menu-md-box-shadow;
+}
+
+// MD Menu Content
+// --------------------------------------------------
+
+.app-md .menu-content-reveal {
+  box-shadow: $menu-md-box-shadow;
+}
+
+.app-md .menu-content-push {
+  box-shadow: $menu-md-box-shadow;
+}

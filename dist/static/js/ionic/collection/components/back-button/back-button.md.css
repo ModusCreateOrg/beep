@@ -1,0 +1,101 @@
+.back-button {
+  display: none; }
+
+.can-go-back > ion-header .back-button,
+.back-button.show-back-button {
+  display: inline-block; }
+
+.back-button button {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-align: center;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  position: relative;
+  z-index: 0;
+  display: inline-flex;
+  flex-flow: row nowrap;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  outline: none;
+  line-height: 1;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  text-transform: none;
+  white-space: nowrap;
+  cursor: pointer;
+  vertical-align: top;
+  vertical-align: -webkit-baseline-middle;
+  transition: background-color, opacity 100ms linear;
+  user-select: none;
+  font-kerning: none; }
+
+.back-button-inner {
+  display: flex;
+  flex-flow: row nowrap;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%; }
+
+.back-button-text {
+  display: flex;
+  align-items: center; }
+
+.back-button-md {
+  margin: 1px 6px 0 0;
+  padding: 0 5px;
+  min-width: 44px;
+  height: 32px;
+  border: 0;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: var(--ion-toolbar-md-text-color, var(--ion-toolbar-text-color, #424242));
+  background-color: transparent;
+  box-shadow: none; }
+  .back-button-md.activated {
+    opacity: .4; }
+
+.back-button-md ion-icon {
+  padding-right: 0.3em;
+  margin: 0;
+  padding: 0 6px;
+  text-align: left;
+  text-align: start;
+  font-size: 24px;
+  font-weight: normal;
+  line-height: .67;
+  pointer-events: none; }
+
+.back-button-md-primary {
+  color: var(--ion-color-md-primary, var(--ion-color-primary, #3880ff)); }
+
+.back-button-md-secondary {
+  color: var(--ion-color-md-secondary, var(--ion-color-secondary, #0cd1e8)); }
+
+.back-button-md-tertiary {
+  color: var(--ion-color-md-tertiary, var(--ion-color-tertiary, #7044ff)); }
+
+.back-button-md-success {
+  color: var(--ion-color-md-success, var(--ion-color-success, #10dc60)); }
+
+.back-button-md-warning {
+  color: var(--ion-color-md-warning, var(--ion-color-warning, #ffce00)); }
+
+.back-button-md-danger {
+  color: var(--ion-color-md-danger, var(--ion-color-danger, #f04141)); }
+
+.back-button-md-light {
+  color: var(--ion-color-md-light, var(--ion-color-light, #f4f5f8)); }
+
+.back-button-md-medium {
+  color: var(--ion-color-md-medium, var(--ion-color-medium, #989aa2)); }
+
+.back-button-md-dark {
+  color: var(--ion-color-md-dark, var(--ion-color-dark, #222428)); }

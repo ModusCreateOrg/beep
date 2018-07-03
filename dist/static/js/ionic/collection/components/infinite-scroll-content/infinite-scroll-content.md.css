@@ -1,0 +1,30 @@
+ion-infinite-scroll-content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 84px; }
+
+.infinite-loading {
+  margin: 0 0 32px;
+  display: none;
+  width: 100%; }
+
+.infinite-loading-text {
+  margin: 4px 32px 0; }
+
+.infinite-scroll-loading ion-infinite-scroll-content > .infinite-loading {
+  display: block; }
+
+.infinite-scroll-content-md .infinite-loading-text {
+  color: var(--ion-text-md-color-step-400, var(--ion-text-color-step-400, #666666)); }
+
+.infinite-scroll-content-md .infinite-loading-spinner .spinner-lines-md line,
+.infinite-scroll-content-md .infinite-loading-spinner .spinner-lines-small-md line,
+.infinite-scroll-content-md .infinite-loading-spinner .spinner-crescent circle {
+  stroke: var(--ion-text-md-color-step-400, var(--ion-text-color-step-400, #666666)); }
+
+.infinite-scroll-content-md .infinite-loading-spinner .spinner-bubbles circle,
+.infinite-scroll-content-md .infinite-loading-spinner .spinner-circles circle,
+.infinite-scroll-content-md .infinite-loading-spinner .spinner-dots circle {
+  fill: var(--ion-text-md-color-step-400, var(--ion-text-color-step-400, #666666)); }

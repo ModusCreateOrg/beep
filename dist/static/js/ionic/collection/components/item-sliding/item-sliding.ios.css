@@ -1,0 +1,17 @@
+ion-item-sliding {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  width: 100%; }
+
+.item-sliding-active-slide ion-item,
+.item-sliding-active-slide ion-item.activated {
+  position: relative;
+  z-index: 2;
+  opacity: 1;
+  transition: transform 500ms cubic-bezier(0.36, 0.66, 0.04, 1);
+  pointer-events: none;
+  will-change: transform; }
+
+.list-ios ion-item-sliding {
+  background-color: var(--ion-item-ios-background-color, var(--ion-background-ios-color, var(--ion-background-color, #fff))); }

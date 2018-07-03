@@ -43,6 +43,7 @@ module.exports = {
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
+    ionicDirectory: 'static/js/ionic',
     assetsPublicPath: '/',
 
     /**

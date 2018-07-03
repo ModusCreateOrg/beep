@@ -1,0 +1,43 @@
+.reorder[slot] {
+  display: none;
+  line-height: 0; }
+
+.reorder-enabled .reorder {
+  display: block;
+  cursor: grab;
+  pointer-events: all;
+  touch-action: none; }
+
+.reorder-selected,
+.reorder-selected .reorder {
+  cursor: grabbing; }
+
+.reorder-selected {
+  position: relative;
+  z-index: 100;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  opacity: .8;
+  transition: none !important; }
+
+.reorder-icon {
+  transform: translate3d(160%,  0,  0);
+  display: block;
+  font-size: 1.3em;
+  transition: transform 140ms ease-in; }
+
+.reorder-icon svg {
+  min-width: 1em; }
+
+.reorder[slot="start"] .reorder-icon {
+  transform: translate3d(-160%,  0,  0); }
+
+.reorder-visible .reorder .reorder-icon {
+  transform: translate3d(0,  0,  0); }
+
+.item .reorder[slot] {
+  margin-top: 0;
+  margin-bottom: 0; }
+
+.reorder-md .reorder-icon {
+  font-size: 1.8em;
+  opacity: 0.3; }

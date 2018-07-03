@@ -1,0 +1,48 @@
+@import "./toast";
+@import "./toast.md.vars";
+
+// Material Design Toast
+// --------------------------------------------------
+
+.toast-md {
+  font-family: $toast-md-font-family;
+}
+
+.toast-md .toast-wrapper {
+  @include position-horizontal(0, 0);
+  @include margin(auto);
+
+  position: absolute;
+
+  z-index: $z-index-overlay-wrapper;
+  display: block;
+
+  width: $toast-width;
+  max-width: $toast-max-width;
+
+  background: $toast-md-background;
+}
+
+.toast-md .toast-wrapper.toast-top {
+  @include transform(translate3d(0, -100%, 0));
+
+  top: 0;
+}
+
+.toast-md .toast-wrapper.toast-bottom {
+  @include transform(translate3d(0, 100%, 0));
+
+  bottom: 0;
+}
+
+.toast-md .toast-wrapper.toast-middle {
+  opacity: .01;
+}
+
+.toast-md .toast-message {
+  @include padding($toast-md-title-padding-top, $toast-md-title-padding-end, $toast-md-title-padding-bottom, $toast-md-title-padding-start);
+
+  font-size: $toast-md-title-font-size;
+
+  color: $toast-md-title-color;
+}

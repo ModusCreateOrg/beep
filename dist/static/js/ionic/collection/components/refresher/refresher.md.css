@@ -1,0 +1,76 @@
+ion-refresher {
+  left: 0;
+  top: 0;
+  position: absolute;
+  top: 0;
+  z-index: 0;
+  display: none;
+  width: 100%;
+  height: 60px; }
+  ion-refresher.refresher-active {
+    display: block; }
+
+ion-refresher-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%; }
+
+.refresher-pulling,
+.refresher-refreshing {
+  display: none;
+  width: 100%; }
+
+.refresher-pulling-icon,
+.refresher-refreshing-icon {
+  text-align: center;
+  transform-origin: center;
+  font-size: 30px;
+  transition: 200ms; }
+
+.refresher-pulling-text,
+.refresher-refreshing-text {
+  text-align: center;
+  font-size: 16px; }
+
+.refresher-pulling ion-refresher-content .refresher-pulling {
+  display: block; }
+
+.refresher-ready ion-refresher-content .refresher-pulling {
+  display: block; }
+
+.refresher-ready ion-refresher-content .refresher-pulling-icon {
+  transform: rotate(180deg); }
+
+.refresher-refreshing ion-refresher-content .refresher-refreshing {
+  display: block; }
+
+.refresher-cancelling ion-refresher-content .refresher-pulling {
+  display: block; }
+
+.refresher-cancelling ion-refresher-content .refresher-pulling-icon {
+  transform: scale(0); }
+
+.refresher-completing ion-refresher-content .refresher-refreshing {
+  display: block; }
+
+.refresher-completing ion-refresher-content .refresher-refreshing-icon {
+  transform: scale(0); }
+
+.refresher-md .refresher-pulling-icon,
+.refresher-md .refresher-refreshing-icon {
+  color: var(--ion-text-md-color, var(--ion-text-color, #000)); }
+
+.refresher-md .refresher-pulling-text,
+.refresher-md .refresher-refreshing-text {
+  color: var(--ion-text-md-color, var(--ion-text-color, #000)); }
+
+.refresher-md .refresher-refreshing .spinner-lines-md line,
+.refresher-md .refresher-refreshing .spinner-lines-small-md line,
+.refresher-md .refresher-refreshing .spinner-crescent circle {
+  stroke: var(--ion-text-md-color, var(--ion-text-color, #000)); }
+
+.refresher-md .refresher-refreshing .spinner-bubbles circle,
+.refresher-md .refresher-refreshing .spinner-circles circle,
+.refresher-md .refresher-refreshing .spinner-dots circle {
+  fill: var(--ion-text-md-color, var(--ion-text-color, #000)); }

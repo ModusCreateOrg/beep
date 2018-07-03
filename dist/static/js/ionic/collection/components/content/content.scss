@@ -1,0 +1,22 @@
+@import "../../themes/ionic.globals";
+
+// Content
+// --------------------------------------------------
+
+ion-content {
+  position: relative;
+  display: block;
+
+  flex: 1;
+
+  width: 100%;
+
+  contain: layout size style;
+
+  margin: 0 !important; // scss-lint:disable all
+  padding: 0 !important; // scss-lint:disable all
+
+  > .scroll-inner {
+    min-height: 100%;
+  }
+}

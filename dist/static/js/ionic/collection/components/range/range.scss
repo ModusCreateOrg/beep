@@ -1,0 +1,61 @@
+@import "../../themes/ionic.globals";
+
+// Range
+// --------------------------------------------------
+
+.item ion-range .item-inner {
+  overflow: visible;
+
+  width: 100%;
+}
+
+.item ion-range .input-wrapper {
+  overflow: visible;
+
+  flex-direction: column;
+
+  width: 100%;
+}
+
+.item ion-range {
+  width: 100%;
+}
+
+.item ion-range ion-label {
+  align-self: center;
+}
+
+ion-range {
+  position: relative;
+  display: flex;
+
+  align-items: center;
+}
+
+ion-range ion-label {
+  flex: initial;
+}
+
+ion-range ion-icon {
+  font-size: 24px;
+}
+
+ion-range ion-gesture,
+ion-range .range-slider {
+  position: relative;
+
+  flex: 1;
+
+  cursor: pointer;
+}
+
+.range-pin {
+  box-sizing: border-box;
+}
+
+.range-knob-handle {
+  &:active,
+  &:focus {
+    outline: none;
+  }
+}

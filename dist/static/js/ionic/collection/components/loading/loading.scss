@@ -1,0 +1,34 @@
+@import "./loading.vars";
+
+// Loading
+// --------------------------------------------------
+
+ion-loading {
+  @include font-smoothing();
+  @include position(0, 0, 0, 0);
+
+  position: fixed;
+  z-index: $z-index-overlay;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  touch-action: none;
+
+  contain: strict;
+}
+
+ion-loading-controller {
+  display: none;
+}
+
+.loading-wrapper {
+  z-index: $z-index-overlay-wrapper;
+  display: flex;
+
+  align-items: center;
+
+  opacity: 0;
+}

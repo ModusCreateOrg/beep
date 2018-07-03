@@ -1,0 +1,15 @@
+@import "./segment";
+@import "./segment.md.vars";
+
+// Material Design Segment
+// --------------------------------------------------
+
+.segment-md {
+  font-family: $segment-md-font-family;
+}
+
+.segment-md.segment-disabled {
+  opacity: $segment-md-opacity-disabled;
+
+  pointer-events: none;
+}

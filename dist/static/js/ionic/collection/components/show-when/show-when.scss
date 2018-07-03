@@ -1,0 +1,8 @@
+ion-show-when.show-content {
+  display: block;
+}
+
+ion-show-when.hide-content {
+  // scss-lint:disable ImportantRule
+  display: none !important;
+}

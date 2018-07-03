@@ -1,0 +1,144 @@
+ion-tab-button {
+  margin: 0;
+  text-align: center;
+  border-radius: 0;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 0;
+  display: block;
+  overflow: hidden;
+  flex: 1;
+  height: 100%;
+  border: 0;
+  text-decoration: none;
+  background: none;
+  user-select: none; }
+
+ion-tab-button a {
+  text-decoration: none; }
+
+.tab-cover {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  color: inherit;
+  background: transparent;
+  cursor: pointer; }
+  .tab-cover:active, .tab-cover:focus {
+    outline: none; }
+
+.tab-btn-disabled {
+  pointer-events: none; }
+  .tab-btn-disabled > .tab-cover {
+    opacity: .4; }
+
+.tab-button-text,
+.tab-button-icon {
+  display: none;
+  overflow: hidden;
+  align-self: center;
+  min-width: 26px;
+  max-width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap; }
+
+.has-icon .tab-button-icon,
+.has-title .tab-button-text {
+  display: block; }
+
+.has-title-only .tab-button-text {
+  white-space: normal; }
+
+.layout-icon-start .tab-button {
+  flex-direction: row; }
+
+.layout-icon-end .tab-button {
+  flex-direction: row-reverse; }
+
+.layout-icon-bottom .tab-button {
+  flex-direction: column-reverse; }
+
+.layout-icon-start .tab-button,
+.layout-icon-end .tab-button,
+.layout-icon-hide .tab-button,
+.layout-title-hide .tab-button {
+  justify-content: center; }
+
+.layout-icon-hide .tab-button-icon,
+.layout-title-hide .tab-button-text {
+  display: none; }
+
+.tab-badge {
+  right: 4%;
+  top: 6%;
+  right: calc(50% - 50px);
+  padding: 1px 6px;
+  position: absolute;
+  height: auto;
+  font-size: 12px;
+  line-height: 16px; }
+
+.has-icon .tab-badge {
+  right: calc(50% - 30px); }
+
+.layout-icon-bottom .tab-badge,
+.layout-icon-start .tab-badge,
+.layout-icon-end .tab-badge {
+  right: calc(50% - 50px); }
+
+.tab-button-ios {
+  max-width: 240px;
+  font-size: 10px;
+  color: var(--ion-tabbar-ios-text-color, var(--ion-tabbar-text-color, #8c8c8c));
+  fill: var(--ion-tabbar-ios-text-color, var(--ion-tabbar-text-color, #8c8c8c)); }
+
+.tab-button-ios.focused {
+  background: var(--ion-tabbar-ios-background-color-focused, var(--ion-tabbar-background-color-focused, #dadada)); }
+
+.tab-button-ios .tab-cover {
+  padding: 0 2px; }
+
+.tab-button-ios:hover,
+.tab-button-ios.tab-selected {
+  color: var(--ion-tabbar-ios-text-color-active, var(--ion-color-ios-primary, var(--ion-color-primary, #3880ff)));
+  fill: var(--ion-tabbar-ios-text-color-active, var(--ion-color-ios-primary, var(--ion-color-primary, #3880ff))); }
+
+.tab-button-ios .tab-button-text {
+  margin-top: 0;
+  margin-bottom: 1px;
+  min-height: 11px; }
+
+.tab-button-ios.has-title-only .tab-button-text {
+  font-size: 12px; }
+
+.tab-button-ios .tab-button-icon {
+  margin-top: 4px;
+  font-size: 30px; }
+
+.tabbar-ios .tab-button-icon::before {
+  vertical-align: top; }
+
+.layout-icon-end .tab-button-ios .tab-button-text,
+.layout-icon-start .tab-button-ios .tab-button-text,
+.layout-icon-hide .tab-button-ios .tab-button-text,
+.tab-button-ios.has-title-only .tab-button-text {
+  margin: 2px 0;
+  font-size: 14px;
+  line-height: 1.1; }
+
+.layout-icon-end .tab-button-ios ion-icon,
+.layout-icon-start .tab-button-ios ion-icon {
+  margin-top: 2px;
+  margin-bottom: 1px;
+  min-width: 24px;
+  height: 26px;
+  font-size: 24px; }
+
+.layout-title-hide .tab-button-ios ion-icon {
+  margin: 0; }

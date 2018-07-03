@@ -1,0 +1,14 @@
+@import "./reorder-group.vars";
+
+// Reorder Group
+// --------------------------------------------------
+
+.reorder-group > ion-gesture {
+  display: block;
+}
+
+.reorder-list-active ion-gesture > * {
+  transition: transform 300ms;
+
+  will-change: transform;
+}

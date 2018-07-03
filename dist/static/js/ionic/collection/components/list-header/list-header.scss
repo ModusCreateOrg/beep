@@ -1,0 +1,20 @@
+@import "../../themes/ionic.globals";
+
+
+// List Header
+// --------------------------------------------------
+
+ion-list-header {
+  @include font-smoothing();
+  @include margin(0);
+  @include padding(0);
+
+  display: flex;
+  overflow: hidden;
+
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+  min-height: 40px;
+}
