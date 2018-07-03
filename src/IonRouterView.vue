@@ -32,6 +32,11 @@ export default {
             default: true,
         },
     },
+    computed: {
+        isAndroid() {
+            return this.$root.$el.classList.contains('md')
+        }
+    },
     methods: {
         catchIonicGoBack(event) {
             if (!event.target) {
@@ -74,7 +79,11 @@ export default {
         beforeLeave(element) {
             this.leavingEl = element
 
-            if (this.animated && this.$router.direction > 0) {
+            if (!this.animated || this.$router.direction < 0) {
+                return;
+            }
+
+            if (this.enteringEl && this.isAndroid) {
                 this.enteringEl.style.opacity = 0
             }
         },
@@ -83,10 +92,7 @@ export default {
                 return done()
             }
 
-            this.transition(this.enteringEl, element).then(() => {
-                this.enteringEl.style.opacity = 1
-                done()
-            })
+            this.transition(this.enteringEl, element).then(() => done())
         },
         enter(element, done) {
             done()
