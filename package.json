@@ -13,6 +13,7 @@
     "@capacitor/android": "^1.0.0-beta.0",
     "@capacitor/cli": "1.0.0-beta.0",
     "@capacitor/core": "1.0.0-beta.0",
+    "@capacitor/ios": "1.0.0-beta.0",
     "@ionic/core": "^4.0.0-alpha.7",
     "axios": "^0.18.0",
     "sha1": "^1.1.1",
