@@ -7,7 +7,8 @@
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
-    "build": "node build/build.js && build/deploy-to-gh-pages.sh"
+    "build": "node build/build.js",
+    "deploy": "npm run build && build/deploy-to-gh-pages.sh"
   },
   "dependencies": {
     "@capacitor/android": "^1.0.0-beta.0",
