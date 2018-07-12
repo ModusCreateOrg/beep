@@ -35,7 +35,6 @@
 <script>
 import sha1 from 'sha1'
 import axios from 'axios'
-// import Acc from './Acc.vue'
 
 
 const baseURL = "https://api.pwnedpasswords.com/range/"
@@ -61,7 +60,6 @@ export default {
     },
     methods: {
         goToAcc() {
-            // this.$glob.nav.push(Acc)
             this.$router.push('/acc')
         },
         validatePwd() {

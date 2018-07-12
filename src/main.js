@@ -1,14 +1,13 @@
 import Vue from 'vue'
+import Router from 'ion-router-vue'
 import Home from './Home.vue'
 import Acc from './Acc.vue'
 import Pwd from './Pwd.vue'
-import Router from './router'
 import api from './api'
 
 
 const glob = {
     api,
-    // nav: api.newNavController(Home).then(e => glob.nav = e),
 }
 
 glob.install = function () {
