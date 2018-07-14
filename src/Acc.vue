@@ -9,30 +9,30 @@
       </ion-toolbar>
     </ion-header>
 
-    <ion-content 
-      class="content" 
+    <ion-content
+      class="content"
       padding>
       <ion-list>
         <ion-item>
-          <ion-icon 
-            slot="start" 
+          <ion-icon
+            slot="start"
             name="person"/>
-          <ion-input 
-            :value="account" 
-            type="text" 
+          <ion-input
+            :value="account"
+            type="text"
             @input="account = $event.target.value"/>
         </ion-item>
         <ion-item>
-          <ion-checkbox 
-            :checked="includeUnverified" 
+          <ion-checkbox
+            :checked="includeUnverified"
             @change="toggleIncludeUnverified"/>
           <ion-label>Include Unverified</ion-label>
         </ion-item>
       </ion-list>
 
-      <ion-button 
-        :disabled="!validateAccount()" 
-        expand="full" 
+      <ion-button
+        :disabled="!validateAccount()"
+        expand="full"
         @click="checkAccount">
         <span v-if="requestPending">
           <ion-spinner/>
@@ -41,8 +41,8 @@
       </ion-button>
 
       <div>
-        <ion-card 
-          v-if="isSubmitted" 
+        <ion-card
+          v-if="isSubmitted"
           no-margin>
           <ion-card-content text-center>
             <i>{{ accountChecked }}</i> is
@@ -54,9 +54,9 @@
             </strong>
           </ion-card-content>
         </ion-card>
-        <breach 
-          v-for="(breach, index) in breaches" 
-          :key="index" 
+        <breach
+          v-for="(breach, index) in breaches"
+          :key="index"
           :breach="breach"/>
       </div>
     </ion-content>

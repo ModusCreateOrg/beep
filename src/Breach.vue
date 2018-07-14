@@ -22,8 +22,8 @@
           </ion-col>
           <ion-col>
             <ion-item>
-              <ion-icon 
-                name="people" 
+              <ion-icon
+                name="people"
                 color="primary"/>
               <ion-badge>
                 {{ breach.PwnCount }}

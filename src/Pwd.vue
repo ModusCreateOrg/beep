@@ -9,39 +9,39 @@
       </ion-toolbar>
     </ion-header>
 
-    <ion-content 
-      class="content" 
+    <ion-content
+      class="content"
       padding>
       <ion-list>
         <ion-item>
-          <ion-icon 
-            v-show="!showPwd" 
-            slot="start" 
+          <ion-icon
+            v-show="!showPwd"
+            slot="start"
             name="lock"/>
-          <ion-icon 
-            v-show="showPwd" 
-            slot="start" 
+          <ion-icon
+            v-show="showPwd"
+            slot="start"
             name="unlock"/>
-          <ion-input 
-            :type="pwdType" 
-            :value="pwd" 
-            placeholder="Password" 
+          <ion-input
+            :type="pwdType"
+            :value="pwd"
+            placeholder="Password"
             @input="pwd = $event.target.value"/>
-          <ion-button 
-            v-show="pwd" 
-            slot="end" 
-            fill="clear" 
-            size="small" 
+          <ion-button
+            v-show="pwd"
+            slot="end"
+            fill="clear"
+            size="small"
             @click="togglePwdType">
             {{ showPwdText }}
           </ion-button>
         </ion-item>
       </ion-list>
 
-      <ion-button 
-        :disabled="!validatePwd()" 
-        expand="full" 
-        type="submit" 
+      <ion-button
+        :disabled="!validatePwd()"
+        expand="full"
+        type="submit"
         @click="checkHash">
         <span v-if="requestPending">
           <ion-spinner/>

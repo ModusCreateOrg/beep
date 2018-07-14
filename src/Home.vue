@@ -9,18 +9,18 @@
       </ion-toolbar>
     </ion-header>
 
-    <ion-content 
-      class="content" 
+    <ion-content
+      class="content"
       padding>
-      <ion-button 
-        expand="full" 
-        type="submit" 
+      <ion-button
+        expand="full"
+        type="submit"
         @click="goToAcc">
         Check Account
       </ion-button>
-      <ion-button 
-        expand="full" 
-        type="submit" 
+      <ion-button
+        expand="full"
+        type="submit"
         @click="goToPwd">
         Check Password
       </ion-button>
