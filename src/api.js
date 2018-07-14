@@ -1,37 +1,35 @@
 import { Delegate } from './framework-delegate'
 
-
 export default {
-    async newNavController(root) {
-        const ctrl = await initComponent('ion-nav', 'ion-app')
-        ctrl.root = root
-        return ctrl
-    },
-    async newAlertController(props) {
-        return this.newAbstractController('ion-alert-controller', props)
-    },
-    async newLoadingController(props) {
-        return this.newAbstractController('ion-loading-controller', props)
-    },
-    async newAbstractController(tag, props) {
-        const controller = await initComponent(tag)
-        return await controller.create(props)
-    }
+  async newNavController(root) {
+    const ctrl = await initComponent('ion-nav', 'ion-app')
+    ctrl.root = root
+    return ctrl
+  },
+  async newAlertController(props) {
+    return this.newAbstractController('ion-alert-controller', props)
+  },
+  async newLoadingController(props) {
+    return this.newAbstractController('ion-loading-controller', props)
+  },
+  async newAbstractController(tag, props) {
+    const controller = await initComponent(tag)
+    return await controller.create(props)
+  },
 }
 
 function initComponent(tag, wrapper = 'body') {
-    const element = getOrAppendElement(tag, document.querySelector(wrapper))
-    element.delegate = Delegate
-    return element.componentOnReady()
+  const element = getOrAppendElement(tag, document.querySelector(wrapper))
+  element.delegate = Delegate
+  return element.componentOnReady()
 }
 
 function getOrAppendElement(tag, wrapper) {
-    let element = document.querySelector(tag)
+  let element = document.querySelector(tag)
 
-    if (element) {
-        return element
-    }
+  if (element) {
+    return element
+  }
 
-    return wrapper.appendChild(document.createElement(tag))
+  return wrapper.appendChild(document.createElement(tag))
 }
-

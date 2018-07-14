@@ -1,29 +1,26 @@
 module.exports = {
-    "env": {
-        "browser": true,
-        "es6": true
-    },
-    "extends": "eslint:recommended",
-    "parserOptions": {
-        "sourceType": "module",
-        "ecmaVersion": 2017
-    },
-    "rules": {
-        "indent": [
-            "error",
-            4
-        ],
-        "linebreak-style": [
-            "error",
-            "unix"
-        ],
-        "quotes": [
-            "error",
-            "single"
-        ],
-        "semi": [
-            "error",
-            "never"
-        ]
-    }
-};
+  env: {
+    browser: true,
+    node: true,
+    es6: true,
+  },
+  extends: [
+    'plugin:vue/recommended',
+    'plugin:promise/recommended',
+    'prettier',
+    'eslint:recommended',
+  ],
+  plugins: ['prettier', 'promise'],
+  parserOptions: {
+    sourceType: 'module',
+    ecmaVersion: 2017,
+  },
+  rules: {
+    'prettier/prettier': 'error',
+    'no-console': 0,
+    indent: ['error', 2],
+    'linebreak-style': ['error', 'unix'],
+    quotes: ['error', 'single'],
+    semi: ['error', 'never'],
+  },
+}
