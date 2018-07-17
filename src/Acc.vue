@@ -110,7 +110,7 @@ export default {
       this.accountChecked = this.account
     },
     async sendRequest() {
-      const loading = await this.$glob.api.newLoadingController({
+      const loading = await this.$glob.ionic.newLoadingController({
         content: 'Fetching breach details...',
       })
 

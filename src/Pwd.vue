@@ -97,7 +97,7 @@ export default {
     },
     async sendRequest() {
       const hash = sha1(this.pwd)
-      const loading = await this.$glob.api.newLoadingController({
+      const loading = await this.$glob.ionic.newLoadingController({
         content: 'Fetching breach details...',
       })
 
@@ -146,7 +146,7 @@ export default {
         msg = `You've been pwned across ${this.count} domains`
       }
 
-      this.$glob.api
+      this.$glob.ionic
         .newAlertController({
           header: 'Beep',
           subHeader: null,

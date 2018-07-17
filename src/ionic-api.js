@@ -1,21 +1,36 @@
 import { Delegate } from './framework-delegate'
 
-export default {
+const api = {
   async newNavController(root) {
     const ctrl = await initComponent('ion-nav', 'ion-app')
     ctrl.root = root
     return ctrl
   },
-  async newAlertController(props) {
+  newAlertController(props) {
     return this.newAbstractController('ion-alert-controller', props)
   },
-  async newLoadingController(props) {
+  newLoadingController(props) {
     return this.newAbstractController('ion-loading-controller', props)
   },
   async newAbstractController(tag, props) {
     const controller = await initComponent(tag)
     return await controller.create(props)
   },
+}
+
+export default api
+
+api.install = function(Vue) {
+  if (api.install.installed) return
+  api.install.installed = true
+
+  Vue.config.ignoredElements = [/^ion-/]
+
+  Object.defineProperty(Vue.prototype, '$ionic', {
+    get() {
+      return api
+    },
+  })
 }
 
 function initComponent(tag, wrapper = 'body') {
