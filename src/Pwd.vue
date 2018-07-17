@@ -41,7 +41,6 @@
       <ion-button
         :disabled="!validatePwd()"
         expand="full"
-        type="submit"
         @click="checkHash">
         <span v-if="requestPending">
           <ion-spinner/>
