@@ -110,7 +110,7 @@ export default {
       this.accountChecked = this.account
     },
     async sendRequest() {
-      const loading = await this.$glob.ionic.newLoadingController({
+      const loading = await this.$ionic.newLoadingController({
         content: 'Fetching breach details...',
       })
 
@@ -136,7 +136,7 @@ export default {
         })
     },
     showError() {
-      this.$glob.api
+      this.$ionic
         .newAlertController({
           header: 'Error',
           message: 'Something went wrong...',

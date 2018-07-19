@@ -24,7 +24,7 @@ api.install = function(Vue) {
   if (api.install.installed) return
   api.install.installed = true
 
-  Vue.config.ignoredElements = [/^ion-/]
+  Vue.config.ignoredElements.push(/^ion-/)
 
   Object.defineProperty(Vue.prototype, '$ionic', {
     get() {
