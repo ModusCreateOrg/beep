@@ -9,11 +9,21 @@ Vue.use(Router)
 Vue.use(IonicAPI)
 
 new Vue({
-  router: new Router({
-    routes: [
-      { path: '/', component: Home },
-      { path: '/acc', component: Acc },
-      { path: '/pwd', component: Pwd },
-    ],
-  }),
-}).$mount('ion-app')
+  el: '#app',
+  data() {
+    return {
+      route: Home
+    }
+  },
+  render(h) {
+    return h(this.route)
+  }
+  // router: new Router({
+    // routes: [
+      // { path: '/', component: Home },
+      // { path: '/acc', component: Acc },
+      // { path: '/pwd', component: Pwd },
+    // ],
+  // }),
+})//.$mount('ion-app')
+

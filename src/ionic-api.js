@@ -34,7 +34,8 @@ api.install = function(Vue) {
 }
 
 function initComponent(tag, wrapper = 'body') {
-  const element = getOrAppendElement(tag, document.querySelector(wrapper))
+  const wrapperEl = document.querySelector(wrapper) || document.body
+  const element = getOrAppendElement(tag, wrapperEl)
   element.delegate = Delegate
   return element.componentOnReady()
 }

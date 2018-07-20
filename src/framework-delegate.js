@@ -1,19 +1,14 @@
 import Vue from 'vue'
 
 export function attachViewToDom(parentElement, vueComponent, propsOrData, classes) {
-  const wrapper = document.createElement(shouldWrapInIonPage(parentElement) ? 'ion-page' : 'div')
-
-  parentElement.appendChild(wrapper)
-  const vueElement = Vue.extend(vueComponent)
-  const page = new vueElement().$mount(wrapper)
-
-  if (classes) {
-    for (const cls of classes) {
-      page.$el.classList.add(cls)
-    }
-  }
-
-  return Promise.resolve(page.$el)
+document.querySelector('ion-page').__vue__.route=vueComponent
+  // if (classes) {
+    // for (const cls of classes) {
+      // page.$el.classList.add(cls)
+    // }
+  // }
+//
+  return Promise.resolve(document.querySelector('ion-page'))
 }
 
 export function removeViewFromDom(parentElement, childElement) {

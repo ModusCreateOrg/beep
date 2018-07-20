@@ -7,6 +7,7 @@
         </ion-buttons>
         <ion-title>home</ion-title>
       </ion-toolbar>
+      <div  @click="asd">asdasdasdasd</div>
     </ion-header>
 
     <ion-content
@@ -27,9 +28,13 @@
 </template>
 
 <script>
+  import Pwd from './Pwd.vue'
 export default {
   name: 'Home',
   methods: {
+    asd() {
+      this.$ionic.newNavController(Pwd)
+    },
     goToAcc() {
       this.$router.push('/acc')
     },
