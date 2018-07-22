@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import Router from '@modus/ion-router-vue'
+import Router from '@modus/ion-vue-router'
 import IonicAPI from './ionic-api'
 import Home from './Home.vue'
 import Acc from './Acc.vue'
