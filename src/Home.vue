@@ -8,17 +8,19 @@
         <div class="btn-holder" @click="goToAcc">
           <div class="square-btn">
             <div class="square-btn-content">
-              <div class="square-btn-icon">12</div>
+              <div class="square-btn-icon"><img src="../images/Icon-Account.svg" alt="Account"></div>
               <div class="square-btn-text">Account</div>
             </div>
+            <div class="square-btn-shadow"></div>
           </div>
         </div>
         <div class="btn-holder" @click="goToPwd">
           <div class="square-btn">
             <div class="square-btn-content">
-              <div class="square-btn-icon">12</div>
+              <div class="square-btn-icon"><img src="../images/Icon-Password.svg" alt="Account"></div>
               <div class="square-btn-text">Password</div>
             </div>
+            <div class="square-btn-shadow"></div>
           </div>
         </div>
       </div>
@@ -84,14 +86,30 @@ export default {
   width: 100%;
   border-radius: 5px;
   background-color: #FFFFFF;
-  /*box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.1);*/
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1), 0 5px 7px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.1);
+  /*box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1), 0 5px 7px rgba(0, 0, 0, 0.2);*/
 }
 
 .square-btn:after {
   content: "";
   display: block;
   padding-bottom: 100%;
+}
+
+.square-btn-shadow {
+  position: absolute;
+  height: 80%;
+  width: 80%;
+  z-index: -1;
+  top: 25%;
+  left: 10%;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.15);
+  -webkit-filter: blur(10px);
+  -moz-filter: blur(10px);
+  -o-filter: blur(10px);
+  -ms-filter: blur(10px);
+  filter: blur(10px);
 }
 
 .square-btn-content {
