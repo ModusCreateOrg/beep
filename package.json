@@ -1,24 +1,30 @@
 {
-  "name": "vue",
+  "name": "@modus/beep",
   "version": "1.0.0",
-  "description": "A Vue.js project",
-  "author": "Michael Tintiuc <contact@michaeltintiuc.com>",
-  "private": true,
+  "description": "A security oriented project showcasing the power of Ionic4 and Vuejs",
+  "author": "Michael Tintiuc <michael.tintiuc@moduscreate.com>",
+  "user": "michaeltintiuc",
+  "license": "MIT",
+  "repository": "github:ModusCreateOrg/beep",
+  "bugs": {
+    "url": "https://github.com/ModusCreateOrg/beep/issues"
+  },
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
-    "build": "node build/build.js && build/deploy-to-gh-pages.sh"
+    "build": "node build/build.js",
+    "deploy": "npm run build && build/deploy-to-gh-pages.sh",
+    "lint": "eslint src/* build/*.js"
   },
   "dependencies": {
-    "@capacitor/android": "^1.0.0-beta.0",
-    "@capacitor/cli": "1.0.0-beta.0",
-    "@capacitor/core": "1.0.0-beta.0",
-    "@capacitor/ios": "1.0.0-beta.0",
-    "@ionic/core": "^4.0.0-alpha.7",
+    "@capacitor/android": "^1.0.0-beta.1",
+    "@capacitor/cli": "^1.0.0-beta.1",
+    "@capacitor/core": "^1.0.0-beta.1",
+    "@ionic/core": "^4.0.0-alpha.10",
+    "@modus/ion-vue-router": "file:../ion-vue-router",
     "axios": "^0.18.0",
     "sha1": "^1.1.1",
-    "vue": "^2.5.2",
-    "vue-router": "^3.0.1"
+    "vue": "^2.5.2"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
@@ -33,10 +39,11 @@
     "chalk": "^2.0.1",
     "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.28.0",
-    "eslint-plugin-import": "^2.12.0",
-    "eslint-plugin-node": "^6.0.1",
+    "eslint": "^5.1.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-prettier": "^2.6.2",
     "eslint-plugin-promise": "^3.8.0",
-    "eslint-plugin-standard": "^3.1.0",
+    "eslint-plugin-vue": "^4.5.0",
     "extract-text-webpack-plugin": "^3.0.0",
     "file-loader": "^1.1.4",
     "friendly-errors-webpack-plugin": "^1.6.1",

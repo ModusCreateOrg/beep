@@ -1,5 +1,5 @@
 export default {
-    methods: {
-        // Reusable stuff goes here
-    }
+  methods: {
+    // Reusable stuff goes here
+  },
 }

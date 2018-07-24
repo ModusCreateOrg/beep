@@ -1,32 +1,19 @@
 import Vue from 'vue'
+import Router from '@modus/ion-vue-router'
+import IonicAPI from './ionic-api'
 import Home from './Home.vue'
 import Acc from './Acc.vue'
 import Pwd from './Pwd.vue'
-import Router from './router'
-import api from './api'
 
-
-const glob = {
-    api,
-    // nav: api.newNavController(Home).then(e => glob.nav = e),
-}
-
-glob.install = function () {
-    Object.defineProperty(Vue.prototype, '$glob', {
-        get() { return glob }
-    })
-}
-
-Vue.use(glob)
 Vue.use(Router)
-Vue.config.ignoredElements = [/^ion-/]
+Vue.use(IonicAPI)
 
 new Vue({
-    router: new Router({
-        routes: [
-            { path: '/', component: Home },
-            { path: '/acc', component: Acc },
-            { path: '/pwd', component: Pwd },
-        ]
-    }),
+  router: new Router({
+    routes: [
+      { path: '/', component: Home },
+      { path: '/acc', component: Acc },
+      { path: '/pwd', component: Pwd },
+    ],
+  }),
 }).$mount('ion-app')
