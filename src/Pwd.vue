@@ -7,7 +7,7 @@
         </ion-buttons>
         <ion-title>Check Password</ion-title>
         <ion-buttons slot="end">
-          <ion-button clear :disabled="!validatePwd()" @click="checkHash" color="danger">
+          <ion-button clear :disabled="!isValidPwd()" @click="checkHash">
             <span v-if="requestPending">
               <ion-spinner/>
             </span>
@@ -27,8 +27,9 @@
           <ion-label padding>Your password</ion-label>
         </ion-item>
         <ion-item>
-          <ion-input large :type="pwdType" :value="pwd" @input="pwd = $event.target.value"/>
-          <ion-button v-show="pwd.length > 0" slot="end" fill="clear" size="large" @click="togglePwdType">
+          <ion-input large :type="pwdType" :value="pwd" @input="pwd = $event.target.value"
+                     placeholder="••••••"/>
+          <ion-button v-show="isValidPwd()" slot="end" fill="clear" size="large" @click="togglePwdType">
             <img src="../images/Icon-Show-Hide.svg" alt="Show Hide Password">
           </ion-button>
         </ion-item>
@@ -66,8 +67,8 @@ export default {
     },
   },
   methods: {
-    validatePwd() {
-      return this.pwd.trim()
+    isValidPwd() {
+      return this.pwd.trim().length > 0
     },
     togglePwdType() {
       this.showPwd = !this.showPwd
@@ -76,7 +77,7 @@ export default {
       return baseURL + hashPart
     },
     checkHash() {
-      if (this.validatePwd() && !this.requestPending) {
+      if (this.isValidPwd() && !this.requestPending) {
         this.sendRequest()
       }
     },
@@ -90,19 +91,19 @@ export default {
       this.requestPending = true
 
       return axios
-            .get(this.getURL(hash.substr(0, 5)))
-            .then(res => {
-              this.count = this.search(hash.substr(5).toUpperCase(), res.data)
-              this.pwned = this.count > 0
-              return this.notify()
-            })
-            .catch(err => console.error(err))
-            .finally(() => {
-              // Reset and unblock subsequent requests
-              this.pwd = ''
-              this.requestPending = false
-              loading.dismiss()
-            })
+        .get(this.getURL(hash.substr(0, 5)))
+        .then(res => {
+          this.count = this.search(hash.substr(5).toUpperCase(), res.data)
+          this.pwned = this.count > 0
+          return this.notify()
+        })
+        .catch(err => console.error(err))
+        .finally(() => {
+          // Reset and unblock subsequent requests
+          this.pwd = ''
+          this.requestPending = false
+          loading.dismiss()
+        })
     },
     search(hash, text) {
       const startIndex = text.indexOf(hash)
@@ -132,14 +133,14 @@ export default {
       }
 
       this.$ionic
-            .newAlertController({
-              header: 'Beep',
-              subHeader: null,
-              message: msg,
-              buttons: btns,
-            })
-            .then(o => o.present())
-            .catch(err => console.error(err))
+        .newAlertController({
+          header: 'Beep',
+          subHeader: null,
+          message: msg,
+          buttons: btns,
+        })
+        .then(o => o.present())
+        .catch(err => console.error(err))
     },
   },
 }
@@ -208,14 +209,17 @@ ion-input[type="password"] {
   font: small-caption !important;
   font-size: 70px !important;
   letter-spacing: -2px !important;
-  height: 20px !important;
+  height: 56px !important;
 }
 
 ion-input[type="text"] {
-  font: small-caption !important;
-  font-size: 22px !important;
-  color: #5C5C5C !important;
-  height: 20px !important;
+  font-family: Lato, serif !important;
+  font-size: 25px !important;
+  height: 56px !important;
+  color: rgba(92, 92, 92, 0.5) !important;
+  font-weight: 300 !important;
+  letter-spacing: -0.63px;
+  line-height: 25px !important;
 }
 
 ion-label {
