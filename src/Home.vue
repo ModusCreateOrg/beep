@@ -1,6 +1,6 @@
 <template>
   <ion-page class="ion-page">
-    <ion-content class="content">
+    <ion-content class="content" padding>
       <div class="title">
         Check if you've been hacked
       </div>

@@ -7,7 +7,7 @@
         </ion-buttons>
         <ion-title>Check Password</ion-title>
         <ion-buttons slot="end">
-          <ion-button clear :disabled="!validatePwd()" @click="checkHash">
+          <ion-button clear :disabled="!validatePwd()" @click="checkHash" color="danger">
             <span v-if="requestPending">
               <ion-spinner/>
             </span>
@@ -22,16 +22,22 @@
         Your password is hash protected and<br/>
         we won't store it anywhere.<br/>
       </div>
-      <ion-item>
-        <ion-label floating>Your password</ion-label>
-        <ion-input large :type="pwdType" :value="pwd" @input="pwd = $event.target.value"/>
-        <ion-button v-show="pwd.length > 0" slot="end" fill="clear" size="large" @click="togglePwdType">
-          <ion-icon :name="showPwdIcon"/>
-        </ion-button>
-      </ion-item>
+      <div class="input-holder">
+        <ion-item>
+          <ion-label padding>Your password</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-input large :type="pwdType" :value="pwd" @input="pwd = $event.target.value"/>
+          <ion-button v-show="pwd.length > 0" slot="end" fill="clear" size="large" @click="togglePwdType">
+            <img src="../images/Icon-Show-Hide.svg" alt="Show Hide Password">
+          </ion-button>
+        </ion-item>
+      </div>
       <div class="hash-protected">
-        <img src="../images/Icon-Hash-Protected.svg" alt="Hash Protected">
-        <span>Hash protected</span>
+        <div class="hash-protected-inner">
+          <img src="../images/Icon-Hash-Protected.svg" alt="Hash Protected">
+          <span>Hash protected</span>
+        </div>
       </div>
     </ion-content>
   </ion-page>
@@ -57,9 +63,6 @@ export default {
   computed: {
     pwdType() {
       return this.showPwd ? 'text' : 'password'
-    },
-    showPwdIcon() {
-      return this.showPwd ? 'eye-off' : 'eye'
     },
   },
   methods: {
@@ -147,9 +150,39 @@ ion-spinner * {
   stroke: white !important;
 }
 
+ion-title {
+  text-align: center !important;
+}
+
+ion-toolbar {
+  font-family: Lato, serif !important;
+  --ion-color-base: #fff !important;
+  --border-width: 0 !important;
+}
+
+.header-md::after {
+  left: 0;
+  bottom: 0;
+  position: relative;
+  width: 100%;
+  height: 5px;
+  background-image: none !important;
+  content: "";
+}
+
+ion-button {
+  font-family: Lato, serif !important;
+  --ion-color-base: #FF5C5D !important;
+  text-transform: none !important;
+}
+
+ion-back-button {
+  --ion-color-base: #FF5C5D !important;
+}
+
 .sub-title {
+  height: 10vh;
   color: #5C5C5C;
-  height: 45px;
   width: 100%;
   color: rgba(27, 27, 27, 0.5);
   font-family: Lato, serif;
@@ -159,49 +192,65 @@ ion-spinner * {
   text-align: center;
 }
 
-ion-input[type="password"] {
-  font: small-caption;
-  font-size: 75px;
-  color: #5C5C5C !important;
-  letter-spacing: -2px;
-  height: 20px;
+.input-holder {
+  margin-top: 20vh;
+  height: 20vh;
 }
 
-input[type="password"] {
-  color: #5C5C5C !important;
+ion-item {
+  --border-style: none;
+  --padding-start: 7% !important;
+  --ion-text-color: #5C5C5C !important;
+  --inner-border-width: 0 !important;
+}
+
+ion-input[type="password"] {
+  font: small-caption !important;
+  font-size: 70px !important;
+  letter-spacing: -2px !important;
+  height: 20px !important;
 }
 
 ion-input[type="text"] {
-  font: small-caption;
-  font-size: 20px;
-  color: #5C5C5C;
-  height: 20px;
+  font: small-caption !important;
+  font-size: 22px !important;
+  color: #5C5C5C !important;
+  height: 20px !important;
 }
 
 ion-label {
   width: 100%;
+  margin: 10px 8px -15px 0 !important;
   color: #5C5C5C !important;
-  font-family: Lato, serif;
-  font-size: 25px;
+  font-family: Lato, serif !important;
+  font-size: 18px !important;
   letter-spacing: -0.43px;
+  line-height: 18px !important;
+}
+
+.hash-protected {
+  position: absolute;
+  bottom: 20px;
+  padding-left: 7%;
+}
+
+.hash-protected-inner {
   line-height: 25px;
+  height: 25px;
 }
 
-ion-item {
-  border-bottom: none !important;
-  --inner-border-width: 0 !important;
-}
-
-.hash-protected > img {
+.hash-protected-inner > img {
   float: left;
 }
 
-.hash-protected > span {
+.hash-protected-inner > span {
+  margin-left: 5px;
   color: #555555;
   font-family: Lato, serif;
   font-size: 18px;
   font-weight: 300;
   letter-spacing: -0.43px;
-  line-height: 22px;
+  line-height: 100%;
+  text-decoration: underline;
 }
 </style>
