@@ -1,6 +1,6 @@
 <template>
   <ion-page class="ion-page">
-    <ion-content class="content" padding>
+    <ion-content class="content">
       <div class="title">
         Check if you've been hacked
       </div>
@@ -36,7 +36,7 @@ export default {
   name: 'Home',
   methods: {
     goToAcc() {
-      this.$router.push('/acc')
+      this.$router.push('/acc-safe')
     },
     goToPwd() {
       this.$router.push('/pwd')
@@ -46,6 +46,11 @@ export default {
 </script>
 
 <style>
+
+ion-content {
+  background-color: #fff;
+  color: #5C5C5C;
+}
 
 .title {
   margin-top: 30vh;
@@ -87,7 +92,6 @@ export default {
   border-radius: 5px;
   background-color: #FFFFFF;
   box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.1);
-  /*box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1), 0 5px 7px rgba(0, 0, 0, 0.2);*/
 }
 
 .square-btn:after {

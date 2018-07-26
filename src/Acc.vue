@@ -140,6 +140,7 @@ export default {
 </script>
 
 <style>
+
 ion-spinner * {
   stroke: white !important;
 }
@@ -152,16 +153,6 @@ ion-toolbar {
   font-family: Lato, serif !important;
   --ion-color-base: #fff !important;
   --border-width: 0 !important;
-}
-
-.header-md::after {
-  left: 0;
-  bottom: 0;
-  position: relative;
-  width: 100%;
-  height: 5px;
-  background-image: none !important;
-  content: "";
 }
 
 ion-button {

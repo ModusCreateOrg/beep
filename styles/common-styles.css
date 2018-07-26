@@ -1,0 +1,14 @@
+:root {
+    --beep-success: #47BD8F;
+    --ion-font-family: Lato, serif;
+    --border-width: 0;
+}
+
+.header-ios ion-toolbar:last-child {
+    --border-width: 0;
+}
+
+.header-md::after {
+    background-image: none;
+}
+
