@@ -149,12 +149,8 @@ ion-spinner * {
   stroke: white;
 }
 
-ion-title {
-  text-align: center;
-}
-
 ion-toolbar {
-  --ion-color-base: #fff;
+  --ion-color-base: #FFFFFF;
 }
 
 ion-button {

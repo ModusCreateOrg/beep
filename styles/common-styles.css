@@ -15,3 +15,6 @@
     background-image: none;
 }
 
+ion-title {
+    text-align: center;
+}

@@ -17,11 +17,11 @@
       </ion-toolbar>
     </ion-header>
     <ion-content class="content" padding>
-      <div class="sub-title">
+      <h1>
         Don't worry.<br/>
         Your password is hash protected and<br/>
         we won't store it anywhere.<br/>
-      </div>
+      </h1>
       <div class="input-holder">
         <ion-item>
           <ion-label padding>Your password</ion-label>
@@ -147,40 +147,35 @@ export default {
 </script>
 
 <style>
-ion-spinner * {
-  stroke: white !important;
-}
+@import '../styles/common-styles.css';
+</style>
 
-ion-title {
-  text-align: center !important;
+<style scoped>
+ion-spinner * {
+  stroke: white;
 }
 
 ion-toolbar {
-  font-family: Lato, serif !important;
-  --ion-color-base: #fff !important;
-  --border-width: 0 !important;
+  --ion-color-base: #FFFFFF;
 }
 
 ion-button {
-  font-family: Lato, serif !important;
-  --ion-color-base: #FF5C5D !important;
-  text-transform: none !important;
+  --ion-color-base: var(--beep-primary);
+  text-transform: none;
 }
 
 ion-back-button {
-  --ion-color-base: #FF5C5D !important;
+  --ion-color-base: var(--beep-primary);
 }
 
-.sub-title {
-  height: 10vh;
-  color: #5C5C5C;
+h1 {
   width: 100%;
   color: rgba(27, 27, 27, 0.5);
-  font-family: Lato, serif;
   font-size: 12px;
   letter-spacing: -0.29px;
   line-height: 15px;
   text-align: center;
+  font-weight: normal;
 }
 
 .input-holder {
@@ -190,36 +185,34 @@ ion-back-button {
 
 ion-item {
   --border-style: none;
-  --padding-start: 7% !important;
-  --ion-text-color: #5C5C5C !important;
-  --inner-border-width: 0 !important;
+  --padding-start: 7%;
+  --ion-text-color: var(--beep-secondary);
+  --inner-border-width: 0;
 }
 
 ion-input[type="password"] {
-  font: small-caption !important;
-  font-size: 70px !important;
-  letter-spacing: -2px !important;
-  height: 56px !important;
+  height: 56px;
+  font: small-caption;
+  font-size: 70px;
+  letter-spacing: -2px;
 }
 
 ion-input[type="text"] {
-  font-family: Lato, serif !important;
-  font-size: 25px !important;
-  height: 56px !important;
-  color: rgba(92, 92, 92, 0.5) !important;
-  font-weight: 300 !important;
+  height: 56px;
+  font-size: 25px;
+  color: rgba(92, 92, 92, 0.5);
+  font-weight: 300;
   letter-spacing: -0.63px;
-  line-height: 25px !important;
+  line-height: 25px;
 }
 
 ion-label {
   width: 100%;
-  margin: 10px 8px -15px 0 !important;
-  color: #5C5C5C !important;
-  font-family: Lato, serif !important;
-  font-size: 18px !important;
+  margin: 10px 8px -15px 0;
+  color: var(--beep-secondary);
+  font-size: 18px;
   letter-spacing: -0.43px;
-  line-height: 18px !important;
+  line-height: 18px;
 }
 
 .hash-protected {
@@ -239,12 +232,11 @@ ion-label {
 
 .hash-protected-inner > span {
   margin-left: 5px;
-  color: #555555;
-  font-family: Lato, serif;
+  color: var(--beep-secondary);
   font-size: 18px;
   font-weight: 300;
   letter-spacing: -0.43px;
   line-height: 100%;
-  text-decoration: underline;
+  border-bottom: 1px solid var(--beep-secondary);
 }
 </style>
