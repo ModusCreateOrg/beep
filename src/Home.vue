@@ -38,7 +38,7 @@ export default {
   name: 'Home',
   methods: {
     goToAcc() {
-      this.$router.push('/acc-safe')
+      this.$router.push('/acc')
     },
     goToPwd() {
       this.$router.push('/pwd')

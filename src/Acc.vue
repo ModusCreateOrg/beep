@@ -17,10 +17,10 @@
       </ion-toolbar>
     </ion-header>
     <ion-content class="content" padding>
-      <div class="sub-title">
+      <h1>
         Enter any username or email and<br/>
         we'll check if it's been hacked<br/>
-      </div>
+      </h1>
       <div class="input-holder">
         <ion-item>
           <ion-label padding>Your username or email</ion-label>
@@ -140,40 +140,39 @@ export default {
 </script>
 
 <style>
+@import '../styles/common-styles.css';
+</style>
+
+<style scoped>
 
 ion-spinner * {
-  stroke: white !important;
+  stroke: white;
 }
 
 ion-title {
-  text-align: center !important;
+  text-align: center;
 }
 
 ion-toolbar {
-  font-family: Lato, serif !important;
-  --ion-color-base: #fff !important;
-  --border-width: 0 !important;
+  --ion-color-base: #fff;
 }
 
 ion-button {
-  font-family: Lato, serif !important;
-  --ion-color-base: #FF5C5D !important;
-  text-transform: none !important;
+  --ion-color-base: var(--beep-primary);
+  text-transform: none;
 }
 
 ion-back-button {
-  --ion-color-base: #FF5C5D !important;
+  --ion-color-base: var(--beep-primary);
 }
 
-.sub-title {
-  height: 10vh;
-  color: #5C5C5C;
-  width: 100%;
+h1 {
   color: rgba(27, 27, 27, 0.5);
-  font-family: Lato, serif;
+  width: 100%;
   font-size: 12px;
+  font-weight: normal;
   letter-spacing: -0.29px;
-  line-height: 15px;
+  line-height: 1.4;
   text-align: center;
 }
 
@@ -184,28 +183,26 @@ ion-back-button {
 
 ion-item {
   --border-style: none;
-  --padding-start: 7% !important;
-  --ion-text-color: #5C5C5C !important;
-  --inner-border-width: 0 !important;
+  --padding-start: 7%;
+  --ion-text-color: var(--beep-secondary);
+  --inner-border-width: 0;
 }
 
 ion-input {
-  font-family: Lato, serif !important;
-  font-size: 25px !important;
-  height: 56px !important;
-  color: rgba(92, 92, 92, 0.5) !important;
-  font-weight: 300 !important;
+  height: 56px;
+  font-size: 25px;
+  color: rgba(92, 92, 92, 0.5);
+  font-weight: 300;
   letter-spacing: -0.63px;
-  line-height: 25px !important;
+  line-height: 25px;
 }
 
 ion-label {
   width: 100%;
-  margin: 10px 8px -15px 0 !important;
-  color: #5C5C5C !important;
-  font-family: Lato, serif !important;
-  font-size: 18px !important;
+  margin: 10px 8px -15px 0;
+  color: var(--beep-secondary);
+  font-size: 18px;
   letter-spacing: -0.43px;
-  line-height: 18px !important;
+  line-height: 18px;
 }
 </style>
