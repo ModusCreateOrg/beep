@@ -3,7 +3,7 @@ import Router from '@modus/ion-router-vue'
 import IonicAPI from './ionic-api'
 import Home from './Home.vue'
 import Acc from './Acc.vue'
-import AccSafe from './AccSafe.vue'
+import Safe from './Safe.vue'
 import Pwd from './Pwd.vue'
 
 Vue.use(Router)
@@ -15,7 +15,11 @@ new Vue({
       { path: '/', component: Home },
       { path: '/acc', component: Acc },
       { path: '/pwd', component: Pwd },
-      { path: '/acc-safe', component: AccSafe },
+      {
+        path: '/safe',
+        component: Safe,
+        props: (route) => ({account: route.query.account})
+      },
     ],
   }),
 }).$mount('ion-app')

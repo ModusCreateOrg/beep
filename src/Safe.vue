@@ -7,18 +7,15 @@
         </ion-buttons>
       </ion-toolbar>
     </ion-header>
-    <ion-content class="content success-content" padding>
+    <ion-content class="content" padding>
       <h1>Congratulations!</h1>
-      <h2>
-        Your account <strong>email@website.com</strong><br>
-        has not been compromised
-      </h2>
+      <h2 v-html="buildSubtitle()"></h2>
       <h3>
-        <span>Check another account</span>
+        <span>Check Another {{isAccount() ? 'Account' : 'Password'}}</span>
       </h3>
       <img src="../images/Icon-Character-Positive.svg">
       <h3>
-        <span>Next: Check Password</span>
+        <span>Next: Check {{isAccount() ? 'Password' : 'Account'}}</span>
       </h3>
     </ion-content>
   </ion-page>
@@ -26,7 +23,25 @@
 
 <script>
 export default {
-  name: 'AccSafe',
+  name: 'Safe',
+  props: {
+    account: {
+      default: '',
+      type: String
+    }
+  },
+  methods: {
+    isAccount() {
+      return this.account.trim().length > 0
+    },
+    buildSubtitle() {
+      if (this.isAccount()) {
+        return `Your account <strong>${this.account}</strong><br/>has not been compromised`;
+      }
+
+      return `Your password has not been<br/>compromised`;
+    }
+  }
 }
 </script>
 
@@ -67,7 +82,7 @@ h2 {
   margin-top: 0;
   margin-bottom: 2vh;
   font-size: 16px;
-  font-weight: bold;
+  font-weight: normal;
   letter-spacing: -1px;
   line-height: 1.5;
 }
