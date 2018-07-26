@@ -1,9 +1,11 @@
 <template>
   <ion-page class="ion-page">
     <ion-content class="content">
-      <div class="title">
-        Check if you've been hacked
-      </div>
+      <img src="../images/Beep-Logo.svg" alt="Beep" class="logo">
+      <h1>
+        Check if you've<br/>
+        been hacked
+      </h1>
       <div class="buttons">
         <div class="btn-holder" @click="goToAcc">
           <div class="square-btn">
@@ -24,9 +26,9 @@
           </div>
         </div>
       </div>
-      <div class="help-message">
-        How does it work?
-      </div>
+      <h2>
+        <span>How does it work?</span>
+      </h2>
     </ion-content>
   </ion-page>
 </template>
@@ -46,33 +48,35 @@ export default {
 </script>
 
 <style>
+@import '../styles/common-styles.css';
+</style>
 
-ion-content {
-  background-color: #fff;
-  color: #5C5C5C;
+<style scoped>
+ion-page {
+  text-align: center;
+  --ion-text-color: var(--beep-secondary);
 }
 
-.title {
-  margin-top: 30vh;
-  height: 14vh;
+.logo {
+  margin-top: 5vh;
   display: inline-block;
-  margin-left: 14%;
-  width: 72%;
-  color: #1B1B1B;
-  font-family: Khula, Arial, serif;
-  font-size: 4.8vh;
-  font-weight: bold;
+}
+
+h1 {
+  height: 14vh;
+  margin-top: 15vh;
+  color: var(--beep-dark);
+  font-size: 32px;
+  font-weight: bolder;
   letter-spacing: -1px;
-  text-align: center;
 }
 
 .buttons {
-  display: inline-block;
-  margin-top: 7vh;
+  position: relative;
   height: 19vh;
+  margin-top: 7vh;
   margin-left: 8%;
   width: 84%;
-  position: relative;
   clear: both;
 }
 
@@ -123,34 +127,44 @@ ion-content {
 }
 
 .square-btn-icon {
-  text-align: center;
   margin-bottom: 10%;
   margin-top: 15%;
   width: 100%;
   height: 35%;
 }
 
+.square-btn-icon img {
+  height: 100%;
+}
+
 .square-btn-text {
   width: 100%;
   color: #1B1B1B;
-  font-family: Lato, serif;
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 300;
   letter-spacing: -0.48px;
   line-height: 22px;
-  text-align: center;
 }
 
-.help-message {
-  margin-top: 18vh;
-  width: 100%;
+h2 {
   height: 10vh;
-  color: #5C5C5C;
-  font-family: Lato, serif;
+  margin-top: 23vh;
+  font-size: 18px;
   font-weight: 300;
   letter-spacing: -0.48px;
-  font-size: 2.5vh;
-  text-align: center;
-  text-decoration: underline;
+}
+
+h2 span {
+  border-bottom: 1px solid var(--beep-secondary);
+}
+
+@media screen and (min-height: 650px) {
+  h1 {
+    font-size: 40px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
 }
 </style>
