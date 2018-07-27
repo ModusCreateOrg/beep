@@ -2,7 +2,7 @@
   <ion-page class="ion-page">
     <ion-header>
       <ion-toolbar>
-        <ion-buttons slot="start">
+        <ion-buttons slot="start" @click="goHome">
           <ion-back-button/>
         </ion-buttons>
         <ion-title>Check Account</ion-title>
@@ -134,6 +134,12 @@ export default {
         })
         .then(e => e.present())
         .catch(err => console.error(err))
+    },
+    goHome(event) {
+      if (event) {
+        event.preventDefault()
+      }
+      this.$router.push('/')
     },
   },
 }

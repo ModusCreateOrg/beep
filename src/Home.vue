@@ -40,8 +40,8 @@ export default {
     'how-does-it-work': HowDoesItWorkModal
   },
   methods: {
-    async goToAcc() {
-      this.$router.push('/safe')
+    goToAcc() {
+      this.$router.push('/acc')
     },
     goToPwd() {
       this.$router.push('/pwd')

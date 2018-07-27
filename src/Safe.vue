@@ -10,11 +10,11 @@
     <ion-content class="content" padding>
       <h1>Congratulations!</h1>
       <h2 v-html="buildSubtitle()"></h2>
-      <h3>
+      <h3 @click="check">
         <span>Check Another {{isAccount() ? 'Account' : 'Password'}}</span>
       </h3>
       <img src="../images/Icon-Character-Positive.svg">
-      <h3>
+      <h3 @click="next">
         <span>Next: Check {{isAccount() ? 'Password' : 'Account'}}</span>
       </h3>
     </ion-content>
@@ -40,6 +40,20 @@ export default {
       }
 
       return `Your password has not been<br/>compromised`;
+    },
+    next() {
+      if (this.isAccount()) {
+        this.$router.push('/pwd')
+        return
+      }
+      this.$router.push('/acc')
+    },
+    check() {
+      if (this.isAccount()) {
+        this.$router.push('/acc')
+        return
+      }
+      this.$router.push('/pwd')
     }
   }
 }

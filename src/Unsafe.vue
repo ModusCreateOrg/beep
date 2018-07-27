@@ -14,7 +14,7 @@
       <h2 class="count-text">websites</h2>
       <img src="../images/Icon-Character-Negative.svg">
       <what-should-you-do/>
-      <h3>
+      <h3 @click="goToAcc">
         <span>Next: Check Account</span>
       </h3>
     </ion-content>
@@ -29,6 +29,11 @@ export default {
   components: {
     'what-should-you-do': WhatShouldYouDoModal
   },
+  methods: {
+    goToAcc() {
+      this.$router.push('/acc')
+    }
+  }
 }
 </script>
 
