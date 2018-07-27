@@ -26,18 +26,21 @@
           </div>
         </div>
       </div>
-      <h2>
-        <span>How does it work?</span>
-      </h2>
+      <how-does-it-work/>
     </ion-content>
   </ion-page>
 </template>
 
 <script>
+import HowDoesItWorkModal from './HowDoesItWorkModal.vue'
+
 export default {
   name: 'Home',
+  components: {
+    'how-does-it-work': HowDoesItWorkModal
+  },
   methods: {
-    goToAcc() {
+    async goToAcc() {
       this.$router.push('/safe')
     },
     goToPwd() {
@@ -146,25 +149,9 @@ h1 {
   line-height: 22px;
 }
 
-h2 {
-  height: 10vh;
-  margin-top: 23vh;
-  font-size: 18px;
-  font-weight: 300;
-  letter-spacing: -0.48px;
-}
-
-h2 span {
-  border-bottom: 1px solid var(--beep-secondary);
-}
-
 @media screen and (min-height: 650px) {
   h1 {
     font-size: 40px;
-  }
-
-  h2 {
-    font-size: 20px;
   }
 }
 </style>

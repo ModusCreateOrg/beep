@@ -1,10 +1,22 @@
-import { Delegate } from './framework-delegate'
+import {Delegate} from './framework-delegate'
 
 const api = {
   async newNavController(root) {
     const ctrl = await initComponent('ion-nav', 'ion-app')
     ctrl.root = root
     return ctrl
+  },
+  async newModalController(props) {
+    const buttons = props.component.querySelectorAll('.dismiss-modal')
+    const modalController = await this.newAbstractController('ion-modal-controller', props)
+
+    buttons.forEach(function (item) {
+      item.addEventListener('click', () => {
+        modalController.dismiss();
+      });
+    });
+
+    return modalController
   },
   newAlertController(props) {
     return this.newAbstractController('ion-alert-controller', props)

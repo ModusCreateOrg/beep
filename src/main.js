@@ -5,6 +5,7 @@ import Home from './Home.vue'
 import Acc from './Acc.vue'
 import Safe from './Safe.vue'
 import Pwd from './Pwd.vue'
+import Unsafe from './Unsafe.vue'
 
 Vue.use(Router)
 Vue.use(IonicAPI)
@@ -15,6 +16,7 @@ new Vue({
       { path: '/', component: Home },
       { path: '/acc', component: Acc },
       { path: '/pwd', component: Pwd },
+      { path: '/unsafe', component: Unsafe },
       {
         path: '/safe',
         component: Safe,

@@ -8,14 +8,16 @@
       </ion-toolbar>
     </ion-header>
     <ion-content class="content" padding>
-      <h1>Congratulations!</h1>
-      <h2 v-html="buildSubtitle()"></h2>
+      <h1>Caution!</h1>
+      <h2>Your password has been<br/>compromised across</h2>
+      <h1 class="count">573</h1>
+      <h2 class="count-text">websites</h2>
+      <img src="../images/Icon-Character-Negative.svg">
       <h3>
-        <span>Check Another {{isAccount() ? 'Account' : 'Password'}}</span>
+        <span>What should you do?</span>
       </h3>
-      <img src="../images/Icon-Character-Positive.svg">
       <h3>
-        <span>Next: Check {{isAccount() ? 'Password' : 'Account'}}</span>
+        <span>Next: Check Account</span>
       </h3>
     </ion-content>
   </ion-page>
@@ -23,25 +25,7 @@
 
 <script>
 export default {
-  name: 'Safe',
-  props: {
-    account: {
-      default: '',
-      type: String
-    }
-  },
-  methods: {
-    isAccount() {
-      return this.account.trim().length > 0
-    },
-    buildSubtitle() {
-      if (this.isAccount()) {
-        return `Your account <strong>${this.account}</strong><br/>has not been compromised`;
-      }
-
-      return `Your password has not been<br/>compromised`;
-    }
-  }
+  name: 'Unsafe'
 }
 </script>
 
@@ -57,7 +41,7 @@ ion-page {
 }
 
 ion-toolbar {
-  --background: var(--beep-success);
+  --background: var(--beep-danger);
 }
 
 ion-back-button {
@@ -65,31 +49,46 @@ ion-back-button {
 }
 
 ion-content {
-  background-color: var(--beep-success);
+  background-color: var(--beep-danger);
 }
 
 h1 {
   height: 8vh;
   margin-top: 5vh;
+  margin-bottom: 0;
   font-size: 35px;
   font-weight: bold;
   letter-spacing: -1px;
   display: inline-block;
 }
 
+h1.count {
+  height: auto;
+  margin: 0;
+  font-size: 50px;
+  font-weight: bold;
+  letter-spacing: -1px;
+}
+
 h2 {
   height: 10vh;
+  margin: 0;
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 1.5;
+}
+
+h2.count-text {
+  height: auto;
   margin-top: 0;
-  margin-bottom: 2vh;
+  margin-bottom: 0;
   font-size: 16px;
   font-weight: normal;
   line-height: 1.5;
 }
 
 img {
-  height: 45vh;
-  margin-top: 2vh;
-  margin-bottom: 2vh;
+  height: 40vh;
 }
 
 h3 {
@@ -110,7 +109,7 @@ span {
     font-size: 40px;
   }
 
-  h2 {
+  h2, h2.count-text {
     font-size: 20px;
   }
 

@@ -74,7 +74,7 @@
         <path d="M26.8104289,20.1447005 L83.9629296,7.74386719 C84.9493188,7.52984246 85.7489452,8.25177165 85.7489452,9.35634115 L85.7489452,88.3563411 C85.7489452,89.4609106 84.9493188,90.5298425 83.9629296,90.7438672 L26.8104289,103.144701 C25.8240397,103.358725 25.0244133,102.636796 25.0244133,101.532227 L25.0244133,22.5322266 C25.0244133,21.4276571 25.8240397,20.3587252 26.8104289,20.1447005 Z" id="path-25"></path>
     </defs>
     <g id="Icon-Character-Negative" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Character-Illustration" transform="translate(35.000000, 52.000000)">
+        <g id="Character-Illustration" transform="translate(35.000000, 87.000000)">
             <ellipse id="Shade" fill-opacity="0.05" fill="#000000" style="mix-blend-mode: multiply;" cx="97" cy="203" rx="92" ry="14"></ellipse>
             <g id="Leg-Back" transform="translate(112.000000, 163.000000)">
                 <mask id="mask-3" fill="white">

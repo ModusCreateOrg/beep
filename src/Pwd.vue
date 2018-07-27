@@ -34,12 +34,7 @@
           </ion-button>
         </ion-item>
       </div>
-      <div class="hash-protected">
-        <div class="hash-protected-inner">
-          <img src="../images/Icon-Hash-Protected.svg" alt="Hash Protected">
-          <span>Hash protected</span>
-        </div>
-      </div>
+      <has-protected-modal/>
     </ion-content>
   </ion-page>
 </template>
@@ -47,11 +42,15 @@
 <script>
 import sha1 from 'sha1'
 import axios from 'axios'
+import HashProtectedModal from './HashProtectedModal.vue'
 
 const baseURL = 'https://api.pwnedpasswords.com/range/'
 
 export default {
   name: 'Pwd',
+  components: {
+    'has-protected-modal': HashProtectedModal
+  },
   data() {
     return {
       pwd: '',
@@ -213,30 +212,5 @@ ion-label {
   font-size: 18px;
   letter-spacing: -0.43px;
   line-height: 18px;
-}
-
-.hash-protected {
-  position: absolute;
-  bottom: 20px;
-  padding-left: 7%;
-}
-
-.hash-protected-inner {
-  line-height: 25px;
-  height: 25px;
-}
-
-.hash-protected-inner > img {
-  float: left;
-}
-
-.hash-protected-inner > span {
-  margin-left: 5px;
-  color: var(--beep-secondary);
-  font-size: 18px;
-  font-weight: 300;
-  letter-spacing: -0.43px;
-  line-height: 100%;
-  border-bottom: 1px solid var(--beep-secondary);
 }
 </style>
