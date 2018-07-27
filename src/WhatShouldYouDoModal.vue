@@ -28,7 +28,7 @@
 import Modal from './Modal.vue'
 
 export default {
-  name: 'HashProtectedModal',
+  name: 'WhatShouldYouDoModal',
   components: {
     'modal': Modal
   },
