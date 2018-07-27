@@ -10,7 +10,7 @@
     <ion-content class="content" padding>
       <h1>Caution!</h1>
       <h2>Your password has been<br/>compromised across</h2>
-      <h1 class="count">573</h1>
+      <h1 class="count" v-html="count"></h1>
       <h2 class="count-text">websites</h2>
       <img src="../images/Icon-Character-Negative.svg">
       <what-should-you-do/>
@@ -26,6 +26,7 @@ import WhatShouldYouDoModal from './WhatShouldYouDoModal.vue'
 
 export default {
   name: 'Unsafe',
+  props: ['count'],
   components: {
     'what-should-you-do': WhatShouldYouDoModal
   },

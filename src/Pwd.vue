@@ -23,16 +23,19 @@
         we won't store it anywhere.<br/>
       </h1>
       <div class="input-holder">
-        <ion-item>
-          <ion-label padding>Your password</ion-label>
-        </ion-item>
-        <ion-item>
-          <ion-input large :type="pwdType" :value="pwd" @input="pwd = $event.target.value"
-                     placeholder="••••••"/>
-          <ion-button v-show="isValidPwd()" slot="end" fill="clear" size="large" @click="togglePwdType">
-            <img src="../images/Icon-Show-Hide.svg" alt="Show Hide Password">
-          </ion-button>
-        </ion-item>
+        <form @submit.prevent="checkHash">
+          <ion-item>
+            <ion-label padding>Your password</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-input large :type="pwdType" :value="pwd" @input="pwd = $event.target.value"
+                       placeholder="••••••"/>
+            <ion-button type="button" v-show="isValidPwd()" slot="end" fill="clear" size="large" @click="togglePwdType">
+              <img src="../images/Icon-Show-Hide.svg" alt="Show Hide Password">
+            </ion-button>
+          </ion-item>
+          <button type="submit" hidden>Check</button>
+        </form>
       </div>
       <has-protected-modal/>
     </ion-content>
@@ -56,8 +59,6 @@ export default {
       pwd: '',
       showPwd: false,
       requestPending: false,
-      pwned: false,
-      count: 0,
     }
   },
   computed: {
@@ -75,16 +76,17 @@ export default {
     getURL(hashPart) {
       return baseURL + hashPart
     },
-    checkHash() {
+    checkHash(event) {
+      if (event) {
+        event.preventDefault()
+      }
       if (this.isValidPwd() && !this.requestPending) {
         this.sendRequest()
       }
     },
     async sendRequest() {
       const hash = sha1(this.pwd)
-      const loading = await this.$ionic.newLoadingController({
-        content: 'Fetching breach details...',
-      })
+      const loading = await this.$ionic.newLoadingController()
 
       loading.present()
       this.requestPending = true
@@ -92,9 +94,12 @@ export default {
       return axios
         .get(this.getURL(hash.substr(0, 5)))
         .then(res => {
-          this.count = this.search(hash.substr(5).toUpperCase(), res.data)
-          this.pwned = this.count > 0
-          return this.notify()
+          const count = this.search(hash.substr(5).toUpperCase(), res.data)
+          if (count > 0) {
+            this.$router.push(`/unsafe?count=${count}`)
+            return
+          }
+          this.$router.push('/safe')
         })
         .catch(err => console.error(err))
         .finally(() => {
@@ -121,25 +126,6 @@ export default {
       }
 
       return breachData[1]
-    },
-    notify() {
-      let btns = ['Yay!']
-      let msg = 'You are secure, for now...'
-
-      if (this.pwned) {
-        btns = ['Doh!']
-        msg = `You've been pwned across ${this.count} domains`
-      }
-
-      this.$ionic
-        .newAlertController({
-          header: 'Beep',
-          subHeader: null,
-          message: msg,
-          buttons: btns,
-        })
-        .then(o => o.present())
-        .catch(err => console.error(err))
     },
     goHome(event) {
       if (event) {

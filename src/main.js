@@ -16,7 +16,11 @@ new Vue({
       { path: '/', component: Home },
       { path: '/acc', component: Acc },
       { path: '/pwd', component: Pwd },
-      { path: '/unsafe', component: Unsafe },
+      {
+        path: '/unsafe',
+        component: Unsafe,
+        props: (route) => ({count: route.query.count})
+      },
       {
         path: '/safe',
         component: Safe,
