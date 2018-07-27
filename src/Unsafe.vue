@@ -13,9 +13,7 @@
       <h1 class="count">573</h1>
       <h2 class="count-text">websites</h2>
       <img src="../images/Icon-Character-Negative.svg">
-      <h3>
-        <span>What should you do?</span>
-      </h3>
+      <what-should-you-do/>
       <h3>
         <span>Next: Check Account</span>
       </h3>
@@ -24,8 +22,13 @@
 </template>
 
 <script>
+import WhatShouldYouDoModal from './WhatShouldYouDoModal.vue'
+
 export default {
-  name: 'Unsafe'
+  name: 'Unsafe',
+  components: {
+    'what-should-you-do': WhatShouldYouDoModal
+  },
 }
 </script>
 
@@ -34,7 +37,6 @@ export default {
 </style>
 
 <style scoped>
-
 ion-page {
   text-align: center;
   --ion-text-color: #FFFFFF;
@@ -100,7 +102,7 @@ h3 {
   line-height: 16px;
 }
 
-span {
+h3 span {
   border-bottom: 1px solid #fff;
 }
 

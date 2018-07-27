@@ -1,24 +1,29 @@
 <template>
   <div>
-    <div class="hash-protected-holder" @click="createModal()">
-      <div class="hash-protected-inner">
-        <img src="../images/Icon-Hash-Protected.svg" alt="Hash Protected">
-        <span>Hash protected</span>
-      </div>
-    </div>
+    <h3 @click="createModal()">
+      <span>What should you do?</span>
+    </h3>
     <modal ref="modal" title="">
       <div class="content">
-        <h1 class="hash-protected">
-          <img src="../images/Icon-Hash-Protected.svg"/>
-          <span>Hash Protected</span>
-        </h1>
+        <h1>What Should You Do?</h1>
         <p>
-          We’ve made sure that Beep won’t end up yet another name on the list of data breaches.&nbsp;
-          How? We hash all of your passwords and account information.&nbsp;
-          In other words, we never store your passwords in plain text.&nbsp;
-          Instead, we transform your password into a really, really long code that a hacker can’t crack.&nbsp;
-          And then, we send only the first five characters of that code to a server.
+          We recommend changing your password on any sites where you used the password you entered.&nbsp;
+          Follow these best practices to create a secure password:
         </p>
+        <ul>
+          <li>Don’t write your passwords down.</li>
+          <li>
+            Longer passwords are more secure. &nbsp;
+            But don’t make your password so long that you’ll be tempted to write it down.
+          </li>
+          <li>Avoid using dictionary words.</li>
+          <li>
+            Don’t use the same password for more than one account. &nbsp;
+            Sound like too many passwords? Try a password manager like LastPass or OnePassword.
+          </li>
+          <li>Never use remember password</li>
+          <li>Don’t use your name, address, or any other personal information</li>
+        </ul>
       </div>
     </modal>
   </div>
@@ -45,41 +50,33 @@ export default {
 </style>
 
 <style scoped>
-.hash-protected-holder {
-  position: absolute;
-  bottom: 20px;
-  padding-left: 7%;
-}
-
-.hash-protected-holder .hash-protected-inner {
-  line-height: 25px;
-  height: 25px;
-}
-
-.hash-protected-inner > img {
-  float: left;
-}
-
-.hash-protected-inner > span {
-  margin-left: 5px;
-  color: var(--beep-secondary);
-  font-size: 18px;
+h3 {
+  margin: 0 auto;
+  height: 5vh;
+  font-size: 16px;
   font-weight: 300;
-  letter-spacing: -0.43px;
-  line-height: 100%;
-  border-bottom: 1px solid var(--beep-secondary);
+  letter-spacing: -0.48px;
+  line-height: 16px;
+}
+
+h3 span {
+  border-bottom: 1px solid #fff;
 }
 
 .content {
   padding: 10vh 20px;
 }
 
-p {
+p, ul {
   color: #555555;
   font-size: 14px;
   letter-spacing: -0.34px;
   line-height: 26px;
-  margin-bottom: 50px;
+  margin-bottom: 15px;
+}
+
+ul {
+  padding-left: 30px;
 }
 
 h1 {
@@ -90,25 +87,10 @@ h1 {
   line-height: 1.5;
 }
 
-.hash-protected {
-  line-height: 25px;
-}
-
-.hash-protected > img {
-  float: left;
-}
-
-.hash-protected > span {
-  margin-left: 5px;
-}
-
-h2 span {
-  border-bottom: 1px solid var(--beep-secondary);
-}
-
 @media screen and (min-height: 650px) {
-  h2 {
+  h3 {
     font-size: 20px;
+    line-height: 20px;
   }
 }
 </style>
