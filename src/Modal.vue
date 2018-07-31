@@ -1,21 +1,31 @@
 <template>
-  <div class="modal-template" :id="id">
+  <div
+    :id="id"
+    class="modal-template">
     <ion-header>
       <ion-toolbar>
         <ion-buttons slot="start">
-          <ion-button icon-only class="dismiss-modal">
-            <ion-icon size="large" name="close"></ion-icon>
+          <ion-button
+            icon-only
+            class="dismiss-modal">
+            <ion-icon
+              size="large"
+              name="close"/>
           </ion-button>
         </ion-buttons>
-        <ion-title>{{title}}</ion-title>
+        <ion-title>{{ title }}</ion-title>
         <ion-buttons slot="end">
-          <ion-button clear class="dismiss-modal">
+          <ion-button
+            clear
+            class="dismiss-modal">
             Done
           </ion-button>
         </ion-buttons>
       </ion-toolbar>
     </ion-header>
-    <ion-content class="content" padding>
+    <ion-content
+      class="content"
+      padding>
       <slot/>
     </ion-content>
   </div>
@@ -24,10 +34,15 @@
 <script>
 export default {
   name: 'Modal',
-  props: ['title'],
+  props: {
+    title: {
+      type: String,
+      default: '',
+    },
+  },
   data() {
     return {
-      id: null
+      id: null,
     }
   },
   mounted() {
@@ -40,18 +55,18 @@ export default {
 
       this.$ionic
         .newModalController({
-          component: template
+          component: template,
         })
         .then(o => o.present())
         .catch(err => console.error(err))
-    }
-  }
+    },
+  },
 }
 </script>
 
 <style scoped>
 ion-toolbar {
-  --ion-color-base: #FFFFFF;
+  --ion-color-base: #ffffff;
 }
 
 ion-button,
