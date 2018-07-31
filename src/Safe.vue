@@ -7,15 +7,17 @@
         </ion-buttons>
       </ion-toolbar>
     </ion-header>
-    <ion-content class="content" padding>
+    <ion-content
+      class="content"
+      padding>
       <h1>Congratulations!</h1>
-      <h2 v-html="buildSubtitle()"></h2>
+      <h2 v-html="buildSubtitle()"/>
       <h3 @click="check">
-        <span>Check Another {{isAccount ? 'Account' : 'Password'}}</span>
+        <span>Check Another {{ isAccount ? 'Account' : 'Password' }}</span>
       </h3>
       <img src="../images/Icon-Character-Positive.svg">
       <h3 @click="next">
-        <span>Next: Check {{isAccount ? 'Password' : 'Account'}}</span>
+        <span>Next: Check {{ isAccount ? 'Password' : 'Account' }}</span>
       </h3>
     </ion-content>
   </ion-page>
@@ -33,10 +35,10 @@ export default {
   methods: {
     buildSubtitle() {
       if (this.isAccount) {
-        return `Your account <strong>${this.account}</strong><br/>has not been compromised`;
+        return `Your account <strong>${this.account}</strong><br/>has not been compromised`
       }
 
-      return `Your password has not been<br/>compromised`;
+      return 'Your password has not been<br/>compromised'
     },
     next() {
       if (this.isAccount) {
@@ -51,16 +53,15 @@ export default {
         return
       }
       this.$router.push('/pwd')
-    }
-  }
+    },
+  },
 }
 </script>
 
 <style scoped>
-
 ion-page {
   text-align: center;
-  --ion-text-color: #FFFFFF;
+  --ion-text-color: #ffffff;
 }
 
 ion-toolbar {
