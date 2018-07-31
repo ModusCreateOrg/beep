@@ -1,4 +1,4 @@
-import {Delegate} from './framework-delegate'
+import { Delegate } from './framework-delegate'
 
 const api = {
   async newNavController(root) {
