@@ -5,17 +5,22 @@
         <ion-buttons slot="start">
           <ion-back-button/>
         </ion-buttons>
-        <ion-title v-html="account"></ion-title>
-        <ion-buttons slot="end">
-        </ion-buttons>
+        <ion-title v-html="account"/>
       </ion-toolbar>
-      <ion-searchbar type="email" :value="filter" v-on:ionChange="filterChanged">
-      </ion-searchbar>
+      <ion-searchbar
+        :value="filter"
+        type="email"
+        @ionChange="filterChanged"/>
     </ion-header>
-    <ion-content class="content" padding>
-      <div class="counter">{{breaches.length}} results found</div>
+    <ion-content
+      padding
+      class="content">
+      <div class="counter">{{ breaches.length }} results found</div>
       <ion-list>
-        <breach-item v-for="(breach, index) in breaches" :key="index" :breach="breach"/>
+        <breach-item
+          v-for="(breach, index) in breaches"
+          :key="index"
+          :breach="breach"/>
       </ion-list>
     </ion-content>
   </ion-page>
@@ -27,18 +32,12 @@ import BreachItem from './BreachItem.vue'
 export default {
   name: 'Breaches',
   components: {
-    'breach-item': BreachItem
+    'breach-item': BreachItem,
   },
   data() {
     return {
       filter: this.$breachesService.filter,
       account: this.$breachesService.account,
-    }
-  },
-  methods: {
-    filterChanged(event) {
-      this.filter = event.target.value
-      this.$breachesService.filter = this.filter
     }
   },
   computed: {
@@ -47,22 +46,28 @@ export default {
         return this.$breachesService.breaches
       }
 
-      return this.$breachesService.breaches.filter((breach) => {
+      return this.$breachesService.breaches.filter(breach => {
         return breach.Title.toLowerCase().startsWith(this.filter.toLowerCase())
-      });
-    }
+      })
+    },
+  },
+  methods: {
+    filterChanged(event) {
+      this.filter = event.target.value
+      this.$breachesService.filter = this.filter
+    },
   },
 }
 </script>
 
 <style>
 .searchbar-input {
-  color: #FFFFFF !important;
+  color: #ffffff !important;
   background-color: rgba(0, 0, 0, 0.15) !important;
 }
 
 .searchbar-search-icon {
-  color: #FFFFFF !important;
+  color: #ffffff !important;
 }
 
 .searchbar-clear-icon,
@@ -75,7 +80,7 @@ export default {
 <style scoped>
 ion-toolbar {
   --ion-color-base: var(--beep-primary);
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 ion-searchbar {
@@ -87,19 +92,19 @@ ion-header {
 }
 
 ion-button {
-  --ion-color-base: #FFFFFF;
+  --ion-color-base: #ffffff;
   text-transform: none;
 }
 
 ion-back-button {
-  --ion-color-base: #FFFFFF;
+  --ion-color-base: #ffffff;
 }
 
 .counter {
   height: 17px;
   width: 100%;
   background-color: var(--beep-primary);
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 14px;
   font-weight: 900;
   letter-spacing: -0.34px;
