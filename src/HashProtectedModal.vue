@@ -1,15 +1,19 @@
 <template>
   <div>
-    <div class="hash-protected-holder" @click="createModal()">
+    <div
+      class="hash-protected-holder"
+      @click="createModal()">
       <div class="hash-protected-inner">
-        <img src="../images/Icon-Hash-Protected.svg" alt="Hash Protected">
+        <img src="../images/Icon-Hash-Protected.svg">
         <span>Hash protected</span>
       </div>
     </div>
-    <modal ref="modal" title="">
+    <modal
+      ref="modal"
+      title="">
       <div class="content">
         <h1 class="hash-protected">
-          <img src="../images/Icon-Hash-Protected.svg"/>
+          <img src="../images/Icon-Hash-Protected.svg">
           <span>Hash Protected</span>
         </h1>
         <p>
@@ -30,13 +34,13 @@ import Modal from './Modal.vue'
 export default {
   name: 'HashProtectedModal',
   components: {
-    'modal': Modal
+    modal: Modal,
   },
   methods: {
     createModal() {
       this.$refs.modal.createModal()
-    }
-  }
+    },
+  },
 }
 </script>
 
@@ -79,7 +83,7 @@ p {
 }
 
 h1 {
-  color: #1B1B1B;
+  color: #1b1b1b;
   font-size: 24px;
   font-weight: bold;
   letter-spacing: -0.6px;
