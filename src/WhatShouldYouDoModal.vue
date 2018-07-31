@@ -3,7 +3,9 @@
     <h3 @click="createModal()">
       <span>What should you do?</span>
     </h3>
-    <modal ref="modal" title="">
+    <modal
+      ref="modal"
+      title="">
       <div class="content">
         <h1>What Should You Do?</h1>
         <p>
@@ -35,13 +37,13 @@ import Modal from './Modal.vue'
 export default {
   name: 'WhatShouldYouDoModal',
   components: {
-    'modal': Modal
+    modal: Modal,
   },
   methods: {
     createModal() {
       this.$refs.modal.createModal()
-    }
-  }
+    },
+  },
 }
 </script>
 
@@ -63,7 +65,8 @@ h3 span {
   padding: 10vh 20px;
 }
 
-p, ul {
+p,
+ul {
   color: #555555;
   font-size: 14px;
   letter-spacing: -0.34px;
@@ -76,7 +79,7 @@ ul {
 }
 
 h1 {
-  color: #1B1B1B;
+  color: #1b1b1b;
   font-size: 24px;
   font-weight: bold;
   letter-spacing: -0.6px;
