@@ -42,17 +42,13 @@ export default {
     },
     next() {
       if (this.isAccount) {
-        this.$router.push('/pwd')
+        this.$router.replace('/pwd')
         return
       }
-      this.$router.push('/acc')
+      this.$router.replace('/acc')
     },
     check() {
-      if (this.isAccount) {
-        this.$router.push('/acc')
-        return
-      }
-      this.$router.push('/pwd')
+      this.$router.back()
     },
   },
 }
