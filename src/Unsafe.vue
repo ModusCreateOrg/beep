@@ -7,10 +7,14 @@
         </ion-buttons>
       </ion-toolbar>
     </ion-header>
-    <ion-content class="content" padding>
+    <ion-content
+      class="content"
+      padding>
       <h1>Caution!</h1>
-      <h2>Your password has been<br/>compromised across</h2>
-      <h1 class="count" v-html="count"></h1>
+      <h2>Your password has been<br>compromised across</h2>
+      <h1
+        class="count"
+        v-html="count"/>
       <h2 class="count-text">websites</h2>
       <img src="../images/Icon-Character-Negative.svg">
       <what-should-you-do/>
@@ -26,22 +30,27 @@ import WhatShouldYouDoModal from './WhatShouldYouDoModal.vue'
 
 export default {
   name: 'Unsafe',
-  props: ['count'],
   components: {
-    'what-should-you-do': WhatShouldYouDoModal
+    'what-should-you-do': WhatShouldYouDoModal,
+  },
+  props: {
+    count: {
+      type: Number,
+      default: 0,
+    },
   },
   methods: {
     goToAcc() {
       this.$router.push('/acc')
-    }
-  }
+    },
+  },
 }
 </script>
 
 <style scoped>
 ion-page {
   text-align: center;
-  --ion-text-color: #FFFFFF;
+  --ion-text-color: #ffffff;
 }
 
 ion-toolbar {
@@ -113,7 +122,8 @@ h3 span {
     font-size: 40px;
   }
 
-  h2, h2.count-text {
+  h2,
+  h2.count-text {
     font-size: 20px;
   }
 
