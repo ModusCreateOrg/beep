@@ -25,12 +25,12 @@ new Vue({
       {
         path: '/breaches/:name',
         component: Breach,
-        props: (route) => ({breach_name: route.params.name})
+        props: route => ({ breach_name: route.params.name }),
       },
       {
         path: '/unsafe',
         component: Unsafe,
-        props: (route) => ({count: route.query.count})
+        props: route => ({ count: route.query.count }),
       },
       { path: '/safe', component: Safe },
     ],
