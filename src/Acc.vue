@@ -2,12 +2,17 @@
   <ion-page class="ion-page">
     <ion-header>
       <ion-toolbar>
-        <ion-buttons slot="start" @click="goHome">
+        <ion-buttons
+          slot="start"
+          @click="goHome">
           <ion-back-button/>
         </ion-buttons>
         <ion-title>Check Account</ion-title>
         <ion-buttons slot="end">
-          <ion-button clear :disabled="!isValidAccount" @click="checkAccount">
+          <ion-button
+            :disabled="!isValidAccount"
+            clear
+            @click="checkAccount">
             <span v-if="requestPending">
               <ion-spinner/>
             </span>
@@ -16,18 +21,25 @@
         </ion-buttons>
       </ion-toolbar>
     </ion-header>
-    <ion-content class="content" padding>
+    <ion-content
+      padding
+      class="content">
       <h1>
-        Enter any username or email and<br/>
-        we'll check if it's been hacked<br/>
+        Enter any username or email and<br>
+        we'll check if it's been hacked<br>
       </h1>
       <div class="input-holder">
         <ion-item>
           <ion-label padding>Your username or email</ion-label>
         </ion-item>
         <ion-item>
-          <ion-input large type="email" :value="account" @input="account = $event.target.value"
-                     placeholder="Username or email" ref="input"/>
+          <ion-input
+            ref="input"
+            :value="account"
+            large
+            type="email"
+            placeholder="Username or email"
+            @input="account = $event.target.value"/>
         </ion-item>
       </div>
     </ion-content>
@@ -45,14 +57,14 @@ export default {
       requestPending: false,
     }
   },
-  mounted() {
-    this.$refs.input.focus()
-    this.$breachesService.clear()
-  },
   computed: {
     isValidAccount() {
       return this.account.trim().length > 0
-    }
+    },
+  },
+  mounted() {
+    this.$refs.input.focus()
+    this.$breachesService.clear()
   },
   methods: {
     getURL() {
@@ -73,24 +85,26 @@ export default {
 
       return axios
         .get(this.getURL())
-          .then(response => {
-            this.$breachesService.breaches = response.data
-            this.$router.push('/breaches')
-          })
-          .catch(err => {
-            // 404 means account not pwned
-            this.$breachesService.breaches = []
-            if (err.response && err.response.status === 404) {
-              this.$router.push('/safe')
-              return
-            }
-            this.showError()
-          })
-          .finally(() => {
-            this.account = ''
-            this.requestPending = false
-            loading.dismiss()
-          })
+        .then(response => {
+          this.$breachesService.breaches = response.data
+          this.$router.push('/breaches')
+
+          return response
+        })
+        .catch(err => {
+          // 404 means account not pwned
+          this.$breachesService.breaches = []
+          if (err.response && err.response.status === 404) {
+            this.$router.push('/safe')
+            return
+          }
+          this.showError()
+        })
+        .finally(() => {
+          this.account = ''
+          this.requestPending = false
+          loading.dismiss()
+        })
     },
     showError() {
       this.$ionic
@@ -113,13 +127,12 @@ export default {
 </script>
 
 <style scoped>
-
 ion-spinner * {
   stroke: white;
 }
 
 ion-toolbar {
-  --ion-color-base: #FFFFFF;
+  --ion-color-base: #ffffff;
 }
 
 ion-button,
