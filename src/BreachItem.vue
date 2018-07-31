@@ -2,28 +2,40 @@
   <ion-item @click="viewBreach">
     <ion-avatar slot="start">
       <div class="img-holder">
-        <img :src="this.$breachesService.getImageURL(breach)"/>
+        <img :src="this.$breachesService.getImageURL(breach)">
       </div>
-      <div class="avatar-shadow"></div>
+      <div class="avatar-shadow"/>
     </ion-avatar>
     <ion-label>
-      <h1>{{breach.Title}}&nbsp;<img v-show="breach.IsVerified" src="../images/Icon-Verified-Checkmark.svg"/></h1>
-      <p v-html="this.$breachesService.formatDate(breach.BreachDate)"></p>
-      <h2 v-html="this.$breachesService.formatDomain(breach.Domain)"></h2>
+      <h1>
+        {{ breach.Title }}&nbsp;
+        <img
+          v-show="breach.IsVerified"
+          src="../images/Icon-Verified-Checkmark.svg">
+      </h1>
+      <p v-html="this.$breachesService.formatDate(breach.BreachDate)"/>
+      <h2 v-html="this.$breachesService.formatDomain(breach.Domain)"/>
     </ion-label>
-    <ion-icon name="arrow-forward" slot="end"></ion-icon>
+    <ion-icon
+      slot="end"
+      name="arrow-forward"/>
   </ion-item>
 </template>
 
 <script>
 export default {
   name: 'BreachItem',
-  props: ['breach'],
+  props: {
+    breach: {
+      type: Object,
+      default: () => {},
+    },
+  },
   methods: {
     viewBreach() {
       this.$router.push('/breaches/' + this.breach.Name)
     },
-  }
+  },
 }
 </script>
 
@@ -42,8 +54,7 @@ ion-avatar {
   width: 80px;
   margin: 20px;
   border-radius: 5px;
-  /*background-color: #E0E0E0;*/
-  background-color: #F7F7F7;
+  background-color: #f7f7f7;
   display: table;
 }
 
@@ -111,6 +122,6 @@ h2 {
 }
 
 ion-icon {
-  --ion-color-base: #C7C7CC;
+  --ion-color-base: #c7c7cc;
 }
 </style>
