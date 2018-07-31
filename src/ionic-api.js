@@ -10,7 +10,7 @@ const api = {
     const buttons = props.component.querySelectorAll('.dismiss-modal')
     const modalController = await this.newAbstractController('ion-modal-controller', props)
 
-    buttons.forEach(function (item) {
+    buttons.forEach(item => {
       item.addEventListener('click', () => {
         modalController.dismiss()
       })
