@@ -29,6 +29,7 @@
           And then, we send only the first five characters of that code to a server.
         </p>
         <h3>Carefully crafted by</h3>
+        <img src="../images/Modus-Labs-Logo.svg" class="modus-labs-logo"/>
       </div>
     </modal>
   </div>
@@ -109,6 +110,11 @@ h3 {
   margin-top: 30px;
   display: inline-block;
   width: 100%;
+}
+
+.modus-labs-logo {
+  display: block;
+  margin: 0 auto;
 }
 
 @media screen and (min-height: 650px) {
