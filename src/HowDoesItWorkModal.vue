@@ -1,7 +1,9 @@
 <template>
   <div>
     <h2 @click="createModal()"><span>How does it work?</span></h2>
-    <modal ref="modal" title="How does it work?">
+    <modal
+      ref="modal"
+      title="How does it work?">
       <div class="content">
         <p>
           Every day, over 4 million online data records are stolen or lost.&nbsp;
@@ -9,7 +11,9 @@
           Just enter your email address, username, or password, and we’ll tell you if it’s been hacked.
         </p>
 
-        <img src="../images/Icon-Character-Swarm.svg" class="bee">
+        <img
+          src="../images/Icon-Character-Swarm.svg"
+          class="bee">
 
         <h1>Pioneering Vue.js as a New Backend for Ionic</h1>
         <p>
@@ -18,7 +22,7 @@
           Angular to build cross platform Ionic apps. We even built our own router.
         </p>
         <h1 class="hash-protected">
-          <img src="../images/Icon-Hash-Protected.svg"/>
+          <img src="../images/Icon-Hash-Protected.svg">
           <span>Hash Protected</span>
         </h1>
         <p>
@@ -29,7 +33,9 @@
           And then, we send only the first five characters of that code to a server.
         </p>
         <h3>Carefully crafted by</h3>
-        <img src="../images/Modus-Labs-Logo.svg" class="modus-labs-logo"/>
+        <img
+          src="../images/Modus-Labs-Logo.svg"
+          class="modus-labs-logo">
       </div>
     </modal>
   </div>
@@ -41,13 +47,13 @@ import Modal from './Modal.vue'
 export default {
   name: 'HowDoesItWorkModal',
   components: {
-    'modal': Modal
+    modal: Modal,
   },
   methods: {
     createModal() {
       this.$refs.modal.createModal()
-    }
-  }
+    },
+  },
 }
 </script>
 
@@ -69,7 +75,7 @@ p {
 }
 
 h1 {
-  color: #1B1B1B;
+  color: #1b1b1b;
   font-size: 24px;
   font-weight: bold;
   letter-spacing: -0.6px;
