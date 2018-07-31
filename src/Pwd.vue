@@ -2,12 +2,17 @@
   <ion-page class="ion-page">
     <ion-header>
       <ion-toolbar>
-        <ion-buttons slot="start" @click="goHome">
+        <ion-buttons
+          slot="start"
+          @click="goHome">
           <ion-back-button/>
         </ion-buttons>
         <ion-title>Check Password</ion-title>
         <ion-buttons slot="end">
-          <ion-button clear :disabled="!isValidPwd" @click="checkHash">
+          <ion-button
+            :disabled="!isValidPwd"
+            clear
+            @click="checkHash">
             <span v-if="requestPending">
               <ion-spinner/>
             </span>
@@ -16,11 +21,13 @@
         </ion-buttons>
       </ion-toolbar>
     </ion-header>
-    <ion-content class="content" padding>
+    <ion-content
+      class="content"
+      padding>
       <h1>
-        Don't worry.<br/>
-        Your password is hash protected and<br/>
-        we won't store it anywhere.<br/>
+        Don't worry.<br>
+        Your password is hash protected and<br>
+        we won't store it anywhere.<br>
       </h1>
       <div class="input-holder">
         <form @submit.prevent="checkHash">
@@ -28,13 +35,28 @@
             <ion-label padding>Your password</ion-label>
           </ion-item>
           <ion-item>
-            <ion-input large :type="pwdType" :value="pwd" @input="pwd = $event.target.value"
-                       placeholder="••••••" ref="input"/>
-            <ion-button type="button" v-show="isValidPwd" slot="end" fill="clear" size="large" @click="togglePwdType">
-              <img src="../images/Icon-Show-Hide.svg" alt="Show Hide Password">
+            <ion-input
+              ref="input"
+              :type="pwdType"
+              :value="pwd"
+              large
+              placeholder="••••••"
+              @input="pwd = $event.target.value"/>
+            <ion-button
+              v-show="isValidPwd"
+              slot="end"
+              type="button"
+              fill="clear"
+              size="large"
+              @click="togglePwdType">
+              <img src="../images/Icon-Show-Hide.svg">
             </ion-button>
           </ion-item>
-          <button type="submit" hidden>Check</button>
+          <button
+            type="submit"
+            hidden>
+            Check
+          </button>
         </form>
       </div>
       <has-protected-modal/>
@@ -52,7 +74,7 @@ const baseURL = 'https://api.pwnedpasswords.com/range/'
 export default {
   name: 'Pwd',
   components: {
-    'has-protected-modal': HashProtectedModal
+    'has-protected-modal': HashProtectedModal,
   },
   data() {
     return {
@@ -101,9 +123,10 @@ export default {
           const count = this.search(hash.substr(5).toUpperCase(), res.data)
           if (count > 0) {
             this.$router.push(`/unsafe?count=${count}`)
-            return
+          } else {
+            this.$router.push('/safe')
           }
-          this.$router.push('/safe')
+          return false
         })
         .catch(err => console.error(err))
         .finally(() => {
@@ -147,7 +170,7 @@ ion-spinner * {
 }
 
 ion-toolbar {
-  --ion-color-base: #FFFFFF;
+  --ion-color-base: #ffffff;
 }
 
 ion-button,
@@ -182,14 +205,14 @@ ion-item {
   --inner-border-width: 0;
 }
 
-ion-input[type="password"] {
+ion-input[type='password'] {
   height: 56px;
   font: small-caption;
   font-size: 70px;
   letter-spacing: -2px;
 }
 
-ion-input[type="text"] {
+ion-input[type='text'] {
   height: 56px;
   font-size: 25px;
   color: rgba(92, 92, 92, 0.5);
