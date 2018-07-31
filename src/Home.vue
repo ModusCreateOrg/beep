@@ -1,28 +1,34 @@
 <template>
   <ion-page class="ion-page">
     <ion-content class="content">
-      <img src="../images/Beep-Logo.svg" alt="Beep" class="logo">
+      <img
+        src="../images/Beep-Logo.svg"
+        class="logo">
       <h1>
-        Check if you've<br/>
+        Check if you've<br>
         been hacked
       </h1>
       <div class="buttons">
-        <div class="btn-holder" @click="goToAcc">
+        <div
+          class="btn-holder"
+          @click="goToAcc">
           <div class="square-btn">
             <div class="square-btn-content">
-              <div class="square-btn-icon"><img src="../images/Icon-Account.svg" alt="Account"></div>
+              <div class="square-btn-icon"><img src="../images/Icon-Account.svg"></div>
               <div class="square-btn-text">Account</div>
             </div>
-            <div class="square-btn-shadow"></div>
+            <div class="square-btn-shadow"/>
           </div>
         </div>
-        <div class="btn-holder" @click="goToPwd">
+        <div
+          class="btn-holder"
+          @click="goToPwd">
           <div class="square-btn">
             <div class="square-btn-content">
-              <div class="square-btn-icon"><img src="../images/Icon-Password.svg" alt="Account"></div>
+              <div class="square-btn-icon"><img src="../images/Icon-Password.svg"></div>
               <div class="square-btn-text">Password</div>
             </div>
-            <div class="square-btn-shadow"></div>
+            <div class="square-btn-shadow"/>
           </div>
         </div>
       </div>
@@ -37,7 +43,7 @@ import HowDoesItWorkModal from './HowDoesItWorkModal.vue'
 export default {
   name: 'Home',
   components: {
-    'how-does-it-work': HowDoesItWorkModal
+    'how-does-it-work': HowDoesItWorkModal,
   },
   methods: {
     goToAcc() {
@@ -97,12 +103,12 @@ h1 {
   position: relative;
   width: 100%;
   border-radius: 5px;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.1);
 }
 
 .square-btn:after {
-  content: "";
+  content: '';
   display: block;
   padding-bottom: 100%;
 }
@@ -142,7 +148,7 @@ h1 {
 
 .square-btn-text {
   width: 100%;
-  color: #1B1B1B;
+  color: #1b1b1b;
   font-size: 15px;
   font-weight: 300;
   letter-spacing: -0.48px;
