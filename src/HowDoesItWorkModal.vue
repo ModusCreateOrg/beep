@@ -50,10 +50,6 @@ export default {
 }
 </script>
 
-<style>
-@import '../styles/common-styles.css';
-</style>
-
 <style scoped>
 .content {
   padding: 10vh 20px;

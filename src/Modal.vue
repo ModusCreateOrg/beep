@@ -49,16 +49,13 @@ export default {
 }
 </script>
 
-<style>
-@import '../styles/common-styles.css';
-</style>
-
 <style scoped>
 ion-toolbar {
   --ion-color-base: #FFFFFF;
 }
 
-ion-button {
+ion-button,
+ion-button.button-clear {
   --ion-color-base: var(--beep-primary);
   text-transform: none;
 }

@@ -45,10 +45,6 @@ export default {
 }
 </script>
 
-<style>
-@import '../styles/common-styles.css';
-</style>
-
 <style scoped>
 h3 {
   margin: 0 auto;

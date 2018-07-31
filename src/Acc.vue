@@ -7,7 +7,7 @@
         </ion-buttons>
         <ion-title>Check Account</ion-title>
         <ion-buttons slot="end">
-          <ion-button clear :disabled="!isValidAccount()" @click="checkAccount">
+          <ion-button clear :disabled="!isValidAccount" @click="checkAccount">
             <span v-if="requestPending">
               <ion-spinner/>
             </span>
@@ -27,103 +27,70 @@
         </ion-item>
         <ion-item>
           <ion-input large type="email" :value="account" @input="account = $event.target.value"
-                     placeholder="Username or email"/>
+                     placeholder="Username or email" ref="input"/>
         </ion-item>
       </div>
     </ion-content>
-    <!--<div>-->
-    <!--<ion-card-->
-    <!--v-if="isSubmitted"-->
-    <!--no-margin>-->
-    <!--<ion-card-content text-center>-->
-    <!--<i>{{ accountChecked }}</i> is-->
-    <!--<strong>-->
-    <!--<ion-badge :color="breaches.length ? 'danger' : 'success'">-->
-    <!--<span v-if="breaches.length">pwned {{ breaches.length }} times</span>-->
-    <!--<span v-else>not pwned, yet...</span>-->
-    <!--</ion-badge>-->
-    <!--</strong>-->
-    <!--</ion-card-content>-->
-    <!--</ion-card>-->
-    <!--<breach-->
-    <!--v-for="(breach, index) in breaches"-->
-    <!--:key="index"-->
-    <!--:breach="breach"/>-->
-    <!--</div>-->
   </ion-page>
 </template>
 
 <script>
 import axios from 'axios'
-import Breach from './Breach.vue'
-
-const baseURL = 'https://haveibeenpwned.com/api/v2/breachedaccount/'
 
 export default {
   name: 'Acc',
-  components: {
-    Breach,
-  },
   data() {
     return {
       account: '',
-      accountChecked: '',
       requestPending: false,
-      isSubmitted: false,
-      includeUnverified: false,
-      breaches: [],
+    }
+  },
+  mounted() {
+    this.$refs.input.focus()
+    this.$breachesService.clear()
+  },
+  computed: {
+    isValidAccount() {
+      return this.account.trim().length > 0
     }
   },
   methods: {
-    isValidAccount() {
-      return this.account.trim().length > 0
-    },
     getURL() {
-      let url = baseURL + this.account
-      if (this.includeUnverified) {
-        url += '?includeUnverified=true'
-      }
-      return url
-    },
-    toggleIncludeUnverified() {
-      this.includeUnverified = !this.includeUnverified
+      return this.$breachesService.baseApiURL + this.account
     },
     checkAccount() {
-      if (!this.requestPending && this.isValidAccount()) {
-        this.reset()
+      if (!this.requestPending && this.isValidAccount) {
         this.sendRequest()
       }
     },
-    reset() {
-      this.isSubmitted = false
-      this.breaches = []
-      this.accountChecked = this.account
-    },
     async sendRequest() {
-      const loading = await this.$ionic.newLoadingController({
-        content: 'Checking account...',
-      })
-
+      const loading = await this.$ionic.newLoadingController()
       loading.present()
+
+      this.$breachesService.breaches = []
+      this.$breachesService.account = this.account
       this.requestPending = true
 
       return axios
         .get(this.getURL())
-        .then(response => (this.breaches = response.data))
-        .catch(err => {
-          // 404 means account not pwned
-          if (err.response && err.response.status === 404) {
-            this.breaches = []
-            return
-          }
-          this.showError()
-        })
-        .finally(() => {
-          this.account = ''
-          this.isSubmitted = true
-          this.requestPending = false
-          loading.dismiss()
-        })
+          .then(response => {
+            this.$breachesService.breaches = response.data
+            this.$router.push('/breaches')
+          })
+          .catch(err => {
+            // 404 means account not pwned
+            this.$breachesService.breaches = []
+            if (err.response && err.response.status === 404) {
+              this.$router.push('/safe')
+              return
+            }
+            this.showError()
+          })
+          .finally(() => {
+            this.account = ''
+            this.requestPending = false
+            loading.dismiss()
+          })
     },
     showError() {
       this.$ionic
@@ -145,10 +112,6 @@ export default {
 }
 </script>
 
-<style>
-@import '../styles/common-styles.css';
-</style>
-
 <style scoped>
 
 ion-spinner * {
@@ -159,7 +122,8 @@ ion-toolbar {
   --ion-color-base: #FFFFFF;
 }
 
-ion-button {
+ion-button,
+ion-button.button-clear {
   --ion-color-base: var(--beep-primary);
   text-transform: none;
 }

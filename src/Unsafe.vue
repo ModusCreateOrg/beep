@@ -38,10 +38,6 @@ export default {
 }
 </script>
 
-<style>
-@import '../styles/common-styles.css';
-</style>
-
 <style scoped>
 ion-page {
   text-align: center;

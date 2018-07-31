@@ -11,11 +11,11 @@
       <h1>Congratulations!</h1>
       <h2 v-html="buildSubtitle()"></h2>
       <h3 @click="check">
-        <span>Check Another {{isAccount() ? 'Account' : 'Password'}}</span>
+        <span>Check Another {{isAccount ? 'Account' : 'Password'}}</span>
       </h3>
       <img src="../images/Icon-Character-Positive.svg">
       <h3 @click="next">
-        <span>Next: Check {{isAccount() ? 'Password' : 'Account'}}</span>
+        <span>Next: Check {{isAccount ? 'Password' : 'Account'}}</span>
       </h3>
     </ion-content>
   </ion-page>
@@ -24,32 +24,29 @@
 <script>
 export default {
   name: 'Safe',
-  props: {
-    account: {
-      default: '',
-      type: String
+  data() {
+    return {
+      account: this.$breachesService.account,
+      isAccount: this.$breachesService.account.length > 0,
     }
   },
   methods: {
-    isAccount() {
-      return this.account.trim().length > 0
-    },
     buildSubtitle() {
-      if (this.isAccount()) {
+      if (this.isAccount) {
         return `Your account <strong>${this.account}</strong><br/>has not been compromised`;
       }
 
       return `Your password has not been<br/>compromised`;
     },
     next() {
-      if (this.isAccount()) {
+      if (this.isAccount) {
         this.$router.push('/pwd')
         return
       }
       this.$router.push('/acc')
     },
     check() {
-      if (this.isAccount()) {
+      if (this.isAccount) {
         this.$router.push('/acc')
         return
       }
@@ -58,10 +55,6 @@ export default {
   }
 }
 </script>
-
-<style>
-@import '../styles/common-styles.css';
-</style>
 
 <style scoped>
 

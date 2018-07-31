@@ -40,10 +40,6 @@ export default {
 }
 </script>
 
-<style>
-@import '../styles/common-styles.css';
-</style>
-
 <style scoped>
 .hash-protected-holder {
   position: absolute;

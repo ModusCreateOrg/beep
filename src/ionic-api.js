@@ -12,9 +12,9 @@ const api = {
 
     buttons.forEach(function (item) {
       item.addEventListener('click', () => {
-        modalController.dismiss();
-      });
-    });
+        modalController.dismiss()
+      })
+    })
 
     return modalController
   },

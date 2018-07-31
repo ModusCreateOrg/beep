@@ -7,7 +7,7 @@
         </ion-buttons>
         <ion-title>Check Password</ion-title>
         <ion-buttons slot="end">
-          <ion-button clear :disabled="!isValidPwd()" @click="checkHash">
+          <ion-button clear :disabled="!isValidPwd" @click="checkHash">
             <span v-if="requestPending">
               <ion-spinner/>
             </span>
@@ -29,8 +29,8 @@
           </ion-item>
           <ion-item>
             <ion-input large :type="pwdType" :value="pwd" @input="pwd = $event.target.value"
-                       placeholder="••••••"/>
-            <ion-button type="button" v-show="isValidPwd()" slot="end" fill="clear" size="large" @click="togglePwdType">
+                       placeholder="••••••" ref="input"/>
+            <ion-button type="button" v-show="isValidPwd" slot="end" fill="clear" size="large" @click="togglePwdType">
               <img src="../images/Icon-Show-Hide.svg" alt="Show Hide Password">
             </ion-button>
           </ion-item>
@@ -65,11 +65,15 @@ export default {
     pwdType() {
       return this.showPwd ? 'text' : 'password'
     },
-  },
-  methods: {
     isValidPwd() {
       return this.pwd.trim().length > 0
     },
+  },
+  mounted() {
+    this.$refs.input.focus()
+    this.$breachesService.clear()
+  },
+  methods: {
     togglePwdType() {
       this.showPwd = !this.showPwd
     },
@@ -80,7 +84,7 @@ export default {
       if (event) {
         event.preventDefault()
       }
-      if (this.isValidPwd() && !this.requestPending) {
+      if (this.isValidPwd && !this.requestPending) {
         this.sendRequest()
       }
     },
@@ -137,10 +141,6 @@ export default {
 }
 </script>
 
-<style>
-@import '../styles/common-styles.css';
-</style>
-
 <style scoped>
 ion-spinner * {
   stroke: white;
@@ -150,7 +150,8 @@ ion-toolbar {
   --ion-color-base: #FFFFFF;
 }
 
-ion-button {
+ion-button,
+ion-button.button-clear {
   --ion-color-base: var(--beep-primary);
   text-transform: none;
 }
