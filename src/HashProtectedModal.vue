@@ -71,7 +71,7 @@ export default {
 }
 
 .content {
-  padding: 10vh 20px;
+  padding: 5vh 20px;
 }
 
 p {
