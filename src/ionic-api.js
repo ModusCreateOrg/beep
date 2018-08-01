@@ -7,16 +7,7 @@ const api = {
     return ctrl
   },
   async newModalController(props) {
-    const buttons = props.component.querySelectorAll('.dismiss-modal')
-    const modalController = await this.newAbstractController('ion-modal-controller', props)
-
-    buttons.forEach(item => {
-      item.addEventListener('click', () => {
-        modalController.dismiss()
-      })
-    })
-
-    return modalController
+    return await this.newAbstractController('ion-modal-controller', props)
   },
   newAlertController(props) {
     return this.newAbstractController('ion-alert-controller', props)

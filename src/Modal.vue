@@ -53,11 +53,20 @@ export default {
       const template = document.getElementById(this.id).cloneNode(true)
       template.classList.remove('modal-template')
 
+      const buttons = template.querySelectorAll('.dismiss-modal')
+
       this.$ionic
-        .newModalController({
-          component: template,
+        .newModalController({ component: template })
+        .then(modalController => {
+          modalController.present()
+
+          buttons.forEach(item => {
+            item.addEventListener('click', () => {
+              modalController.dismiss()
+            })
+          })
+          return modalController
         })
-        .then(o => o.present())
         .catch(err => console.error(err))
     },
   },
