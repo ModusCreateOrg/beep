@@ -74,6 +74,10 @@ p {
   margin-bottom: 50px;
 }
 
+p:first-child {
+  margin-bottom: 0;
+}
+
 h1 {
   color: #1b1b1b;
   font-size: 24px;
