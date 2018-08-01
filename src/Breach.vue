@@ -1,135 +1,201 @@
 <template>
-  <ion-card no-margin>
-    <ion-card-content>
-      <ion-card-title>
-        <div class="breach-head">
-          <div class="breach-name">
-            <h1>{{ breach.Title }}</h1>
-          </div>
-          <div class="breach-image-holder">
-            <img :src="getImageURL(breach)">
-          </div>
-        </div>
-      </ion-card-title>
-      <ion-grid>
-        <ion-row>
-          <ion-col>
-            <ion-item>
-              <ion-badge color="light">
-                {{ formatDate(breach.BreachDate) }}
-              </ion-badge>
-            </ion-item>
-          </ion-col>
-          <ion-col>
-            <ion-item>
-              <ion-icon
-                name="people"
-                color="primary"/>
-              <ion-badge>
-                {{ breach.PwnCount }}
-              </ion-badge>
-            </ion-item>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-      <p v-html="breach.Description"/>
-    </ion-card-content>
-  </ion-card>
+  <ion-page class="ion-page">
+    <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-back-button/>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content
+      padding
+      class="content">
+      <ion-list>
+        <ion-item>
+          <ion-avatar slot="start">
+            <div class="img-holder">
+              <img :src="this.$breachesService.getImageURL(breach)">
+            </div>
+            <div class="avatar-shadow"/>
+          </ion-avatar>
+          <ion-label>
+            <h1>
+              {{ breach.Title }}&nbsp;
+              <img
+                v-show="breach.IsVerified"
+                src="../images/Icon-Verified-Checkmark.svg">
+            </h1>
+            <h2 v-html="this.$breachesService.formatDomain(breach.Domain)"/>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+      <div class="information-content">
+        <h1>Information</h1>
+        <ion-list>
+          <ion-item class="info-item">
+            <span slot="start">Date of breach</span>
+            <span
+              slot="end"
+              class="info-date"
+              v-html="this.$breachesService.formatDate(breach.BreachDate)"/>
+          </ion-item>
+          <ion-item class="info-item">
+            <span slot="start">Date added</span>
+            <span
+              slot="end"
+              class="info-date"
+              v-html="this.$breachesService.formatDate(breach.AddedDate)"/>
+          </ion-item>
+          <ion-item class="info-item">
+            <span slot="start">Date of change</span>
+            <span
+              slot="end"
+              class="info-date"
+              v-html="this.$breachesService.formatDate(breach.ModifiedDate)"/>
+          </ion-item>
+          <ion-item class="info-item">
+            <span slot="start">Number of breached accounts</span>
+            <span
+              slot="end"
+              class="info-date"
+              v-html="breach.PwnCount"/>
+          </ion-item>
+        </ion-list>
+        <h1>Description</h1>
+        <p v-html="breach.Description"/>
+      </div>
+    </ion-content>
+  </ion-page>
 </template>
 
 <script>
-const baseImageURL = 'https://haveibeenpwned.com/Content/Images/PwnedLogos/'
-
 export default {
   name: 'Breach',
   props: {
-    breach: {
-      type: Object,
-      default: () => {},
+    breach_name: {
+      type: String,
+      default: '',
     },
   },
-  methods: {
-    getImageURL(breach) {
-      return baseImageURL + breach.Name + '.' + breach.LogoType
-    },
-    formatDate(d) {
-      const date = new Date(d)
-      const monthNames = [
-        'Jan',
-        'Feb',
-        'Mar',
-        'Apr',
-        'May',
-        'Jun',
-        'Jul',
-        'Aug',
-        'Sep',
-        'Oct',
-        'Nov',
-        'Dec',
-      ]
-
-      return `${date.getDate()} ${monthNames[date.getMonth()]} ${date.getFullYear()}`
-    },
+  data() {
+    return {
+      breach: this.$breachesService.breaches.find(breach => {
+        return breach.Name === this.breach_name
+      }),
+    }
   },
 }
 </script>
 
-<style>
-ion-icon {
-  font-size: 25px;
+<style scoped>
+ion-toolbar {
+  --ion-color-base: #ffffff;
 }
 
-ion-card {
-  margin: 30px 0 !important;
-  width: 100% !important;
+ion-button {
+  --ion-color-base: var(--beep-primary);
+  text-transform: none;
 }
 
-.breach-head {
-  padding-top: 10px;
-  width: 100%;
-  display: inline-block;
-  clear: both;
+ion-back-button {
+  --ion-color-base: var(--beep-primary);
 }
 
-.breach-head .breach-name {
-  max-width: calc(100% - 80px);
-  float: left;
-  height: 40px;
-  width: 100%;
-  min-height: 90%;
-  text-align: center;
+ion-list {
+  margin-bottom: 10px;
+}
+
+ion-item {
+  --padding-start: 0;
+  --inner-padding-end: 0;
+  --ion-color-shade: rgba(0, 0, 0, 0.15);
+  --inner-border-width: 0;
+  --border-width: 0 0 0.55px 0;
+}
+
+ion-avatar {
+  position: relative;
+  height: 120px;
+  width: 120px;
+  margin: 20px;
+  border-radius: 5px;
+  background-color: #f7f7f7;
   display: table;
-  padding-left: 5px;
-  padding-right: 5px;
 }
 
-.breach-head .breach-name h1 {
+.avatar-shadow {
+  position: absolute;
+  height: 70%;
+  width: 70%;
+  z-index: -1;
+  top: 35%;
+  left: 15%;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.2);
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+}
+
+ion-avatar .img-holder {
   display: table-cell;
   vertical-align: middle;
+  text-align: center;
 }
 
-.breach-image-holder {
-  float: right;
-  width: 80px;
-  min-height: 40px;
-  height: 100%;
-  position: relative;
+ion-avatar .img-holder img {
+  max-width: 70%;
+  min-width: 1px;
+  max-height: 70%;
+  -o-object-fit: contain;
+  object-fit: contain;
+  border-radius: 0;
+  overflow: visible;
 }
 
-.breach-image-holder img {
-  max-height: 40px;
-  max-width: 80px;
-  position: absolute;
-  margin: auto;
-  width: auto;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+h1 {
+  height: 22px;
+  color: #555555;
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: -0.43px;
+  line-height: 22px;
 }
 
-ion-spinner * {
-  stroke: white !important;
+h1 img {
+  margin-left: 5px;
+  margin-bottom: -3px;
+}
+
+p {
+  color: #555555;
+  font-size: 14px;
+  letter-spacing: -0.34px;
+  line-height: 26px;
+}
+
+h2 {
+  height: 26px;
+  color: #555555;
+  font-size: 14px;
+  letter-spacing: -0.34px;
+  line-height: 26px;
+}
+
+.information-content {
+  padding: 20px;
+}
+
+.info-item {
+  color: rgba(1, 1, 1, 0.5);
+  font-size: 14px;
+  letter-spacing: -0.34px;
+  line-height: 17px;
+}
+
+.info-date {
+  color: #555555;
 }
 </style>
