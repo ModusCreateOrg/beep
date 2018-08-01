@@ -1,4 +1,6 @@
-:root {
+:root,
+:root[mode=ios],
+:root[mode=md] {
     --beep-success: #47BD8F;
     --beep-danger: #FF5C5D;
     --beep-secondary: #5C5C5C;
@@ -6,6 +8,7 @@
     --beep-dark: #1B1B1B;
     --ion-font-family: Lato, serif;
     --border-width: 0;
+    --ion-padding: 0;
 }
 
 .header-ios ion-toolbar:last-child {
