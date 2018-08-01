@@ -2,52 +2,64 @@
   <ion-page class="ion-page">
     <ion-header>
       <ion-toolbar>
-        <ion-buttons slot="start">
+        <ion-buttons
+          slot="start"
+          @click="goHome">
           <ion-back-button/>
         </ion-buttons>
-        <ion-title>Password checking</ion-title>
+        <ion-title>Check Password</ion-title>
+        <ion-buttons slot="end">
+          <ion-button
+            :disabled="!isValidPwd"
+            clear
+            @click="checkHash">
+            <span v-if="requestPending">
+              <ion-spinner/>
+            </span>
+            <span v-else>Check</span>
+          </ion-button>
+        </ion-buttons>
       </ion-toolbar>
     </ion-header>
-
     <ion-content
       class="content"
       padding>
-      <ion-list>
-        <ion-item>
-          <ion-icon
-            v-show="!showPwd"
-            slot="start"
-            name="lock"/>
-          <ion-icon
-            v-show="showPwd"
-            slot="start"
-            name="unlock"/>
-          <ion-input
-            :type="pwdType"
-            :value="pwd"
-            placeholder="Password"
-            @input="pwd = $event.target.value"/>
-          <ion-button
-            v-show="pwd"
-            slot="end"
-            fill="clear"
-            size="small"
-            @click="togglePwdType">
-            {{ showPwdText }}
-          </ion-button>
-        </ion-item>
-      </ion-list>
-
-      <ion-button
-        :disabled="!validatePwd()"
-        expand="full"
-        @click="checkHash">
-        <span v-if="requestPending">
-          <ion-spinner/>
-        </span>
-        <span v-else>Have I been pwned?</span>
-      </ion-button>
-      <ion-button @click="goToAcc">go to account page</ion-button>
+      <h1>
+        Don't worry.<br>
+        Your password is hash protected and<br>
+        we won't store it anywhere.<br>
+      </h1>
+      <div class="input-holder">
+        <form @submit.prevent="checkHash">
+          <ion-item>
+            <ion-label padding>Your password</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-input
+              ref="input"
+              :type="pwdType"
+              :value="pwd"
+              large
+              placeholder="••••••"
+              @input="pwd = $event.target.value"/>
+            <ion-button
+              v-show="isValidPwd"
+              slot="end"
+              type="button"
+              fill="clear"
+              size="large"
+              @click="togglePwdType">
+              <img src="../images/Icon-Show-Hide.svg">
+            </ion-button>
+          </ion-item>
+          <button
+            type="submit"
+            hidden>
+            Check
+          </button>
+        </form>
+      </div>
+      <has-protected-modal/>
     </ion-content>
   </ion-page>
 </template>
@@ -55,51 +67,52 @@
 <script>
 import sha1 from 'sha1'
 import axios from 'axios'
+import HashProtectedModal from './HashProtectedModal.vue'
 
 const baseURL = 'https://api.pwnedpasswords.com/range/'
 
 export default {
   name: 'Pwd',
+  components: {
+    'has-protected-modal': HashProtectedModal,
+  },
   data() {
     return {
       pwd: '',
       showPwd: false,
       requestPending: false,
-      pwned: false,
-      count: 0,
     }
   },
   computed: {
     pwdType() {
       return this.showPwd ? 'text' : 'password'
     },
-    showPwdText() {
-      return this.showPwd ? 'hide' : 'show'
+    isValidPwd() {
+      return this.pwd.trim().length > 0
     },
   },
+  mounted() {
+    this.$refs.input.focus()
+    this.$breachesService.clear()
+  },
   methods: {
-    goToAcc() {
-      this.$router.push('/acc')
-    },
-    validatePwd() {
-      return this.pwd.trim()
-    },
     togglePwdType() {
       this.showPwd = !this.showPwd
     },
     getURL(hashPart) {
       return baseURL + hashPart
     },
-    checkHash() {
-      if (this.validatePwd() && !this.requestPending) {
+    checkHash(event) {
+      if (event) {
+        event.preventDefault()
+      }
+      if (this.isValidPwd && !this.requestPending) {
         this.sendRequest()
       }
     },
     async sendRequest() {
       const hash = sha1(this.pwd)
-      const loading = await this.$ionic.newLoadingController({
-        content: 'Fetching breach details...',
-      })
+      const loading = await this.$ionic.newLoadingController()
 
       loading.present()
       this.requestPending = true
@@ -107,9 +120,13 @@ export default {
       return axios
         .get(this.getURL(hash.substr(0, 5)))
         .then(res => {
-          this.count = this.search(hash.substr(5).toUpperCase(), res.data)
-          this.pwned = this.count > 0
-          return this.notify()
+          const count = this.search(hash.substr(5).toUpperCase(), res.data)
+          if (count > 0) {
+            this.$router.push(`/unsafe?count=${count}`)
+          } else {
+            this.$router.push('/safe')
+          }
+          return false
         })
         .catch(err => console.error(err))
         .finally(() => {
@@ -137,31 +154,79 @@ export default {
 
       return breachData[1]
     },
-    notify() {
-      let btns = ['Yay!']
-      let msg = 'You are secure, for now...'
-
-      if (this.pwned) {
-        btns = ['Doh!']
-        msg = `You've been pwned across ${this.count} domains`
+    goHome(event) {
+      if (event) {
+        event.preventDefault()
       }
-
-      this.$ionic
-        .newAlertController({
-          header: 'Beep',
-          subHeader: null,
-          message: msg,
-          buttons: btns,
-        })
-        .then(o => o.present())
-        .catch(err => console.error(err))
+      this.$router.push('/')
     },
   },
 }
 </script>
 
-<style>
+<style scoped>
 ion-spinner * {
-  stroke: white !important;
+  stroke: white;
+}
+
+ion-toolbar {
+  --ion-color-base: #ffffff;
+}
+
+ion-button,
+ion-button.button-clear {
+  --ion-color-base: var(--beep-primary);
+  text-transform: none;
+}
+
+ion-back-button {
+  --ion-color-base: var(--beep-primary);
+}
+
+h1 {
+  width: 100%;
+  color: rgba(27, 27, 27, 0.5);
+  font-size: 12px;
+  letter-spacing: -0.29px;
+  line-height: 15px;
+  text-align: center;
+  font-weight: normal;
+}
+
+.input-holder {
+  margin-top: 20vh;
+  height: 20vh;
+}
+
+ion-item {
+  --border-style: none;
+  --padding-start: 7%;
+  --ion-text-color: var(--beep-secondary);
+  --inner-border-width: 0;
+}
+
+ion-input[type='password'] {
+  height: 56px;
+  font: small-caption;
+  font-size: 70px;
+  letter-spacing: -2px;
+}
+
+ion-input[type='text'] {
+  height: 56px;
+  font-size: 25px;
+  color: rgba(92, 92, 92, 0.5);
+  font-weight: 300;
+  letter-spacing: -0.63px;
+  line-height: 25px;
+}
+
+ion-label {
+  width: 100%;
+  margin: 10px 8px -15px 0;
+  color: var(--beep-secondary);
+  font-size: 18px;
+  letter-spacing: -0.43px;
+  line-height: 18px;
 }
 </style>
