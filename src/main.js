@@ -1,6 +1,5 @@
 import Vue from 'vue'
-import Router from '@modus/ion-router-vue'
-import IonicAPI from './ionic-api'
+import { IonicVueRouter, IonicAPI } from '@modus/ionic-vue'
 import Home from './Home.vue'
 import Acc from './Acc.vue'
 import Safe from './Safe.vue'
@@ -10,13 +9,13 @@ import Breaches from './Breaches.vue'
 import Breach from './Breach.vue'
 import BreachService from './breaches-service'
 
-Vue.use(Router)
+Vue.use(IonicVueRouter)
 Vue.use(IonicAPI)
 
 Vue.prototype.$breachesService = BreachService
 
 new Vue({
-  router: new Router({
+  router: new IonicVueRouter({
     routes: [
       { path: '/', component: Home },
       { path: '/acc', component: Acc },
