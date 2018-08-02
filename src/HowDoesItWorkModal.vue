@@ -11,9 +11,7 @@
           Just enter your email address, username, or password, and we’ll tell you if it’s been hacked.
         </p>
 
-        <img
-          src="../images/Icon-Character-Swarm.svg"
-          class="bee">
+        <img :src="images.beepMascot" class="bee" alt="Beep Mascot" />
 
         <h1>Pioneering Vue.js as a New Backend for Ionic</h1>
         <p>
@@ -22,7 +20,7 @@
           Angular to build cross platform Ionic apps. We even built our own router.
         </p>
         <h1 class="hash-protected">
-          <img src="../images/Icon-Hash-Protected.svg">
+          <img :src="images.hashProtected" alt="Hash Protected">
           <span>Hash Protected</span>
         </h1>
         <p>
@@ -33,9 +31,9 @@
           And then, we send only the first five characters of that code to a server.
         </p>
         <h3>Carefully crafted by</h3>
-        <img
-          src="../images/Modus-Labs-Logo.svg"
-          class="modus-labs-logo">
+        <a href="https://moduscreate.com">
+          <img :src="images.modusLabsLogo" class="modus-labs-logo" alt="Ionic and Vue Experts Modus Labs"/>
+        </a>
       </div>
     </modal>
   </div>
@@ -43,6 +41,9 @@
 
 <script>
 import Modal from './Modal.vue'
+import beepMascot from '../images/Icon-Character-Swarm.svg'
+import modusLabsLogo from '../images/Modus-Labs-Logo.svg'
+import hashProtected from '../images/Icon-Hash-Protected.svg'
 
 export default {
   name: 'HowDoesItWorkModal',
@@ -53,6 +54,15 @@ export default {
     createModal() {
       this.$refs.modal.createModal()
     },
+  },
+  data() {
+    return {
+      images: {
+        beepMascot,
+        modusLabsLogo,
+        hashProtected,
+      },
+    }
   },
 }
 </script>
@@ -125,6 +135,7 @@ h3 {
 .modus-labs-logo {
   display: block;
   margin: 0 auto;
+  width: 12rem;
 }
 
 @media screen and (min-height: 650px) {
