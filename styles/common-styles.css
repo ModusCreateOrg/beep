@@ -1,5 +1,4 @@
 :root,
-:root[mode=ios],
 :root[mode=md] {
     --beep-success: #47BD8F;
     --beep-danger: #FF5C5D;
@@ -9,6 +8,11 @@
     --ion-font-family: Lato, serif;
     --border-width: 0;
     --ion-padding: 0;
+}
+
+:root[mode=ios] {
+    --ion-padding: 0;
+    --ion-font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Roboto", sans-serif;
 }
 
 .header-ios ion-toolbar:last-child {

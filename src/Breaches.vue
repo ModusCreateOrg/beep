@@ -101,7 +101,6 @@ ion-back-button {
 }
 
 .counter {
-  height: 17px;
   width: 100%;
   background-color: var(--beep-primary);
   color: #ffffff;
