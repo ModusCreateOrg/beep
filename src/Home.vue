@@ -103,7 +103,7 @@ h1 {
   position: relative;
   width: 100%;
   border-radius: 5px;
-  background-color: #ffffff;
+  background-color: var(--beep-light);
   box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.1);
 }
 
@@ -148,7 +148,7 @@ h1 {
 
 .square-btn-text {
   width: 100%;
-  color: #1b1b1b;
+  color: var(--beep-dark);
   font-size: 15px;
   font-weight: 300;
   letter-spacing: -0.48px;

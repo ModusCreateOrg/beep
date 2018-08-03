@@ -75,7 +75,7 @@ export default {
 }
 
 p {
-  color: #555555;
+  color: var(--beep-light-dark);
   font-size: 14px;
   letter-spacing: -0.34px;
   line-height: 26px;
@@ -83,7 +83,7 @@ p {
 }
 
 h1 {
-  color: #1b1b1b;
+  color: var(--beep-dark);
   font-size: 24px;
   font-weight: bold;
   letter-spacing: -0.6px;

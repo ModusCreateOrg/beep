@@ -89,10 +89,12 @@ export default {
 
 <style scoped>
 ion-toolbar {
-  --ion-color-base: #ffffff;
+  --ion-color-base: var(--beep-light);
 }
 
-ion-button {
+ion-button,
+ion-button.button-clear,
+ion-button.button.button-clear.button-md.button-clear-md {
   --ion-color-base: var(--beep-primary);
   text-transform: none;
 }
@@ -157,7 +159,7 @@ ion-avatar .img-holder img {
 
 h1 {
   height: 22px;
-  color: #555555;
+  color: var(--beep-light-dark);
   font-size: 18px;
   font-weight: bold;
   letter-spacing: -0.43px;
@@ -170,7 +172,7 @@ h1 img {
 }
 
 p {
-  color: #555555;
+  color: var(--beep-light-dark);
   font-size: 14px;
   letter-spacing: -0.34px;
   line-height: 26px;
@@ -178,7 +180,7 @@ p {
 
 h2 {
   height: 26px;
-  color: #555555;
+  color: var(--beep-light-dark);
   font-size: 14px;
   letter-spacing: -0.34px;
   line-height: 26px;
@@ -196,6 +198,6 @@ h2 {
 }
 
 .info-date {
-  color: #555555;
+  color: var(--beep-light-dark);
 }
 </style>

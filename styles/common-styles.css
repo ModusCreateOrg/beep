@@ -1,13 +1,19 @@
-:root,
-:root[mode=md] {
+:root {
     --beep-success: #47BD8F;
     --beep-danger: #FF5C5D;
     --beep-secondary: #5C5C5C;
     --beep-primary: #FF5C5D;
     --beep-dark: #1B1B1B;
+    --beep-light-dark: #555555;
+    --beep-light: #FFFFFF;
     --ion-font-family: Lato, serif;
     --border-width: 0;
     --ion-padding: 0;
+}
+
+:root[mode=md] {
+    --ion-padding: 0;
+    --ion-font-family: "Helvetica Neue", "Roboto", Droid Sans;
 }
 
 :root[mode=ios] {

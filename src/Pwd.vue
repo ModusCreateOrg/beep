@@ -170,7 +170,7 @@ ion-spinner * {
 }
 
 ion-toolbar {
-  --ion-color-base: #ffffff;
+  --ion-color-base: var(--beep-light);
 }
 
 ion-button,

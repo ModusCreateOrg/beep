@@ -62,12 +62,12 @@ export default {
 
 <style>
 .searchbar-input {
-  color: #ffffff !important;
+  color: var(--beep-light) !important;
   background-color: rgba(0, 0, 0, 0.15) !important;
 }
 
 .searchbar-search-icon {
-  color: #ffffff !important;
+  color: var(--beep-light) !important;
 }
 
 .searchbar-clear-icon,
@@ -80,7 +80,7 @@ export default {
 <style scoped>
 ion-toolbar {
   --ion-color-base: var(--beep-primary);
-  color: #ffffff;
+  color: var(--beep-light);
 }
 
 ion-searchbar {
@@ -92,18 +92,18 @@ ion-header {
 }
 
 ion-button {
-  --ion-color-base: #ffffff;
+  --ion-color-base: var(--beep-light);
   text-transform: none;
 }
 
 ion-back-button {
-  --ion-color-base: #ffffff;
+  --ion-color-base: var(--beep-light);
 }
 
 .counter {
   width: 100%;
   background-color: var(--beep-primary);
-  color: #ffffff;
+  color: var(--beep-light);
   font-size: 14px;
   font-weight: 900;
   letter-spacing: -0.34px;
