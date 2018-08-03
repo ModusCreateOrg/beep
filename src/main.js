@@ -1,5 +1,4 @@
 import Vue from 'vue'
-import '@ionic/core'
 import '@ionic/core/css/ionic.css'
 import { IonicAPI } from '@modus/ionic-vue'
 import App from './App.vue'
