@@ -1,21 +1,21 @@
-.*
-~*
+.DS_Store
+node_modules
+/dist
 
-dist/
-node_modules/
+# local env files
+.env.local
+.env.*.local
 
-ios/
-android/
-electron/
-
-# ignore log files
-*.log
+# Log files
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-!.gitignore
-!.editorconfig
-!.eslintrc.js
-!.prettierrc
-!.circleci
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw*

@@ -32,18 +32,18 @@
           </div>
         </div>
       </div>
-      <how-does-it-work/>
+      <HowDoesItWork />
     </ion-content>
   </ion-page>
 </template>
 
 <script>
-import HowDoesItWorkModal from './HowDoesItWorkModal.vue'
+import HowDoesItWorkModal from '@/components/HowDoesItWorkModal.vue'
 
 export default {
   name: 'Home',
   components: {
-    'how-does-it-work': HowDoesItWorkModal,
+    HowDoesItWork: HowDoesItWorkModal,
   },
   methods: {
     goToAcc() {
@@ -55,10 +55,6 @@ export default {
   },
 }
 </script>
-
-<style>
-@import '../styles/common-styles.css';
-</style>
 
 <style scoped>
 ion-page {

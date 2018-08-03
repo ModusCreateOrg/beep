@@ -67,7 +67,7 @@
 <script>
 import sha1 from 'sha1'
 import axios from 'axios'
-import HashProtectedModal from './HashProtectedModal.vue'
+import HashProtectedModal from '@/components/HashProtectedModal.vue'
 
 const baseURL = 'https://api.pwnedpasswords.com/range/'
 

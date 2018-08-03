@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import BreachItem from './BreachItem.vue'
+import BreachItem from '@/components/BreachItem.vue'
 
 export default {
   name: 'Breaches',

@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import WhatShouldYouDoModal from './WhatShouldYouDoModal.vue'
+import WhatShouldYouDoModal from '@/components/WhatShouldYouDoModal.vue'
 
 export default {
   name: 'Unsafe',
