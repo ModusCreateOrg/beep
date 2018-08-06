@@ -5,7 +5,7 @@ dist/
 node_modules/
 
 ios/
-android/
+
 electron/
 
 # ignore log files
