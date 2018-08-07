@@ -100,6 +100,7 @@ h2 {
 
 .hash-protected > img {
   float: left;
+  width: 1.25rem;
 }
 
 .hash-protected > span {
@@ -125,6 +126,7 @@ h3 {
 .modus-labs-logo {
   display: block;
   margin: 0 auto;
+  width: 9.6825rem;
 }
 
 @media screen and (min-height: 650px) {

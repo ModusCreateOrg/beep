@@ -8,10 +8,8 @@
     </ion-avatar>
     <ion-label>
       <h1>
-        {{ breach.Title }}&nbsp;
-        <img
-          v-show="breach.IsVerified"
-          src="../images/Icon-Verified-Checkmark.svg">
+        {{ breach.Title }}
+        <img v-show="breach.IsVerified" src="../images/Icon-Verified-Checkmark.svg" />
       </h1>
       <p v-html="this.$breachesService.formatDate(breach.BreachDate)"/>
       <h2 v-html="this.$breachesService.formatDomain(breach.Domain)"/>
@@ -100,8 +98,9 @@ h1 {
 }
 
 h1 img {
-  margin-left: 5px;
+  margin-left: 0.625rem;
   margin-bottom: -3px;
+  width: 1.25rem;
 }
 
 p {

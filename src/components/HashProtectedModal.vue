@@ -1,16 +1,12 @@
 <template>
   <div>
-    <div
-      class="hash-protected-holder"
-      @click="createModal()">
+    <div class="hash-protected-holder" @click="createModal()">
       <div class="hash-protected-inner">
         <img src="../images/Icon-Hash-Protected.svg">
         <span>Hash protected</span>
       </div>
     </div>
-    <modal
-      ref="modal"
-      title="">
+    <modal ref="modal" title="">
       <div class="content">
         <h1 class="hash-protected">
           <img src="../images/Icon-Hash-Protected.svg">
@@ -56,8 +52,10 @@ export default {
   height: 25px;
 }
 
-.hash-protected-inner > img {
+.hash-protected-inner > img,
+.hash-protected > img {
   float: left;
+  width: 1.25rem;
 }
 
 .hash-protected-inner > span {
@@ -92,10 +90,6 @@ h1 {
 
 .hash-protected {
   line-height: 25px;
-}
-
-.hash-protected > img {
-  float: left;
 }
 
 .hash-protected > span {

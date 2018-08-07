@@ -1,9 +1,7 @@
 <template>
   <ion-page class="ion-page">
     <ion-content class="content">
-      <img
-        src="../images/Beep-Logo.svg"
-        class="logo">
+      <img src="../images/Beep-Logo.svg" class="logo" />
       <h1>
         Check if you've<br>
         been hacked
@@ -61,6 +59,7 @@ ion-page {
 .logo {
   margin-top: 5vh;
   display: inline-block;
+  width: 2.8125rem;
 }
 
 h1 {
