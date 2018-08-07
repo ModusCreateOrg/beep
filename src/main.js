@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import '@ionic/core/css/ionic.css'
+import './theme/common.css'
 import { IonicAPI } from '@modus/ionic-vue'
 import App from './App.vue'
 import router from './router'
