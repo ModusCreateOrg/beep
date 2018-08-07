@@ -92,7 +92,9 @@ ion-toolbar {
   --ion-color-base: var(--beep-light);
 }
 
-ion-button {
+ion-button,
+ion-button.button-clear,
+ion-button.button.button-clear.button-md.button-clear-md {
   --ion-color-base: var(--beep-primary);
   text-transform: none;
 }

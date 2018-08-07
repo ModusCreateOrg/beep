@@ -140,7 +140,7 @@ h1 {
 
 .square-btn-text {
   width: 100%;
-  color: #1b1b1b;
+  color: var(--beep-dark);
   font-size: 15px;
   font-weight: 300;
   letter-spacing: -0.48px;

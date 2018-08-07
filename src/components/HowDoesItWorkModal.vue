@@ -79,7 +79,7 @@ p:first-child {
 }
 
 h1 {
-  color: #1b1b1b;
+  color: var(--beep-dark);
   font-size: 24px;
   font-weight: bold;
   letter-spacing: -0.6px;

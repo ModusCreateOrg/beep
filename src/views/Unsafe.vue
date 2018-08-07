@@ -58,7 +58,7 @@ ion-toolbar {
 }
 
 ion-back-button {
-  --ion-color-base: #fff;
+  --ion-color-base: var(--beep-light);
 }
 
 ion-content {
