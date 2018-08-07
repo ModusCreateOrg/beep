@@ -2,17 +2,12 @@
   <ion-page class="ion-page">
     <ion-header>
       <ion-toolbar>
-        <ion-buttons
-          slot="start"
-          @click="goHome">
+        <ion-buttons slot="start" @click="goHome">
           <ion-back-button/>
         </ion-buttons>
         <ion-title>Check Account</ion-title>
         <ion-buttons slot="end">
-          <ion-button
-            :disabled="!isValidAccount"
-            clear
-            @click="checkAccount">
+          <ion-button :disabled="!isValidAccount" clear @click="checkAccount">
             <span v-if="requestPending">
               <ion-spinner/>
             </span>
@@ -21,9 +16,7 @@
         </ion-buttons>
       </ion-toolbar>
     </ion-header>
-    <ion-content
-      padding
-      class="content">
+    <ion-content padding class="content">
       <h1>
         Enter any username or email and<br>
         we'll check if it's been hacked<br>
@@ -132,11 +125,12 @@ ion-spinner * {
 }
 
 ion-toolbar {
-  --ion-color-base: #ffffff;
+  --ion-color-base: var(--beep-light);
 }
 
 ion-button,
-ion-button.button-clear {
+ion-button.button-clear,
+ion-button.button.button-clear.button-md.button-clear-md {
   --ion-color-base: var(--beep-primary);
   text-transform: none;
 }
@@ -146,7 +140,7 @@ ion-back-button {
 }
 
 h1 {
-  color: rgba(27, 27, 27, 0.5);
+  color: var(--ion-dark-transparent);
   width: 100%;
   font-size: 12px;
   font-weight: normal;

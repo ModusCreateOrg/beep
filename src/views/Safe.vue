@@ -57,7 +57,7 @@ export default {
 <style scoped>
 ion-page {
   text-align: center;
-  --ion-text-color: #ffffff;
+  --ion-text-color: var(--beep-light);
 }
 
 ion-toolbar {

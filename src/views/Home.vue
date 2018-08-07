@@ -9,9 +9,7 @@
         been hacked
       </h1>
       <div class="buttons">
-        <div
-          class="btn-holder"
-          @click="goToAcc">
+        <div class="btn-holder" @click="goToAcc">
           <div class="square-btn">
             <div class="square-btn-content">
               <div class="square-btn-icon"><img src="../images/Icon-Account.svg"></div>
@@ -20,9 +18,7 @@
             <div class="square-btn-shadow"/>
           </div>
         </div>
-        <div
-          class="btn-holder"
-          @click="goToPwd">
+        <div class="btn-holder" @click="goToPwd">
           <div class="square-btn">
             <div class="square-btn-content">
               <div class="square-btn-icon"><img src="../images/Icon-Password.svg"></div>
@@ -99,7 +95,7 @@ h1 {
   position: relative;
   width: 100%;
   border-radius: 5px;
-  background-color: #ffffff;
+  background-color: var(--beep-light);
   box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.1);
 }
 

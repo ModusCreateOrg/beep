@@ -92,7 +92,7 @@ ion-avatar .img-holder img {
 
 h1 {
   height: 22px;
-  color: #555555;
+  color: var(--beep-light-dark);
   font-size: 18px;
   font-weight: bold;
   letter-spacing: -0.43px;
@@ -106,7 +106,7 @@ h1 img {
 
 p {
   height: 15px;
-  color: rgba(27, 27, 27, 0.5);
+  color: var(--ion-dark-transparent);
   font-size: 12px;
   letter-spacing: -0.29px;
   line-height: 15px;
@@ -115,7 +115,7 @@ p {
 
 h2 {
   height: 26px;
-  color: #555555;
+  color: var(--beep-light-dark);
   font-size: 14px;
   letter-spacing: -0.34px;
   line-height: 26px;

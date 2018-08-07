@@ -2,9 +2,7 @@
   <ion-page class="ion-page">
     <ion-header>
       <ion-toolbar>
-        <ion-buttons
-          slot="start"
-          @click="goHome">
+        <ion-buttons slot="start" @click="goHome">
           <ion-back-button/>
         </ion-buttons>
         <ion-title>Check Password</ion-title>
@@ -170,7 +168,7 @@ ion-spinner * {
 }
 
 ion-toolbar {
-  --ion-color-base: #ffffff;
+  --ion-color-base: var(--beep-light);
 }
 
 ion-button,
@@ -185,7 +183,7 @@ ion-back-button {
 
 h1 {
   width: 100%;
-  color: rgba(27, 27, 27, 0.5);
+  color: var(--ion-dark-transparent);
   font-size: 12px;
   letter-spacing: -0.29px;
   line-height: 15px;

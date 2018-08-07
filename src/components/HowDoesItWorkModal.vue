@@ -67,7 +67,7 @@ export default {
 }
 
 p {
-  color: #555555;
+  color: var(--beep-light-dark);
   font-size: 14px;
   letter-spacing: -0.34px;
   line-height: 26px;
@@ -112,7 +112,7 @@ h2 span {
 
 h3 {
   font-size: 12px;
-  color: rgba(27, 27, 27, 0.5);
+  color: var(--ion-dark-transparent);
   letter-spacing: -0.29px;
   line-height: 15px;
   font-weight: normal;
