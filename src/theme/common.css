@@ -15,7 +15,7 @@
 
 :root[mode='md'] {
   --ion-padding: 0;
-  --ion-font-family: 'Helvetica Neue', 'Roboto', Droid Sans;
+  --ion-font-family: Lato, 'Helvetica Neue', 'Roboto', Droid Sans, serif;
 }
 
 :root[mode='ios'] {
