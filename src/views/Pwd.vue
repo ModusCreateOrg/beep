@@ -3,14 +3,11 @@
     <ion-header>
       <ion-toolbar>
         <ion-buttons slot="start" @click="goHome">
-          <ion-back-button/>
+          <ion-back-button />
         </ion-buttons>
         <ion-title>Check Password</ion-title>
         <ion-buttons slot="end">
-          <ion-button
-            :disabled="!isValidPwd"
-            clear
-            @click="checkHash">
+          <ion-button :disabled="!isValidPwd" clear @click="checkHash">
             <span v-if="requestPending">
               <ion-spinner/>
             </span>
@@ -19,9 +16,7 @@
         </ion-buttons>
       </ion-toolbar>
     </ion-header>
-    <ion-content
-      class="content"
-      padding>
+    <ion-content class="content" padding>
       <h1>
         Don't worry.<br>
         Your password is hash protected and<br>
@@ -39,6 +34,7 @@
               :value="pwd"
               large
               placeholder="••••••"
+              autofocus="true"
               @input="pwd = $event.target.value"/>
             <ion-button
               v-show="isValidPwd"
@@ -50,11 +46,7 @@
               <img src="../images/Icon-Show-Hide.svg">
             </ion-button>
           </ion-item>
-          <button
-            type="submit"
-            hidden>
-            Check
-          </button>
+          <button type="submit" hidden>Check</button>
         </form>
       </div>
       <has-protected-modal/>

@@ -32,6 +32,7 @@
             large
             type="email"
             placeholder="Username or email"
+            autofocus="true"
             @input="account = $event.target.value"/>
         </ion-item>
       </div>
