@@ -35,7 +35,9 @@
               large
               placeholder="••••••"
               autofocus="true"
-              @input="pwd = $event.target.value"/>
+              @input="pwd = $event.target.value"
+              @keydown.enter="checkHash"
+            />
             <ion-button
               v-show="isValidPwd"
               slot="end"

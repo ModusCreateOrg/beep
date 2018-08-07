@@ -17,6 +17,7 @@
       </ion-toolbar>
     </ion-header>
     <ion-content padding class="content">
+      <form @submit.prevent="checkAccount">
       <h1>
         Enter any username or email and<br>
         we'll check if it's been hacked<br>
@@ -33,9 +34,12 @@
             type="email"
             placeholder="Username or email"
             autofocus="true"
-            @input="account = $event.target.value"/>
+            @input="account = $event.target.value"
+            @keydown.enter="checkAccount"
+          />
         </ion-item>
       </div>
+      </form>
     </ion-content>
   </ion-page>
 </template>
