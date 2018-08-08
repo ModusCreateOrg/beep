@@ -16,7 +16,7 @@
         </ion-buttons>
       </ion-toolbar>
     </ion-header>
-    <ion-content padding class="content" no-bounce>
+    <ion-content padding class="content">
       <form @submit.prevent="checkAccount">
         <h1>
           Enter any username or email and<br>
@@ -37,7 +37,7 @@
             />
           </ion-item>
         </div>
-        <input type="submit" style="visibility:hidden;position:absolute" value="Check"/>
+        <input type="submit" class="form-submit-button"/>
       </form>
     </ion-content>
   </ion-page>
@@ -60,7 +60,6 @@ export default {
     },
   },
   mounted() {
-    this.$refs.input.$el.children[0].focus()
     this.$breachesService.clear()
   },
   methods: {
@@ -81,37 +80,37 @@ export default {
       this.requestPending = true
 
       return axios
-            .get(this.getURL())
-            .then(response => {
-              this.$breachesService.breaches = response.data
-              this.$router.push('/breaches')
+        .get(this.getURL())
+        .then(response => {
+          this.$breachesService.breaches = response.data
+          this.$router.push('/breaches')
 
-              return response
-            })
-            .catch(err => {
-              // 404 means account not pwned
-              this.$breachesService.breaches = []
-              if (err.response && err.response.status === 404) {
-                this.$router.push('/safe')
-                return
-              }
-              this.showError()
-            })
-            .finally(() => {
-              this.account = ''
-              this.requestPending = false
-              loading.dismiss()
-            })
+          return response
+        })
+        .catch(err => {
+          // 404 means account not pwned
+          this.$breachesService.breaches = []
+          if (err.response && err.response.status === 404) {
+            this.$router.push('/safe')
+            return
+          }
+          this.showError()
+        })
+        .finally(() => {
+          this.account = ''
+          this.requestPending = false
+          loading.dismiss()
+        })
     },
     showError() {
       this.$ionic
-            .newAlertController({
-              header: 'Error',
-              message: 'Something went wrong...',
-              buttons: ['OK'],
-            })
-            .then(e => e.present())
-            .catch(err => console.error(err))
+        .newAlertController({
+          header: 'Error',
+          message: 'Something went wrong...',
+          buttons: ['OK'],
+        })
+        .then(e => e.present())
+        .catch(err => console.error(err))
     },
     goHome(event) {
       if (event) {
@@ -181,5 +180,10 @@ ion-label {
   font-size: 18px;
   letter-spacing: -0.43px;
   line-height: 18px;
+}
+
+.form-submit-button {
+  visibility: hidden;
+  position: absolute;
 }
 </style>

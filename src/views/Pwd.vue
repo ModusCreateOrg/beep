@@ -29,12 +29,10 @@
           </ion-item>
           <ion-item>
             <ion-input
-              ref="input"
               :type="pwdType"
               :value="pwd"
               large
               placeholder="••••••"
-              autofocus="true"
               @input="pwd = $event.target.value"
               @keydown.enter="checkHash"
             />
@@ -48,7 +46,7 @@
               <img src="../images/Icon-Show-Hide.svg">
             </ion-button>
           </ion-item>
-          <button type="submit" hidden>Check</button>
+          <input type="submit" class="form-submit-button"/>
         </form>
       </div>
       <has-protected-modal/>
@@ -84,7 +82,6 @@ export default {
     },
   },
   mounted() {
-    this.$refs.input.focus()
     this.$breachesService.clear()
   },
   methods: {
@@ -220,5 +217,10 @@ ion-label {
   font-size: 18px;
   letter-spacing: -0.43px;
   line-height: 18px;
+}
+
+.form-submit-button {
+  visibility: hidden;
+  position: absolute;
 }
 </style>
