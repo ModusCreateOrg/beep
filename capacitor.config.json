@@ -2,5 +2,5 @@
   "appId": "com.moduscreate.beep",
   "appName": "Beep",
   "bundledWebRuntime": false,
-  "webDir": "public"
+  "webDir": "dist"
 }
