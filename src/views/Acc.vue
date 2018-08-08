@@ -38,7 +38,7 @@
             />
           </ion-item>
         </div>
-        <input type="submit" style="visibility:hidden;position:absolute" value="Check"/>
+        <input type="submit" style="visibility:hidden;position:absolute"/>
       </form>
     </ion-content>
   </ion-page>

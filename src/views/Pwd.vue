@@ -47,7 +47,7 @@
               <img src="../images/Icon-Show-Hide.svg">
             </ion-button>
           </ion-item>
-          <button type="submit" hidden>Check</button>
+          <input type="submit" style="visibility:hidden;position:absolute"/>
         </form>
       </div>
       <has-protected-modal/>
