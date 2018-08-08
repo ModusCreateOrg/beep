@@ -16,7 +16,7 @@
         </ion-buttons>
       </ion-toolbar>
     </ion-header>
-    <ion-content padding class="content">
+    <ion-content padding class="content" no-bounce>
       <form @submit.prevent="checkAccount">
         <h1>
           Enter any username or email and<br>
@@ -28,18 +28,16 @@
           </ion-item>
           <ion-item>
             <ion-input
-              ref="input"
               :value="account"
               large
               type="email"
               placeholder="Username or email"
-              autofocus="true"
               @input="account = $event.target.value"
               @keydown.enter="checkAccount"
             />
           </ion-item>
         </div>
-        <ion-button type="submit" hidden>Check</ion-button>
+        <input type="submit" style="visibility:hidden;position:absolute" value="Check"/>
       </form>
     </ion-content>
   </ion-page>
@@ -62,7 +60,7 @@ export default {
     },
   },
   mounted() {
-    this.$refs.input.focus()
+    this.$refs.input.$el.children[0].focus()
     this.$breachesService.clear()
   },
   methods: {
