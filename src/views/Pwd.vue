@@ -29,7 +29,6 @@
           </ion-item>
           <ion-item>
             <ion-input
-              ref="input"
               :type="pwdType"
               :value="pwd"
               large
@@ -83,7 +82,6 @@ export default {
     },
   },
   mounted() {
-    this.$refs.input.setAttribute('autofocus', 'true')
     this.$breachesService.clear()
   },
   methods: {
