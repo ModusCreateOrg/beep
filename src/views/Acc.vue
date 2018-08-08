@@ -28,6 +28,7 @@
           </ion-item>
           <ion-item>
             <ion-input
+              ref="input"
               :value="account"
               large
               type="email"
@@ -60,7 +61,7 @@ export default {
     },
   },
   mounted() {
-    this.$refs.input.$el.children[0].focus()
+    this.$refs.input.setAttribute('autofocus', 'true')
     this.$breachesService.clear()
   },
   methods: {

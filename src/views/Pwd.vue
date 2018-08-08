@@ -34,7 +34,6 @@
               :value="pwd"
               large
               placeholder="••••••"
-              autofocus="true"
               @input="pwd = $event.target.value"
               @keydown.enter="checkHash"
             />
@@ -84,7 +83,7 @@ export default {
     },
   },
   mounted() {
-    this.$refs.input.focus()
+    this.$refs.input.setAttribute('autofocus', 'true')
     this.$breachesService.clear()
   },
   methods: {
