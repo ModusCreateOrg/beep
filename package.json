@@ -22,6 +22,8 @@
   "dependencies": {
     "@capacitor/cli": "1.0.0-beta.3",
     "@capacitor/core": "1.0.0-beta.3",
+    "@capacitor/ios": "1.0.0-beta.3",
+    "@capacitor/android": "1.0.0-beta.3",
     "@ionic/core": "4.0.0-beta.1",
     "@modus/ionic-vue": "1.0.4",
     "axios": "0.18.0",
