@@ -16,7 +16,7 @@
         </ion-buttons>
       </ion-toolbar>
     </ion-header>
-    <ion-content padding class="content" no-bounce>
+    <ion-content padding class="content">
       <form @submit.prevent="checkAccount">
         <h1>
           Enter any username or email and<br>
