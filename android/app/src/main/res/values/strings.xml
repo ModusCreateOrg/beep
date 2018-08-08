@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Beep</string>
+    <string name="title_activity_main">Beep</string>
+    <string name="package_name">com.moduscreate.beep</string>
+    <string name="fileprovider_authority">com.moduscreate.beep.fileprovider</string>
+    <string name="custom_url_scheme">com.moduscreate.beep</string>
+</resources>
