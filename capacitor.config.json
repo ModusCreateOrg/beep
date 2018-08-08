@@ -1,6 +1,0 @@
-{
-  "appId": "com.moduscreate.beep",
-  "appName": "Beep",
-  "bundledWebRuntime": false,
-  "webDir": "dist"
-}
