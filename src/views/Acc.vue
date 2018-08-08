@@ -37,7 +37,7 @@
             />
           </ion-item>
         </div>
-        <input type="submit" style="visibility:hidden;position:absolute"/>
+        <input type="submit" class="form-submit-button"/>
       </form>
     </ion-content>
   </ion-page>
@@ -180,5 +180,10 @@ ion-label {
   font-size: 18px;
   letter-spacing: -0.43px;
   line-height: 18px;
+}
+
+.form-submit-button {
+  visibility: hidden;
+  position: absolute;
 }
 </style>
