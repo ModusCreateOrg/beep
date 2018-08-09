@@ -26,7 +26,7 @@ export default new IonicVueRouter({
     {
       path: '/unsafe',
       component: Unsafe,
-      props: route => ({ count: route.query.count }),
+      props: route => ({ count: Number(route.query.count) }),
     },
     { path: '/safe', component: Safe },
   ],
