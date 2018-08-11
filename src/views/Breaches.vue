@@ -3,7 +3,7 @@
     <ion-header>
       <ion-toolbar>
         <ion-buttons slot="start">
-          <ion-back-button/>
+          <ion-back-button default-href="/acc" />
         </ion-buttons>
         <ion-title v-html="account"/>
       </ion-toolbar>
