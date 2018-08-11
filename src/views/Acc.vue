@@ -96,10 +96,11 @@ export default {
           }
           this.showError()
         })
-        .finally(() => {
+        .then(() => {
           this.account = ''
           this.requestPending = false
           loading.dismiss()
+          return
         })
     },
     showError() {
