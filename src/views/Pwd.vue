@@ -118,11 +118,12 @@ export default {
           return false
         })
         .catch(err => console.error(err))
-        .finally(() => {
+        .then(() => {
           // Reset and unblock subsequent requests
           this.pwd = ''
           this.requestPending = false
           loading.dismiss()
+          return
         })
     },
     search(hash, text) {
