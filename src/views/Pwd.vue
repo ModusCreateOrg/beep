@@ -2,8 +2,8 @@
   <ion-page class="ion-page">
     <ion-header>
       <ion-toolbar>
-        <ion-buttons slot="start" @click="goHome">
-          <ion-back-button />
+        <ion-buttons slot="start">
+          <ion-back-button default-href="/" />
         </ion-buttons>
         <ion-title>Check Password</ion-title>
         <ion-buttons slot="end">
@@ -118,11 +118,12 @@ export default {
           return false
         })
         .catch(err => console.error(err))
-        .finally(() => {
+        .then(() => {
           // Reset and unblock subsequent requests
           this.pwd = ''
           this.requestPending = false
           loading.dismiss()
+          return
         })
     },
     search(hash, text) {
@@ -142,12 +143,6 @@ export default {
       }
 
       return breachData[1]
-    },
-    goHome(event) {
-      if (event) {
-        event.preventDefault()
-      }
-      this.$router.push('/')
     },
   },
 }

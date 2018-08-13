@@ -1,7 +1,11 @@
 <template>
   <ion-page class="ion-page">
+    <ion-header>
+      <ion-toolbar>
+        <img src="../images/Beep-Logo.svg" class="logo" />
+      </ion-toolbar>
+    </ion-header>
     <ion-content class="content">
-      <img src="../images/Beep-Logo.svg" class="logo" />
       <h1>
         Check if you've<br>
         been hacked
@@ -54,6 +58,10 @@ export default {
 ion-page {
   text-align: center;
   --ion-text-color: var(--beep-secondary);
+}
+
+ion-toolbar {
+  --ion-color-base: var(--beep-light);
 }
 
 .logo {
