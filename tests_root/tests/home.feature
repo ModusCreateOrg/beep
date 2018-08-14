@@ -8,6 +8,6 @@ Feature: Home Screen of Beep Web App
 Scenario: Verification on fields on screen
   Given User is on Web App Home screen
   When User opens https://beep.modus.app/#/
-  Then User should see "Account Field"
-  Then User should see "Password Field"
+  Then User should see "Account field"
+  Then User should see "Password field"
   Then User should see "How does it work"
