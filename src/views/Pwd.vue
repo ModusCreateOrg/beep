@@ -117,7 +117,6 @@ export default {
           }
           return false
         })
-        .catch(err => console.error(err))
         .then(() => {
           // Reset and unblock subsequent requests
           this.pwd = ''
@@ -125,6 +124,7 @@ export default {
           loading.dismiss()
           return
         })
+        .catch(err => console.error(err))
     },
     search(hash, text) {
       const startIndex = text.indexOf(hash)
@@ -158,7 +158,8 @@ ion-toolbar {
 }
 
 ion-button,
-ion-button.button-clear {
+ion-button.button-clear,
+ion-button.button.button-clear.button-md.button-clear-md {
   --ion-color-base: var(--beep-primary);
   text-transform: none;
 }
@@ -199,7 +200,7 @@ ion-input[type='password'] {
 ion-input[type='text'] {
   height: 56px;
   font-size: 25px;
-  color: rgba(92, 92, 92, 0.5);
+  color: var(--beep-secondary);
   font-weight: 300;
   letter-spacing: -0.63px;
   line-height: 25px;

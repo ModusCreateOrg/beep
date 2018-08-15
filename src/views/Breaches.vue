@@ -62,12 +62,12 @@ export default {
 
 <style>
 .searchbar-input {
-  color: --beep-light !important;
+  color: var(--beep-light) !important;
   background-color: rgba(0, 0, 0, 0.15) !important;
 }
 
 .searchbar-search-icon {
-  color: --beep-light !important;
+  color: var(--beep-light) !important;
 }
 
 .searchbar-clear-icon,
