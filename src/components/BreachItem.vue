@@ -98,7 +98,7 @@ h1 {
 }
 
 h1 img {
-  margin-left: 0.625rem;
+  margin-left: 5px;
   margin-bottom: -3px;
   width: 1.25rem;
 }

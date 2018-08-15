@@ -1,5 +1,4 @@
-:root,
-:root[mode='md'] {
+:root {
   --beep-success: #47bd8f;
   --beep-danger: #ff5c5d;
   --beep-secondary: #5c5c5c;
@@ -7,19 +6,16 @@
   --beep-dark: #1b1b1b;
   --beep-light-dark: #555555;
   --beep-light: #ffffff;
-  --ion-font-family: Lato, serif;
   --ion-dark-transparent: rgba(27, 27, 27, 0.5);
   --border-width: 0;
   --ion-padding: 0;
 }
 
-:root[mode='md'] {
-  --ion-padding: 0;
-  --ion-font-family: Lato, 'Helvetica Neue', 'Roboto', Droid Sans, serif;
+:root[mode=md] {
+  --ion-font-family: Arial, sans-serif;
 }
 
-:root[mode='ios'] {
-  --ion-padding: 0;
+:root[mode=ios] {
   --ion-font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Roboto', sans-serif;
 }
 

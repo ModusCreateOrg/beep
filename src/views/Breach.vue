@@ -169,6 +169,7 @@ h1 {
 h1 img {
   margin-left: 5px;
   margin-bottom: -3px;
+  width: 1.25rem;
 }
 
 p {

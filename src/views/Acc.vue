@@ -162,7 +162,7 @@ ion-item {
 ion-input {
   height: 56px;
   font-size: 25px;
-  color: rgba(92, 92, 92, 0.5);
+  color: var(--beep-secondary);
   font-weight: 300;
   letter-spacing: -0.63px;
   line-height: 25px;
