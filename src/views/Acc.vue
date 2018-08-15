@@ -64,7 +64,7 @@ export default {
   },
   methods: {
     getURL() {
-      return this.$breachesService.baseApiURL + this.account
+      return this.$breachesService.baseApiURL + encodeURIComponent(this.account)
     },
     checkAccount() {
       if (!this.requestPending && this.isValidAccount) {
