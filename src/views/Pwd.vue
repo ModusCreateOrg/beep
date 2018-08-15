@@ -117,6 +117,7 @@ export default {
           }
           return false
         })
+        .catch(err => console.error(err))
         .then(() => {
           // Reset and unblock subsequent requests
           this.pwd = ''
@@ -124,7 +125,6 @@ export default {
           loading.dismiss()
           return
         })
-        .catch(err => console.error(err))
     },
     search(hash, text) {
       const startIndex = text.indexOf(hash)
