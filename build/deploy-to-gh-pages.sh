@@ -4,5 +4,5 @@ DIR='dist'
 
 cd ${DIR}
 git add -A
-git commit -m "Deploy to ${DIR}"
+git commit --allow-empty -m "Deploy to ${DIR}"
 git push origin ${BRANCH}
