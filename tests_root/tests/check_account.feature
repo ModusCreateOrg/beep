@@ -64,7 +64,7 @@ Scenario: Activation of "Check" option
   Then User see deactivated "Check" option
   Then User clicks on "Check" Option
   Then User should "Check" option deactivated only
-  Then User should see no validation and chnage for  "Your username or email" text box
+  Then User should see no validation and change for "Your username or email" text box
 
 @S5.5 @Manual
   Scenario: Action when click on deactivated "Check" option
