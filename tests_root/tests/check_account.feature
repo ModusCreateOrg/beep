@@ -123,4 +123,3 @@ Scenario: Activation of "Check" option
   Given User is on https://beep.modus.app/#/acc Page
   When User click on left back button
   Then User should redirects to Home screen 'https://beep.modus.app/#/" Page
-
