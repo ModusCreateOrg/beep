@@ -36,15 +36,11 @@
               @input="pwd = $event.target.value"
               @keydown.enter="checkHash"
             />
-            <ion-button
+            <img
               v-show="isValidPwd"
               slot="end"
-              type="button"
-              fill="clear"
-              size="large"
-              @click="togglePwdType">
-              <img src="../images/Icon-Show-Hide.svg">
-            </ion-button>
+              @click="togglePwdType"
+              :src="showHideImagePath">
           </ion-item>
           <input type="submit" class="form-submit-button"/>
         </form>
@@ -79,6 +75,9 @@ export default {
     },
     isValidPwd() {
       return this.pwd.trim().length > 0
+    },
+    showHideImagePath() {
+      return require(`../images/Icon-Show-Hide${this.showPwd ? '-Salmon' : ''}.svg`)
     },
   },
   mounted() {
@@ -218,5 +217,9 @@ ion-label {
 .form-submit-button {
   visibility: hidden;
   position: absolute;
+}
+
+img {
+  height: 20px;
 }
 </style>
