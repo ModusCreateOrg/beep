@@ -10,6 +10,7 @@ import BeepFileloaderJson from '@modus/beep-fileloader-json'
 Vue.config.productionTip = false
 
 Vue.use(IonicAPI)
+Vue.use(BeepFileloaderJson)
 
 Vue.prototype.$breachesService = BreachService
 
