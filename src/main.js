@@ -6,6 +6,9 @@ import router from './router'
 import './registerServiceWorker'
 import BreachService from './breachesService'
 
+import { defineCustomElements } from '@ionic/core/dist/esm'
+defineCustomElements(window)
+
 Vue.config.productionTip = false
 
 Vue.use(IonicAPI)
