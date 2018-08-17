@@ -5,6 +5,7 @@ import { IonicAPI } from '@modus/ionic-vue'
 import router from './router'
 import './registerServiceWorker'
 import BreachService from './breachesService'
+import BeepFileloaderJson from '@modus/beep-fileloader-json'
 
 Vue.config.productionTip = false
 
