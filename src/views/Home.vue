@@ -57,9 +57,11 @@ export default {
   methods: {
     readFile(event) {
       let reader = new FileReader()
-      reader.onload = (f) => {
-          this.content = f.target.result
-        }
+      reader.onload = f => {
+        this.content = f.target.result
+        this.$fileLoaderJson.loadFile(f.target.result)
+        console.log(this.$fileLoaderJson.getKey('name'))
+      }
       reader.readAsText(event.target.files[0])
     },
     goToAcc() {
