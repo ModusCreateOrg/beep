@@ -30,6 +30,12 @@
           </div>
         </div>
       </div>
+      <div>
+        <input type="file" @change="readFile">
+      </div>
+      <br>
+      <p>File contents:</p>
+      {{ content }}
       <HowDoesItWork />
     </ion-content>
   </ion-page>
@@ -40,10 +46,22 @@ import HowDoesItWorkModal from '@/components/HowDoesItWorkModal.vue'
 
 export default {
   name: 'Home',
+  data() {
+    return {
+      content: 'none',
+    }
+  },
   components: {
     HowDoesItWork: HowDoesItWorkModal,
   },
   methods: {
+    readFile(event) {
+      let reader = new FileReader()
+      reader.onload = (f) => {
+          this.content = f.target.result
+        }
+      reader.readAsText(event.target.files[0])
+    },
     goToAcc() {
       this.$router.push('/acc')
     },
