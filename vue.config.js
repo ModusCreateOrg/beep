@@ -3,7 +3,7 @@ module.exports = {
   configureWebpack: config => ({
       module: {
         rules: [{
-          test: /\.(svg)(\?.*)?$/,
+          test: /(ios|md|logo)-\.(svg)(\?.*)?$/,
             loader: 'file-loader',
             options: {
               name: 'img/svg/[name].[ext]',
