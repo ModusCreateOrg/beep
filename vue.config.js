@@ -1,6 +1,6 @@
 module.exports = {
   runtimeCompiler: true,
-  configureWebpack: config => ({
+  configureWebpack: () => ({
       module: {
         rules: [{
           test: /(ios|md|logo)-\.(svg)(\?.*)?$/,
