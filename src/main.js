@@ -1,13 +1,14 @@
 import Vue from 'vue'
 import './theme/common.css'
-import { IonicAPI } from '@modus/ionic-vue'
+import { Ionic, IonicAPI } from '@modus/ionic-vue'
 import router from './router'
 import './registerServiceWorker'
 import BreachService from './breachesService'
 
-Vue.config.productionTip = false
-
+Ionic.init({ resourcesUrl: 'img/' })
 Vue.use(IonicAPI)
+
+Vue.config.productionTip = false
 
 Vue.prototype.$breachesService = BreachService
 
