@@ -6,6 +6,9 @@ import router from './router'
 import './registerServiceWorker'
 import BreachService from './breachesService'
 
+import { Plugins } from '@capacitor/core';
+const { SplashScreen } = Plugins;
+
 Vue.config.productionTip = false
 
 Vue.use(IonicAPI)
@@ -14,4 +17,7 @@ Vue.prototype.$breachesService = BreachService
 
 new Vue({
   router,
+  mounted() {
+    SplashScreen.hide();
+  }
 }).$mount('#app')
