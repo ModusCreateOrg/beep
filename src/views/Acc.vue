@@ -122,10 +122,6 @@ ion-spinner * {
   stroke: white;
 }
 
-ion-toolbar {
-  --ion-color-base: var(--beep-light);
-}
-
 ion-button,
 ion-button.button-clear,
 ion-button.button.button-clear.button-md.button-clear-md {

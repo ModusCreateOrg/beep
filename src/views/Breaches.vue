@@ -79,7 +79,7 @@ export default {
 
 <style scoped>
 ion-toolbar {
-  --ion-color-base: var(--beep-primary);
+  --ion-toolbar-background-color: var(--beep-primary);
   color: var(--beep-light);
 }
 
