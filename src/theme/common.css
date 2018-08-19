@@ -19,6 +19,10 @@
   --ion-font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Roboto', sans-serif;
 }
 
+ion-app.statusbar-padding {
+  --ion-safe-area-top: 0;
+}
+
 .header-ios ion-toolbar:last-child {
   --border-width: 0;
 }
