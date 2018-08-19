@@ -6,8 +6,8 @@ import router from './router'
 import './registerServiceWorker'
 import BreachService from './breachesService'
 
-import { Plugins } from '@capacitor/core';
-const { SplashScreen } = Plugins;
+import { Plugins } from '@capacitor/core'
+const { SplashScreen } = Plugins
 
 Vue.config.productionTip = false
 
@@ -18,6 +18,6 @@ Vue.prototype.$breachesService = BreachService
 new Vue({
   router,
   mounted() {
-    SplashScreen.hide();
-  }
+    SplashScreen.hide()
+  },
 }).$mount('#app')
