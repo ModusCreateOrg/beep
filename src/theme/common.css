@@ -44,3 +44,9 @@ ion-toolbar {
   top: 50%;
   transform: translateY(-50%);
 }
+
+#lottie {
+  position:relative;
+  width: 100%;
+  height: 40vh
+}
