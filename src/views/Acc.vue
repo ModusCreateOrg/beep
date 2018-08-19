@@ -147,11 +147,6 @@ h1 {
   text-align: center;
 }
 
-.input-holder {
-  margin-top: 20vh;
-  height: 20vh;
-}
-
 ion-item {
   --border-style: none;
   --padding-start: 7%;

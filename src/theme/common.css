@@ -30,3 +30,9 @@
 ion-title {
   text-align: center;
 }
+
+.input-holder {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
