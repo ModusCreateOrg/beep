@@ -6,7 +6,7 @@ import router from './router'
 import './registerServiceWorker'
 import BreachService from './breachesService'
 
-import { Capacitor, Plugins } from '@capacitor/core'
+import { Plugins } from '@capacitor/core'
 const { SplashScreen } = Plugins
 
 Vue.config.productionTip = false
