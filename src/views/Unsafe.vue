@@ -52,7 +52,7 @@ export default {
   beforeRouteLeave(to, from, next) {
     setTimeout(() => {
       this.animation.destroy()
-    }, 500)
+    }, 420)
     next()
   },
   methods: {
