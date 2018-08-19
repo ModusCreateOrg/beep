@@ -16,7 +16,7 @@
         class="count"
         v-html="count"/>
       <h2 class="count-text">websites</h2>
-      <img src="../images/Icon-Character-Negative.svg">
+      <div id="lottie" style=""></div>
       <what-should-you-do/>
       <h3 @click="goToAcc">
         <span>Next: Check Account</span>
@@ -27,6 +27,7 @@
 
 <script>
 import WhatShouldYouDoModal from '@/components/WhatShouldYouDoModal.vue'
+import bodymovin from 'bodymovin/build/player/bodymovin.js'
 
 export default {
   name: 'Unsafe',
@@ -43,6 +44,16 @@ export default {
     goToAcc() {
       this.$router.push('/acc')
     },
+  },
+  mounted() {
+    bodymovin.loadAnimation({
+      container: document.getElementById('lottie'), // Required
+      path: 'img/lottie/unsafe/data.json', // Required
+      renderer: 'svg/canvas/html', // Required
+      loop: true,
+      autoplay: true,
+      name: 'unsafe',
+    })
   },
 }
 </script>
