@@ -48,11 +48,13 @@ export default {
   },
   mounted() {
     this.loadAnimation()
+    document.querySelector('meta[name="theme-color"]').content = '#FF5C5D'
   },
   beforeRouteLeave(to, from, next) {
     setTimeout(() => {
       this.animation.destroy()
     }, 420)
+    document.querySelector('meta[name="theme-color"]').content = '#FFFFFF'
     next()
   },
   methods: {
