@@ -18,6 +18,6 @@ Vue.prototype.$breachesService = BreachService
 new Vue({
   router,
   mounted() {
-    SplashScreen.hide().catch(e => console.log('No splashscreen available'))
+    SplashScreen.hide().catch(() => console.log('No splashscreen available'))
   },
 }).$mount('#app')
