@@ -31,6 +31,10 @@ ion-title {
   text-align: center;
 }
 
+ion-toolbar {
+  --ion-toolbar-background-color: var(--beep-light);
+}
+
 .input-holder {
   position: absolute;
   top: 50%;
