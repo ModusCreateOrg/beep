@@ -8,31 +8,46 @@ export default class BeepFileLoader {
 
   loadFile(data) {
     try {
-      this.data = JSON.parse(data)
+      this.data = JSON.parse(data)["breachdata"]
     } catch (e) {
       this.data = "Could not pass input file: "+e
     }
-  }
-
-  getKey(key) {
-    return this.data[key]
   }
 
   getFileContents() {
     return this.baseFile
   }
 
-  getNames() {
-    return ["test"]
+
+  getBreachData(search, type) {
+    const breachdata = this.data
+    var count = 0
+    var entry = ""
+    var results = {"count":0,"matches":[]}
+
+    if (type === "name") {
+        search = search.toLowerCase()
+    }
+
+    for (var i in breachdata) {
+      if (type === "name") {
+        entry = breachdata[i][type].toLowerCase()
+      } else {
+        entry = breachdata[i][type]
+      }
+      if (entry === search) {
+          count++
+          results["matches"].push(breachdata[i])
+      }
+    }
+    if (count > 0) {
+      results["count"] = count
+      return results
+    } else {
+      return false
+    }
   }
 
-  getClearTextPasswords() {
-    return ["test1234"]
-  }
-
-  getHashedPasswords() {
-    return ["45F534A53E45ACE3D"]
-  }
 }
 
 BeepFileLoader.install = function(Vue, opts) {
