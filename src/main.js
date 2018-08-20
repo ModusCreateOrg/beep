@@ -7,7 +7,7 @@ import './registerServiceWorker'
 import BreachService from './breachesService'
 
 import { Plugins, StatusBarStyle } from '@capacitor/core'
-const { SplashScreen, StatusBar } = Plugins
+const { SplashScreen, StatusBar, Device } = Plugins
 
 Vue.config.productionTip = false
 
@@ -17,12 +17,15 @@ Vue.prototype.$breachesService = BreachService
 Vue.prototype.$env = constant => {
   return process.env[`VUE_APP_${constant}`]
 }
+Vue.prototype.$device = async constant => {
+  return await Device.getInfo()
+}
 
 new Vue({
   router,
   mounted() {
     SplashScreen.hide()
-    StatusBar.setStyle({ style: StatusBarStyle.Dark })
+    StatusBar.setStyle({ style: StatusBarStyle.Light })
     StatusBar.setBackgroundColor({ color: this.$env('INITIAL_STATUSBAR_COLOR') })
   },
 }).$mount('#app')
