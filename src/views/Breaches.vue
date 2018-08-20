@@ -28,16 +28,19 @@
 
 <script>
 import BreachItem from '@/components/BreachItem.vue'
+import toggleStatusbarColor from '@/mixins/toggleStatusbarColor'
 
 export default {
   name: 'Breaches',
   components: {
     'breach-item': BreachItem,
   },
+  mixins: [toggleStatusbarColor],
   data() {
     return {
       filter: this.$breachesService.filter,
       account: this.$breachesService.account,
+      newStatusbarColor: this.$env('UNSAFE_STATUSBAR_COLOR'),
     }
   },
   computed: {
@@ -79,7 +82,7 @@ export default {
 
 <style scoped>
 ion-toolbar {
-  --ion-color-base: var(--beep-primary);
+  --ion-toolbar-background-color: var(--beep-primary);
   color: var(--beep-light);
 }
 

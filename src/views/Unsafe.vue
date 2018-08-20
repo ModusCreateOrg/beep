@@ -16,7 +16,7 @@
         class="count"
         v-html="count"/>
       <h2 class="count-text">websites</h2>
-      <img src="../images/Icon-Character-Negative.svg">
+      <div id="lottie"></div>
       <what-should-you-do/>
       <h3 @click="goToAcc">
         <span>Next: Check Account</span>
@@ -27,21 +27,52 @@
 
 <script>
 import WhatShouldYouDoModal from '@/components/WhatShouldYouDoModal.vue'
+import bodymovin from 'bodymovin/build/player/bodymovin.js'
+import animationData from '@/lottie/unsafe/data.json'
+import toggleStatusbarColor from '@/mixins/toggleStatusbarColor'
 
 export default {
   name: 'Unsafe',
   components: {
     'what-should-you-do': WhatShouldYouDoModal,
   },
+  mixins: [toggleStatusbarColor],
   props: {
     count: {
       type: Number,
       default: 0,
     },
   },
+  data() {
+    return {
+      animation: null,
+      newStatusbarColor: this.$env('UNSAFE_STATUSBAR_COLOR'),
+    }
+  },
+  mounted() {
+    this.loadAnimation()
+    document.querySelector('meta[name="theme-color"]').content = '#FF5C5D'
+  },
+  beforeRouteLeave(to, from, next) {
+    setTimeout(() => {
+      this.animation.destroy()
+    }, 420)
+    document.querySelector('meta[name="theme-color"]').content = '#FFFFFF'
+    next()
+  },
   methods: {
     goToAcc() {
       this.$router.push('/acc')
+    },
+    loadAnimation() {
+      this.animation = bodymovin.loadAnimation({
+        animationData,
+        container: document.getElementById('lottie'),
+        renderer: 'svg/canvas/html',
+        loop: true,
+        autoplay: true,
+        name: 'unsafe',
+      })
     },
   },
 }

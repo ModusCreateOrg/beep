@@ -122,10 +122,6 @@ ion-spinner * {
   stroke: white;
 }
 
-ion-toolbar {
-  --ion-color-base: var(--beep-light);
-}
-
 ion-button,
 ion-button.button-clear,
 ion-button.button.button-clear.button-md.button-clear-md {
@@ -145,11 +141,6 @@ h1 {
   letter-spacing: -0.29px;
   line-height: 1.4;
   text-align: center;
-}
-
-.input-holder {
-  margin-top: 20vh;
-  height: 20vh;
 }
 
 ion-item {

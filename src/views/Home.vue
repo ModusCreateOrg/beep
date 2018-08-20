@@ -60,12 +60,7 @@ ion-page {
   --ion-text-color: var(--beep-secondary);
 }
 
-ion-toolbar {
-  --ion-color-base: var(--beep-light);
-}
-
 .logo {
-  margin-top: 5vh;
   display: inline-block;
   width: 2.8125rem;
 }
