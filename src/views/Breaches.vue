@@ -40,7 +40,7 @@ export default {
     return {
       filter: this.$breachesService.filter,
       account: this.$breachesService.account,
-      newStatusbarColor: '#FF5C5D',
+      newStatusbarColor: this.$env('UNSAFE_STATUSBAR_COLOR'),
     }
   },
   computed: {

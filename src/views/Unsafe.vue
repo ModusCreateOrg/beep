@@ -46,7 +46,7 @@ export default {
   data() {
     return {
       animation: null,
-      newStatusbarColor: '#FF5C5D',
+      newStatusbarColor: this.$env('UNSAFE_STATUSBAR_COLOR'),
     }
   },
   mounted() {
