@@ -7,7 +7,11 @@ export default class BeepFileLoader {
   }
 
   loadFile(data) {
-    this.data = JSON.parse(data)
+    try {
+      this.data = JSON.parse(data)
+    } catch (e) {
+      this.data = "Could not pass input file: "+e
+    }
   }
 
   getKey(key) {
@@ -47,4 +51,3 @@ BeepFileLoader.install = function(Vue, opts) {
     },
   })
 }
-
