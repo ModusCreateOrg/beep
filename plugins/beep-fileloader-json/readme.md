@@ -23,23 +23,27 @@ Beep FileLoader expects a flat file in JSON format. The following key:value
 pairs should be used as default in the file,
 however arbitrary metadata can also be added:
 
-`{
+```javascript
+{
    breachdata:[
      {"name":"value", "algo":"value","hash":"value","cleartext":"value"}
    ]
- }`
+ }
+```
 
 
 `breachdata:` takes a list of objects containing
 hashed passwords e.g. "bdc87b9c894da5168059e00ebffb9077", their cleartext mapping
 the hashing algorithm and the name. An example would be:  
 
-`{
+```javascript
+{
   "name": "Joe Bloggs",
   "algo":"md5",
   "hash":"bdc87b9c894da5168059e00ebffb9077",
   "cleartext":"password1234"
-}`
+}
+```
 
 Each value is optional, i.e. if you do not know the hashing algo you can leave
 this blank, or if you only know the username, the other fields can be left blank.
