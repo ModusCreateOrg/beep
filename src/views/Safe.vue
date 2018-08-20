@@ -33,7 +33,7 @@ export default {
     return {
       account: this.$breachesService.account,
       isAccount: this.$breachesService.account.length > 0,
-      newStatusbarColor: '#47BD8F',
+      newStatusbarColor: this.$env('SAFE_STATUSBAR_COLOR'),
     }
   },
   methods: {
