@@ -29,12 +29,14 @@
 import WhatShouldYouDoModal from '@/components/WhatShouldYouDoModal.vue'
 import bodymovin from 'bodymovin/build/player/bodymovin.js'
 import animationData from '@/lottie/unsafe/data.json'
+import toggleStatusbarColor from '@/mixins/toggleStatusbarColor'
 
 export default {
   name: 'Unsafe',
   components: {
     'what-should-you-do': WhatShouldYouDoModal,
   },
+  mixins: [toggleStatusbarColor],
   props: {
     count: {
       type: Number,
@@ -44,17 +46,16 @@ export default {
   data() {
     return {
       animation: null,
+      newStatusbarColor: '#FF5C5D',
     }
   },
   mounted() {
     this.loadAnimation()
-    document.querySelector('meta[name="theme-color"]').content = '#FF5C5D'
   },
   beforeRouteLeave(to, from, next) {
     setTimeout(() => {
       this.animation.destroy()
     }, 420)
-    document.querySelector('meta[name="theme-color"]').content = '#FFFFFF'
     next()
   },
   methods: {

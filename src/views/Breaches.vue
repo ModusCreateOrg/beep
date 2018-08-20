@@ -28,16 +28,19 @@
 
 <script>
 import BreachItem from '@/components/BreachItem.vue'
+import toggleStatusbarColor from '@/mixins/toggleStatusbarColor'
 
 export default {
   name: 'Breaches',
   components: {
     'breach-item': BreachItem,
   },
+  mixins: [toggleStatusbarColor],
   data() {
     return {
       filter: this.$breachesService.filter,
       account: this.$breachesService.account,
+      newStatusbarColor: '#FF5C5D',
     }
   },
   computed: {
