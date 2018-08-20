@@ -29,7 +29,7 @@
 import HowDoesItWorkModal from '@/components/HowDoesItWorkModal.vue'
 
 export default {
-  name: 'Home',
+  name: 'Cnfg',
   data() {
     return {
       content: 'none',
@@ -39,15 +39,19 @@ export default {
     HowDoesItWork: HowDoesItWorkModal,
   },
   methods: {
+    goToCnfg() {
+      this.$router.push('/cnfg')
+    },
     readFile(event) {
       let reader = new FileReader()
       reader.onload = f => {
         this.content = f.target.result
         this.$fileLoaderJson.loadFile(f.target.result)
-        console.log(this.$fileLoaderJson.getKey('name'))
+        console.log(this.$fileLoaderJson.getBreachData('jimmy johns', 'name'))
+        console.log(this.$fileLoaderJson.getBreachData('password1234', 'cleartext'))
       }
       reader.readAsText(event.target.files[0])
-    }
+    },
   },
 }
 </script>
