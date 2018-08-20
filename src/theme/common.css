@@ -23,6 +23,10 @@ ion-app.statusbar-padding {
   --ion-safe-area-top: 0;
 }
 
+ion-toolbar {
+  --ion-toolbar-background-color: var(--beep-light);
+}
+
 .header-ios ion-toolbar:last-child {
   --border-width: 0;
 }
@@ -33,10 +37,6 @@ ion-app.statusbar-padding {
 
 ion-title {
   text-align: center;
-}
-
-ion-toolbar {
-  --ion-toolbar-background-color: var(--beep-light);
 }
 
 .input-holder {
