@@ -5,12 +5,8 @@
     <ion-header>
       <ion-toolbar>
         <ion-buttons slot="start">
-          <ion-button
-            icon-only
-            class="dismiss-modal">
-            <ion-icon
-              size="large"
-              name="close"/>
+          <ion-button class="dismiss-modal">
+            <ion-icon size="large" name="close"/>
           </ion-button>
         </ion-buttons>
         <ion-title>{{ title }}</ion-title>
@@ -86,6 +82,6 @@ ion-button.button.button-clear.button-md.button-clear-md {
 }
 
 .modal-template {
-  display: none;
+  visibility: hidden;
 }
 </style>
