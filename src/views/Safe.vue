@@ -24,12 +24,16 @@
 </template>
 
 <script>
+import toggleStatusbarColor from '@/mixins/toggleStatusbarColor'
+
 export default {
   name: 'Safe',
+  mixins: [toggleStatusbarColor],
   data() {
     return {
       account: this.$breachesService.account,
       isAccount: this.$breachesService.account.length > 0,
+      newStatusbarColor: '#47BD8F',
     }
   },
   methods: {

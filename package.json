@@ -20,10 +20,10 @@
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
-    "@capacitor/android": "1.0.0-beta.3",
-    "@capacitor/cli": "1.0.0-beta.3",
-    "@capacitor/core": "1.0.0-beta.3",
-    "@capacitor/ios": "1.0.0-beta.3",
+    "@capacitor/cli": "1.0.0-beta.6",
+    "@capacitor/core": "1.0.0-beta.6",
+    "@capacitor/ios": "1.0.0-beta.6",
+    "@capacitor/android": "1.0.0-beta.6",
     "@ionic/core": "4.0.0-beta.3",
     "@modus/beep-fileloader-json": "file:plugins/beep-fileloader-json",
     "@modus/ionic-vue": "1.0.7",
@@ -43,6 +43,7 @@
     "@vue/test-utils": "1.0.0-beta.24",
     "babel-core": "7.0.0-bridge.0",
     "babel-jest": "^23.0.1",
+    "bodymovin": "^4.13.0",
     "eslint-plugin-promise": "3.8.0",
     "vue-template-compiler": "^2.5.16"
   }
