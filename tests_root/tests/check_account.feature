@@ -29,16 +29,17 @@ Scenario: Functionality of "Your username or email" text box
 
 @S4 @manual
 Scenario: Acceptance of data by"Your username or email" text box
-  Given User is on https://beep.modus.app/#/acc Page
+  Given User is on https://beep.modus.app/acc Page
   When User taps inside "Your username or email" text box
   Then User should be able to add User name
   Then User should be able to add Email ID
 
 @S5.1 @manual
 Scenario: Activation of "Check" option
+   Given User is on "https://beep.modus.app"
    Given User clicks on "Account field"
   When User should see "check" option
-  Then User should be on https://beep.modus.app/#/acc Page
+  Then User should be on https://beep.modus.app/acc Page
   Then User should see deactivated "Check" option
 
 @S5.2 @Manual
@@ -120,6 +121,6 @@ Scenario: Activation of "Check" option
 
 @S7 @manual
   Scenario: Verification on "back" button from Acc. Page
-  Given User is on https://beep.modus.app/#/acc Page
+  Given User is on "https://beep.modus.app" Page
   When User click on left back button
   Then User should redirects to Home screen 'https://beep.modus.app/#/" Page
