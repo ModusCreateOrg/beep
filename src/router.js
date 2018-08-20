@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import { IonicVueRouter } from '@modus/ionic-vue'
 import Home from './views/Home.vue'
+import Cnfg from './views/Cnfg.vue'
 import Acc from './views/Acc.vue'
 import Safe from './views/Safe.vue'
 import Pwd from './views/Pwd.vue'
@@ -15,6 +16,7 @@ export default new IonicVueRouter({
   base: process.env.BASE_URL,
   routes: [
     { path: '/', component: Home },
+    { path: '/cnfg', component: Cnfg },
     { path: '/acc', component: Acc },
     { path: '/pwd', component: Pwd },
     { path: '/breaches', component: Breaches },

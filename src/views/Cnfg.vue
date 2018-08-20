@@ -10,30 +10,17 @@
         Check if you've<br>
         been hacked
       </h1>
-      <div class="buttons">
-        <div class="btn-holder" @click="goToAcc">
-          <div class="square-btn">
-            <div class="square-btn-content">
-              <div class="square-btn-icon"><img src="../images/Icon-Account.svg"></div>
-              <div class="square-btn-text">Account</div>
-            </div>
-            <div class="square-btn-shadow"/>
-          </div>
-        </div>
-        <div class="btn-holder" @click="goToPwd">
-          <div class="square-btn">
-            <div class="square-btn-content">
-              <div class="square-btn-icon"><img src="../images/Icon-Password.svg"></div>
-              <div class="square-btn-text">Password</div>
-            </div>
-            <div class="square-btn-shadow"/>
-          </div>
-        </div>
-        <div>
-          <HowDoesItWork />
-          <a @click="goToCnfg">Configuration</a>
-        </div>
+      <div>
+        Choose your breach source plugin from the list
       </div>
+      <div>
+        <input type="file" @change="readFile">
+      </div>
+      <br>
+      <p>File contents:</p>
+      {{ content }}
+      <HowDoesItWork />
+      <a @click="goToCnfg">Configuration</a>
     </ion-content>
   </ion-page>
 </template>
@@ -52,15 +39,15 @@ export default {
     HowDoesItWork: HowDoesItWorkModal,
   },
   methods: {
-    goToCnfg() {
-      this.$router.push('/cnfg')
-    },
-    goToAcc() {
-      this.$router.push('/acc')
-    },
-    goToPwd() {
-      this.$router.push('/pwd')
-    },
+    readFile(event) {
+      let reader = new FileReader()
+      reader.onload = f => {
+        this.content = f.target.result
+        this.$fileLoaderJson.loadFile(f.target.result)
+        console.log(this.$fileLoaderJson.getKey('name'))
+      }
+      reader.readAsText(event.target.files[0])
+    }
   },
 }
 </script>
