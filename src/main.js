@@ -6,7 +6,6 @@ import router from './router'
 import './registerServiceWorker'
 import BreachService from './breachesService'
 import Hive from '@modus/hive'
-//require('@modus/hive')
 
 import { Plugins } from '@capacitor/core'
 const { SplashScreen } = Plugins
@@ -14,7 +13,7 @@ const { SplashScreen } = Plugins
 Vue.config.productionTip = false
 
 Vue.use(IonicAPI)
-//Vue.use(Hive)
+Vue.use(Hive)
 
 Vue.prototype.$breachesService = BreachService
 
