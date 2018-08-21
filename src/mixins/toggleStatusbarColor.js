@@ -1,5 +1,4 @@
 import { Plugins, StatusBarStyle } from '@capacitor/core'
-import Vue from 'vue'
 const { StatusBar } = Plugins
 const metaSelectors = ['meta[name="theme-color"]', 'meta[name="msapplication-TileColor"]']
 
@@ -15,7 +14,7 @@ export default {
       document.querySelector(selector).content = this.newStatusbarColor
     }
     StatusBar.setStyle({
-      style: Vue.prototype.$isIOS() ? StatusBarStyle.Dark : StatusBarStyle.Light,
+      style: this.$isIOS() ? StatusBarStyle.Dark : StatusBarStyle.Light,
     })
     StatusBar.setBackgroundColor({ color: this.newStatusbarColor })
   },
@@ -24,7 +23,7 @@ export default {
       document.querySelector(selector).content = this.initialStatusbarColor
     }
     StatusBar.setStyle({
-      style: Vue.prototype.$isIOS() ? StatusBarStyle.Light : StatusBarStyle.Dark,
+      style: this.$isIOS() ? StatusBarStyle.Light : StatusBarStyle.Dark,
     })
     StatusBar.setBackgroundColor({ color: this.initialStatusbarColor })
     next()
