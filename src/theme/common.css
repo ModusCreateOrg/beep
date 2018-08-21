@@ -68,3 +68,7 @@ ion-title {
   width: 100%;
   height: 40vh
 }
+
+div[style].cloned-input {
+  opacity: 0 !important;
+}
