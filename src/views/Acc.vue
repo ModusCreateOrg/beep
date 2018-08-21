@@ -49,7 +49,6 @@ import axios from 'axios'
 export default {
   name: 'Acc',
   data() {
-    console.log(this.$device);
     return {
       account: '',
       requestPending: false,
