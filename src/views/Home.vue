@@ -31,7 +31,6 @@
         </div>
         <div>
           <HowDoesItWork />
-          <a @click="goToCnfg">Configuration</a>
         </div>
       </div>
     </ion-content>
@@ -52,9 +51,6 @@ export default {
     HowDoesItWork: HowDoesItWorkModal,
   },
   methods: {
-    goToCnfg() {
-      this.$router.push('/cnfg')
-    },
     goToAcc() {
       this.$router.push('/acc')
     },

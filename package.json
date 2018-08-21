@@ -20,12 +20,12 @@
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
+    "@capacitor/android": "1.0.0-beta.6",
     "@capacitor/cli": "1.0.0-beta.6",
     "@capacitor/core": "1.0.0-beta.6",
     "@capacitor/ios": "1.0.0-beta.6",
-    "@capacitor/android": "1.0.0-beta.6",
     "@ionic/core": "4.0.0-beta.3",
-    "@modus/beep-fileloader-json": "file:plugins/beep-fileloader-json",
+    "@modus/hive: "*",
     "@modus/ionic-vue": "1.0.7",
     "axios": "0.18.0",
     "register-service-worker": "^1.0.0",
