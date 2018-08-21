@@ -8,12 +8,13 @@
         <p>
           Every day, over 4 million online data records are stolen or lost.&nbsp;
           Beep tells you if your online accounts have been stolen in any of these data breaches.&nbsp;
-          Just enter your email address, username, or password, and we’ll tell you if it’s been hacked.
+          Just enter your email address, username, or password, and we’ll tell you if it's been hacked.
         </p>
 
         <img
           src="../images/Icon-Character-Swarm.svg"
-          class="bee">
+          class="bee"
+          alt="Swarm Character"/>
 
         <h1>Pioneering Vue.js as a New Backend for Ionic</h1>
         <p>
@@ -22,32 +23,31 @@
           Angular to build cross platform Ionic apps. We even built our own router.
         </p>
         <h1 class="hash-protected">
-          <img src="../images/Icon-Hash-Protected.svg">
+          <img src="../images/Icon-Hash-Protected.svg" alt="Hash protected"/>
           <span>Hash Protected</span>
         </h1>
         <p>
-          We’ve made sure that Beep won’t end up yet another name on the list of data breaches.&nbsp;
+          We've made sure that Beep won't end up yet another name on the list of data breaches.&nbsp;
           How? We hash all of your passwords and account information.&nbsp;
           In other words, we never store your passwords in plain text.&nbsp;
-          Instead, we transform your password into a really, really long code that a hacker can’t crack.&nbsp;
+          Instead, we transform your password into a really, really long code that a hacker can't crack.&nbsp;
           And then, we send only the first five characters of that code to a server.
         </p>
         <h3>Carefully crafted by</h3>
         <img
           src="../images/Modus-Labs-Logo.svg"
-          class="modus-labs-logo">
+          class="modus-labs-logo"
+          alt="Modus Labs Logo"/>
       </div>
     </modal>
   </div>
 </template>
 
 <script>
-import Modal from './Modal.vue'
-
 export default {
   name: 'HowDoesItWorkModal',
   components: {
-    modal: Modal,
+    Modal: () => import('./Modal.vue'),
   },
   methods: {
     createModal() {

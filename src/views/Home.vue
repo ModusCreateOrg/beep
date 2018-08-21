@@ -2,7 +2,7 @@
   <ion-page class="ion-page">
     <ion-header>
       <ion-toolbar>
-        <img src="../images/Beep-Logo.svg" class="logo" />
+        <img src="../images/Beep-Logo.svg" class="logo" alt="Beep logo"/>
       </ion-toolbar>
     </ion-header>
     <ion-content class="content">
@@ -14,7 +14,9 @@
         <div class="btn-holder" @click="goToAcc">
           <div class="square-btn">
             <div class="square-btn-content">
-              <div class="square-btn-icon"><img src="../images/Icon-Account.svg"></div>
+              <div class="square-btn-icon">
+                <img src="../images/Icon-Account.svg" alt="Account logo"/>
+              </div>
               <div class="square-btn-text">Account</div>
             </div>
             <div class="square-btn-shadow"/>
@@ -23,7 +25,9 @@
         <div class="btn-holder" @click="goToPwd">
           <div class="square-btn">
             <div class="square-btn-content">
-              <div class="square-btn-icon"><img src="../images/Icon-Password.svg"></div>
+              <div class="square-btn-icon">
+                <img src="../images/Icon-Password.svg" alt="Password logo"/>
+              </div>
               <div class="square-btn-text">Password</div>
             </div>
             <div class="square-btn-shadow"/>

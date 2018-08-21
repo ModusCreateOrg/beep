@@ -13,18 +13,18 @@
           Follow these best practices to create a secure password:
         </p>
         <ul>
-          <li>Don’t write your passwords down.</li>
+          <li>Don't write your passwords down.</li>
           <li>
             Longer passwords are more secure. &nbsp;
             But don’t make your password so long that you’ll be tempted to write it down.
           </li>
           <li>Avoid using dictionary words.</li>
           <li>
-            Don’t use the same password for more than one account. &nbsp;
+            Don't use the same password for more than one account. &nbsp;
             Sound like too many passwords? Try a password manager like LastPass or OnePassword.
           </li>
           <li>Never use remember password</li>
-          <li>Don’t use your name, address, or any other personal information</li>
+          <li>Don't use your name, address, or any other personal information</li>
         </ul>
       </div>
     </modal>
@@ -32,12 +32,10 @@
 </template>
 
 <script>
-import Modal from './Modal.vue'
-
 export default {
   name: 'WhatShouldYouDoModal',
   components: {
-    modal: Modal,
+    Modal: () => import('./Modal.vue'),
   },
   methods: {
     createModal() {

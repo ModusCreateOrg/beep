@@ -2,21 +2,21 @@
   <div>
     <div class="hash-protected-holder" @click="createModal()">
       <div class="hash-protected-inner">
-        <img src="../images/Icon-Hash-Protected.svg">
+        <img src="../images/Icon-Hash-Protected.svg" alt="Hash protected"/>
         <span>Hash protected</span>
       </div>
     </div>
     <modal ref="modal" title="">
       <div class="content">
         <h1 class="hash-protected">
-          <img src="../images/Icon-Hash-Protected.svg">
+          <img src="../images/Icon-Hash-Protected.svg" alt="Hash protected"/>
           <span>Hash Protected</span>
         </h1>
         <p>
-          We’ve made sure that Beep won’t end up yet another name on the list of data breaches.&nbsp;
+          We've made sure that Beep won't end up yet another name on the list of data breaches.&nbsp;
           How? We hash all of your passwords and account information.&nbsp;
           In other words, we never store your passwords in plain text.&nbsp;
-          Instead, we transform your password into a really, really long code that a hacker can’t crack.&nbsp;
+          Instead, we transform your password into a really, really long code that a hacker can't crack.&nbsp;
           And then, we send only the first five characters of that code to a server.
         </p>
       </div>
@@ -25,12 +25,10 @@
 </template>
 
 <script>
-import Modal from './Modal.vue'
-
 export default {
   name: 'HashProtectedModal',
   components: {
-    modal: Modal,
+    Modal: () => import('./Modal'),
   },
   methods: {
     createModal() {

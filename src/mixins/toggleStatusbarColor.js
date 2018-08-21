@@ -14,7 +14,7 @@ export default {
       document.querySelector(selector).content = this.newStatusbarColor
     }
     StatusBar.setStyle({
-      style: this.$isIOS() ? StatusBarStyle.Dark : StatusBarStyle.Light,
+      style: this.$isIOS ? StatusBarStyle.Dark : StatusBarStyle.Light,
     })
     StatusBar.setBackgroundColor({ color: this.newStatusbarColor })
   },
@@ -23,7 +23,7 @@ export default {
       document.querySelector(selector).content = this.initialStatusbarColor
     }
     StatusBar.setStyle({
-      style: this.$isIOS() ? StatusBarStyle.Light : StatusBarStyle.Dark,
+      style: this.$isIOS ? StatusBarStyle.Light : StatusBarStyle.Dark,
     })
     StatusBar.setBackgroundColor({ color: this.initialStatusbarColor })
     next()

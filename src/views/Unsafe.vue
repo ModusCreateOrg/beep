@@ -17,7 +17,7 @@
         v-html="count"/>
       <h2 class="count-text">websites</h2>
       <div id="lottie"></div>
-      <what-should-you-do/>
+      <what-should-you-do-modal/>
       <h3 @click="goToAcc">
         <span>Next: Check Account</span>
       </h3>
@@ -26,7 +26,6 @@
 </template>
 
 <script>
-import WhatShouldYouDoModal from '@/components/WhatShouldYouDoModal.vue'
 import bodymovin from 'bodymovin/build/player/bodymovin.js'
 import animationData from '@/lottie/unsafe/data.json'
 import toggleStatusbarColor from '@/mixins/toggleStatusbarColor'
@@ -34,7 +33,7 @@ import toggleStatusbarColor from '@/mixins/toggleStatusbarColor'
 export default {
   name: 'Unsafe',
   components: {
-    'what-should-you-do': WhatShouldYouDoModal,
+    WhatShouldYouDoModal: () => import('@/components/WhatShouldYouDoModal.vue'),
   },
   mixins: [toggleStatusbarColor],
   props: {

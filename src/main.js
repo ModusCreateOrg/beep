@@ -3,57 +3,38 @@ import '@ionic/core/css/ionic.css'
 import './theme/common.css'
 import { IonicAPI } from '@modus/ionic-vue'
 import router from './router'
+import helpers from './helpers'
 import './registerServiceWorker'
 import BreachService from './breachesService'
 
 import { Plugins, StatusBarStyle } from '@capacitor/core'
 const { SplashScreen, StatusBar, Device } = Plugins
 
-const emptyDeviceInfo = {
-  diskFree: null,
-  osVersion: null,
-  platform: null,
-  memUsed: null,
-  battery: null,
-  diskTotal: null,
-  model: null,
-  manufacturer: null,
-  uuid: null,
-  isVirtual: null,
-}
-
 Vue.config.productionTip = false
 
 Vue.use(IonicAPI)
 
+Vue.prototype.$device = {}
+Vue.prototype.$isIOS = false
+Vue.prototype.$env = helpers.env
 Vue.prototype.$breachesService = BreachService
-Vue.prototype.$env = constant => {
-  return process.env[`VUE_APP_${constant}`]
-}
-
-Vue.prototype.$device = emptyDeviceInfo
-Vue.prototype.$isIOS = () => {
-  return Vue.prototype.$device.platform === 'ios'
-}
 
 Device.getInfo()
   .then(result => {
-    StatusBar.setStyle({ style: StatusBarStyle.Light })
+    const isIOS = result.platform === 'ios'
+
     Vue.prototype.$device = result
-    StatusBar.setStyle({
-      style: Vue.prototype.$isIOS() ? StatusBarStyle.Light : StatusBarStyle.Dark,
-    })
+    Vue.prototype.$isIOS = isIOS
+
+    StatusBar.setStyle({ style: isIOS ? StatusBarStyle.Light : StatusBarStyle.Dark })
+    StatusBar.setBackgroundColor({ color: helpers.env('INITIAL_STATUSBAR_COLOR') })
     return
   })
-  .catch(() => {
-    Vue.prototype.$device = emptyDeviceInfo
-    StatusBar.setStyle({ style: StatusBarStyle.Dark })
-  })
+  .catch(e => console.error(e))
 
 new Vue({
   router,
   mounted() {
     SplashScreen.hide()
-    StatusBar.setBackgroundColor({ color: this.$env('INITIAL_STATUSBAR_COLOR') })
   },
 }).$mount('#app')
