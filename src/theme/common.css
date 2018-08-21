@@ -63,6 +63,10 @@ ion-title {
   transform: translateY(-50%);
 }
 
+input:invalid {
+  box-shadow: none;
+}
+
 #lottie {
   position:relative;
   width: 100%;
