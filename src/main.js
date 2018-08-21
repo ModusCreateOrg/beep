@@ -5,7 +5,8 @@ import { IonicAPI } from '@modus/ionic-vue'
 import router from './router'
 import './registerServiceWorker'
 import BreachService from './breachesService'
-import BeepFileloaderJson from '@modus/beep-fileloader-json'
+import Hive from '@modus/hive'
+//require('@modus/hive')
 
 import { Plugins } from '@capacitor/core'
 const { SplashScreen } = Plugins
@@ -13,7 +14,7 @@ const { SplashScreen } = Plugins
 Vue.config.productionTip = false
 
 Vue.use(IonicAPI)
-Vue.use(BeepFileloaderJson)
+//Vue.use(Hive)
 
 Vue.prototype.$breachesService = BreachService
 
