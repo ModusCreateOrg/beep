@@ -15,7 +15,7 @@
       <h3 @click="check">
         <span>Check Another {{ isAccount ? 'Account' : 'Password' }}</span>
       </h3>
-      <img src="../images/Icon-Character-Positive.svg">
+      <img src="../images/Icon-Character-Positive.svg" alt="Character positive"/>
       <h3 @click="next">
         <span>Next: Check {{ isAccount ? 'Password' : 'Account' }}</span>
       </h3>
