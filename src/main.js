@@ -19,7 +19,7 @@ const emptyDeviceInfo = {
   model: null,
   manufacturer: null,
   uuid: null,
-  isVirtual: null
+  isVirtual: null,
 }
 
 Vue.config.productionTip = false
@@ -40,17 +40,20 @@ Device.getInfo()
   .then(result => {
     StatusBar.setStyle({ style: StatusBarStyle.Light })
     Vue.prototype.$device = result
+    StatusBar.setStyle({
+      style: Vue.prototype.$isIOS() ? StatusBarStyle.Light : StatusBarStyle.Dark,
+    })
     return
   })
   .catch(() => {
     Vue.prototype.$device = emptyDeviceInfo
+    StatusBar.setStyle({ style: StatusBarStyle.Dark })
   })
 
 new Vue({
   router,
   mounted() {
     SplashScreen.hide()
-    StatusBar.setStyle({ style: StatusBarStyle.Light })
     StatusBar.setBackgroundColor({ color: this.$env('INITIAL_STATUSBAR_COLOR') })
   },
 }).$mount('#app')
