@@ -23,7 +23,7 @@
         we won't store it anywhere.<br>
       </h1>
       <div class="input-holder">
-        <form @submit.prevent="checkHash">
+        <form @submit.prevent="checkHash" action="#">
           <ion-item>
             <ion-label padding>Your password</ion-label>
           </ion-item>
