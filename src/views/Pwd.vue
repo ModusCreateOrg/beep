@@ -23,7 +23,7 @@
         we won't store it anywhere.<br>
       </h1>
       <div class="input-holder">
-        <form @submit.prevent="checkHash">
+        <form @submit.prevent="checkHash" action="#">
           <ion-item>
             <ion-label padding>Your password</ion-label>
           </ion-item>
@@ -40,12 +40,13 @@
               v-show="isValidPwd"
               slot="end"
               @click="togglePwdType"
-              :src="showHideImagePath">
+              :src="showHideImagePath"
+              alt="Show password"/>
           </ion-item>
           <input type="submit" class="form-submit-button"/>
         </form>
       </div>
-      <has-protected-modal/>
+      <hash-protected-modal/>
     </ion-content>
   </ion-page>
 </template>
@@ -53,14 +54,13 @@
 <script>
 import sha1 from 'sha1'
 import axios from 'axios'
-import HashProtectedModal from '@/components/HashProtectedModal.vue'
 
 const baseURL = 'https://api.pwnedpasswords.com/range/'
 
 export default {
   name: 'Pwd',
   components: {
-    'has-protected-modal': HashProtectedModal,
+    HashProtectedModal: () => import('@/components/HashProtectedModal.vue'),
   },
   data() {
     return {

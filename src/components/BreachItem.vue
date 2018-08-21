@@ -2,14 +2,14 @@
   <ion-item @click="viewBreach">
     <ion-avatar slot="start">
       <div class="img-holder">
-        <img :src="this.$breachesService.getImageURL(breach)">
+        <img :src="this.$breachesService.getImageURL(breach)" :alt="breach.Title"/>
       </div>
       <div class="avatar-shadow"/>
     </ion-avatar>
     <ion-label>
       <h1>
         {{ breach.Title }}
-        <img v-show="breach.IsVerified" src="../images/Icon-Verified-Checkmark.svg" />
+        <img v-show="breach.IsVerified" src="../images/Icon-Verified-Checkmark.svg" alt="Verified breach"/>
       </h1>
       <p v-html="this.$breachesService.formatDate(breach.BreachDate)"/>
       <h2 v-html="this.$breachesService.formatDomain(breach.Domain)"/>
