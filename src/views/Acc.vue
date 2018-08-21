@@ -64,10 +64,11 @@ export default {
   },
   methods: {
     getURL() {
+      console.log(this.$hive.init())
       return this.$breachesService.baseApiURL + encodeURIComponent(this.account)
     },
     checkAccount() {
-      //this.$BeepFileloaderJson.getFileContents()
+    
       if (!this.requestPending && this.isValidAccount) {
         this.sendRequest()
       }
