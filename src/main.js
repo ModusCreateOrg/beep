@@ -15,6 +15,7 @@ Vue.config.productionTip = false
 Vue.use(IonicAPI)
 Vue.use(Hive)
 
+
 Vue.prototype.$breachesService = BreachService
 
 new Vue({

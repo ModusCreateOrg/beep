@@ -46,6 +46,8 @@
 <script>
 import axios from 'axios'
 
+
+
 export default {
   name: 'Acc',
   data() {
@@ -61,14 +63,14 @@ export default {
   },
   mounted() {
     this.$breachesService.clear()
+
   },
   methods: {
     getURL() {
-      console.log(this.$hive.init())
       return this.$breachesService.baseApiURL + encodeURIComponent(this.account)
     },
     checkAccount() {
-    
+
       if (!this.requestPending && this.isValidAccount) {
         this.sendRequest()
       }
