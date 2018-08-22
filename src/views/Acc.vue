@@ -46,8 +46,6 @@
 <script>
 import axios from 'axios'
 
-
-
 export default {
   name: 'Acc',
   data() {
@@ -63,14 +61,14 @@ export default {
   },
   mounted() {
     this.$breachesService.clear()
-
   },
   methods: {
     getURL() {
       return this.$breachesService.baseApiURL + encodeURIComponent(this.account)
     },
     checkAccount() {
-
+      var fileloader = new this.$hive.minds['./beep-fileloader-json/src'].default
+      console.log(fileloader.getFileContents())
       if (!this.requestPending && this.isValidAccount) {
         this.sendRequest()
       }
