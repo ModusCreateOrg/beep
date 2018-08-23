@@ -67,7 +67,7 @@ export default {
       return this.$breachesService.baseApiURL + encodeURIComponent(this.account)
     },
     checkAccount() {
-      var fileloader = new this.$hive.minds['./beep-fileloader-json/src'].default
+      var fileloader = new this.$hive.minds['beep-fileloader-json'].default
       console.log(fileloader.getFileContents())
       if (!this.requestPending && this.isValidAccount) {
         this.sendRequest()
