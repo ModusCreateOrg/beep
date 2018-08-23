@@ -4,6 +4,7 @@ import './theme/common.css'
 import { IonicAPI } from '@modus/ionic-vue'
 import router from './router'
 import helpers from './helpers'
+import androidBackButton from './helpers/androidBackButton'
 import './registerServiceWorker'
 import BreachService from './breachesService'
 
@@ -36,5 +37,9 @@ new Vue({
   router,
   mounted() {
     SplashScreen.hide()
+    androidBackButton.init(router)
+  },
+  beforeDestroy() {
+    androidBackButton.destroy()
   },
 }).$mount('#app')
