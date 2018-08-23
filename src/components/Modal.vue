@@ -39,31 +39,36 @@ export default {
   data() {
     return {
       id: null,
+      shown: false,
     }
   },
   mounted() {
     this.id = `modal-${this._uid}`
   },
+  beforeDestroy() {
+    const buttons = this.$el.querySelectorAll('.dismiss-modal')
+    buttons.forEach(item => item.removeEventListener('click', this.closeModal))
+  },
   methods: {
-    createModal() {
+    async closeModal() {
+      if (this.shown) {
+        await this.controller.dismiss()
+        this.shown = false
+      }
+    },
+    async createModal() {
       const template = document.getElementById(this.id).cloneNode(true)
       template.classList.remove('modal-template')
 
       const buttons = template.querySelectorAll('.dismiss-modal')
+      buttons.forEach(item => item.addEventListener('click', this.closeModal))
 
-      this.$ionic
-        .newModalController({ component: template })
-        .then(modalController => {
-          modalController.present()
+      this.controller = await this.$ionic.newModalController({ component: template })
 
-          buttons.forEach(item => {
-            item.addEventListener('click', () => {
-              modalController.dismiss()
-            })
-          })
-          return modalController
-        })
-        .catch(err => console.error(err))
+      await this.controller.present()
+      this.shown = true
+
+      return this.controller
     },
   },
 }
