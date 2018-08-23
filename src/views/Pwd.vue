@@ -46,9 +46,9 @@
           <input type="submit" class="form-submit-button"/>
         </form>
       </div>
-      <div class="hash-protected-holder" @click="createModal()">
+      <div class="hash-protected-holder" @click="toggleModal">
         <div class="hash-protected-inner">
-          <img src="../images/Icon-Hash-Protected.svg" alt="Hash protected"/>
+          <img class="hash-protected-img" src="../images/Icon-Hash-Protected.svg" alt="Hash protected"/>
           <span>Hash protected</span>
         </div>
       </div>
@@ -233,12 +233,6 @@ ion-label {
   height: 25px;
 }
 
-.hash-protected-inner > img,
-.hash-protected > img {
-  float: left;
-  width: 1.25rem;
-}
-
 .hash-protected-inner > span {
   margin-left: 5px;
   color: var(--beep-secondary);
@@ -247,13 +241,5 @@ ion-label {
   letter-spacing: -0.43px;
   line-height: 100%;
   border-bottom: 1px solid var(--beep-secondary);
-}
-
-.hash-protected {
-  line-height: 25px;
-}
-
-.hash-protected > span {
-  margin-left: 5px;
 }
 </style>

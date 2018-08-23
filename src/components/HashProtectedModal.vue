@@ -1,36 +1,26 @@
 <template>
-  <div>
-    <modal
-      ref="modal"
-      title=""
-      v-on:toggleModal="$emit('toggleModal')">
-      <div class="content">
-        <h1 class="hash-protected">
-          <img src="../images/Icon-Hash-Protected.svg" alt="Hash protected"/>
-          <span>Hash Protected</span>
-        </h1>
-        <p>
-          We've made sure that Beep won't end up yet another name on the list of data breaches.&nbsp;
-          How? We hash all of your passwords and account information.&nbsp;
-          In other words, we never store your passwords in plain text.&nbsp;
-          Instead, we transform your password into a really, really long code that a hacker can't crack.&nbsp;
-          And then, we send only the first five characters of that code to a server.
-        </p>
-      </div>
-    </modal>
-  </div>
+  <modal v-on:toggleModal="$emit('toggleModal')">
+    <div class="content">
+      <h1 class="hash-protected">
+        <img class="hash-protected-img" src="../images/Icon-Hash-Protected.svg" alt="Hash protected"/>
+        <span>Hash Protected</span>
+      </h1>
+      <p>
+      We've made sure that Beep won't end up yet another name on the list of data breaches.&nbsp;
+      How? We hash all of your passwords and account information.&nbsp;
+      In other words, we never store your passwords in plain text.&nbsp;
+      Instead, we transform your password into a really, really long code that a hacker can't crack.&nbsp;
+      And then, we send only the first five characters of that code to a server.
+      </p>
+    </div>
+  </modal>
 </template>
 
 <script>
 export default {
   name: 'HashProtectedModal',
   components: {
-    Modal: () => import('./Modal'),
-  },
-  methods: {
-    createModal() {
-      this.$refs.modal.createModal()
-    },
+    Modal: () => import('./Modal.vue'),
   },
 }
 </script>
@@ -56,13 +46,11 @@ h1 {
   line-height: 1.5;
 }
 
-h2 span {
-  border-bottom: 1px solid var(--beep-secondary);
+.hash-protected {
+  line-height: 25px;
 }
 
-@media screen and (min-height: 650px) {
-  h2 {
-    font-size: 20px;
-  }
+.hash-protected > span {
+  margin-left: 5px;
 }
 </style>

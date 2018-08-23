@@ -1,19 +1,15 @@
 <template>
-  <div
-    :id="id"
-    class="modal-template">
+  <div>
     <ion-header>
       <ion-toolbar>
         <ion-buttons slot="start">
-          <ion-button class="dismiss-modal">
+          <ion-button @click="closeModal">
             <ion-icon size="large" name="close"/>
           </ion-button>
         </ion-buttons>
         <ion-title>{{ title }}</ion-title>
         <ion-buttons slot="end">
-          <ion-button
-            clear
-            class="dismiss-modal">
+          <ion-button clear @click="closeModal">
             Done
           </ion-button>
         </ion-buttons>
@@ -31,41 +27,28 @@
 export default {
   name: 'Modal',
   props: {
-    title: {
-      type: String,
-      default: '',
-    },
-  },
-  data() {
-    return {
-      id: null,
-    }
+    title: { type: String, default: '' },
   },
   mounted() {
-    this.id = `modal-${this._uid}`
+    this.createModal()
+  },
+  beforeDestroy() {
+    this.closeModal()
   },
   methods: {
-    createModal() {
-      const template = document.getElementById(this.id).cloneNode(true)
-      template.classList.remove('modal-template')
-
-      const buttons = template.querySelectorAll('.dismiss-modal')
-
-      this.$ionic
-        .newModalController({ component: template })
-        .then(modalController => {
-          modalController.present()
-
-          buttons.forEach(item => {
-            item.addEventListener('click', () => {
-              modalController.dismiss()
-              this.$emit('toggleModal')
-            })
-          })
-          this.$emit('toggleModal')
-          return modalController
-        })
-        .catch(err => console.error(err))
+    async closeModal() {
+      if (this.controller && this.controller.dismiss) {
+        await this.controller.dismiss()
+        this.$emit('toggleModal')
+      }
+    },
+    async createModal() {
+      this.controller = await this.$ionic.newModalController({ component: this.$el })
+      this.controller.present()
+      this.controller
+        .onDidDismiss()
+        .then(() => this.closeModal())
+        .catch(e => console.error(e))
     },
   },
 }
@@ -81,9 +64,5 @@ ion-button.button-clear,
 ion-button.button.button-clear.button-md.button-clear-md {
   --ion-color-base: var(--beep-primary);
   text-transform: none;
-}
-
-.modal-template {
-  visibility: hidden;
 }
 </style>

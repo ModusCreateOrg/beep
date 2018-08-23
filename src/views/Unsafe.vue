@@ -17,7 +17,10 @@
         v-html="count"/>
       <h2 class="count-text">websites</h2>
       <div id="lottie"></div>
-      <what-should-you-do-modal/>
+      <h3 @click="toggleModal">
+        <span>What should you do?</span>
+      </h3>
+      <what-should-you-do-modal v-if="isModalOpen" v-on:toggleModal="toggleModal"/>
       <h3 @click="goToAcc">
         <span>Next: Check Account</span>
       </h3>
@@ -36,7 +39,7 @@ export default {
   components: {
     WhatShouldYouDoModal: () => import('@/components/WhatShouldYouDoModal.vue'),
   },
-  mixins: [toggleStatusbarColor, hasModal],
+  mixins: [hasModal, toggleStatusbarColor],
   props: {
     count: {
       type: Number,

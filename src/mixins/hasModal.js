@@ -5,12 +5,13 @@ export default {
     }
   },
   beforeRouteLeave(to, from, next) {
-    console.log('qwe')
+    if (this.isModalOpen) {
+      document.querySelector('ion-modal-controller').dismiss()
+    }
     next(!this.isModalOpen)
   },
   methods: {
     toggleModal() {
-      console.log('ased')
       this.isModalOpen = !this.isModalOpen
     },
   },

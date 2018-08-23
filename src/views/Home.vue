@@ -34,18 +34,20 @@
           </div>
         </div>
       </div>
-      <HowDoesItWork />
+      <h2 @click="toggleModal"><span>How does it work?</span></h2>
+      <HowDoesItWork v-if="isModalOpen" v-on:toggleModal="toggleModal"/>
     </ion-content>
   </ion-page>
 </template>
 
 <script>
-import HowDoesItWorkModal from '@/components/HowDoesItWorkModal.vue'
+import hasModal from '@/mixins/hasModal'
 
 export default {
   name: 'Home',
+  mixins: [hasModal],
   components: {
-    HowDoesItWork: HowDoesItWorkModal,
+    HowDoesItWork: () => import('@/components/HowDoesItWorkModal.vue'),
   },
   methods: {
     goToAcc() {
@@ -151,6 +153,18 @@ h1 {
   font-weight: 300;
   letter-spacing: -0.48px;
   line-height: 22px;
+}
+
+h2 {
+  height: 10vh;
+  margin-top: 23vh;
+  font-size: 18px;
+  font-weight: 300;
+  letter-spacing: -0.48px;
+}
+
+h2 span {
+  border-bottom: 1px solid var(--beep-secondary);
 }
 
 @media screen and (min-height: 650px) {
