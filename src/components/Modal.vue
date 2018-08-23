@@ -39,12 +39,25 @@ export default {
   data() {
     return {
       id: null,
+      shown: false,
+      controller: {},
     }
   },
   mounted() {
     this.id = `modal-${this._uid}`
+    document.addEventListener('backbutton', this.closeModal, false)
+  },
+  beforeDestroy() {
+    document.removeEventListener('backbutton', this.closeModal)
   },
   methods: {
+    closeModal() {
+      if (this.shown) {
+        this.controller.dismiss()
+        this.controller = {}
+        this.shown = false
+      }
+    },
     createModal() {
       const template = document.getElementById(this.id).cloneNode(true)
       template.classList.remove('modal-template')
@@ -54,14 +67,14 @@ export default {
       this.$ionic
         .newModalController({ component: template })
         .then(modalController => {
-          modalController.present()
+          this.controller = modalController
+          this.controller.present()
+          this.shown = true
 
           buttons.forEach(item => {
-            item.addEventListener('click', () => {
-              modalController.dismiss()
-            })
+            item.addEventListener('click', this.closeModal)
           })
-          return modalController
+          return this.controller
         })
         .catch(err => console.error(err))
     },
