@@ -59,8 +59,10 @@ export default {
           buttons.forEach(item => {
             item.addEventListener('click', () => {
               modalController.dismiss()
+              this.$emit('toggleModal')
             })
           })
+          this.$emit('toggleModal')
           return modalController
         })
         .catch(err => console.error(err))

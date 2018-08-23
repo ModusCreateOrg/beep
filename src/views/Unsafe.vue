@@ -29,13 +29,14 @@
 import bodymovin from 'bodymovin/build/player/bodymovin.js'
 import animationData from '@/lottie/unsafe/data.json'
 import toggleStatusbarColor from '@/mixins/toggleStatusbarColor'
+import hasModal from '@/mixins/hasModal'
 
 export default {
   name: 'Unsafe',
   components: {
     WhatShouldYouDoModal: () => import('@/components/WhatShouldYouDoModal.vue'),
   },
-  mixins: [toggleStatusbarColor],
+  mixins: [toggleStatusbarColor, hasModal],
   props: {
     count: {
       type: Number,

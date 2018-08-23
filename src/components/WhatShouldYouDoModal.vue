@@ -5,7 +5,8 @@
     </h3>
     <modal
       ref="modal"
-      title="">
+      title=""
+      v-on:toggleModal="$emit('toggleModal')">
       <div class="content">
         <h1>What Should You Do?</h1>
         <p>
