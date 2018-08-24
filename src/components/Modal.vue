@@ -47,8 +47,8 @@ export default {
       this.controller.present()
       this.controller
         .onDidDismiss()
-        .then(() => this.closeModal())
-        .catch(e => console.error(e))
+        .then(this.closeModal)
+        .catch(console.error)
     },
   },
 }
