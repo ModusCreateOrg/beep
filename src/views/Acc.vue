@@ -67,12 +67,12 @@ export default {
       return this.$breachesService.baseApiURL + encodeURIComponent(this.account)
     },
     checkAccount() {
-      var inputdata = {"search":"tester","type":"name"}
-      var mindconfig = {"stand_alone_minds":['beep-fileloader-json'], "mind_map":['beep-fileloader-json']}
+      var inputdata = {"search": this.account,"type":"name"}
+      var mindconfig = {"stand_alone_minds":['yaml-loader'], "mind_map":['yaml-loader']}
       console.log(this.$hive.checkData(mindconfig, inputdata))
-      if (!this.requestPending && this.isValidAccount) {
-        this.sendRequest()
-      }
+      // if (!this.requestPending && this.isValidAccount) {
+        // this.sendRequest()
+      // }
     },
     async sendRequest() {
       const loading = await this.$ionic.newLoadingController()
