@@ -11,7 +11,7 @@ const { SplashScreen, StatusBar, Device } = Plugins
 
 Vue.config.productionTip = false
 
-// Initialize Ionic with all resources pointing to the img/ dir in public/
+// Initialize Ionic
 Ionic.init()
 Vue.use(IonicAPI)
 
