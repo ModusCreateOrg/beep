@@ -5,7 +5,7 @@ import router from './router'
 import helpers from './helpers'
 import './registerServiceWorker'
 import BreachService from './breachesService'
-import { Hive } from '@modus/hive'
+import Hive from '@modus/hive'
 
 import { Plugins, StatusBarStyle } from '@capacitor/core'
 const { SplashScreen, StatusBar, Device } = Plugins
