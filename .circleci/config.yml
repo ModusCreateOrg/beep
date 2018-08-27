@@ -13,8 +13,8 @@ jobs:
 
       - restore_cache:
           keys:
-          - v1-dependencies-{{ checksum "package.json" }}
-          - v1-dependencies-
+          - v2-dependencies-{{ checksum "package.json" }}
+          - v2-dependencies-
 
       - run:
           command: |
@@ -23,11 +23,21 @@ jobs:
       - save_cache:
           paths:
             - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
+          key: v2-dependencies-{{ checksum "package.json" }}
 
       - run:
           command: |
             npm run lint
             npm run build
 
+
+      # SonarQube download, config and scanning
+      - run: echo "Starting SonarQube scan"
+      - run: wget https://sonarsource.bintray.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.2.0.1227-linux.zip
+      - run: unzip sonar-scanner-cli-3.2.0.1227-linux.zip
+      - run: echo "sonar.host.url=https://sonarcloud.io" > sonar-scanner-3.2.0.1227-linux/conf/sonar-scanner.properties
+      - run: echo "sonar.login=$sonarqubekey" >> sonar-project.properties
+      - run: echo "sonar.organization=$sonarorg" >> sonar-project.properties
+      - run: sonar-scanner-3.2.0.1227-linux/bin/sonar-scanner
+      - run: echo "Scan complete, data sent to sonarcloud"
 

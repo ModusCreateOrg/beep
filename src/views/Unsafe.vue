@@ -17,7 +17,10 @@
         v-html="count"/>
       <h2 class="count-text">websites</h2>
       <div id="lottie"></div>
-      <what-should-you-do/>
+      <h3 @click="toggleModal">
+        <span>What should you do?</span>
+      </h3>
+      <what-should-you-do-modal v-if="isModalOpen" v-on:toggleModal="toggleModal"/>
       <h3 @click="goToAcc">
         <span>Next: Check Account</span>
       </h3>
@@ -26,17 +29,17 @@
 </template>
 
 <script>
-import WhatShouldYouDoModal from '@/components/WhatShouldYouDoModal.vue'
 import bodymovin from 'bodymovin/build/player/bodymovin.js'
 import animationData from '@/lottie/unsafe/data.json'
 import toggleStatusbarColor from '@/mixins/toggleStatusbarColor'
+import hasModal from '@/mixins/hasModal'
 
 export default {
   name: 'Unsafe',
   components: {
-    'what-should-you-do': WhatShouldYouDoModal,
+    WhatShouldYouDoModal: () => import('@/components/WhatShouldYouDoModal.vue'),
   },
-  mixins: [toggleStatusbarColor],
+  mixins: [hasModal, toggleStatusbarColor],
   props: {
     count: {
       type: Number,
@@ -46,7 +49,7 @@ export default {
   data() {
     return {
       animation: null,
-      newStatusbarColor: '#FF5C5D',
+      newStatusbarColor: this.$env('UNSAFE_STATUSBAR_COLOR'),
     }
   },
   mounted() {

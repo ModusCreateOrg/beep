@@ -15,7 +15,7 @@
       <h3 @click="check">
         <span>Check Another {{ isAccount ? 'Account' : 'Password' }}</span>
       </h3>
-      <img src="../images/Icon-Character-Positive.svg">
+      <img src="../images/Icon-Character-Positive.svg" alt="Character positive"/>
       <h3 @click="next">
         <span>Next: Check {{ isAccount ? 'Password' : 'Account' }}</span>
       </h3>
@@ -33,7 +33,7 @@ export default {
     return {
       account: this.$breachesService.account,
       isAccount: this.$breachesService.account.length > 0,
-      newStatusbarColor: '#47BD8F',
+      newStatusbarColor: this.$env('SAFE_STATUSBAR_COLOR'),
     }
   },
   methods: {

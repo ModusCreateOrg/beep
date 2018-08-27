@@ -23,7 +23,7 @@
         we won't store it anywhere.<br>
       </h1>
       <div class="input-holder">
-        <form @submit.prevent="checkHash">
+        <form @submit.prevent="checkHash" action="#">
           <ion-item>
             <ion-label padding>Your password</ion-label>
           </ion-item>
@@ -40,12 +40,19 @@
               v-show="isValidPwd"
               slot="end"
               @click="togglePwdType"
-              :src="showHideImagePath">
+              :src="showHideImagePath"
+              alt="Show password"/>
           </ion-item>
           <input type="submit" class="form-submit-button"/>
         </form>
       </div>
-      <has-protected-modal/>
+      <div class="hash-protected-holder" @click="toggleModal">
+        <div class="hash-protected-inner">
+          <img class="hash-protected-img" src="../images/Icon-Hash-Protected.svg" alt="Hash protected"/>
+          <span>Hash protected</span>
+        </div>
+      </div>
+      <hash-protected-modal v-if="isModalOpen" v-on:toggleModal="toggleModal"/>
     </ion-content>
   </ion-page>
 </template>
@@ -53,14 +60,15 @@
 <script>
 import sha1 from 'sha1'
 import axios from 'axios'
-import HashProtectedModal from '@/components/HashProtectedModal.vue'
+import hasModal from '@/mixins/hasModal'
 
 const baseURL = 'https://api.pwnedpasswords.com/range/'
 
 export default {
   name: 'Pwd',
+  mixins: [hasModal],
   components: {
-    'has-protected-modal': HashProtectedModal,
+    HashProtectedModal: () => import('@/components/HashProtectedModal.vue'),
   },
   data() {
     return {
@@ -210,7 +218,28 @@ ion-label {
   position: absolute;
 }
 
-img {
+.input-holder img {
   height: 20px;
+}
+
+.hash-protected-holder {
+  position: absolute;
+  bottom: 20px;
+  padding-left: 7%;
+}
+
+.hash-protected-holder .hash-protected-inner {
+  line-height: 25px;
+  height: 25px;
+}
+
+.hash-protected-inner > span {
+  margin-left: 5px;
+  color: var(--beep-secondary);
+  font-size: 18px;
+  font-weight: 300;
+  letter-spacing: -0.43px;
+  line-height: 100%;
+  border-bottom: 1px solid var(--beep-secondary);
 }
 </style>

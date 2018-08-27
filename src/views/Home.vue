@@ -2,7 +2,7 @@
   <ion-page class="ion-page">
     <ion-header>
       <ion-toolbar>
-        <img src="../images/Beep-Logo.svg" class="logo" />
+        <img src="../images/Beep-Logo.svg" class="logo" alt="Beep logo"/>
       </ion-toolbar>
     </ion-header>
     <ion-content class="content">
@@ -14,7 +14,9 @@
         <div class="btn-holder" @click="goToAcc">
           <div class="square-btn">
             <div class="square-btn-content">
-              <div class="square-btn-icon"><img src="../images/Icon-Account.svg"></div>
+              <div class="square-btn-icon">
+                <img src="../images/Icon-Account.svg" alt="Account logo"/>
+              </div>
               <div class="square-btn-text">Account</div>
             </div>
             <div class="square-btn-shadow"/>
@@ -23,7 +25,9 @@
         <div class="btn-holder" @click="goToPwd">
           <div class="square-btn">
             <div class="square-btn-content">
-              <div class="square-btn-icon"><img src="../images/Icon-Password.svg"></div>
+              <div class="square-btn-icon">
+                <img src="../images/Icon-Password.svg" alt="Password logo"/>
+              </div>
               <div class="square-btn-text">Password</div>
             </div>
             <div class="square-btn-shadow"/>
@@ -33,22 +37,20 @@
           <HowDoesItWork />
         </div>
       </div>
+      <h2 @click="toggleModal"><span>How does it work?</span></h2>
+      <HowDoesItWork v-if="isModalOpen" v-on:toggleModal="toggleModal"/>
     </ion-content>
   </ion-page>
 </template>
 
 <script>
-import HowDoesItWorkModal from '@/components/HowDoesItWorkModal.vue'
+import hasModal from '@/mixins/hasModal'
 
 export default {
   name: 'Home',
-  data() {
-    return {
-      content: 'none',
-    }
-  },
+  mixins: [hasModal],
   components: {
-    HowDoesItWork: HowDoesItWorkModal,
+    HowDoesItWork: () => import('@/components/HowDoesItWorkModal.vue'),
   },
   methods: {
     goToAcc() {
@@ -154,6 +156,18 @@ h1 {
   font-weight: 300;
   letter-spacing: -0.48px;
   line-height: 22px;
+}
+
+h2 {
+  height: 10vh;
+  margin-top: 23vh;
+  font-size: 18px;
+  font-weight: 300;
+  letter-spacing: -0.48px;
+}
+
+h2 span {
+  border-bottom: 1px solid var(--beep-secondary);
 }
 
 @media screen and (min-height: 650px) {

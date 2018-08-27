@@ -17,12 +17,12 @@
       </ion-toolbar>
     </ion-header>
     <ion-content padding class="content">
-      <form @submit.prevent="checkAccount">
-        <h1>
-          Enter any username or email and<br>
-          we'll check if it's been hacked<br>
-        </h1>
-        <div class="input-holder">
+      <h1>
+        Enter any username or email and<br>
+        we'll check if it's been hacked<br>
+      </h1>
+      <div class="input-holder">
+        <form @submit.prevent="checkAccount" action="#">
           <ion-item>
             <ion-label padding>Your username or email</ion-label>
           </ion-item>
@@ -36,9 +36,9 @@
               @keydown.enter="checkAccount"
             />
           </ion-item>
-        </div>
-        <input type="submit" class="form-submit-button"/>
-      </form>
+          <input type="submit" class="form-submit-button"/>
+        </form>
+      </div>
     </ion-content>
   </ion-page>
 </template>
