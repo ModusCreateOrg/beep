@@ -1,7 +1,6 @@
 import Vue from 'vue'
-import '@ionic/core/css/ionic.css'
 import './theme/common.css'
-import { IonicAPI } from '@modus/ionic-vue'
+import { Ionic, IonicAPI } from '@modus/ionic-vue'
 import router from './router'
 import helpers from './helpers'
 import './registerServiceWorker'
@@ -12,6 +11,8 @@ const { SplashScreen, StatusBar, Device } = Plugins
 
 Vue.config.productionTip = false
 
+// Initialize Ionic
+Ionic.init()
 Vue.use(IonicAPI)
 
 Vue.prototype.$device = {}

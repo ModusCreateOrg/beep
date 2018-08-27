@@ -1,6 +1,8 @@
 module.exports = {
   baseUrl: '/',
   runtimeCompiler: true,
+
+  // PWA config
   pwa: {
     name: process.env.VUE_APP_NAME,
     themeColor: process.env.VUE_APP_INITIAL_STATUSBAR_COLOR,
