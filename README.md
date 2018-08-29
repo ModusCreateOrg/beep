@@ -1,4 +1,4 @@
-<a href="https://labs.moduscreate.com"><img src="https://res.cloudinary.com/modus-labs/image/upload/v1535020117/labs/logo-beep.svg" width="200" alt="Beep" /></a>
+<a href="https://labs.moduscreate.com"><img src="https://res.cloudinary.com/modus-labs/image/upload/v1535020117/labs/logo-beep.svg" width="260" alt="Beep" /></a>
 
 [![CircleCI](https://circleci.com/gh/ModusCreateOrg/beep.svg?style=shield)](https://circleci.com/gh/ModusCreateOrg/ionic-vue)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
@@ -7,7 +7,17 @@
 
 **Beep**: mobile account vulnerability scanner
 
-## Installing / Getting started
+- [Installing](#installing)
+- [Developing](#developing)
+  - [Prerequisites](#prerequisites)
+  - [iOS build](#ios-build)
+  - [Android build](#android-build)
+  - [Deploying](#deploying)
+- [Theming](#theming)
+- [Modus Create](#modus-create)
+- [License](#license)
+
+## Installing
 
 Once you clone this repo go into the terminal and install dependencies.
 
@@ -23,9 +33,7 @@ npm run serve
 
 ## Developing
 
-### Built With
-
-Ionic, Vue, Capacitor, Ionic-Vue, Webpack,...
+Beep is built with Ionic, Vue, Capacitor, Ionic-Vue, Webpack,...
 
 ### Prerequisites
 
@@ -60,7 +68,7 @@ You can create an Android-specific build by executing:
 npm run build-android
 ```
 
-### Deploying / Publishing
+### Deploying
 
 give instructions on how to build and release a new version
 In case there's some step you have to take that publishes this project to a
@@ -72,7 +80,7 @@ packagemanager deploy your-project -s server.com -u username -p password
 
 And again you'd need to tell what the previous code actually does.
 
-## Configuration
+## Theming
 
 Here you should write what are all of the configurations a user can enter when
 using the project.
@@ -83,16 +91,8 @@ Describe and show how to run the tests with code examples.
 Explain what these tests test and why.
 
 ```shell
-Give an example
+npm test
 ```
-
-## Style guide
-
-Explain your code style and show how to check it.
-
-## Api Reference
-
-If the api is external, link to api documentation. If not describe your api including authentication methods as well as explaining all the endpoints with their required parameters.
 
 ## Modus Create
 
