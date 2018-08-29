@@ -1,4 +1,4 @@
-[![Beep](https://res.cloudinary.com/modus-labs/image/upload/v1535020117/labs/logo-beep.svg)](https://labs.moduscreate.com)
+<a href="https://labs.moduscreate.com"><img src="https://res.cloudinary.com/modus-labs/image/upload/v1535020117/labs/logo-beep.svg" width="200" alt="Beep" /></a>
 
 [![CircleCI](https://circleci.com/gh/ModusCreateOrg/beep.svg?style=shield)](https://circleci.com/gh/ModusCreateOrg/ionic-vue)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
@@ -93,7 +93,6 @@ Explain your code style and show how to check it.
 ## Api Reference
 
 If the api is external, link to api documentation. If not describe your api including authentication methods as well as explaining all the endpoints with their required parameters.
-
 
 ## Modus Create
 
