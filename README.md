@@ -8,11 +8,13 @@
 **Beep**: mobile account vulnerability scanner
 
 - [Installing](#installing)
+- [How it works](#how-it-works)
 - [Developing](#developing)
   - [Prerequisites](#prerequisites)
   - [iOS build](#ios-build)
   - [Android build](#android-build)
   - [Deploying](#deploying)
+- [Ionic Vue](#ionic-vue)
 - [Theming](#theming)
 - [Modus Create](#modus-create)
 - [License](#license)
@@ -30,6 +32,8 @@ Now you're ready to serve the development build.
 ```sh
 npm run serve
 ```
+
+## How it works
 
 ## Developing
 
@@ -79,6 +83,16 @@ packagemanager deploy your-project -s server.com -u username -p password
 ```
 
 And again you'd need to tell what the previous code actually does.
+
+## Ionic Vue
+
+<p align="center">
+    <img src="https://res.cloudinary.com/modus-labs/image/upload/w_560/v1533141242/ionic-vue/ionic-vue-banner.png"
+    width="260"
+    alt="@modus/ionic-vue">
+</p>
+
+[Ionic Vue](https://github.com/ModusCreateOrg/ionic-vue) enables Vue apps to use Ionic. Originally a [Modus Labs](https://labs.moduscreate.com) project, Ionic Vue became part of the Ionic framework as the official support for Vue.
 
 ## Theming
 
