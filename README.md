@@ -8,11 +8,8 @@
 **Beep**: mobile account vulnerability scanner
 
 <p>
-<a href="#"><img src="./src/images/app-store-badge.svg" width="120" alt="Download Beep on the App Store"/>
-</a>
-<a href="#">
-<img src="./src/images/google-play-badge.png" width="150" alt="Get Beep on Google Play" />
-</a>
+<a href="#"><img src="./src/images/app-store-badge.svg" height="40" alt="Download Beep on the App Store"/></a>
+<a href="#"><img src="./src/images/google-play-badge.png" height="40" alt="Get Beep on Google Play" /></a>
 </p>
 
 - [Installing](#installing)
