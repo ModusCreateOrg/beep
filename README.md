@@ -86,11 +86,9 @@ And again you'd need to tell what the previous code actually does.
 
 ## Ionic Vue
 
-<p align="center">
-    <img src="https://res.cloudinary.com/modus-labs/image/upload/w_560/v1533141242/ionic-vue/ionic-vue-banner.png"
-    width="260"
-    alt="@modus/ionic-vue">
-</p>
+<img src="https://res.cloudinary.com/modus-labs/image/upload/w_560/v1533141242/ionic-vue/ionic-vue-banner.png"
+width="260"
+alt="@modus/ionic-vue">
 
 [Ionic Vue](https://github.com/ModusCreateOrg/ionic-vue) enables Vue apps to use Ionic. Originally a [Modus Labs](https://labs.moduscreate.com) project, Ionic Vue became part of the Ionic framework as the official support for Vue.
 
