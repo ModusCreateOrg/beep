@@ -11,7 +11,7 @@
       class="content"
       padding>
       <h1>Caution!</h1>
-      <h2>Your password has been<br>compromised across</h2>
+      <h2>This password has been<br>compromised across</h2>
       <h1
         class="count"
         v-html="count"/>
