@@ -15,8 +15,14 @@
 
 ## **Beep**: mobile account vulnerability scanner
 
-- [Installing](#installing)
+Every day, over 4 million online data records are stolen or lost. Beep tells you if your online accounts have been stolen in any of these data breaches. Just enter your email address, username, or password, and we’ll tell you if it's been hacked.
+
+## Pioneering Vue.js as a New Backend for Ionic
+
+Beep is one of the first apps built on Vue.JS and Ionic Framework. With this combination, PHP developers no longer have to struggle with Angular to build cross platform Ionic apps. We even built our own router.
+
 - [How it works](#how-it-works)
+- [Installing](#installing)
 - [Developing](#developing)
   - [Prerequisites](#prerequisites)
   - [iOS build](#ios-build)
@@ -26,6 +32,10 @@
 - [Theming](#theming)
 - [Modus Create](#modus-create)
 - [License](#license)
+
+# How it works
+
+We've made sure that Beep won't end up yet another name on the list of data breaches. How? We hash all of your passwords and account information. In other words, we never store your passwords in plain text. Instead, we transform your password into a really, really long code that a hacker can't crack. And then, we send only the first five characters of that code to a server.
 
 # Installing
 
@@ -41,16 +51,15 @@ Now you're ready to serve the development build.
 npm run serve
 ```
 
-# How it works
-
 # Developing
 
-Beep is built with
-[Ionic](https://github.com/ionic-team/ionic),
-[Vue](https://github.com/vuejs/vue),
-[Ionic-Vue](https://github.com/ModusCreateOrg/ionic-vue),
-[Capacitor](https://github.com/ionic-team/capacitor),
-[Webpack](https://github.com/webpack/webpack)
+Beep is built with amazing libraries
+
+- [Ionic](https://github.com/ionic-team/ionic)
+- [Vue](https://github.com/vuejs/vue)
+- [Ionic-Vue](https://github.com/ModusCreateOrg/ionic-vue)
+- [Capacitor](https://github.com/ionic-team/capacitor)
+- [Webpack](https://github.com/webpack/webpack)
 
 ## Prerequisites
 
