@@ -19,3 +19,4 @@ electron/
 *.njsproj
 *.sln
 *.sw*
+/ios/App/App.ipa
