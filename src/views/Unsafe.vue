@@ -71,7 +71,7 @@ export default {
       this.animation = bodymovin.loadAnimation({
         animationData,
         container: document.getElementById('lottie'),
-        renderer: 'svg/canvas/html',
+        renderer: 'svg',
         loop: true,
         autoplay: true,
         name: 'unsafe',
