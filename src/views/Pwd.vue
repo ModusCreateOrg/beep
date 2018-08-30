@@ -103,7 +103,7 @@ export default {
         event.preventDefault()
       }
 
-      if (!this.$networkStatus.connected) {
+      if (!this.$networkStatus.connected && this.$device.platform !== 'web') {
         this.$ionic
           .newAlertController({
             header: 'No internet connection',
