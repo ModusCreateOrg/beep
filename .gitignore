@@ -19,3 +19,5 @@ electron/
 *.njsproj
 *.sln
 *.sw*
+/ios/App/App.ipa
+/ios/App/fastlane/report.xml
