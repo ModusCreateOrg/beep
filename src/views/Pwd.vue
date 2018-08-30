@@ -102,6 +102,19 @@ export default {
       if (event) {
         event.preventDefault()
       }
+
+      if (!this.$networkStatus.connected) {
+        this.$ionic
+          .newAlertController({
+            header: 'No internet connection',
+            message: 'Please check your internet connection.',
+            buttons: ['OK'],
+          })
+          .then(e => e.present())
+          .catch(err => console.error(err))
+        return
+      }
+
       if (this.isValidPwd && !this.requestPending) {
         this.sendRequest()
       }

@@ -67,6 +67,18 @@ export default {
       return this.$breachesService.baseApiURL + encodeURIComponent(this.account)
     },
     checkAccount() {
+      if (!this.$networkStatus.connected) {
+        this.$ionic
+          .newAlertController({
+            header: 'No internet connection',
+            message: 'Please check your internet connection.',
+            buttons: ['OK'],
+          })
+          .then(e => e.present())
+          .catch(err => console.error(err))
+        return
+      }
+
       if (!this.requestPending && this.isValidAccount) {
         this.sendRequest()
       }

@@ -7,7 +7,7 @@ import './registerServiceWorker'
 import BreachService from './breachesService'
 
 import { Plugins, StatusBarStyle } from '@capacitor/core'
-const { SplashScreen, StatusBar, Device } = Plugins
+const { SplashScreen, StatusBar, Device, Network } = Plugins
 
 Vue.config.productionTip = false
 
@@ -19,6 +19,16 @@ Vue.prototype.$device = {}
 Vue.prototype.$isIOS = false
 Vue.prototype.$env = helpers.env
 Vue.prototype.$breachesService = BreachService
+Vue.prototype.$networkStatus = {
+  connected: false,
+  connectionType: '',
+}
+
+Network.getStatus()
+  .then(status => (Vue.prototype.$networkStatus = status))
+  .catch(e => console.error(e))
+
+Network.addListener('networkStatusChange', status => (Vue.prototype.$networkStatus = status))
 
 Device.getInfo()
   .then(result => {
