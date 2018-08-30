@@ -44,7 +44,12 @@ npm run serve
 
 # Developing
 
-Beep is built with Ionic, Vue, Capacitor, Ionic-Vue, Webpack,...
+Beep is built with
+[Ionic](https://github.com/ionic-team/ionic),
+[Vue](https://github.com/vuejs/vue),
+[Ionic-Vue](https://github.com/ModusCreateOrg/ionic-vue),
+[Capacitor](https://github.com/ionic-team/capacitor),
+[Webpack](https://github.com/webpack/webpack)
 
 ## Prerequisites
 
@@ -66,14 +71,25 @@ npm run build-ios
 
 ## Android build
 
-You will need Android SDK. The easiest way to set it up on a Mac is with `homebrew`.
+You will need [Android SDK](https://developer.android.com/studio/).
+
+The easiest way to set it up on a Mac is with `homebrew`.
 
 ```sh
 brew install android-sdk
-android update sdk --no-ui
 ```
 
-You can create an Android-specific build by executing:
+On Linux you can either use your distribution's package manager
+
+```sh
+sudo apt-get install android-sdk
+```
+
+Or install via
+[Flatpak](https://flathub.org/apps/details/com.google.AndroidStudio) or
+[Snap](https://uappexplorer.com/snap/ubuntu/android-studio)
+
+After the SDK is setup you can create an Android-specific build by executing:
 
 ```sh
 npm run build-android
@@ -81,15 +97,13 @@ npm run build-android
 
 ## Deploying
 
-give instructions on how to build and release a new version
-In case there's some step you have to take that publishes this project to a
-server, this is the right time to state it.
+To prepare your assets for a production deployment execute:
 
-```shell
-packagemanager deploy your-project -s server.com -u username -p password
+```sh
+npm run build
 ```
 
-And again you'd need to tell what the previous code actually does.
+This will create files and assets in the `dist/` directory
 
 # Ionic Vue
 
@@ -97,20 +111,45 @@ And again you'd need to tell what the previous code actually does.
 width="260"
 alt="@modus/ionic-vue">
 
-[Ionic Vue](https://github.com/ModusCreateOrg/ionic-vue) enables Vue apps to use Ionic. Originally a [Modus Labs](https://labs.moduscreate.com) project, Ionic Vue became part of the Ionic framework as the official support for Vue.
+[Ionic Vue](https://github.com/ModusCreateOrg/ionic-vue) enables Vue apps to use Ionic 4 with little to no configuration and no changes to familiar approaches. Originally a [Modus Labs](https://labs.moduscreate.com) project, Ionic Vue became part of the Ionic framework as the official support for Vue.
 
 # Theming
 
-Here you should write what are all of the configurations a user can enter when
-using the project.
+For minor customizations you can edit the supplied `.env` file which allows you to edit the App name and status-bar colors for mobile/PWA builds.
+
+Modifications of colors, fonts and other parts of UI are done in
+`src/theme/common.css` and
+`.vue` files in `src/components/` and `src/views/` which specify scoped styling rules.
+
+For making modifications to native iOS and Android builds you will have to make changes within `android/` and `ios/` directories.
+
+An in-depth description is provided by Capacitor's documentation
+
+[Configuring iOS](https://capacitor.ionicframework.com/docs/ios/configuration)
+[Configuring Android](https://capacitor.ionicframework.com/docs/android/configuration)
 
 # Tests
 
-Describe and show how to run the tests with code examples.
-Explain what these tests test and why.
+To run the test suite execute:
 
-```shell
+```sh
 npm test
+```
+
+This will confirm that any changes made to the original code did not break any existing functionality.
+
+To extend the test suite create a new file in `tests/unit/` such as `new-feature.spec.js`
+
+# Linting
+
+Code linting is done with
+[ESLint](https://github.com/eslint/eslint) and
+[Prettier](https://github.com/prettier/prettier)
+
+To run a check the project for any lint errors execute:
+
+```sh
+npm run lint
 ```
 
 # Modus Create
