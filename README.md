@@ -35,7 +35,7 @@ Beep is one of the first apps built on Vue.JS and Ionic Framework. With this com
 
 # How it works
 
-We've made sure that Beep won't end up yet another name on the list of data breaches. How? We hash all of your passwords and account information. In other words, we never store your passwords in plain text. Instead, we transform your password into a really, really long code that a hacker can't crack. And then, we send only the first five characters of that code to a server.
+We've made sure that Beep won't end up yet another name on the list of data breaches. How? We hash all of your passwords and account information. In other words, we never store your passwords in plain text. Instead, we transform your password into a really, really long code and then, we send only the first five characters of that code to a server.
 
 # Installing
 
