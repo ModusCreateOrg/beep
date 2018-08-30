@@ -67,7 +67,7 @@ export default {
       return this.$breachesService.baseApiURL + encodeURIComponent(this.account)
     },
     checkAccount() {
-      if (!this.$networkStatus.connected) {
+      if (!this.$networkStatus.connected && this.$device.platform !== 'web') {
         this.$ionic
           .newAlertController({
             header: 'No internet connection',
