@@ -126,6 +126,7 @@ For making modifications to native iOS and Android builds you will have to make 
 An in-depth description is provided by Capacitor's documentation
 
 [Configuring iOS](https://capacitor.ionicframework.com/docs/ios/configuration)
+
 [Configuring Android](https://capacitor.ionicframework.com/docs/android/configuration)
 
 # Tests
