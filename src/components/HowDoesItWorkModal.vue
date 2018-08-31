@@ -1,5 +1,5 @@
 <template>
-  <modal v-on:toggleModal="$emit('toggleModal')">
+  <modal>
     <div class="content">
       <p>
         Every day, over 4 million online data records are stolen or lost.&nbsp;
@@ -38,10 +38,12 @@
 </template>
 
 <script>
+import Modal from './Modal.vue'
+
 export default {
   name: 'HowDoesItWorkModal',
   components: {
-    Modal: () => import('./Modal.vue'),
+    Modal,
   },
 }
 </script>

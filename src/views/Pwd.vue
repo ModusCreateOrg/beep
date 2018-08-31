@@ -52,7 +52,6 @@
           <span>Hash protected</span>
         </div>
       </div>
-      <hash-protected-modal v-if="isModalOpen" v-on:toggleModal="toggleModal"/>
     </ion-content>
   </ion-page>
 </template>
@@ -67,9 +66,6 @@ const baseURL = 'https://api.pwnedpasswords.com/range/'
 export default {
   name: 'Pwd',
   mixins: [hasModal],
-  components: {
-    HashProtectedModal: () => import('@/components/HashProtectedModal.vue'),
-  },
   data() {
     return {
       pwd: '',
@@ -89,6 +85,7 @@ export default {
     },
   },
   mounted() {
+    this.modal = () => import('@/components/HashProtectedModal.vue')
     this.$breachesService.clear()
   },
   methods: {
@@ -104,15 +101,13 @@ export default {
       }
 
       if (!this.$networkStatus.connected && this.$device.platform !== 'web') {
-        this.$ionic
-          .newAlertController({
+        return this.$ionic.alertController
+          .create({
             header: 'No internet connection',
             message: 'Please check your internet connection.',
             buttons: ['OK'],
           })
-          .then(e => e.present())
-          .catch(err => console.error(err))
-        return
+          .then(a => a.present())
       }
 
       if (this.isValidPwd && !this.requestPending) {
@@ -121,7 +116,7 @@ export default {
     },
     async sendRequest() {
       const hash = sha1(this.pwd)
-      const loading = await this.$ionic.newLoadingController()
+      const loading = await this.$ionic.loadingController.create()
 
       loading.present()
       this.requestPending = true

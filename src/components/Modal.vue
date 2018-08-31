@@ -29,26 +29,9 @@ export default {
   props: {
     title: { type: String, default: '' },
   },
-  mounted() {
-    this.createModal()
-  },
-  beforeDestroy() {
-    this.closeModal()
-  },
   methods: {
-    async closeModal() {
-      if (this.controller && this.controller.dismiss) {
-        await this.controller.dismiss()
-        this.$emit('toggleModal')
-      }
-    },
-    async createModal() {
-      this.controller = await this.$ionic.newModalController({ component: this.$el })
-      this.controller.present()
-      this.controller
-        .onDidDismiss()
-        .then(this.closeModal)
-        .catch(console.error)
+    closeModal() {
+      this.$ionic.modalController.dismiss()
     },
   },
 }

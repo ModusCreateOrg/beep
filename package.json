@@ -22,11 +22,11 @@
     "build-ios": "npm run build && npx cap sync && npx cap copy ios && npx cap open ios"
   },
   "dependencies": {
-    "@capacitor/cli": "1.0.0-beta.6",
-    "@capacitor/core": "1.0.0-beta.6",
-    "@capacitor/ios": "1.0.0-beta.6",
-    "@capacitor/android": "1.0.0-beta.6",
-    "@ionic/core": "4.0.0-beta.4",
+    "@capacitor/cli": "1.0.0-beta.7",
+    "@capacitor/core": "1.0.0-beta.7",
+    "@capacitor/ios": "1.0.0-beta.7",
+    "@capacitor/android": "1.0.0-beta.7",
+    "@ionic/core": "4.0.0-beta.7",
     "@modus/ionic-vue": "1.0.8",
     "axios": "0.18.0",
     "register-service-worker": "^1.0.0",

@@ -68,15 +68,13 @@ export default {
     },
     checkAccount() {
       if (!this.$networkStatus.connected && this.$device.platform !== 'web') {
-        this.$ionic
-          .newAlertController({
+        return this.$ionic.alertController
+          .create({
             header: 'No internet connection',
             message: 'Please check your internet connection.',
             buttons: ['OK'],
           })
-          .then(e => e.present())
-          .catch(err => console.error(err))
-        return
+          .then(a => a.present())
       }
 
       if (!this.requestPending && this.isValidAccount) {
@@ -84,7 +82,7 @@ export default {
       }
     },
     async sendRequest() {
-      const loading = await this.$ionic.newLoadingController()
+      const loading = await this.$ionic.loadingController.create()
       loading.present()
 
       this.$breachesService.breaches = []
@@ -116,14 +114,13 @@ export default {
         })
     },
     showError() {
-      this.$ionic
-        .newAlertController({
+      return this.$ionic.alertController
+        .create({
           header: 'Error',
           message: 'Something went wrong...',
           buttons: ['OK'],
         })
         .then(e => e.present())
-        .catch(err => console.error(err))
     },
   },
 }
