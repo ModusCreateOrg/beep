@@ -17,7 +17,7 @@ aliases:
 
 version: 2
 jobs:
-  install_dependencies:
+  install-dependencies:
     docker:
       - image: circleci/node:8.10
 
@@ -106,34 +106,30 @@ jobs:
     macos:
       xcode: '9.4.0'
     working_directory: ~/repo/ios/App
+    shell: /bin/bash --login -o pipefail
     steps:
       - restore_cache: *restore-ios-cache
+      - run: bundle install
       - run:
           name: Deploy to TestFlight
-          command: fastline beta
+          command: bundle exec fastline beta
 
 workflows:
   version: 2
   build-and-deploy:
     jobs:
-      - install_dependencies
+      - install-dependencies
 
       - build-pwa:
-          requires: install_dependencies
+          requires:
+            - install-dependencies
 
       - build-ios:
-          requires: install_dependencies
-          # filters:
-          # branches:
-          # only: master
+          requires:
+            - install-dependencies
 
       - deploy-testflight:
-          requires: build-ios
-          # filters:
-          # branches:
-          # only: master
+          requires:
+            - build-ios
 
       - sonarqube
-        # filters:
-        # branches:
-        # only: master
