@@ -1,25 +1,25 @@
 aliases:
   - &restore-npm-cache
     keys:
-      - v3-dependencies-{{ checksum "package-lock.json" }}
-      - v3-dependencies-master
-      - v3-dependencies-
+      - v4-dependencies-{{ checksum "package-lock.json" }}
+      - v4-dependencies-master
+      - v4-dependencies-
   - &restore-dist-cache
     keys:
-      - v3-dist-{{ .Environment.CIRCLE_SHA1 }}
-      - v3-dist-master
-      - v3-dist-
+      - v4-dist-{{ .Environment.CIRCLE_SHA1 }}
+      - v4-dist-master
+      - v4-dist-
   - &restore-ios-cache
     keys:
-      - v3-dist-{{ .Environment.CIRCLE_SHA1 }}
-      - v3-dist-master
-      - v3-dist-
+      - v4-dist-{{ .Environment.CIRCLE_SHA1 }}
+      - v4-dist-master
+      - v4-dist-
 
 version: 2
 jobs:
   install-dependencies:
-    docker:
-      - image: circleci/node:8.10
+    macos:
+      xcode: '9.4.0'
 
     working_directory: ~/repo
 
@@ -33,13 +33,13 @@ jobs:
           command: npm i -ci
 
       - save_cache:
-          key: v3-dependencies-{{ checksum "package-lock.json" }}
+          key: v4-dependencies-{{ checksum "package-lock.json" }}
           paths:
             - node_modules
 
   build-pwa:
-    docker:
-      - image: circleci/node:8.10
+    macos:
+      xcode: '9.4.0'
 
     working_directory: ~/repo
 
@@ -56,13 +56,13 @@ jobs:
           command: npm run build
 
       - save_cache:
-          key: v3-dist-{{ .Environment.CIRCLE_SHA1 }}
+          key: v4-dist-{{ .Environment.CIRCLE_SHA1 }}
           paths:
             - dist
 
   sonarqube:
-    docker:
-      - image: circleci/node:8.10
+    macos:
+      xcode: '9.4.0'
 
     working_directory: ~/repo
 
@@ -98,7 +98,7 @@ jobs:
           name: Build iOS project
           command: npm run build-ios-ci
       - save_cache:
-          key: v3-ios-{{ .Environment.CIRCLE_SHA1 }}
+          key: v4-ios-{{ .Environment.CIRCLE_SHA1 }}
           paths:
             - ios
 
