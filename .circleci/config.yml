@@ -21,7 +21,7 @@ jobs:
     docker:
       - image: circleci/node:8.10
 
-    working_directory: /beep
+    working_directory: ~/repo
 
     steps:
       - checkout
@@ -41,7 +41,7 @@ jobs:
     docker:
       - image: circleci/node:8.10
 
-    working_directory: /beep
+    working_directory: ~/repo
 
     steps:
       - checkout
@@ -64,7 +64,7 @@ jobs:
     docker:
       - image: circleci/node:8.10
 
-    working_directory: /beep
+    working_directory: ~/repo
 
     steps:
       - checkout
@@ -82,18 +82,11 @@ jobs:
   build-ios:
     macos:
       xcode: '9.4.0'
-    working_directory: /beep
+    working_directory: ~/repo
     steps:
       - checkout
       - restore_cache: *restore-npm-cache
       - restore_cache: *restore-dist-cache
-      - run:
-          name: Fetch CocoaPods Specs
-          command: |
-            curl https://cocoapods-specs.circleci.com/fetch-cocoapods-repo-from-s3.sh | bash -s cf
-      - run:
-          name: Install CocoaPods
-          command: pod install --verbose
       - run:
           name: Build iOS project
           command: npm run build-ios-ci
@@ -105,7 +98,7 @@ jobs:
   deploy-testflight:
     macos:
       xcode: '9.4.0'
-    working_directory: /beep/ios/App
+    working_directory: ~/repo/ios/App
     shell: /bin/bash --login -o pipefail
     steps:
       - restore_cache: *restore-ios-cache
