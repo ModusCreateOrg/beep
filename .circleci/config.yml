@@ -1,27 +1,27 @@
 aliases:
   - &restore-npm-cache
     keys:
-      - v4-dependencies-{{ checksum "package-lock.json" }}
-      - v4-dependencies-master
-      - v4-dependencies-
+      - v3-dependencies-{{ checksum "package-lock.json" }}
+      - v3-dependencies-master
+      - v3-dependencies-
   - &restore-dist-cache
     keys:
-      - v4-dist-{{ .Environment.CIRCLE_SHA1 }}
-      - v4-dist-master
-      - v4-dist-
+      - v3-dist-{{ .Environment.CIRCLE_SHA1 }}
+      - v3-dist-master
+      - v3-dist-
   - &restore-ios-cache
     keys:
-      - v4-dist-{{ .Environment.CIRCLE_SHA1 }}
-      - v4-dist-master
-      - v4-dist-
+      - v3-dist-{{ .Environment.CIRCLE_SHA1 }}
+      - v3-dist-master
+      - v3-dist-
 
 version: 2
 jobs:
   install-dependencies:
-    macos:
-      xcode: '9.4.0'
+    docker:
+      - image: circleci/node:8.10
 
-    working_directory: ~/repo
+    working_directory: /beep
 
     steps:
       - checkout
@@ -33,15 +33,15 @@ jobs:
           command: npm i -ci
 
       - save_cache:
-          key: v4-dependencies-{{ checksum "package-lock.json" }}
+          key: v3-dependencies-{{ checksum "package-lock.json" }}
           paths:
             - node_modules
 
   build-pwa:
-    macos:
-      xcode: '9.4.0'
+    docker:
+      - image: circleci/node:8.10
 
-    working_directory: ~/repo
+    working_directory: /beep
 
     steps:
       - checkout
@@ -56,15 +56,15 @@ jobs:
           command: npm run build
 
       - save_cache:
-          key: v4-dist-{{ .Environment.CIRCLE_SHA1 }}
+          key: v3-dist-{{ .Environment.CIRCLE_SHA1 }}
           paths:
             - dist
 
   sonarqube:
-    macos:
-      xcode: '9.4.0'
+    docker:
+      - image: circleci/node:8.10
 
-    working_directory: ~/repo
+    working_directory: /beep
 
     steps:
       - checkout
@@ -82,7 +82,7 @@ jobs:
   build-ios:
     macos:
       xcode: '9.4.0'
-    working_directory: ~/repo
+    working_directory: /beep
     steps:
       - checkout
       - restore_cache: *restore-npm-cache
@@ -98,14 +98,14 @@ jobs:
           name: Build iOS project
           command: npm run build-ios-ci
       - save_cache:
-          key: v4-ios-{{ .Environment.CIRCLE_SHA1 }}
+          key: v3-ios-{{ .Environment.CIRCLE_SHA1 }}
           paths:
             - ios
 
   deploy-testflight:
     macos:
       xcode: '9.4.0'
-    working_directory: ~/repo/ios/App
+    working_directory: /beep/ios/App
     shell: /bin/bash --login -o pipefail
     steps:
       - restore_cache: *restore-ios-cache
