@@ -95,7 +95,7 @@ jobs:
           paths:
             - ios
 
- deploy-testflight:
+  deploy-testflight:
     macos:
       xcode: '9.4.0'
     working_directory: ~/repo/ios/App
@@ -117,16 +117,16 @@ workflows:
       - build-ios:
           requires: install_dependencies
           # filters:
-            # branches:
-              # only: master
+          # branches:
+          # only: master
 
       - deploy-testflight:
           requires: build-ios
           # filters:
-            # branches:
-              # only: master
+          # branches:
+          # only: master
 
       - sonarqube
-          # filters:
-            # branches:
-              # only: master
+        # filters:
+        # branches:
+        # only: master
