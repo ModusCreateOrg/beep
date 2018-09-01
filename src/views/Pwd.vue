@@ -60,12 +60,13 @@
 import sha1 from 'sha1'
 import axios from 'axios'
 import hasModal from '@/mixins/hasModal'
+import network from '@/mixins/network'
 
 const baseURL = 'https://api.pwnedpasswords.com/range/'
 
 export default {
   name: 'Pwd',
-  mixins: [hasModal],
+  mixins: [hasModal, network],
   data() {
     return {
       pwd: '',
@@ -100,14 +101,8 @@ export default {
         event.preventDefault()
       }
 
-      if (!this.$networkStatus.connected && this.$device.platform !== 'web') {
-        return this.$ionic.alertController
-          .create({
-            header: 'No internet connection',
-            message: 'Please check your internet connection.',
-            buttons: ['OK'],
-          })
-          .then(a => a.present())
+      if (!this.isNetworkAvailable) {
+        return this.showNetworkAlert()
       }
 
       if (this.isValidPwd && !this.requestPending) {
