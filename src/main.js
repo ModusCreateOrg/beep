@@ -6,8 +6,8 @@ import helpers from './helpers'
 import './registerServiceWorker'
 import BreachService from './breachesService'
 
-import { Plugins, StatusBarStyle } from '@capacitor/core'
-const { SplashScreen, StatusBar, Device, Network } = Plugins
+import { Capacitor, Plugins, StatusBarStyle } from '@capacitor/core'
+const { SplashScreen, StatusBar, Network } = Plugins
 
 Vue.config.productionTip = false
 
@@ -15,37 +15,31 @@ Vue.config.productionTip = false
 Ionic.init()
 Vue.use(IonicAPI)
 
-Vue.prototype.$device = {}
-Vue.prototype.$isIOS = false
+// Initialize Capacitor
+initCapacitor()
+
+// Initialize helpers
 Vue.prototype.$env = helpers.env
 Vue.prototype.$breachesService = BreachService
-Vue.prototype.$networkStatus = {
-  connected: false,
-  connectionType: '',
-}
-
-Network.getStatus()
-  .then(status => (Vue.prototype.$networkStatus = status))
-  .catch(e => console.error(e))
-
-Network.addListener('networkStatusChange', status => (Vue.prototype.$networkStatus = status))
-
-Device.getInfo()
-  .then(result => {
-    const isIOS = result.platform === 'ios'
-
-    Vue.prototype.$device = result
-    Vue.prototype.$isIOS = isIOS
-
-    StatusBar.setStyle({ style: isIOS ? StatusBarStyle.Light : StatusBarStyle.Dark })
-    StatusBar.setBackgroundColor({ color: helpers.env('INITIAL_STATUSBAR_COLOR') })
-    return
-  })
-  .catch(e => console.error(e))
 
 new Vue({
   router,
   mounted() {
     SplashScreen.hide()
+    StatusBar.setStyle({ style: this.isIOS ? StatusBarStyle.Light : StatusBarStyle.Dark })
+    StatusBar.setBackgroundColor({ color: helpers.env('INITIAL_STATUSBAR_COLOR') })
   },
 }).$mount('#app')
+
+async function initCapacitor() {
+  // Platform checks
+  Vue.prototype.$isWeb = Capacitor.platform === 'web'
+  Vue.prototype.$isIOS = Capacitor.platform === 'ios'
+
+  // Set network checks
+  Network.getStatus()
+    .then(s => (Vue.prototype.$networkStatus = s))
+    .catch(console.error)
+
+  Network.addListener('networkStatusChange', status => (Vue.prototype.$networkStatus = status))
+}

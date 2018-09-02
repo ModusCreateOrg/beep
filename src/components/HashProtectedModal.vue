@@ -1,5 +1,5 @@
 <template>
-  <modal v-on:toggleModal="$emit('toggleModal')">
+  <modal>
     <div class="content">
       <h1 class="hash-protected">
         <img class="hash-protected-img" src="../images/Icon-Hash-Protected.svg" alt="Hash protected"/>
@@ -16,10 +16,12 @@
 </template>
 
 <script>
+import Modal from './Modal.vue'
+
 export default {
   name: 'HashProtectedModal',
   components: {
-    Modal: () => import('./Modal.vue'),
+    Modal,
   },
 }
 </script>
