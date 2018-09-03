@@ -101,7 +101,7 @@ export default {
         event.preventDefault()
       }
 
-      if (!this.isNetworkAvailable) {
+      if (!this.isNetworkAvailable()) {
         return this.showNetworkAlert()
       }
 
