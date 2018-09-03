@@ -1,6 +1,6 @@
 export default {
   methods: {
-    isNetworkAvailable() {
+    checkNetworkStatus() {
       return this.$isWeb ? true : this.$networkStatus && this.$networkStatus.connected
     },
     showNetworkAlert() {
