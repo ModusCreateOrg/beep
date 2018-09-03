@@ -69,7 +69,7 @@ export default {
       return this.$breachesService.baseApiURL + encodeURIComponent(this.account)
     },
     checkAccount() {
-      if (!this.isNetworkAvailable) {
+      if (!this.checkNetworkStatus()) {
         return this.showNetworkAlert()
       }
 
