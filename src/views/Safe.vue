@@ -39,10 +39,10 @@ export default {
   methods: {
     buildSubtitle() {
       if (this.isAccount) {
-        return `Your account <strong>${this.account}</strong><br/>has not been compromised`
+        return `This account <strong>${this.account}</strong><br/>has not been compromised`
       }
 
-      return 'Your password has not been<br/>compromised'
+      return 'This password has not been<br/>compromised'
     },
     next() {
       if (this.isAccount) {

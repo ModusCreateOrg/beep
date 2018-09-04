@@ -1,5 +1,5 @@
 <template>
-  <modal v-on:toggleModal="$emit('toggleModal')">
+  <modal>
     <div class="content">
       <h1 class="hash-protected">
         <img class="hash-protected-img" src="../images/Icon-Hash-Protected.svg" alt="Hash protected"/>
@@ -9,18 +9,19 @@
       We've made sure that Beep won't end up yet another name on the list of data breaches.&nbsp;
       How? We hash all of your passwords and account information.&nbsp;
       In other words, we never store your passwords in plain text.&nbsp;
-      Instead, we transform your password into a really, really long code that a hacker can't crack.&nbsp;
-      And then, we send only the first five characters of that code to a server.
+      Instead, we transform your password into a really, really long code and then, we send only the first five characters of that code to a server.
       </p>
     </div>
   </modal>
 </template>
 
 <script>
+import Modal from './Modal.vue'
+
 export default {
   name: 'HashProtectedModal',
   components: {
-    Modal: () => import('./Modal.vue'),
+    Modal,
   },
 }
 </script>

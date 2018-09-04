@@ -11,7 +11,7 @@
       class="content"
       padding>
       <h1>Caution!</h1>
-      <h2>Your password has been<br>compromised across</h2>
+      <h2>This password has been<br>compromised across</h2>
       <h1
         class="count"
         v-html="count"/>
@@ -20,7 +20,6 @@
       <h3 @click="toggleModal">
         <span>What should you do?</span>
       </h3>
-      <what-should-you-do-modal v-if="isModalOpen" v-on:toggleModal="toggleModal"/>
       <h3 @click="goToAcc">
         <span>Next: Check Account</span>
       </h3>
@@ -36,9 +35,6 @@ import hasModal from '@/mixins/hasModal'
 
 export default {
   name: 'Unsafe',
-  components: {
-    WhatShouldYouDoModal: () => import('@/components/WhatShouldYouDoModal.vue'),
-  },
   mixins: [hasModal, toggleStatusbarColor],
   props: {
     count: {
@@ -54,6 +50,7 @@ export default {
   },
   mounted() {
     this.loadAnimation()
+    this.modal = () => import('@/components/WhatShouldYouDoModal.vue')
     document.querySelector('meta[name="theme-color"]').content = '#FF5C5D'
   },
   beforeRouteLeave(to, from, next) {
@@ -71,7 +68,7 @@ export default {
       this.animation = bodymovin.loadAnimation({
         animationData,
         container: document.getElementById('lottie'),
-        renderer: 'svg/canvas/html',
+        renderer: 'svg',
         loop: true,
         autoplay: true,
         name: 'unsafe',

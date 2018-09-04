@@ -1,5 +1,5 @@
 <template>
-  <modal v-on:toggleModal="$emit('toggleModal')">
+  <modal>
     <div class="content">
       <p>
         Every day, over 4 million online data records are stolen or lost.&nbsp;
@@ -26,8 +26,7 @@
         We've made sure that Beep won't end up yet another name on the list of data breaches.&nbsp;
         How? We hash all of your passwords and account information.&nbsp;
         In other words, we never store your passwords in plain text.&nbsp;
-        Instead, we transform your password into a really, really long code that a hacker can't crack.&nbsp;
-        And then, we send only the first five characters of that code to a server.
+        Instead, we transform your password into a really, really long code and then, we send only the first five characters of that code to a server.
       </p>
       <h3>Carefully crafted by</h3>
       <img
@@ -39,10 +38,12 @@
 </template>
 
 <script>
+import Modal from './Modal.vue'
+
 export default {
   name: 'HowDoesItWorkModal',
   components: {
-    Modal: () => import('./Modal.vue'),
+    Modal,
   },
 }
 </script>

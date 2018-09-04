@@ -33,12 +33,8 @@
             <div class="square-btn-shadow"/>
           </div>
         </div>
-        <div>
-          <HowDoesItWork />
-        </div>
       </div>
       <h2 @click="toggleModal"><span>How does it work?</span></h2>
-      <HowDoesItWork v-if="isModalOpen" v-on:toggleModal="toggleModal"/>
     </ion-content>
   </ion-page>
 </template>
@@ -49,9 +45,6 @@ import hasModal from '@/mixins/hasModal'
 export default {
   name: 'Home',
   mixins: [hasModal],
-  components: {
-    HowDoesItWork: () => import('@/components/HowDoesItWorkModal.vue'),
-  },
   methods: {
     goToAcc() {
       this.$router.push('/acc')
@@ -59,6 +52,9 @@ export default {
     goToPwd() {
       this.$router.push('/pwd')
     },
+  },
+  mounted() {
+    this.modal = () => import('@/components/HowDoesItWorkModal.vue')
   },
 }
 </script>

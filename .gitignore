@@ -19,3 +19,6 @@ electron/
 *.njsproj
 *.sln
 *.sw*
+/ios/App/App.ipa
+/ios/App/fastlane/report.xml
+/ios/App/App.app.dSYM.zip

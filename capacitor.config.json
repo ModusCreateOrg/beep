@@ -1,5 +1,5 @@
 {
-  "appId": "com.moduscreate.beep",
+  "appId": "app.modus.beep",
   "appName": "Beep",
   "bundledWebRuntime": false,
   "webDir": "dist"

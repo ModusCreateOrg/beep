@@ -45,9 +45,11 @@
 
 <script>
 import axios from 'axios'
+import network from '@/mixins/network'
 
 export default {
   name: 'Acc',
+  mixins: [network],
   data() {
     return {
       account: '',
@@ -69,13 +71,18 @@ export default {
     checkAccount() {
       var inputdata = {"search": this.account,"type":"name"}
       var mindconfig = {"stand_alone_minds":['yaml-loader'], "mind_map":['yaml-loader']}
-      console.log(this.$hive.checkData(mindconfig, inputdata))
-      // if (!this.requestPending && this.isValidAccount) {
-        // this.sendRequest()
-      // }
+      return console.log(this.$hive.checkData(mindconfig, inputdata))
+
+      if (!this.checkNetworkStatus()) {
+        return this.showNetworkAlert()
+      }
+
+      if (!this.requestPending && this.isValidAccount) {
+        this.sendRequest()
+      }
     },
     async sendRequest() {
-      const loading = await this.$ionic.newLoadingController()
+      const loading = await this.$ionic.loadingController.create()
       loading.present()
 
       this.$breachesService.breaches = []
@@ -107,14 +114,13 @@ export default {
         })
     },
     showError() {
-      this.$ionic
-        .newAlertController({
+      return this.$ionic.alertController
+        .create({
           header: 'Error',
           message: 'Something went wrong...',
           buttons: ['OK'],
         })
         .then(e => e.present())
-        .catch(err => console.error(err))
     },
   },
 }

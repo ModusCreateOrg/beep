@@ -52,7 +52,6 @@
           <span>Hash protected</span>
         </div>
       </div>
-      <hash-protected-modal v-if="isModalOpen" v-on:toggleModal="toggleModal"/>
     </ion-content>
   </ion-page>
 </template>
@@ -61,15 +60,13 @@
 import sha1 from 'sha1'
 import axios from 'axios'
 import hasModal from '@/mixins/hasModal'
+import network from '@/mixins/network'
 
 const baseURL = 'https://api.pwnedpasswords.com/range/'
 
 export default {
   name: 'Pwd',
-  mixins: [hasModal],
-  components: {
-    HashProtectedModal: () => import('@/components/HashProtectedModal.vue'),
-  },
+  mixins: [hasModal, network],
   data() {
     return {
       pwd: '',
@@ -89,6 +86,7 @@ export default {
     },
   },
   mounted() {
+    this.modal = () => import('@/components/HashProtectedModal.vue')
     this.$breachesService.clear()
   },
   methods: {
@@ -102,13 +100,18 @@ export default {
       if (event) {
         event.preventDefault()
       }
+
+      if (!this.checkNetworkStatus()) {
+        return this.showNetworkAlert()
+      }
+
       if (this.isValidPwd && !this.requestPending) {
         this.sendRequest()
       }
     },
     async sendRequest() {
       const hash = sha1(this.pwd)
-      const loading = await this.$ionic.newLoadingController()
+      const loading = await this.$ionic.loadingController.create()
 
       loading.present()
       this.requestPending = true
