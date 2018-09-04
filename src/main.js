@@ -26,7 +26,7 @@ new Vue({
   router,
   mounted() {
     SplashScreen.hide()
-    StatusBar.setStyle({ style: this.isIOS ? StatusBarStyle.Light : StatusBarStyle.Dark })
+    StatusBar.setStyle({ style: this.$isIOS ? StatusBarStyle.Light : StatusBarStyle.Dark })
     StatusBar.setBackgroundColor({ color: helpers.env('INITIAL_STATUSBAR_COLOR') })
   },
 }).$mount('#app')
