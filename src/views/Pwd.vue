@@ -127,7 +127,7 @@ export default {
           }
           return false
         })
-        .catch(err => console.error(err))
+        .catch(this.$helpers.err)
         .then(() => {
           // Reset and unblock subsequent requests
           this.pwd = ''

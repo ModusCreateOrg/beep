@@ -21,15 +21,19 @@ Vue.use(Hive)
 initCapacitor()
 
 // Initialize helpers
-Vue.prototype.$env = helpers.env
+Vue.prototype.$helpers = helpers
 Vue.prototype.$breachesService = BreachService
 
 new Vue({
   router,
   mounted() {
-    SplashScreen.hide()
-    StatusBar.setStyle({ style: this.isIOS ? StatusBarStyle.Light : StatusBarStyle.Dark })
-    StatusBar.setBackgroundColor({ color: helpers.env('INITIAL_STATUSBAR_COLOR') })
+    SplashScreen.hide().catch(this.$helpers.err)
+    StatusBar.setStyle({ style: this.$isIOS ? StatusBarStyle.Light : StatusBarStyle.Dark }).catch(
+      this.$helpers.err
+    )
+    StatusBar.setBackgroundColor({ color: helpers.env('INITIAL_STATUSBAR_COLOR') }).catch(
+      this.$helpers.err
+    )
   },
 }).$mount('#app')
 
@@ -41,7 +45,10 @@ async function initCapacitor() {
   // Set network checks
   Network.getStatus()
     .then(s => (Vue.prototype.$networkStatus = s))
-    .catch(console.error)
+    .catch(helpers.err)
 
-  Network.addListener('networkStatusChange', status => (Vue.prototype.$networkStatus = status))
+  Network.addListener(
+    'networkStatusChange',
+    status => (Vue.prototype.$networkStatus = status)
+  ).catch(helpers.err)
 }

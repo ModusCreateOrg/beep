@@ -39,7 +39,7 @@ export default {
     return {
       filter: this.$breachesService.filter,
       account: this.$breachesService.account,
-      newStatusbarColor: this.$env('UNSAFE_STATUSBAR_COLOR'),
+      newStatusbarColor: this.$helpers.env('UNSAFE_STATUSBAR_COLOR'),
     }
   },
   computed: {
