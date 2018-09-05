@@ -227,7 +227,7 @@ ion-label {
 
 .hash-protected-holder {
   position: absolute;
-  bottom: 20px;
+  bottom: var(--ion-safe-area-bottom, 20px);
   padding-left: 7%;
 }
 
