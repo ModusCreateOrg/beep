@@ -45,9 +45,11 @@
 
 <script>
 import axios from 'axios'
+import network from '@/mixins/network'
 
 export default {
   name: 'Acc',
+  mixins: [network],
   data() {
     return {
       account: '',
@@ -67,16 +69,8 @@ export default {
       return this.$breachesService.baseApiURL + encodeURIComponent(this.account)
     },
     checkAccount() {
-      if (!this.$networkStatus.connected && this.$device.platform !== 'web') {
-        this.$ionic
-          .newAlertController({
-            header: 'No internet connection',
-            message: 'Please check your internet connection.',
-            buttons: ['OK'],
-          })
-          .then(e => e.present())
-          .catch(err => console.error(err))
-        return
+      if (!this.checkNetworkStatus()) {
+        return this.showNetworkAlert()
       }
 
       if (!this.requestPending && this.isValidAccount) {
@@ -84,7 +78,7 @@ export default {
       }
     },
     async sendRequest() {
-      const loading = await this.$ionic.newLoadingController()
+      const loading = await this.$ionic.loadingController.create()
       loading.present()
 
       this.$breachesService.breaches = []
@@ -116,14 +110,13 @@ export default {
         })
     },
     showError() {
-      this.$ionic
-        .newAlertController({
+      return this.$ionic.alertController
+        .create({
           header: 'Error',
           message: 'Something went wrong...',
           buttons: ['OK'],
         })
         .then(e => e.present())
-        .catch(err => console.error(err))
     },
   },
 }

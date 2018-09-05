@@ -20,7 +20,6 @@
       <h3 @click="toggleModal">
         <span>What should you do?</span>
       </h3>
-      <what-should-you-do-modal v-if="isModalOpen" v-on:toggleModal="toggleModal"/>
       <h3 @click="goToAcc">
         <span>Next: Check Account</span>
       </h3>
@@ -36,9 +35,6 @@ import hasModal from '@/mixins/hasModal'
 
 export default {
   name: 'Unsafe',
-  components: {
-    WhatShouldYouDoModal: () => import('@/components/WhatShouldYouDoModal.vue'),
-  },
   mixins: [hasModal, toggleStatusbarColor],
   props: {
     count: {
@@ -49,11 +45,12 @@ export default {
   data() {
     return {
       animation: null,
-      newStatusbarColor: this.$env('UNSAFE_STATUSBAR_COLOR'),
+      newStatusbarColor: this.$helpers.env('UNSAFE_STATUSBAR_COLOR'),
     }
   },
   mounted() {
     this.loadAnimation()
+    this.modal = () => import('@/components/WhatShouldYouDoModal.vue')
     document.querySelector('meta[name="theme-color"]').content = '#FF5C5D'
   },
   beforeRouteLeave(to, from, next) {

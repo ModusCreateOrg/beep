@@ -5,7 +5,7 @@ const metaSelectors = ['meta[name="theme-color"]', 'meta[name="msapplication-Til
 export default {
   data() {
     return {
-      initialStatusbarColor: this.$env('INITIAL_STATUSBAR_COLOR'),
+      initialStatusbarColor: this.$helpers.env('INITIAL_STATUSBAR_COLOR'),
       newStatusbarColor: '',
     }
   },
@@ -15,8 +15,8 @@ export default {
     }
     StatusBar.setStyle({
       style: this.$isIOS ? StatusBarStyle.Dark : StatusBarStyle.Light,
-    })
-    StatusBar.setBackgroundColor({ color: this.newStatusbarColor })
+    }).catch(this.$helpers.err)
+    StatusBar.setBackgroundColor({ color: this.newStatusbarColor }).catch(this.$helpers.err)
   },
   beforeRouteLeave(to, from, next) {
     for (const selector of metaSelectors) {
@@ -24,8 +24,8 @@ export default {
     }
     StatusBar.setStyle({
       style: this.$isIOS ? StatusBarStyle.Light : StatusBarStyle.Dark,
-    })
-    StatusBar.setBackgroundColor({ color: this.initialStatusbarColor })
+    }).catch(this.$helpers.err)
+    StatusBar.setBackgroundColor({ color: this.initialStatusbarColor }).catch(this.$helpers.err)
     next()
   },
 }

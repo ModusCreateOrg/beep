@@ -1,5 +1,5 @@
 <template>
-  <modal v-on:toggleModal="$emit('toggleModal')">
+  <modal>
     <div class="content">
       <h1>What Should You Do?</h1>
       <p>
@@ -25,10 +25,12 @@
 </template>
 
 <script>
+import Modal from './Modal.vue'
+
 export default {
   name: 'WhatShouldYouDoModal',
   components: {
-    Modal: () => import('./Modal.vue'),
+    Modal,
   },
 }
 </script>
