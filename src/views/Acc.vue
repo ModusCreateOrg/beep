@@ -69,9 +69,12 @@ export default {
       return this.$breachesService.baseApiURL + encodeURIComponent(this.account)
     },
     checkAccount() {
-      var inputdata = {"search": this.account,"type":"name"}
-      var mindconfig = {"stand_alone_minds":['yaml-loader'], "mind_map":['yaml-loader']}
-      return console.log(this.$hive.checkData(mindconfig, inputdata))
+      var inputdata = { search: this.account, type: 'name' }
+      var mindconfig = {
+        stand_alone_minds: ['yaml-loader', 'json-loader'],
+        mind_map: ['yaml-loader', 'json-loader'],
+      }
+      return this.$hive.checkData(mindconfig, inputdata).then(console.log)
 
       if (!this.checkNetworkStatus()) {
         return this.showNetworkAlert()
