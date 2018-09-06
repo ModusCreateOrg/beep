@@ -1,4 +1,4 @@
-package com.moduscreate.beep;
+package app.modus.beep;
 
 import android.os.Bundle;
 

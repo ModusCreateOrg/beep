@@ -1,0 +1,7 @@
+Verify the integrity of your existing credentials or just before creating new accounts.
+
+BEEP checks your account information against databases of leaked credentials in known data breaches.
+
+With BEEP you test one thing at a time. Independently check if your password is safe or if your username/email are compromised. 
+
+BEEP never transmits your passwords. Passwords are encoded with the SHA-1 algorithm on your device and only the first 5 characters of that hash are sent to the verification engine.

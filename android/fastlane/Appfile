@@ -1,0 +1,2 @@
+json_key_file("../fastlane_api_key-7614306543947923849-120954-a0b1b2ff1c5e.json") # Path to the json secret file - Follow https://docs.fastlane.tools/actions/supply/#setup to get one
+package_name("app.modus.beep") # e.g. com.krausefx.app

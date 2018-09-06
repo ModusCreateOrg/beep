@@ -1,8 +1,23 @@
-# Javascript Node CircleCI 2.0 configuration file
-#
+aliases:
+  - &restore-npm-cache
+    keys:
+      - v3-dependencies-{{ checksum "package-lock.json" }}
+      - v3-dependencies-master
+      - v3-dependencies-
+  - &restore-dist-cache
+    keys:
+      - v3-dist-{{ .Environment.CIRCLE_SHA1 }}
+      - v3-dist-master
+      - v3-dist-
+  - &restore-ios-cache
+    keys:
+      - v3-dist-{{ .Environment.CIRCLE_SHA1 }}
+      - v3-dist-master
+      - v3-dist-
+
 version: 2
 jobs:
-  build:
+  install-dependencies:
     docker:
       - image: circleci/node:8.10
 
@@ -11,25 +26,48 @@ jobs:
     steps:
       - checkout
 
-      - restore_cache:
-          keys:
-          - v2-dependencies-{{ checksum "package.json" }}
-          - v2-dependencies-
+      - restore_cache: *restore-npm-cache
 
       - run:
-          command: |
-            npm i -ci
+          name: Install Node modules
+          command: npm i -ci
 
       - save_cache:
+          key: v3-dependencies-{{ checksum "package-lock.json" }}
           paths:
             - node_modules
-          key: v2-dependencies-{{ checksum "package.json" }}
+
+  build-pwa:
+    docker:
+      - image: circleci/node:8.10
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+      - restore_cache: *restore-npm-cache
 
       - run:
-          command: |
-            npm run lint
-            npm run build
+          name: Run linter
+          command: npm run lint
 
+      - run:
+          name: Build BEEP
+          command: npm run build
+
+      - save_cache:
+          key: v3-dist-{{ .Environment.CIRCLE_SHA1 }}
+          paths:
+            - dist
+
+  sonarqube:
+    docker:
+      - image: circleci/node:8.10
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
 
       # SonarQube download, config and scanning
       - run: echo "Starting SonarQube scan"
@@ -41,3 +79,46 @@ jobs:
       - run: sonar-scanner-3.2.0.1227-linux/bin/sonar-scanner
       - run: echo "Scan complete, data sent to sonarcloud"
 
+  build-ios:
+    macos:
+      xcode: '9.4.0'
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - restore_cache: *restore-npm-cache
+      - restore_cache: *restore-dist-cache
+      - run:
+          name: Build iOS project
+          command: npm run build-ios-ci
+      - save_cache:
+          key: v3-ios-{{ .Environment.CIRCLE_SHA1 }}
+          paths:
+            - ios
+
+  deploy-testflight:
+    macos:
+      xcode: '9.4.0'
+    working_directory: ~/repo/ios/App
+    shell: /bin/bash --login -o pipefail
+    steps:
+      - restore_cache: *restore-ios-cache
+      - run: bundle install
+      - run:
+          name: Deploy to TestFlight
+          command: bundle exec fastline beta
+
+workflows:
+  version: 2
+  build-and-deploy:
+    jobs:
+      - install-dependencies
+
+      - build-pwa:
+          requires:
+            - install-dependencies
+
+      - build-ios:
+          requires:
+            - install-dependencies
+
+      - sonarqube

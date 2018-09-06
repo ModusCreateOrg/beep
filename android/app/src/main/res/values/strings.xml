@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">Beep</string>
     <string name="title_activity_main">Beep</string>
-    <string name="package_name">com.moduscreate.beep</string>
-    <string name="fileprovider_authority">com.moduscreate.beep.fileprovider</string>
-    <string name="custom_url_scheme">com.moduscreate.beep</string>
+    <string name="package_name">app.modus.beep</string>
+    <string name="fileprovider_authority">app.modus.beep.fileprovider</string>
+    <string name="custom_url_scheme">app.modus.beep</string>
 </resources>
