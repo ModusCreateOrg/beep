@@ -39,4 +39,9 @@ platform :android do
       skip_upload_metadata: true
     )
   end
+
+  desc "Create release build"
+  lane :release do
+    gradle(task: "clean assembleRelease")
+  end
 end
