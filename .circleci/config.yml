@@ -121,8 +121,4 @@ workflows:
           requires:
             - install-dependencies
 
-      - deploy-testflight:
-          requires:
-            - build-ios
-
       - sonarqube
