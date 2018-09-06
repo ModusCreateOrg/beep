@@ -15,7 +15,7 @@
   },
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build --no-clean",
+    "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit",
     "build-android": "npm run build && npx cap sync android && npx cap copy android",
@@ -28,7 +28,7 @@
     "@capacitor/ios": "1.0.0-beta.7",
     "@capacitor/android": "1.0.0-beta.7",
     "@ionic/core": "4.0.0-beta.7",
-    "@modus/ionic-vue": "1.0.9",
+    "@modus/ionic-vue": "1.0.10",
     "axios": "0.18.0",
     "register-service-worker": "^1.0.0",
     "sha1": "1.1.1",
