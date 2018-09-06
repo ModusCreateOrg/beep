@@ -117,7 +117,7 @@ This will create files and assets in the `dist/` directory
 
 # Ionic Vue
 
-<img src="https://res.cloudinary.com/modus-labs/image/upload/w_560/v1533141242/ionic-vue/ionic-vue-banner.png"
+<img src="https://res.cloudinary.com/modus-labs/image/upload/w_560/v1535019553/labs/logo-ionic-vue.svg"
 width="260"
 alt="@modus/ionic-vue">
 
