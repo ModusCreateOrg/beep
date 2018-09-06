@@ -59,3 +59,14 @@ div[style].cloned-input {
   float: left;
   width: 1.25rem;
 }
+
+body, html {
+  height: 100vh;
+}
+
+/* Iphone X */
+@media screen and (min-height : 800px) and (max-height : 820px) {
+  html.plt-ios.plt-hybrid, html.plt-ios.plt-pwa {
+    --ion-statusbar-padding: 30px;
+  }
+}
