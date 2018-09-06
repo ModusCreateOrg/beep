@@ -16,6 +16,10 @@
 default_platform(:android)
 
 platform :android do
+  def increment_version_code(gradle_build: 'app/build.gradle')
+    sh %Q{cd ../ && echo "$(awk '{sub(/versionCode [[:digit:]]+$/,"versionCode "$2+1)}1' #{gradle_build})" > #{gradle_build} && cd -}
+  end
+
   desc "Runs all the tests"
   lane :test do
     gradle(task: "test")
@@ -42,6 +46,7 @@ platform :android do
 
   desc "Create release build"
   lane :release do
+    increment_version_code gradle_build: 'app/build.gradle'
     gradle(task: "clean assembleRelease")
   end
 end
