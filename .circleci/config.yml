@@ -117,8 +117,4 @@ workflows:
           requires:
             - install-dependencies
 
-      - build-ios:
-          requires:
-            - install-dependencies
-
       - sonarqube
