@@ -15,7 +15,7 @@
       <h3 @click="check">
         <span>Check Another {{ isAccount ? 'Account' : 'Password' }}</span>
       </h3>
-      <img src="../images/Icon-Character-Positive.svg">
+      <img src="../images/Icon-Character-Positive.svg" alt="Character positive"/>
       <h3 @click="next">
         <span>Next: Check {{ isAccount ? 'Password' : 'Account' }}</span>
       </h3>
@@ -33,16 +33,16 @@ export default {
     return {
       account: this.$breachesService.account,
       isAccount: this.$breachesService.account.length > 0,
-      newStatusbarColor: '#47BD8F',
+      newStatusbarColor: this.$helpers.env('SAFE_STATUSBAR_COLOR'),
     }
   },
   methods: {
     buildSubtitle() {
       if (this.isAccount) {
-        return `Your account <strong>${this.account}</strong><br/>has not been compromised`
+        return `This account <strong>${this.account}</strong><br/>has not been compromised`
       }
 
-      return 'Your password has not been<br/>compromised'
+      return 'This password has not been<br/>compromised'
     },
     next() {
       if (this.isAccount) {

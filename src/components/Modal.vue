@@ -1,23 +1,15 @@
 <template>
-  <div
-    :id="id"
-    class="modal-template">
+  <div>
     <ion-header>
       <ion-toolbar>
         <ion-buttons slot="start">
-          <ion-button
-            icon-only
-            class="dismiss-modal">
-            <ion-icon
-              size="large"
-              name="close"/>
+          <ion-button @click="closeModal">
+            <ion-icon size="large" name="close"/>
           </ion-button>
         </ion-buttons>
         <ion-title>{{ title }}</ion-title>
         <ion-buttons slot="end">
-          <ion-button
-            clear
-            class="dismiss-modal">
+          <ion-button clear @click="closeModal">
             Done
           </ion-button>
         </ion-buttons>
@@ -35,39 +27,11 @@
 export default {
   name: 'Modal',
   props: {
-    title: {
-      type: String,
-      default: '',
-    },
-  },
-  data() {
-    return {
-      id: null,
-    }
-  },
-  mounted() {
-    this.id = `modal-${this._uid}`
+    title: { type: String, default: '' },
   },
   methods: {
-    createModal() {
-      const template = document.getElementById(this.id).cloneNode(true)
-      template.classList.remove('modal-template')
-
-      const buttons = template.querySelectorAll('.dismiss-modal')
-
-      this.$ionic
-        .newModalController({ component: template })
-        .then(modalController => {
-          modalController.present()
-
-          buttons.forEach(item => {
-            item.addEventListener('click', () => {
-              modalController.dismiss()
-            })
-          })
-          return modalController
-        })
-        .catch(err => console.error(err))
+    closeModal() {
+      this.$ionic.modalController.dismiss()
     },
   },
 }
@@ -83,9 +47,5 @@ ion-button.button-clear,
 ion-button.button.button-clear.button-md.button-clear-md {
   --ion-color-base: var(--beep-primary);
   text-transform: none;
-}
-
-.modal-template {
-  display: none;
 }
 </style>

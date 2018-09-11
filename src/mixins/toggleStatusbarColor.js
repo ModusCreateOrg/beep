@@ -1,28 +1,31 @@
-import { Plugins } from '@capacitor/core'
+import { Plugins, StatusBarStyle } from '@capacitor/core'
 const { StatusBar } = Plugins
+const metaSelectors = ['meta[name="theme-color"]', 'meta[name="msapplication-TileColor"]']
 
 export default {
   data() {
     return {
-      initialStatusbarColor: '#FFFFFF',
+      initialStatusbarColor: this.$helpers.env('INITIAL_STATUSBAR_COLOR'),
       newStatusbarColor: '',
     }
   },
   mounted() {
-    document.querySelector('meta[name="theme-color"]').content = this.newStatusbarColor
-    document.querySelector('meta[name="msapplication-TileColor"]').content = this.newStatusbarColor
-    StatusBar.setBackgroundColor({ color: this.newStatusbarColor }).catch(() =>
-      console.log('Statusbar is not available')
-    )
+    for (const selector of metaSelectors) {
+      document.querySelector(selector).content = this.newStatusbarColor
+    }
+    StatusBar.setStyle({
+      style: this.$isIOS ? StatusBarStyle.Dark : StatusBarStyle.Light,
+    }).catch(this.$helpers.err)
+    StatusBar.setBackgroundColor({ color: this.newStatusbarColor }).catch(this.$helpers.err)
   },
   beforeRouteLeave(to, from, next) {
-    document.querySelector('meta[name="theme-color"]').content = this.initialStatusbarColor
-    document.querySelector(
-      'meta[name="msapplication-TileColor"]'
-    ).content = this.initialStatusbarColor
-    StatusBar.setBackgroundColor({ color: this.initialStatusbarColor }).catch(() =>
-      console.log('Statusbar is not available')
-    )
+    for (const selector of metaSelectors) {
+      document.querySelector(selector).content = this.initialStatusbarColor
+    }
+    StatusBar.setStyle({
+      style: this.$isIOS ? StatusBarStyle.Light : StatusBarStyle.Dark,
+    }).catch(this.$helpers.err)
+    StatusBar.setBackgroundColor({ color: this.initialStatusbarColor }).catch(this.$helpers.err)
     next()
   },
 }

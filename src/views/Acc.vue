@@ -17,12 +17,12 @@
       </ion-toolbar>
     </ion-header>
     <ion-content padding class="content">
-      <form @submit.prevent="checkAccount">
-        <h1>
-          Enter any username or email and<br>
-          we'll check if it's been hacked<br>
-        </h1>
-        <div class="input-holder">
+      <h1>
+        Enter any username or email and<br>
+        we'll check if it's been hacked<br>
+      </h1>
+      <div class="input-holder">
+        <form @submit.prevent="checkAccount" action="#">
           <ion-item>
             <ion-label padding>Your username or email</ion-label>
           </ion-item>
@@ -36,18 +36,20 @@
               @keydown.enter="checkAccount"
             />
           </ion-item>
-        </div>
-        <input type="submit" class="form-submit-button"/>
-      </form>
+          <input type="submit" class="form-submit-button"/>
+        </form>
+      </div>
     </ion-content>
   </ion-page>
 </template>
 
 <script>
 import axios from 'axios'
+import network from '@/mixins/network'
 
 export default {
   name: 'Acc',
+  mixins: [network],
   data() {
     return {
       account: '',
@@ -67,15 +69,23 @@ export default {
       return this.$breachesService.baseApiURL + encodeURIComponent(this.account)
     },
     checkAccount() {
-      var inputdata = {"search":"tester","type":"name"}
-      var mindconfig = {"stand_alone_minds":['json-loader'], "mind_map":['yaml-loader']}
-      console.log(this.$hive.checkData(mindconfig, inputdata))
+      var inputdata = { search: this.account, type: 'name' }
+      var mindconfig = {
+        stand_alone_minds: ['yaml-loader', 'json-loader'],
+        mind_map: ['yaml-loader', 'json-loader'],
+      }
+      return this.$hive.checkData(mindconfig, inputdata).then(console.log)
+
+      if (!this.checkNetworkStatus()) {
+        return this.showNetworkAlert()
+      }
+
       if (!this.requestPending && this.isValidAccount) {
         this.sendRequest()
       }
     },
     async sendRequest() {
-      const loading = await this.$ionic.newLoadingController()
+      const loading = await this.$ionic.loadingController.create()
       loading.present()
 
       this.$breachesService.breaches = []
@@ -107,14 +117,13 @@ export default {
         })
     },
     showError() {
-      this.$ionic
-        .newAlertController({
+      return this.$ionic.alertController
+        .create({
           header: 'Error',
           message: 'Something went wrong...',
           buttons: ['OK'],
         })
         .then(e => e.present())
-        .catch(err => console.error(err))
     },
   },
 }
