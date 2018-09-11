@@ -68,7 +68,7 @@ export default {
     },
     checkAccount() {
       var inputdata = {"search":"tester","type":"name"}
-      var mindconfig = {"stand_alone_minds":['beep-fileloader-json'], "mind_map":['beep-fileloader-json']}
+      var mindconfig = {"stand_alone_minds":['json-loader'], "mind_map":['yaml-loader']}
       console.log(this.$hive.checkData(mindconfig, inputdata))
       if (!this.requestPending && this.isValidAccount) {
         this.sendRequest()
