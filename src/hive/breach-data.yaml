@@ -1,0 +1,8 @@
+- name: Joe Bloggs
+  algo: md5
+  hash: bdc87b9c894da5168059e00ebffb9077
+  cleartext: password1234
+- name: John Doe
+  algo: sha1
+  hash: b1b3773a05c0ed0176787a4f1574ff0075f7521e
+  cleartext: qwerty
