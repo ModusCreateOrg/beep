@@ -8,8 +8,8 @@
 
 <p>
 <a href="https://beep.modus.app"><img src="./src/images/pwa-badge.svg" height="40" alt="Launch Progressive Web App" /></a>
-<a href="#"><img src="./src/images/app-store-badge.svg" height="40" alt="Download Beep on the App Store"/></a>
-<a href="#"><img src="./src/images/google-play-badge.png" height="40" alt="Get Beep on Google Play" /></a>
+<a href="https://itunes.apple.com/us/app/beep-account-security-scanner/id1434675665?ls=1&mt=8"><img src="./src/images/app-store-badge.svg" height="40" alt="Download Beep on the App Store"/></a>
+<a href="https://play.google.com/store/apps/details?id=app.modus.beep"><img src="./src/images/google-play-badge.png" height="40" alt="Get Beep on Google Play" /></a>
 </p>
 
 <hr />
