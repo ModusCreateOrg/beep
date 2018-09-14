@@ -25,6 +25,8 @@ Vue.prototype.$breachesService = BreachService
 new Vue({
   router,
   mounted() {
+    initNavGesture(this)
+
     SplashScreen.hide().catch(this.$helpers.err)
     StatusBar.setStyle({ style: this.$isIOS ? StatusBarStyle.Light : StatusBarStyle.Dark }).catch(
       this.$helpers.err
@@ -49,4 +51,29 @@ async function initCapacitor() {
     'networkStatusChange',
     status => (Vue.prototype.$networkStatus = status)
   ).catch(helpers.err)
+}
+
+async function initNavGesture(app) {
+  const gesture = await import('@ionic/core/dist/collection/utils/gesture/gesture')
+
+  gesture
+    .createGesture({
+      el: document,
+      gestureName: 'swipe',
+      gesturePriority: 40,
+      threshold: 10,
+      queue: window.Ionic.queue,
+      canStart: () => true,
+      onStart: () => {},
+      onMove: () => {},
+      onEnd: ev => {
+        const threshold = app.$root.$el.offsetWidth / 2
+        if (Math.abs(ev.deltaX) < threshold) {
+          return
+        }
+
+        app.$router.go(ev.deltaX > 0 ? -1 : 1)
+      },
+    })
+    .setDisabled(false)
 }
