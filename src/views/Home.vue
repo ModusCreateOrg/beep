@@ -160,6 +160,7 @@ h2 {
   font-size: 18px;
   font-weight: 300;
   letter-spacing: -0.48px;
+  display: inline-block;
 }
 
 h2 span {
