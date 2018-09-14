@@ -1,5 +1,6 @@
 import UIKit
 import Capacitor
+import HockeySDK
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -9,6 +10,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
     // Override point for customization after application launch.
+    
+    BITHockeyManager.shared().configure(withIdentifier: "188836b6452042cd88ebc47f5a745808")
+    // Do some additional configuration if needed here
+    BITHockeyManager.shared().start()
+    BITHockeyManager.shared().authenticator.authenticateInstallation()
+
     return true
   }
 
