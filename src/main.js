@@ -22,37 +22,37 @@ initCapacitor()
 Vue.prototype.$helpers = helpers
 Vue.prototype.$breachesService = BreachService
 
+// Create a Vue app instance
 new Vue({
   router,
   mounted() {
-    initNavGesture(this)
-
     SplashScreen.hide().catch(this.$helpers.err)
-    StatusBar.setStyle({ style: this.$isIOS ? StatusBarStyle.Light : StatusBarStyle.Dark }).catch(
-      this.$helpers.err
-    )
-    StatusBar.setBackgroundColor({ color: helpers.env('INITIAL_STATUSBAR_COLOR') }).catch(
-      this.$helpers.err
-    )
+    initNavGesture(this)
   },
 }).$mount('#app')
 
+// Initial Capacitor calls
 async function initCapacitor() {
   // Platform checks
   Vue.prototype.$isWeb = Capacitor.platform === 'web'
   Vue.prototype.$isIOS = Capacitor.platform === 'ios'
+
+  // Set status-bar background and style
+  StatusBar.setBackgroundColor({ color: helpers.env('INITIAL_STATUSBAR_COLOR') }).catch(helpers.err)
+  StatusBar.setStyle({ style: StatusBarStyle.Light }).catch(helpers.err)
 
   // Set network checks
   Network.getStatus()
     .then(s => (Vue.prototype.$networkStatus = s))
     .catch(helpers.err)
 
-  Network.addListener(
-    'networkStatusChange',
-    status => (Vue.prototype.$networkStatus = status)
-  ).catch(helpers.err)
+  // Listen to network changes
+  Network.addListener('networkStatusChange', s => (Vue.prototype.$networkStatus = s)).catch(
+    helpers.err
+  )
 }
 
+// Navigate through a swipe gesture
 async function initNavGesture(app) {
   const gesture = await import('@ionic/core/dist/collection/utils/gesture/gesture')
 
