@@ -13,19 +13,15 @@ export default {
     for (const selector of metaSelectors) {
       document.querySelector(selector).content = this.newStatusbarColor
     }
-    StatusBar.setStyle({
-      style: this.$isIOS ? StatusBarStyle.Dark : StatusBarStyle.Light,
-    }).catch(this.$helpers.err)
     StatusBar.setBackgroundColor({ color: this.newStatusbarColor }).catch(this.$helpers.err)
+    StatusBar.setStyle({ style: StatusBarStyle.Dark }).catch(this.$helpers.err)
   },
   beforeRouteLeave(to, from, next) {
     for (const selector of metaSelectors) {
       document.querySelector(selector).content = this.initialStatusbarColor
     }
-    StatusBar.setStyle({
-      style: this.$isIOS ? StatusBarStyle.Light : StatusBarStyle.Dark,
-    }).catch(this.$helpers.err)
     StatusBar.setBackgroundColor({ color: this.initialStatusbarColor }).catch(this.$helpers.err)
+    StatusBar.setStyle({ style: StatusBarStyle.Light }).catch(this.$helpers.err)
     next()
   },
 }
