@@ -193,9 +193,10 @@ ion-item {
 
 ion-input[type='password'] {
   height: 56px;
-  font: small-caption;
-  font-size: 40px;
-  letter-spacing: -2px;
+  font-size: 25px;
+  font-weight: 300;
+  letter-spacing: -0.63px;
+  line-height: 25px;
 }
 
 ion-input[type='text'] {
