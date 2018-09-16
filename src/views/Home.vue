@@ -74,7 +74,9 @@ export default {
     this.backEvent = App.addListener('backButton', this.handleHardwareBackButton)
   },
   destroyed() {
-    this.backEvent.remove()
+    if (this.backEvent && this.backEvent.remove) {
+      this.backEvent.remove()
+    }
   },
 }
 </script>
