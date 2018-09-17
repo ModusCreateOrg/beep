@@ -37,3 +37,4 @@ fastlane/test_output
 /android/app/release
 android/signing/*
 !android/signing/.gitkeep
+!android/signing/keystore.properties.example

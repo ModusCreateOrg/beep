@@ -6,9 +6,9 @@
         <span>Hash Protected</span>
       </h1>
       <p>
-      We've made sure that Beep won't end up yet another name on the list of data breaches.&nbsp;
-      How? We hash all of your passwords and account information.&nbsp;
-      In other words, we never store your passwords in plain text.&nbsp;
+      We've made sure that Beep won't end up yet another name on the list of data breaches.
+      How? We hash all of your passwords and account information.
+      In other words, we never store your passwords in plain text.
       Instead, we transform your password into a really, really long code and then, we send only the first five characters of that code to a server.
       </p>
     </div>

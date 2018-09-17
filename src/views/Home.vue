@@ -41,10 +41,17 @@
 
 <script>
 import hasModal from '@/mixins/hasModal'
+import { Plugins } from '@capacitor/core'
+const { App } = Plugins
 
 export default {
   name: 'Home',
   mixins: [hasModal],
+  data() {
+    return {
+      backEvent: null,
+    }
+  },
   methods: {
     goToAcc() {
       this.$router.push('/acc')
@@ -52,9 +59,24 @@ export default {
     goToPwd() {
       this.$router.push('/pwd')
     },
+    handleHardwareBackButton() {
+      if (this.isModalOpen) {
+        return this.$ionic.modalController.dismiss()
+      }
+
+      navigator.app.exitApp()
+    },
   },
   mounted() {
     this.modal = () => import('@/components/HowDoesItWorkModal.vue')
+  },
+  created() {
+    this.backEvent = App.addListener('backButton', this.handleHardwareBackButton)
+  },
+  destroyed() {
+    if (this.backEvent && this.backEvent.remove) {
+      this.backEvent.remove()
+    }
   },
 }
 </script>
