@@ -7,9 +7,7 @@
         </ion-buttons>
       </ion-toolbar>
     </ion-header>
-    <ion-content
-      padding
-      class="content">
+    <ion-content padding>
       <ion-list>
         <ion-item>
           <ion-avatar slot="start">

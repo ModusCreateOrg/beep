@@ -1,6 +1,6 @@
 <template>
   <modal>
-    <div class="content">
+    <div>
       <h1 class="hash-protected">
         <img class="hash-protected-img" src="../images/Icon-Hash-Protected.svg" alt="Hash protected"/>
         <span>Hash Protected</span>
@@ -27,10 +27,6 @@ export default {
 </script>
 
 <style scoped>
-.content {
-  padding: 5vh 20px;
-}
-
 p {
   color: var(--beep-light-dark);
   font-size: 14px;
