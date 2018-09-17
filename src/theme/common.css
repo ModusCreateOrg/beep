@@ -65,16 +65,9 @@ html {
   height: 100vh;
 }
 
-/* Iphone X */
-@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {
-  html.plt-ios.plt-hybrid,
-  html.plt-ios.plt-pwa {
-    --ion-statusbar-padding: env(safe-area-inset-top);
-  }
-}
-
-/* X-MAX, XR */
-@media only screen and (min-device-width: 414px) and (max-device-width: 896px) and (-webkit-min-device-pixel-ratio: 3) {
+/* Iphone X, Xs, X-MAX, XR */
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3),
+  only screen and (min-device-width: 414px) and (max-device-width: 896px) and (-webkit-min-device-pixel-ratio: 3) {
   html.plt-ios.plt-hybrid,
   html.plt-ios.plt-pwa {
     --ion-statusbar-padding: env(safe-area-inset-top);
