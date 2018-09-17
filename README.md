@@ -106,6 +106,21 @@ After the SDK is setup you can create an Android-specific build by executing:
 npm run build-android
 ```
 
+To create a production or debug APK you will need to [sign your app](https://developer.android.com/studio/publish/app-signing).
+For a local debug build we have provided an example file
+
+```sh
+mv android/signing/keystore.properties.example android/signing/keystore.properties
+```
+
+This will rename the example file and allow you to proceed with the build process.
+
+You may need to adjust the value of `storeFile` according to your platform
+
+```sh
+storeFile=~/.android/debug.keystore
+```
+
 ## Deploying
 
 To prepare your assets for a production deployment execute:
