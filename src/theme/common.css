@@ -11,11 +11,11 @@
   --ion-padding: 0;
 }
 
-:root[mode=md] {
+:root[mode='md'] {
   --ion-font-family: Arial, sans-serif;
 }
 
-:root[mode=ios] {
+:root[mode='ios'] {
   --ion-font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Roboto', sans-serif;
 }
 
@@ -46,7 +46,7 @@ input:invalid {
 }
 
 #lottie {
-  position:relative;
+  position: relative;
   width: 100%;
   height: 300px;
 }
@@ -60,13 +60,23 @@ div[style].cloned-input {
   width: 1.25rem;
 }
 
-body, html {
+body,
+html {
   height: 100vh;
 }
 
 /* Iphone X */
-@media screen and (min-height : 800px) and (max-height : 820px) {
-  html.plt-ios.plt-hybrid, html.plt-ios.plt-pwa {
-    --ion-statusbar-padding: 30px;
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {
+  html.plt-ios.plt-hybrid,
+  html.plt-ios.plt-pwa {
+    --ion-statusbar-padding: env(safe-area-inset-top);
+  }
+}
+
+/* X-MAX, XR */
+@media only screen and (min-device-width: 414px) and (max-device-width: 896px) and (-webkit-min-device-pixel-ratio: 3) {
+  html.plt-ios.plt-hybrid,
+  html.plt-ios.plt-pwa {
+    --ion-statusbar-padding: env(safe-area-inset-top);
   }
 }

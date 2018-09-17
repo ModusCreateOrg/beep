@@ -15,10 +15,10 @@
         </ion-buttons>
       </ion-toolbar>
     </ion-header>
-    <ion-content
-      class="content"
-      padding>
-      <slot/>
+    <ion-content padding>
+      <div class="modal-content">
+        <slot/>
+      </div>
     </ion-content>
   </div>
 </template>
@@ -38,14 +38,21 @@ export default {
 </script>
 
 <style scoped>
-.content {
+.modal-content {
   padding: 5vh 20px;
 }
 
-/* iPhone X, Xs, X-MAX and XR */
-@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape),
-  only screen and (min-device-width: 414px) and (max-device-width: 896px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {
-  .content {
+/* iPhone X, Xs*/
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {
+  .modal-content {
+    padding-right: env(safe-area-inset-right);
+    padding-left: env(safe-area-inset-left);
+  }
+}
+
+/* X-MAX, XR */
+@media only screen and (min-device-width: 414px) and (max-device-width: 896px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {
+  .modal-content {
     padding-right: env(safe-area-inset-right);
     padding-left: env(safe-area-inset-left);
   }
