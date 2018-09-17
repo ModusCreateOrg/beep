@@ -7,9 +7,7 @@
         </ion-buttons>
       </ion-toolbar>
     </ion-header>
-    <ion-content
-      padding
-      class="content">
+    <ion-content padding>
       <ion-list>
         <ion-item>
           <ion-avatar slot="start">
@@ -201,5 +199,17 @@ h2 {
 
 .info-date {
   color: var(--beep-light-dark);
+}
+
+/* iPhone X, Xs, X-MAX and XR*/
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape),
+  only screen and (min-device-width: 414px) and (max-device-width: 896px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {
+  ion-list {
+    padding-right: env(safe-area-inset-right);
+    padding-left: env(safe-area-inset-left);
+  }
+  .information-content {
+    padding: 20px env(safe-area-inset-right) 20px env(safe-area-inset-left);
+  }
 }
 </style>

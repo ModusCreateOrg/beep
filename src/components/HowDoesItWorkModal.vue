@@ -1,6 +1,6 @@
 <template>
   <modal>
-    <div class="content">
+    <div>
       <p>
         Every day, over 4 million online data records are stolen or lost.
         Beep tells you if your online accounts have been stolen in any of these data breaches.
@@ -49,10 +49,6 @@ export default {
 </script>
 
 <style scoped>
-.content {
-  padding: 5vh 20px;
-}
-
 .bee {
   width: 100%;
 }

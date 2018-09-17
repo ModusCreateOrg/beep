@@ -12,9 +12,7 @@
         type="email"
         @ionChange="filterChanged"/>
     </ion-header>
-    <ion-content
-      padding
-      class="content">
+    <ion-content padding>
       <div class="counter">{{ breaches.length }} results found</div>
       <ion-list>
         <breach-item
@@ -111,5 +109,18 @@ ion-back-button {
   letter-spacing: -0.34px;
   line-height: 17px;
   padding: 7px 10px;
+}
+
+/* iPhone X, Xs, X-MAX and XR*/
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape),
+  only screen and (min-device-width: 414px) and (max-device-width: 896px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {
+  ion-list,
+  ion-searchbar {
+    padding-right: env(safe-area-inset-right);
+    padding-left: env(safe-area-inset-left);
+  }
+  .counter {
+    padding: 7px env(safe-area-inset-right) 7px env(safe-area-inset-left);
+  }
 }
 </style>

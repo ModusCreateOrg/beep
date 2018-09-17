@@ -1,6 +1,6 @@
 <template>
   <modal>
-    <div class="content">
+    <div>
       <h1>What Should You Do?</h1>
       <p>
         We recommend changing your password on any sites where you used the password you entered.
@@ -36,10 +36,6 @@ export default {
 </script>
 
 <style scoped>
-.content {
-  padding: 5vh 20px;
-}
-
 p,
 ul {
   color: var(--beep-light-dark);
