@@ -29,10 +29,12 @@
         Instead, we transform your password into a really, really long code and then, we send only the first five characters of that code to a server.
       </p>
       <h3>Carefully crafted by</h3>
-      <img
-        src="../images/Modus-Labs-Logo.svg"
-        class="modus-labs-logo"
-        alt="Modus Labs Logo"/>
+      <a href="https://labs.moduscreate.com">
+        <img
+          src="../images/Modus-Labs-Logo.svg"
+          class="modus-labs-logo"
+          alt="Modus Labs Logo"/>
+      </a>
     </div>
   </modal>
 </template>
