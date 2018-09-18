@@ -18,9 +18,9 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit",
-    "build-android": "npm run build && npx cap sync android && npx cap copy android",
-    "build-ios": "npm run build && npm run build-ios-ci && npx cap open ios",
-    "build-ios-ci": "npx cap sync && npx cap copy ios"
+    "build-android": "npx cap sync android && npx cap copy android",
+    "build-ios": "npx cap sync && npx cap copy ios",
+    "build-native": "npm run build && npm run build-android npm run build-ios"
   },
   "dependencies": {
     "@capacitor/cli": "1.0.0-beta.7",
