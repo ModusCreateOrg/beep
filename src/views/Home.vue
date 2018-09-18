@@ -64,14 +64,16 @@ export default {
         return this.$ionic.modalController.dismiss()
       }
 
-      navigator.app.exitApp()
+      App.exitApp()
     },
   },
   mounted() {
     this.modal = () => import('@/components/HowDoesItWorkModal.vue')
   },
   created() {
-    this.backEvent = App.addListener('backButton', this.handleHardwareBackButton)
+    this.backEvent = App.addListener('backButton', this.handleHardwareBackButton).catch(
+      this.$helpers.err
+    )
   },
   destroyed() {
     if (this.backEvent && this.backEvent.remove) {
