@@ -89,7 +89,7 @@ jobs:
       - restore_cache: *restore-dist-cache
       - run:
           name: Build iOS project
-          command: npm run build-ios-ci
+          command: npm run build-ios
       - save_cache:
           key: v3-ios-{{ .Environment.CIRCLE_SHA1 }}
           paths:
