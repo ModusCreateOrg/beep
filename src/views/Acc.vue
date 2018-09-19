@@ -62,6 +62,7 @@ export default {
     },
   },
   mounted() {
+    this.$reviewAppService.tryPromptAppReview()
     this.$breachesService.clear()
   },
   methods: {
@@ -89,6 +90,7 @@ export default {
         .get(this.getURL())
         .then(response => {
           this.$breachesService.breaches = response.data
+          this.$reviewAppService.registerReview()
           this.$router.push('/breaches')
 
           return response
@@ -97,6 +99,7 @@ export default {
           // 404 means account not pwned
           this.$breachesService.breaches = []
           if (err.response && err.response.status === 404) {
+            this.$reviewAppService.registerReview()
             this.$router.push('/safe')
             return
           }

@@ -87,6 +87,7 @@ export default {
   },
   mounted() {
     this.modal = () => import('@/components/HashProtectedModal.vue')
+    this.$reviewAppService.tryPromptAppReview()
     this.$breachesService.clear()
   },
   methods: {
@@ -120,6 +121,7 @@ export default {
         .get(this.getURL(hash.substr(0, 5)))
         .then(res => {
           const count = this.search(hash.substr(5).toUpperCase(), res.data)
+          this.$reviewAppService.registerReview()
           if (count > 0) {
             this.$router.push(`/unsafe?count=${count}`)
           } else {

@@ -5,6 +5,7 @@ import router from './router'
 import helpers from './helpers'
 import './registerServiceWorker'
 import BreachService from './breachesService'
+import ReviewAppService from './reviewAppService'
 
 import { Capacitor, Plugins, StatusBarStyle } from '@capacitor/core'
 const { SplashScreen, StatusBar, Network } = Plugins
@@ -21,6 +22,9 @@ initCapacitor()
 // Initialize helpers
 Vue.prototype.$helpers = helpers
 Vue.prototype.$breachesService = BreachService
+Vue.prototype.$reviewAppService = ReviewAppService
+
+document.addEventListener('deviceready', () => Vue.prototype.$reviewAppService.init(), false)
 
 // Create a Vue app instance
 new Vue({
