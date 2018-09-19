@@ -34,4 +34,9 @@ platform :ios do
       api_token: ENV["HOCKEY_API_TOKEN"]
     )
   end
+
+  lane :deployall do
+    hockeybeta
+    upload_to_testflight
+  end
 end
