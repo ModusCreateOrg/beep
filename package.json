@@ -31,7 +31,6 @@
     "@modus/ionic-vue": "1.0.11",
     "axios": "0.18.0",
     "cordova-plugin-market": "git+https://github.com/xmartlabs/cordova-plugin-market.git",
-    "cordova-plugin-nativestorage": "^2.3.2",
     "register-service-worker": "^1.0.0",
     "sha1": "1.1.1",
     "vue": "^2.5.16",

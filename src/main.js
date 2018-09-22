@@ -7,7 +7,7 @@ import './registerServiceWorker'
 import BreachService from './breachesService'
 import ReviewAppService from './reviewAppService'
 
-import { Capacitor, Plugins, StatusBarStyle } from '@capacitor/core'
+import { Plugins, StatusBarStyle } from '@capacitor/core'
 const { SplashScreen, StatusBar, Network } = Plugins
 
 Vue.config.productionTip = false
@@ -24,7 +24,8 @@ Vue.prototype.$helpers = helpers
 Vue.prototype.$breachesService = BreachService
 Vue.prototype.$reviewAppService = ReviewAppService
 
-document.addEventListener('deviceready', () => Vue.prototype.$reviewAppService.init(), false)
+// Initialize app reviews service
+Vue.prototype.$reviewAppService.init()
 
 // Create a Vue app instance
 new Vue({
@@ -38,8 +39,8 @@ new Vue({
 // Initial Capacitor calls
 async function initCapacitor() {
   // Platform checks
-  Vue.prototype.$isWeb = Capacitor.platform === 'web'
-  Vue.prototype.$isIOS = Capacitor.platform === 'ios'
+  Vue.prototype.$isWeb = helpers.isWeb()
+  Vue.prototype.$isIOS = helpers.isIOS()
 
   // Set status-bar background and style
   StatusBar.setBackgroundColor({ color: helpers.env('INITIAL_STATUSBAR_COLOR') }).catch(helpers.err)

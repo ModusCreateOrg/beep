@@ -121,7 +121,7 @@ export default {
         .get(this.getURL(hash.substr(0, 5)))
         .then(res => {
           const count = this.search(hash.substr(5).toUpperCase(), res.data)
-          this.$reviewAppService.registerReview()
+          this.$reviewAppService.registerCheck()
           if (count > 0) {
             this.$router.push(`/unsafe?count=${count}`)
           } else {

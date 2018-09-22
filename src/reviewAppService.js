@@ -1,26 +1,24 @@
 import capacitorConfig from '../capacitor.config.json'
 import { Capacitor, Plugins, Device } from '@capacitor/core'
 import helpers from './helpers'
-const { Modals, Browser } = Plugins
-const { NativeStorage, cordova } = window
+const { Modals, Browser, Storage } = Plugins
+const { cordova } = window
 
-const iOSAppId = 'id1434675665'
+const iOSAppId = helpers.iOSAppId()
 const DEV_ITUNES_URL = `https://itunes.apple.com/us/app/apple-store/${iOSAppId}`
 const STORE_URL_FORMAT_IOS8 = `https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?pageNumber=0&sortOrdering=1&type=Purple+Software&mt=8&id=${iOSAppId}`
 const STORE_URL_PREFIX_IOS9 = `https://itunes.apple.com/app/viewContentsUserReviews/${iOSAppId}?action=write-review`
-
-const isWeb = Capacitor.platform === 'web'
-const isIOS = Capacitor.platform === 'ios'
 const storeReviewDoneStorageKey = 'storeReviewDone'
 
 export default {
-  storeReviewsEnabled: process.env.VUE_APP_STORE_REVIEWS_ENABLED === 'true',
+  storeReviewsEnabled: helpers.storeReviewsEnabled(),
   revisionsDone: 0,
   storeReviewDone: false,
+  storeReviewRejected: false,
   osVersion: 0,
   async init() {
-    NativeStorage.getItem(storeReviewDoneStorageKey, value => (this.storeReviewDone = value))
-    if (!isWeb && isIOS) {
+    this.storeReviewDone = (await Storage.get({ key: storeReviewDoneStorageKey })).value === 'true'
+    if (!helpers.isWeb() && helpers.isIOS()) {
       const deviceInfo = await Device.getInfo()
       const { osVersion } = deviceInfo
       this.osVersion = parseInt(osVersion.split('.')[0])
@@ -29,20 +27,23 @@ export default {
   getStoreHint() {
     switch (Capacitor.platform) {
       case 'ios':
-        if (Capacitor.DEBUG) {
-          return DEV_ITUNES_URL
-        }
-        if (this.osVersion < 9) {
-          return STORE_URL_FORMAT_IOS8
-        } else {
-          return STORE_URL_PREFIX_IOS9
-        }
+        return this.getiOSStoreHint()
       case 'android':
         return capacitorConfig.appId
     }
     return ''
   },
-  registerReview() {
+  getiOSStoreHint() {
+    if (Capacitor.DEBUG) {
+      return DEV_ITUNES_URL
+    }
+    if (this.osVersion < 9) {
+      return STORE_URL_FORMAT_IOS8
+    } else {
+      return STORE_URL_PREFIX_IOS9
+    }
+  },
+  registerCheck() {
     this.revisionsDone++
   },
   tryPromptAppReview(forceReview = false) {
@@ -50,14 +51,15 @@ export default {
     // a. The feature is enabled
     // b. We are on a non web environment
     // c. The user has executed only one account/password review
-    // d. The user has not accepted to provied a review for the app on the app stores yet
+    // d. The user has not accepted or rejected to provied a review for the app on the app stores yet
     // OR
     // a. The feature is enabled
     // b. The review request is forced (like when is triggered manually by the user, from a global menu for instance)
     if (
       this.storeReviewsEnabled &&
-      !isWeb &&
-      ((this.revisionsDone === 1 && !this.storeReviewDone) || forceReview)
+      !helpers.isWeb() &&
+      ((this.revisionsDone === 1 && !this.storeReviewDone && !this.storeReviewRejected) ||
+        forceReview)
     ) {
       this.doPromptAppReview()
     }
@@ -69,25 +71,31 @@ export default {
       okButtonTitle: 'Sure',
       cancelButtonTitle: 'Not now',
     })
-      .then(doReview => {
-        if (doReview) {
-          const url = this.getStoreHint()
-          if (isIOS) {
-            Browser.open({ url })
-              .then(() => this.setReviewDone())
-              .catch(helpers.err)
-          } else {
-            cordova.plugins.market.open(url)
-            this.setReviewDone()
-          }
+      .then(({ value }) => {
+        if (value) {
+          this.suggestAppReview()
+        } else {
+          this.storeReviewRejected = true
         }
         return
       })
       .catch(helpers.err)
   },
-  setReviewDone() {
-    NativeStorage.setItem(storeReviewDoneStorageKey, true, () => {
-      this.storeReviewDone = true
+  async suggestAppReview() {
+    const url = this.getStoreHint()
+    if (helpers.isIOS()) {
+      await Browser.open({ url })
+      this.setReviewDone()
+    } else {
+      cordova.plugins.market.open(url)
+      this.setReviewDone()
+    }
+  },
+  async setReviewDone() {
+    await Storage.set({
+      key: storeReviewDoneStorageKey,
+      value: 'true',
     })
+    this.storeReviewDone = true
   },
 }

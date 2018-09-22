@@ -90,7 +90,7 @@ export default {
         .get(this.getURL())
         .then(response => {
           this.$breachesService.breaches = response.data
-          this.$reviewAppService.registerReview()
+          this.$reviewAppService.registerCheck()
           this.$router.push('/breaches')
 
           return response
@@ -99,7 +99,7 @@ export default {
           // 404 means account not pwned
           this.$breachesService.breaches = []
           if (err.response && err.response.status === 404) {
-            this.$reviewAppService.registerReview()
+            this.$reviewAppService.registerCheck()
             this.$router.push('/safe')
             return
           }
