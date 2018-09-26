@@ -65,9 +65,12 @@ html {
   height: 100vh;
 }
 
-/* Iphone X, Xs, X-MAX, XR */
+/* iPhone support
+ * first selector: X/Xs/X-MAX 
+ * second selector: XR
+ */
 @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3),
-  only screen and (min-device-width: 414px) and (max-device-width: 896px) and (-webkit-min-device-pixel-ratio: 3) {
+  only screen and (min-device-width: 414px) and (max-device-width: 767px) and (-webkit-min-device-pixel-ratio: 2) {
   html.plt-ios.plt-hybrid,
   html.plt-ios.plt-pwa {
     --ion-statusbar-padding: env(safe-area-inset-top);

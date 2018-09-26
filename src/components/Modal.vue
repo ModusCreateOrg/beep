@@ -42,9 +42,12 @@ export default {
   padding: 5vh 20px;
 }
 
-/* iPhone X, Xs, X-MAX, XR */
+/* iPhone support
+ * first selector: X/Xs/X-MAX 
+ * second selector: XR
+ */
 @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape),
-  only screen and (min-device-width: 414px) and (max-device-width: 896px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {
+  only screen and (min-device-width: 414px) and (max-device-width: 767px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
   .modal-content {
     padding-right: env(safe-area-inset-right);
     padding-left: env(safe-area-inset-left);
