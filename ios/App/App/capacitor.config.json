@@ -2,5 +2,8 @@
   "appId": "app.modus.beep",
   "appName": "Beep",
   "bundledWebRuntime": false,
-  "webDir": "dist"
+  "webDir": "dist",
+  "android": {
+    "allowMixedContent": true
+  }
 }
