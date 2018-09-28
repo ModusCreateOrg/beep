@@ -38,6 +38,13 @@ Beep is one of the first apps built on Vue.JS and Ionic Framework. With this com
 
 We've made sure that Beep won't end up yet another name on the list of data breaches. How? We hash all of your passwords and account information. In other words, we never store your passwords in plain text. Instead, we transform your password into a really, really long code and then, we send only the first five characters of that code to a server.
 
+[![Beep Screenshot](https://res.cloudinary.com/modus-labs/image/upload/w_130,f_auto,dpr_auto/v1538144594/beep/Beep-Screenshot-iPhoneX-01.png)](https://res.cloudinary.com/modus-labs/image/upload/v1538144594/beep/Beep-Screenshot-iPhoneX-01.png)
+[![Beep Screenshot](https://res.cloudinary.com/modus-labs/image/upload/w_130,f_auto,dpr_auto/v1538144594/beep/Beep-Screenshot-iPhoneX-02.png)](https://res.cloudinary.com/modus-labs/image/upload/v1538144594/beep/Beep-Screenshot-iPhoneX-02.png)
+[![Beep Screenshot](https://res.cloudinary.com/modus-labs/image/upload/w_130,f_auto,dpr_auto/v1538144594/beep/Beep-Screenshot-iPhoneX-03.png)](https://res.cloudinary.com/modus-labs/image/upload/v1538144594/beep/Beep-Screenshot-iPhoneX-03.png)
+[![Beep Screenshot](https://res.cloudinary.com/modus-labs/image/upload/w_130,f_auto,dpr_auto/v1538144594/beep/Beep-Screenshot-iPhoneX-04.png)](https://res.cloudinary.com/modus-labs/image/upload/v1538144594/beep/Beep-Screenshot-iPhoneX-04.png)
+[![Beep Screenshot](https://res.cloudinary.com/modus-labs/image/upload/w_130,f_auto,dpr_auto/v1538144594/beep/Beep-Screenshot-iPhoneX-05.png)](https://res.cloudinary.com/modus-labs/image/upload/v1538144594/beep/Beep-Screenshot-iPhoneX-05.png)
+[![Beep Screenshot](https://res.cloudinary.com/modus-labs/image/upload/w_130,f_auto,dpr_auto/v1538144594/beep/Beep-Screenshot-iPhoneX-06.png)](https://res.cloudinary.com/modus-labs/image/upload/v1538144594/beep/Beep-Screenshot-iPhoneX-06.png)
+
 # Installing
 
 Once you clone this repo go into the terminal and install dependencies.
