@@ -51,8 +51,7 @@ platform :android do
   end
 
   lane :hockeybeta do
-    increment_version_code gradle_build: 'app/build.gradle'
-    gradle(task: "clean assembleRelease")
+    release
     hockey(
       api_token: ENV["HOCKEY_API_TOKEN"]
     )

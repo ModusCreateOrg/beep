@@ -26,6 +26,11 @@ Push a new beta build to TestFlight
 fastlane ios hockeybeta
 ```
 
+### ios deployall
+```
+fastlane ios deployall
+```
+
 
 ----
 
