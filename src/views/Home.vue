@@ -34,7 +34,7 @@
           </div>
         </div>
       </div>
-      <h2 @click="toggleModal"><span>How does it work?</span></h2>
+      <h2 @click="goToHelp"><span>How does it work?</span></h2>
     </ion-content>
   </ion-page>
 </template>
@@ -65,6 +65,9 @@ export default {
       }
 
       App.exitApp()
+    },
+    goToHelp() {
+      this.toggleModal()
     },
   },
   mounted() {
