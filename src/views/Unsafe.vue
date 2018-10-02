@@ -17,7 +17,7 @@
         v-html="count"/>
       <h2 class="count-text">websites</h2>
       <div id="lottie"></div>
-      <h3 @click="toggleModal">
+      <h3 @click="goToHelp">
         <span>What should you do?</span>
       </h3>
       <h3 @click="goToAcc">
@@ -73,6 +73,9 @@ export default {
         autoplay: true,
         name: 'unsafe',
       })
+    },
+    goToHelp() {
+      this.toggleModal()
     },
   },
 }

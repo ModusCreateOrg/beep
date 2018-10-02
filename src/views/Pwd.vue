@@ -46,7 +46,7 @@
           <input type="submit" class="form-submit-button"/>
         </form>
       </div>
-      <div class="hash-protected-holder" @click="toggleModal">
+      <div class="hash-protected-holder" @click="goToHelp">
         <div class="hash-protected-inner">
           <img class="hash-protected-img" src="../images/Icon-Hash-Protected.svg" alt="Hash protected"/>
           <span>Hash protected</span>
@@ -155,6 +155,9 @@ export default {
       }
 
       return breachData[1]
+    },
+    goToHelp() {
+      this.toggleModal()
     },
   },
 }

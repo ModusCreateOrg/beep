@@ -12,14 +12,16 @@ export default {
     next(!this.isModalOpen)
   },
   methods: {
-    toggleModal() {
+    toggleModal(modalComponent = null) {
       if (!this.isModalOpen) {
-        this.openModal()
+        this.openModal(modalComponent)
       }
       this.isModalOpen = !this.isModalOpen
     },
-    async openModal() {
-      const modal = await this.$ionic.modalController.create({ component: this.modal })
+    async openModal(modalComponent = null) {
+      const modal = await this.$ionic.modalController.create({
+        component: modalComponent || this.modal,
+      })
       modal.present()
       return modal.onDidDismiss().then(this.toggleModal)
     },
