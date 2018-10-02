@@ -1,7 +1,7 @@
 import capacitorConfig from '../capacitor.config.json'
 import { Capacitor, Plugins, Device } from '@capacitor/core'
 import helpers from './helpers'
-const { Modals, Browser, Storage } = Plugins
+const { Browser, Storage } = Plugins
 const { cordova } = window
 
 const iOSAppId = helpers.iOSAppId()
@@ -9,6 +9,8 @@ const DEV_ITUNES_URL = `https://itunes.apple.com/us/app/apple-store/${iOSAppId}`
 const STORE_URL_FORMAT_IOS8 = `https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?pageNumber=0&sortOrdering=1&type=Purple+Software&mt=8&id=${iOSAppId}`
 const STORE_URL_PREFIX_IOS9 = `https://itunes.apple.com/app/viewContentsUserReviews/${iOSAppId}?action=write-review`
 const storeReviewDoneStorageKey = 'storeReviewDone'
+const supportEmail = helpers.env('SUPPORT_EMAIL')
+const supportEmailSubject = helpers.env('SUPPORT_EMAIL_SUBJECT')
 
 export default {
   storeReviewsEnabled: helpers.storeReviewsEnabled(),
@@ -46,40 +48,19 @@ export default {
   registerCheck() {
     this.revisionsDone++
   },
-  tryPromptAppReview(forceReview = false) {
+  shouldPromptAppReview() {
     // We only prompt for an app review if:
     // a. The feature is enabled
     // b. We are on a non web environment
     // c. The user has executed only one account/password review
     // d. The user has not accepted or rejected to provied a review for the app on the app stores yet
-    // OR
-    // a. The feature is enabled
-    // b. The review request is forced (like when is triggered manually by the user, from a global menu for instance)
-    if (
+    return (
       this.storeReviewsEnabled &&
       !helpers.isWeb() &&
-      ((this.revisionsDone === 1 && !this.storeReviewDone && !this.storeReviewRejected) ||
-        forceReview)
-    ) {
-      this.doPromptAppReview()
-    }
-  },
-  doPromptAppReview() {
-    Modals.confirm({
-      title: 'Have some feedback?',
-      message: 'Do you want to review this app?',
-      okButtonTitle: 'Sure',
-      cancelButtonTitle: 'Not now',
-    })
-      .then(({ value }) => {
-        if (value) {
-          this.suggestAppReview()
-        } else {
-          this.storeReviewRejected = true
-        }
-        return
-      })
-      .catch(helpers.err)
+      this.revisionsDone === 1 &&
+      !this.storeReviewDone &&
+      !this.storeReviewRejected
+    )
   },
   async suggestAppReview() {
     const url = this.getStoreHint()
@@ -90,6 +71,7 @@ export default {
       cordova.plugins.market.open(url)
       this.setReviewDone()
     }
+    return Promise.resolve()
   },
   async setReviewDone() {
     await Storage.set({
@@ -98,4 +80,8 @@ export default {
     })
     this.storeReviewDone = true
   },
+  async provideAppFeedback() {
+    await this.setReviewDone()
+    window.location.href = `mailto:${supportEmail}?subject=${supportEmailSubject}`
+  }
 }

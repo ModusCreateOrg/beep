@@ -61,12 +61,13 @@ import sha1 from 'sha1'
 import axios from 'axios'
 import hasModal from '@/mixins/hasModal'
 import network from '@/mixins/network'
+import reviewAppModal from '@/mixins/reviewAppModal'
 
 const baseURL = 'https://api.pwnedpasswords.com/range/'
 
 export default {
   name: 'Pwd',
-  mixins: [hasModal, network],
+  mixins: [hasModal, network, reviewAppModal],
   data() {
     return {
       pwd: '',
@@ -87,7 +88,7 @@ export default {
   },
   mounted() {
     this.modal = () => import('@/components/HashProtectedModal.vue')
-    this.$reviewAppService.tryPromptAppReview()
+    this.tryPromptAppReview()
     this.$breachesService.clear()
   },
   methods: {

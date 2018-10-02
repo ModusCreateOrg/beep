@@ -46,10 +46,12 @@
 <script>
 import axios from 'axios'
 import network from '@/mixins/network'
+import hasModal from '@/mixins/hasModal'
+import reviewAppModal from '@/mixins/reviewAppModal'
 
 export default {
   name: 'Acc',
-  mixins: [network],
+  mixins: [network, hasModal, reviewAppModal],
   data() {
     return {
       account: '',
@@ -62,7 +64,7 @@ export default {
     },
   },
   mounted() {
-    this.$reviewAppService.tryPromptAppReview()
+    this.tryPromptAppReview()
     this.$breachesService.clear()
   },
   methods: {
