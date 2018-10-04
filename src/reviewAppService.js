@@ -51,12 +51,10 @@ export default {
   shouldPromptAppReview() {
     // We only prompt for an app review if:
     // a. The feature is enabled
-    // b. We are on a non web environment
-    // c. The user has executed only one account/password review
-    // d. The user has not accepted or rejected to provied a review for the app on the app stores yet
+    // b. The user has executed only one account/password review
+    // c. The user has not accepted or rejected to provied a review for the app on the app stores yet
     return (
       this.storeReviewsEnabled &&
-      !helpers.isWeb() &&
       this.revisionsDone === 1 &&
       !this.storeReviewDone &&
       !this.storeReviewRejected
@@ -83,5 +81,5 @@ export default {
   async provideAppFeedback() {
     await this.setReviewDone()
     window.location.href = `mailto:${supportEmail}?subject=${supportEmailSubject}`
-  }
+  },
 }

@@ -2,7 +2,7 @@
   <modal>
     <div>
       <h1>Did you like using BEEP?</h1>
-      <h3 @click="goToReview">
+      <h3 @click="goToReview" v-if="!isWeb">
         <span>Would you mind rating BEEP?</span>
       </h3>
       <h3 @click="provideFeedback">
@@ -14,11 +14,17 @@
 
 <script>
 import Modal from './Modal.vue'
+import helpers from '../helpers'
 
 export default {
   name: 'ReviewAppModal',
   components: {
     Modal,
+  },
+  data() {
+    return {
+      isWeb: helpers.isWeb()
+    }
   },
   methods: {
     async goToReview() {
