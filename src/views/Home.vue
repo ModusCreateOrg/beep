@@ -83,7 +83,7 @@ export default {
     async share() {
       await Share.share({
         title: 'Share Beep!',
-        text: 'Help others to keep safe and safety',
+        text: 'Help others to keep safe',
         url: 'https://beep.modus.app/',
         dialogTitle: 'Spread the word'
       });
