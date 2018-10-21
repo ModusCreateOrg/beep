@@ -70,10 +70,11 @@ ion-toolbar {
 
 ion-back-button {
   --ion-color-base: var(--beep-light);
+  color: var(--beep-light);
 }
 
 ion-content {
-  background-color: var(--beep-success);
+  --background: var(--beep-success);
 }
 
 h1 {

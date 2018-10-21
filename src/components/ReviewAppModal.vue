@@ -1,13 +1,18 @@
 <template>
-  <modal>
+  <modal className="feedback-modal">
     <div>
-      <h1>Did you like using BEEP?</h1>
-      <h3 @click="goToReview" v-if="!isWeb">
-        <span>Would you mind rating BEEP?</span>
-      </h3>
-      <h3 @click="provideFeedback">
-        <span>We would love to learn from your experience. Can you give us feedback, please? </span>
-      </h3>
+      <h1>Did you like<br/>using BEEP?</h1>
+      <h3>Please help us improve<br/>by leaving your feedback</h3>
+      <div class="bees-container">
+        <a @click="badExperience">
+          <img src="../images/Bee-Not-Happy-Avatar@2x.svg"/>
+          <div>Not Really</div>
+        </a>
+        <a @click="goodExperience">
+          <img src="../images/Bee-Happy-Avatar@2x.svg"/>
+          <div>Love It!</div>
+        </a>
+      </div>
     </div>
   </modal>
 </template>
@@ -23,7 +28,7 @@ export default {
   },
   data() {
     return {
-      isWeb: helpers.isWeb()
+      isWeb: helpers.isWeb(),
     }
   },
   methods: {
@@ -35,29 +40,91 @@ export default {
       await this.$reviewAppService.provideAppFeedback()
       this.$ionic.modalController.dismiss()
     },
+    async badExperience () {
+      this.$ionic.alertController
+        .create({
+          header: 'Please help use improve!',
+          message: 'We love feedback. How can we make our app better?',
+          buttons: [
+            'Cancel',
+            {
+              text: 'Feedback',
+              handler: () => {
+                this.$reviewAppService.provideAppFeedback()
+                this.$ionic.modalController.dismiss()
+              }
+            },
+          ],
+        })
+        .then(a => a.present())
+    },
+    async goodExperience () {
+      if (!this.isWeb) {
+        this.$ionic.alertController
+          .create({
+            header: 'Rate & Review',
+            message: 'Please, rate our app and write a review to help us reach more people',
+            buttons: [
+              {
+                text: 'No, Thanks',
+                handler: () => {
+                  this.$reviewAppService.setReviewDone()
+                  this.$ionic.modalController.dismiss()
+                }
+              },
+              'Maybe later',
+              {
+                text: 'Write Review',
+                handler: () => {
+                  this.$reviewAppService.suggestAppReview()
+                  this.$ionic.modalController.dismiss()
+                }
+              },
+            ],
+          })
+          .then(a => a.present())
+      } else {
+        this.$reviewAppService.setReviewDone()
+        this.$ionic.modalController.dismiss()
+      }
+    },
   },
 }
 </script>
 
 <style scoped>
 h1 {
-  color: var(--beep-dark);
-  font-size: 24px;
+  color: var(--beep-light);
+  font-size: 34px;
   font-weight: bold;
   letter-spacing: -0.6px;
-  line-height: 1.5;
-  margin-bottom: 25px; 
+  line-height: 1.3;
+  margin-bottom: 25px;
 }
 h3 {
   margin: 0 auto;
+  color: var(--beep-light);
   height: 5vh;
-  font-size: 16px;
+  font-size: 19px;
   font-weight: 300;
   letter-spacing: -0.48px;
   line-height: 22px;
 }
-
-h3 span {
-  border-bottom: 1px solid var(--beep-dark);
+.bees-container {
+  margin-top: 80px;
+  width: 100%;
+}
+a {
+  float: left;
+  width: 50%;
+  cursor: pointer;
+}
+a img {
+  height: 125px;
+}
+a div {
+  margin-top: 10px;
+  color: var(--beep-light);
+  font-weight: lighter;
 }
 </style>

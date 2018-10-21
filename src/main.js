@@ -6,6 +6,7 @@ import helpers from './helpers'
 import './registerServiceWorker'
 import BreachService from './breachesService'
 import ReviewAppService from './reviewAppService'
+import AppService from './appService'
 
 import { Plugins, StatusBarStyle } from '@capacitor/core'
 const { SplashScreen, StatusBar, Network } = Plugins
@@ -22,15 +23,20 @@ initCapacitor()
 // Initialize helpers
 Vue.prototype.$helpers = helpers
 Vue.prototype.$breachesService = BreachService
+Vue.prototype.$appService = AppService
 Vue.prototype.$reviewAppService = ReviewAppService
 
-// Initialize app reviews service
-Vue.prototype.$reviewAppService.init()
+// Initialize app service and reviews service
+async function initServices() {
+  await Vue.prototype.$appService.init()
+  await Vue.prototype.$reviewAppService.init()
+}
+initServices()
 
 // Create a Vue app instance
 new Vue({
   router,
-  mounted() {
+  async mounted() {
     SplashScreen.hide().catch(this.$helpers.err)
     initNavGesture(this)
   },

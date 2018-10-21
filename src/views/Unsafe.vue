@@ -93,10 +93,11 @@ ion-toolbar {
 
 ion-back-button {
   --ion-color-base: var(--beep-light);
+  color: var(--beep-light);
 }
 
 ion-content {
-  background-color: var(--beep-danger);
+  --background: var(--beep-danger);
 }
 
 h1 {

@@ -19,7 +19,7 @@
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit",
     "build-android": "npx cap sync android && npx cap copy android",
-    "build-ios": "npx cap sync && npx cap copy ios",
+    "build-ios": "npx cap sync ios && npx cap copy ios",
     "build-native": "npm run build && npm run build-android npm run build-ios"
   },
   "dependencies": {
