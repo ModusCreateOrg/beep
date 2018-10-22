@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import './theme/common.css'
 import { Ionic, IonicAPI } from '@modus/ionic-vue'
+import { defineCustomElements as initMDS } from '@modus/motherboard/dist/loader'
 import router from './router'
 import helpers from './helpers'
 import './registerServiceWorker'
@@ -10,6 +11,10 @@ import { Capacitor, Plugins, StatusBarStyle } from '@capacitor/core'
 const { SplashScreen, StatusBar, Network } = Plugins
 
 Vue.config.productionTip = false
+
+// init Motherboard
+Vue.config.ignoredElements = [/mds-\w*/]
+initMDS(window)
 
 // Initialize Ionic
 Ionic.init()
