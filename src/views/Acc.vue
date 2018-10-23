@@ -17,10 +17,10 @@
       </ion-toolbar>
     </ion-header>
     <ion-content padding class="content">
-      <h1>
+      <mds-heading>
         Enter any username or email and<br>
-        we'll check if it's been hacked<br>
-      </h1>
+        we'll check if it's been hacked
+      </mds-heading>
       <div class="input-holder">
         <form @submit.prevent="checkAccount" action="#">
           <ion-item>
@@ -136,16 +136,6 @@ ion-button.button.button-clear.button-md.button-clear-md {
 
 ion-back-button {
   --ion-color-base: var(--beep-primary);
-}
-
-h1 {
-  color: var(--ion-dark-transparent);
-  width: 100%;
-  font-size: 12px;
-  font-weight: normal;
-  letter-spacing: -0.29px;
-  line-height: 1.4;
-  text-align: center;
 }
 
 ion-item {
