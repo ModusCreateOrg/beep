@@ -11,8 +11,8 @@
         been hacked
       </h1>
       <section class="buttons">
-        <mds-square-button text="Account" :icon="iconAccount" />
-        <mds-square-button text="Password" :icon="iconPassword" />
+        <mds-square-button text="Account" :icon="iconAccount" @click="goToAcc" />
+        <mds-square-button text="Password" :icon="iconPassword" @click="goToPwd" />
       </section>
       <h2 @click="goToHelp"><span>How does it work?</span></h2>
     </ion-content>
@@ -22,8 +22,8 @@
 <script>
 import hasModal from '@/mixins/hasModal'
 import { Plugins } from '@capacitor/core'
-import iconAccount from '../images/Icon-Account.svg';
-import iconPassword from '../images/Icon-Password.svg';
+import iconAccount from '../images/Icon-Account.svg'
+import iconPassword from '../images/Icon-Password.svg'
 
 const { App } = Plugins
 

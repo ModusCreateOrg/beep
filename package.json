@@ -29,7 +29,7 @@
     "@capacitor/ios": "1.0.0-beta.8",
     "@ionic/core": "4.0.0-beta.12",
     "@modus/ionic-vue": "1.0.12",
-    "@modus/motherboard": "0.0.1",
+    "@modus/motherboard": "0.0.3",
     "axios": "0.18.0",
     "register-service-worker": "^1.0.0",
     "sha1": "1.1.1",
