@@ -65,8 +65,13 @@ html {
   height: 100vh;
 }
 
+mds-heading {
+  --color-light: var(--ion-dark-transparent);
+  margin: 0 2rem;
+}
+
 /* iPhone support
- * first selector: X/Xs/X-MAX 
+ * first selector: X/Xs/X-MAX
  * second selector: XR
  */
 @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3),

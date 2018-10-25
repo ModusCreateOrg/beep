@@ -7,21 +7,18 @@
         </ion-buttons>
         <ion-title>Check Password</ion-title>
         <ion-buttons slot="end">
-          <ion-button :disabled="!isValidPwd" clear @click="checkHash">
-            <span v-if="requestPending">
-              <ion-spinner/>
-            </span>
-            <span v-else>Check</span>
-          </ion-button>
+          <mds-button :disabled="!isValidPwd" @click="checkHash" :loading="requestPending">
+            Check
+          </mds-button>
         </ion-buttons>
       </ion-toolbar>
     </ion-header>
     <ion-content class="content" padding>
-      <h1>
+      <mds-heading>
         Don't worry.<br>
         Your password is hash protected and<br>
-        we won't store it anywhere.<br>
-      </h1>
+        we won't store it anywhere.
+      </mds-heading>
       <div class="input-holder">
         <form @submit.prevent="checkHash" action="#">
           <ion-item>
@@ -175,16 +172,6 @@ ion-button.button.button-clear.button-md.button-clear-md {
 
 ion-back-button {
   --ion-color-base: var(--beep-primary);
-}
-
-h1 {
-  width: 100%;
-  color: var(--ion-dark-transparent);
-  font-size: 12px;
-  letter-spacing: -0.29px;
-  line-height: 15px;
-  text-align: center;
-  font-weight: normal;
 }
 
 ion-item {
