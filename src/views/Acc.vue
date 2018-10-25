@@ -7,12 +7,9 @@
         </ion-buttons>
         <ion-title>Check Account</ion-title>
         <ion-buttons slot="end">
-          <ion-button :disabled="!isValidAccount" clear @click="checkAccount">
-            <span v-if="requestPending">
-              <ion-spinner/>
-            </span>
-            <span v-else>Check</span>
-          </ion-button>
+          <mds-button :disabled="!isValidAccount" @click="checkAccount" :loading="requestPending">
+            Check
+          </mds-button>
         </ion-buttons>
       </ion-toolbar>
     </ion-header>

@@ -7,12 +7,9 @@
         </ion-buttons>
         <ion-title>Check Password</ion-title>
         <ion-buttons slot="end">
-          <ion-button :disabled="!isValidPwd" clear @click="checkHash">
-            <span v-if="requestPending">
-              <ion-spinner/>
-            </span>
-            <span v-else>Check</span>
-          </ion-button>
+          <mds-button :disabled="!isValidPwd" @click="checkHash" :loading="requestPending">
+            Check
+          </mds-button>
         </ion-buttons>
       </ion-toolbar>
     </ion-header>
