@@ -1,19 +1,26 @@
 import Vue from 'vue'
-import './theme/common.css'
-import { Ionic, IonicAPI } from '@modus/ionic-vue'
+import Ionic from '@modus/ionic-vue'
 import router from './router'
-import helpers from './helpers'
-import './registerServiceWorker'
-import BreachService from './breachesService'
 
+// Capacitor
 import { Capacitor, Plugins, StatusBarStyle } from '@capacitor/core'
 const { SplashScreen, StatusBar, Network } = Plugins
 
+// Helpers
+import helpers from './helpers'
+import BreachService from './breachesService'
+import './registerServiceWorker'
+
+// Ionic core styles and theming
+import '@ionic/core/css/core.css'
+import '@ionic/core/css/ionic.bundle.css'
+import './theme/common.css'
+
+// Disable tips
 Vue.config.productionTip = false
 
-// Initialize Ionic
-Ionic.init()
-Vue.use(IonicAPI)
+// Use ionic/vue plugin
+Vue.use(Ionic)
 
 // Initialize Capacitor
 initCapacitor()
@@ -52,13 +59,13 @@ async function initCapacitor() {
   )
 }
 
-// Navigate through a swipe gesture
+// Navigate back and forth through a swipe gesture
 async function initNavGesture(app) {
-  const gesture = await import('@ionic/core/dist/collection/utils/gesture/gesture')
+  const gesture = await import('@ionic/core/dist/collection/utils/gesture')
 
   gesture
     .createGesture({
-      el: document,
+      el: document.body,
       gestureName: 'swipe',
       gesturePriority: 40,
       threshold: 10,
@@ -68,11 +75,9 @@ async function initNavGesture(app) {
       onMove: () => {},
       onEnd: ev => {
         const threshold = app.$root.$el.offsetWidth / 2
-        if (Math.abs(ev.deltaX) < threshold) {
-          return
+        if (Math.abs(ev.deltaX) > threshold) {
+          app.$router.go(ev.deltaX > 0 ? -1 : 1)
         }
-
-        app.$router.go(ev.deltaX > 0 ? -1 : 1)
       },
     })
     .setDisabled(false)
