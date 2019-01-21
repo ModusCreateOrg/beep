@@ -79,7 +79,8 @@ export default {
 
 <style scoped>
 ion-toolbar {
-  --ion-toolbar-background-color: var(--beep-primary);
+  text-align: center;
+  --background: var(--beep-danger); 
   color: var(--beep-light);
 }
 
@@ -97,7 +98,7 @@ ion-button {
 }
 
 ion-back-button {
-  --ion-color-base: var(--beep-light);
+  --color: var(--beep-light);
 }
 
 .counter {
