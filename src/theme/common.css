@@ -11,6 +11,18 @@
   --ion-padding: 0;
 }
 
+:root ion-back-button {
+  --color: var(--beep-danger);
+}
+
+:root ion-button,
+:root ion-button.button-clear,
+:root ion-button.button.button-clear.button-md.button-clear-md {
+  --color: var(--beep-danger);
+  --color-activated: var(--beep-danger);
+  text-transform: none;
+}
+
 :root[mode='md'] {
   --ion-font-family: Arial, sans-serif;
 }

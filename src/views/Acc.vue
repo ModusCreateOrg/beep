@@ -127,21 +127,6 @@ ion-spinner * {
   stroke: white;
 }
 
-ion-button,
-ion-button.button-clear,
-ion-button.button.button-clear.button-md.button-clear-md {
-  --color: var(--beep-danger);
-  text-transform: none;
-}
-
-ion-button {
-  --color: var(--beep-danger);
-}
-
-ion-back-button {
-  --color: var(--beep-danger);
-}
-
 h1 {
   color: var(--ion-dark-transparent);
   width: 100%;
