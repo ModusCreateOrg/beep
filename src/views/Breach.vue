@@ -99,7 +99,7 @@ ion-button.button.button-clear.button-md.button-clear-md {
 }
 
 ion-back-button {
-  --ion-color-base: var(--beep-primary);
+  --color: var(--beep-danger);
 }
 
 ion-list {

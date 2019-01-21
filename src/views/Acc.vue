@@ -130,12 +130,16 @@ ion-spinner * {
 ion-button,
 ion-button.button-clear,
 ion-button.button.button-clear.button-md.button-clear-md {
-  --ion-color-base: var(--beep-primary);
+  --color: var(--beep-danger);
   text-transform: none;
 }
 
+ion-button {
+  --color: var(--beep-danger);
+}
+
 ion-back-button {
-  --ion-color-base: var(--beep-primary);
+  --color: var(--beep-danger);
 }
 
 h1 {
