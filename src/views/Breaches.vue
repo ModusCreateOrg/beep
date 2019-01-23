@@ -80,7 +80,7 @@ export default {
 <style scoped>
 ion-toolbar {
   text-align: center;
-  --background: var(--beep-danger); 
+  --background: var(--beep-danger);
   color: var(--beep-light);
 }
 
@@ -113,7 +113,7 @@ ion-back-button {
 }
 
 /* iPhone support
- * first selector: X/Xs/X-MAX 
+ * first selector: X/Xs/X-MAX
  * second selector: XR
  */
 @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape),

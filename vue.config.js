@@ -1,5 +1,5 @@
 module.exports = {
-  baseUrl: '/',
+  publicPath: '/',
   runtimeCompiler: true,
 
   // PWA config
