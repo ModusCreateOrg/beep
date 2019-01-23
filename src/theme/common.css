@@ -72,6 +72,17 @@ div[style].cloned-input {
   width: 1.25rem;
 }
 
+.link {
+  border-bottom: 1px solid var(--beep-secondary);
+  transition-duration: 0.2s;
+}
+
+.link:hover {
+  cursor: pointer;
+  color: var(--beep-primary);
+  border-color: var(--beep-primary);
+}
+
 body,
 html {
   height: 100vh;
