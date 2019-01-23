@@ -71,6 +71,10 @@ div[style].cloned-input {
   float: left;
   width: 1.25rem;
 }
+a.link {
+  text-decoration: none;
+  color: var(--beep-secondary);
+}
 
 .link {
   border-bottom: 1px solid var(--beep-secondary);
