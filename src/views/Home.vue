@@ -2,20 +2,19 @@
   <ion-page class="ion-page">
     <ion-header>
       <ion-toolbar>
-        <img src="../images/Beep-Logo.svg" class="logo" alt="Beep logo"/>
+        <img src="../images/Beep-Logo.svg" class="logo" alt="Beep logo">
       </ion-toolbar>
     </ion-header>
     <ion-content class="content">
-      <h1>
-        Check if you've<br>
-        been hacked
+      <h1>Check if you've
+        <br>been hacked
       </h1>
       <div class="buttons">
         <div class="btn-holder" @click="goToAcc">
           <div class="square-btn">
             <div class="square-btn-content">
               <div class="square-btn-icon">
-                <img src="../images/Icon-Account.svg" alt="Account logo"/>
+                <img src="../images/Icon-Account.svg" alt="Account logo">
               </div>
               <div class="square-btn-text">Account</div>
             </div>
@@ -26,7 +25,7 @@
           <div class="square-btn">
             <div class="square-btn-content">
               <div class="square-btn-icon">
-                <img src="../images/Icon-Password.svg" alt="Password logo"/>
+                <img src="../images/Icon-Password.svg" alt="Password logo">
               </div>
               <div class="square-btn-text">Password</div>
             </div>
@@ -34,7 +33,9 @@
           </div>
         </div>
       </div>
-      <h2 @click="goToHelp"><span>How does it work?</span></h2>
+      <h2 @click="goToHelp">
+        <span class="link">How does it work?</span>
+      </h2>
     </ion-content>
   </ion-page>
 </template>
@@ -185,10 +186,6 @@ h2 {
   font-weight: 300;
   letter-spacing: -0.48px;
   display: inline-block;
-}
-
-h2 span {
-  border-bottom: 1px solid var(--beep-secondary);
 }
 
 @media screen and (min-height: 650px) {

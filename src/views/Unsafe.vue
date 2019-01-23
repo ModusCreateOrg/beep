@@ -85,6 +85,7 @@ export default {
 ion-page {
   text-align: center;
   --ion-text-color: var(--beep-light);
+  --ion-background-color: var(--beep-danger);
 }
 
 ion-toolbar {
@@ -92,12 +93,7 @@ ion-toolbar {
 }
 
 ion-back-button {
-  --ion-color-base: var(--beep-light);
-  color: var(--beep-light);
-}
-
-ion-content {
-  --background: var(--beep-danger);
+  --color: var(--beep-light);
 }
 
 h1 {
