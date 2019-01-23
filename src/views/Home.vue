@@ -49,7 +49,7 @@ export default {
   mixins: [hasModal],
   data() {
     return {
-      backEvent: null,
+      backEvent: {},
     }
   },
   methods: {
@@ -60,11 +60,9 @@ export default {
       this.$router.push('/pwd')
     },
     handleHardwareBackButton() {
-      if (this.isModalOpen) {
-        return this.$ionic.modalController.dismiss()
+      if (!this.isModalOpen) {
+        App.exitApp()
       }
-
-      App.exitApp()
     },
     goToHelp() {
       this.toggleModal()
@@ -74,12 +72,11 @@ export default {
     this.modal = () => import('@/components/HowDoesItWorkModal.vue')
   },
   created() {
-    this.backEvent = App.addListener('backButton', this.handleHardwareBackButton).catch(
-      this.$helpers.err
-    )
+    this.backEvent = App.addListener('backButton', this.handleHardwareBackButton)
+    this.backEvent.catch(this.$helpers.err)
   },
-  destroyed() {
-    if (this.backEvent && this.backEvent.remove) {
+  beforeDestroy() {
+    if (this.backEvent.remove) {
       this.backEvent.remove()
     }
   },
