@@ -189,6 +189,13 @@ h2 {
 
 h2 span {
   border-bottom: 1px solid var(--beep-secondary);
+  transition-duration: 0.2s;
+}
+
+h2 span:hover {
+  cursor: pointer;
+  color: var(--beep-primary);
+  border-color: var(--beep-primary);
 }
 
 @media screen and (min-height: 650px) {
