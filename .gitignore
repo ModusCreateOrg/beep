@@ -38,3 +38,6 @@ fastlane/test_output
 android/signing/*
 !android/signing/.gitkeep
 !android/signing/keystore.properties.example
+
+# automated end-to-end tests
+tests_root/wdio/errorShots/*
