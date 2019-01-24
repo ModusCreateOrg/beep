@@ -1,4 +1,4 @@
-const configBase = require('./wdio.conf');
+const configBase = require('./wdio.conf')
 
 exports.config = Object.assign({}, configBase.config, {
   capabilities: [
@@ -9,13 +9,13 @@ exports.config = Object.assign({}, configBase.config, {
   ],
   onPrepare: () => {
     if (this.config.chromeDriver) {
-      require('./chromedriver').start(this.config);
+      require('./chromedriver').start(this.config)
     }
   },
   after: () => {
     if (this.config.chromeDriver) {
-      require('./chromedriver').stop();
+      require('./chromedriver').stop()
     }
   },
   chromeDriver: true,
-});
+})
