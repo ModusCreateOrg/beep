@@ -114,11 +114,11 @@ jobs:
   e2e-tests:
     docker:
       - image: circleci/node:8.10
-    working_directory: ~/repo/tests_root/wdio
+    working_directory: ~/repo
     steps:
       - run:
           name: Run e2e tests
-          command: npm run test:desktop:grid
+          command: cd /tests_root/wdio && npm run test:desktop:grid
 
 workflows:
   version: 2
