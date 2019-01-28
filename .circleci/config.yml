@@ -129,7 +129,7 @@ jobs:
           command: cd tests_root/wdio && npm i -ci
       - run:
           name: Run e2e tests
-          command: npm run test:desktop:grid
+          command: cd tests_root/wdio && npm run test:desktop:grid
 
 workflows:
   version: 2
