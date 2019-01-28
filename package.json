@@ -18,6 +18,7 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit",
+    "test:ui": "cd tests_root/wdio && npm run test:local:chrome",
     "build-android": "npm run build && npx cap sync android && npx cap copy android",
     "build-ios": "npm run build && npx cap sync && npx cap copy ios",
     "build-native": "npm run build-android && npm run build-ios"
