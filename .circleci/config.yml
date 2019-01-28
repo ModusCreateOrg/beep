@@ -17,13 +17,29 @@ aliases:
 
 version: 2
 jobs:
-  install-dependencies:
+  run-app:
     docker:
       - image: circleci/node:8.10
 
     working_directory: ~/repo
 
     steps:
+      - run:
+          name: Install Docker client
+          command: |
+            set -x
+            VER="18.10.0-ce"
+            curl -L -o /tmp/docker-$VER.tgz https://get.docker.com/builds/Linux/x86_64/docker-$VER.tgz
+            tar -xz -C /tmp -f /tmp/docker-$VER.tgz
+            mv /tmp/docker/* /usr/bin
+
+      - run:
+          name: Install Docker Compose
+          command: |
+            set -x
+            curl -L https://github.com/docker/compose/releases/download/1.23.2/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+            chmod +x /usr/local/bin/docker-compose
+
       - checkout
 
       - restore_cache: *restore-npm-cache
@@ -36,6 +52,10 @@ jobs:
           key: v3-dependencies-{{ checksum "package-lock.json" }}
           paths:
             - node_modules
+
+      - run:
+          name: Install tests modules
+          command: cd tests_root/wdio && npm i -ci
 
   build-pwa:
     docker:
@@ -107,14 +127,27 @@ jobs:
           name: Deploy to TestFlight
           command: bundle exec fastline beta
 
+  e2e-tests:
+    docker:
+      - image: circleci/node:8.10
+    working_directory: ~/repo/tests_root/wdio
+    steps:
+      - run:
+          name: Run e2e tests
+          command: npm run test:desktop:grid
+
 workflows:
   version: 2
   build-and-deploy:
     jobs:
-      - install-dependencies
+      - run-app
 
       - build-pwa:
           requires:
-            - install-dependencies
+            - run-app
 
       - sonarqube
+
+      - e2e-tests
+          requires:
+            - run-app
