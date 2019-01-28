@@ -4,7 +4,7 @@ Feature: Home Screen of Beep Web App
   I want to navigate to the appropriate screen
   So that I can check if my account name or password have been compromised
 
-  @S1 @manual
+  @S1 @automated
   Scenario: Verification on fields on screen
     Given The user loads the Beep web app homepage
     Then The user should see the Account button
