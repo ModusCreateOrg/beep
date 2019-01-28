@@ -148,6 +148,6 @@ workflows:
 
       - sonarqube
 
-      - e2e-tests
+      - e2e-tests:
           requires:
             - run-app
