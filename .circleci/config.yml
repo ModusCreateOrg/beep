@@ -123,7 +123,7 @@ jobs:
           command: npm i -ci
       - run:
           name: Run the app
-          command: npm run serve
+          command: npm run serve &
       - run:
           name: Install tests modules
           command: cd /tests_root/wdio && npm i -ci
