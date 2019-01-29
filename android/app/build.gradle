@@ -10,8 +10,8 @@ android {
         applicationId "app.modus.beep"
         minSdkVersion 21
         targetSdkVersion 27
-        versionCode 8
-        versionName "1.0.3"
+        versionCode 10
+        versionName "1.0.4"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     signingConfigs {
