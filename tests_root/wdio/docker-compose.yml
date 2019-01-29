@@ -1,10 +1,5 @@
 version: '2'
 services:
-  dockerhost:
-    image: qoomon/docker-host
-    cap_add:
-      - "NET_ADMIN" "NET_RAW"
-
   firefox:
     image: selenium/node-firefox:3.141.59-europium
     volumes:
@@ -14,6 +9,8 @@ services:
     environment:
       HUB_HOST: hub
       HUB_PORT: 4444
+    networks:
+      - selenium_net
 
   chrome:
     image: selenium/node-chrome:3.141.59-europium
@@ -24,8 +21,12 @@ services:
     environment:
       HUB_HOST: hub
       HUB_PORT: 4444
+    networks:
+      - selenium_net
 
   hub:
     image: selenium/hub:3.141.59-europium
     ports:
       - "4444:4444"
+    networks:
+      - selenium_net
