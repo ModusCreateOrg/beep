@@ -1,5 +1,10 @@
 version: '2'
 services:
+  dockerhost:
+    image: qoomon/docker-host
+    cap_add:
+      - 'NET_ADMIN', 'NET_RAW'
+
   firefox:
     image: selenium/node-firefox:3.141.59-europium
     volumes:
