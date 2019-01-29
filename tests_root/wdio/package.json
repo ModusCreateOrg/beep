@@ -5,8 +5,8 @@
   "scripts": {
     "grid:up": "docker-compose up -d --scale chrome=1 --scale firefox=1",
     "grid:down": "docker-compose down",
-    "test:desktop:grid": "npm grid:up && sleep 10 && npm test:desktop:grid:parallel && npm grid:down",
-    "test:desktop:grid:parallel": "wdio ./conf/wdio.conf.grid.parallel.js",
+    "test:desktop:grid": "npm run grid:up && sleep 10 && npm run test:desktop:grid:parallel && npm run grid:down",
+    "test:desktop:grid:parallel": "wdio ./configs/wdio.conf.grid.parallel.js",
     "test:local:chrome": "wdio ./configs/wdio.conf.local.chrome.js"
   },
   "keywords": [
