@@ -18,12 +18,9 @@ services:
       - /dev/shm:/dev/shm
     depends_on:
       - hub
-    ports:
-      - "5555:5555"
     environment:
       HUB_HOST: hub
       HUB_PORT: 4444
-      REMOTE_HOST: http://chrome:5555
     networks:
       - selenium_net
 
