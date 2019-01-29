@@ -116,10 +116,6 @@ jobs:
     steps:
       - setup_remote_docker
 
-      - run:
-          name: Create network for Selenium
-          command: docker network create selenium_net
-
       - checkout
 
       - restore_cache: *restore-npm-cache
@@ -136,9 +132,6 @@ jobs:
       - run:
           name: Run e2e tests
           command: cd tests_root/wdio && npm run test:desktop:grid
-      - run:
-          name: Delete Selenium network
-          command: docker network rm selenium_net
 
 workflows:
   version: 2

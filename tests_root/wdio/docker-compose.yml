@@ -30,3 +30,6 @@ services:
       - "4444:4444"
     networks:
       - selenium_net
+
+networks:
+  selenium_net:
