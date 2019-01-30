@@ -109,11 +109,18 @@ jobs:
 
   e2e-tests:
     docker:
-      - image: circleci/node:8.10-browsers
+      - image: circleci/node:8.10
 
     working_directory: ~/repo
 
     steps:
+      - run:
+          name: Install Chrome
+          type: shell
+          command: |
+            wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+            dpkg -i google-chrome-stable_current_amd64.deb; apt-get -fy install
+
       - checkout
 
       - restore_cache: *restore-npm-cache
