@@ -1,3 +1,5 @@
+import { Capacitor } from '@capacitor/core'
+
 const isProd = process.env.NODE_ENV === 'production'
 
 export default {
@@ -36,6 +38,34 @@ export default {
    */
   err(msg) {
     notify('error', msg)
+  },
+
+  /*
+   * Check is reviews on apps stores feature is enabled
+   */
+  storeReviewsEnabled() {
+    return this.env('STORE_REVIEWS_ENABLED') === 'true'
+  },
+
+  /*
+   * Return iOS app id
+   */
+  iOSAppId() {
+    return this.env('IOS_APP_ID')
+  },
+
+  /*
+   * Check is the app is running into a web environment
+   */
+  isWeb() {
+    return Capacitor.platform === 'web'
+  },
+
+  /*
+   * Check is the app is running into an iOS environment
+   */
+  isIOS() {
+    return Capacitor.platform === 'ios'
   },
 }
 

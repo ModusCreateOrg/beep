@@ -3,13 +3,15 @@ import Ionic from '@modus/ionic-vue'
 import router from './router'
 
 // Capacitor
-import { Capacitor, Plugins, StatusBarStyle } from '@capacitor/core'
+import { Plugins, StatusBarStyle } from '@capacitor/core'
 const { SplashScreen, StatusBar, Network } = Plugins
 
 // Helpers
 import helpers from './helpers'
-import BreachService from './breachesService'
 import './registerServiceWorker'
+import BreachService from './breachesService'
+import ReviewAppService from './reviewAppService'
+import AppService from './appService'
 
 // Ionic core styles and theming
 import '@ionic/core/css/core.css'
@@ -28,11 +30,20 @@ initCapacitor()
 // Initialize helpers
 Vue.prototype.$helpers = helpers
 Vue.prototype.$breachesService = BreachService
+Vue.prototype.$appService = AppService
+Vue.prototype.$reviewAppService = ReviewAppService
+
+// Initialize app service and reviews service
+async function initServices() {
+  await Vue.prototype.$appService.init()
+  await Vue.prototype.$reviewAppService.init()
+}
+initServices()
 
 // Create a Vue app instance
 new Vue({
   router,
-  mounted() {
+  async mounted() {
     SplashScreen.hide().catch(this.$helpers.err)
     initNavGesture(this)
   },
@@ -41,8 +52,8 @@ new Vue({
 // Initial Capacitor calls
 async function initCapacitor() {
   // Platform checks
-  Vue.prototype.$isWeb = Capacitor.platform === 'web'
-  Vue.prototype.$isIOS = Capacitor.platform === 'ios'
+  Vue.prototype.$isWeb = helpers.isWeb()
+  Vue.prototype.$isIOS = helpers.isIOS()
 
   // Set status-bar background and style
   StatusBar.setBackgroundColor({ color: helpers.env('INITIAL_STATUSBAR_COLOR') }).catch(helpers.err)

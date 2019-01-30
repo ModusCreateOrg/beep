@@ -1,23 +1,23 @@
 <template>
   <div>
     <ion-header>
-      <ion-toolbar>
+      <ion-toolbar :class="className">
         <ion-buttons slot="start">
-          <ion-button @click="closeModal">
+          <ion-button @click="closeModal" :class="className">
             <ion-icon size="large" name="close"/>
           </ion-button>
         </ion-buttons>
         <ion-title>{{ title }}</ion-title>
         <ion-buttons slot="end">
-          <ion-button clear @click="closeModal">
+          <ion-button clear @click="closeModal" :class="className">
             Done
           </ion-button>
         </ion-buttons>
       </ion-toolbar>
     </ion-header>
-    <ion-content padding>
+    <ion-content padding :class="className">
       <div class="modal-content">
-        <slot/>
+        <slot />
       </div>
     </ion-content>
   </div>
@@ -28,6 +28,7 @@ export default {
   name: 'Modal',
   props: {
     title: { type: String, default: '' },
+    className: { type: String, default: '' },
   },
   methods: {
     closeModal() {
@@ -63,5 +64,20 @@ ion-button.button-clear,
 ion-button.button.button-clear.button-md.button-clear-md {
   --ion-color-base: var(--beep-primary);
   text-transform: none;
+}
+
+ion-toolbar.feedback-modal {
+  --background: var(--beep-secondary);
+  color: var(--beep-primary);
+}
+ion-content.feedback-modal {
+  --background: var(--beep-secondary);
+  text-align: center;
+}
+ion-back-button.feedback-modal {
+  color: var(--beep-primary);
+}
+ion-button.feedback-modal {
+  color: var(--beep-primary);
 }
 </style>

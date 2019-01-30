@@ -30,6 +30,7 @@
     "@capacitor/cli": "1.0.0-beta.11",
     "@capacitor/core": "1.0.0-beta.11",
     "@capacitor/ios": "1.0.0-beta.11",
+    "cordova-plugin-market": "git+https://github.com/xmartlabs/cordova-plugin-market.git",
     "@ionic/core": "4.0.0-rc.3",
     "@modus/ionic-vue": "^1.2.2",
     "axios": "0.18.0",
