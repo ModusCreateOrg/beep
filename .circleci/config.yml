@@ -114,16 +114,6 @@ jobs:
     working_directory: ~/repo
 
     steps:
-      - run:
-          name: Install Chrome
-          type: shell
-          command: |
-            sudo add-apt-repository universe
-            sudo apt-get update
-            sudo apt-get install libgconf2-4 libnss3-1d libxss1
-            wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-            sudo dpkg -i google-chrome-stable_current_amd64.deb
-
       - checkout
 
       - restore_cache: *restore-npm-cache
@@ -137,6 +127,12 @@ jobs:
       - run:
           name: Install tests modules
           command: cd tests_root/wdio && npm i -ci
+      - run:
+          name: Run image with Chrome
+          command: |
+            docker pull selenium/standalone-chrome
+            docker run -d -p 4444:4444 -v /dev/shm:/dev/shm --name chrome selenium/standalone-chrome
+
       - run:
           name: Run e2e tests
           command: cd tests_root/wdio && npm run test:ci
