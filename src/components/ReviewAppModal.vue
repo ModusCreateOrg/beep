@@ -40,8 +40,8 @@ export default {
       await this.$reviewAppService.provideAppFeedback()
       this.$ionic.modalController.dismiss()
     },
-    async badExperience () {
-      this.$ionic.alertController
+    async badExperience() {
+      return this.$ionic.alertController
         .create({
           header: 'Please help use improve!',
           message: 'We love feedback. How can we make our app better?',
@@ -52,15 +52,15 @@ export default {
               handler: () => {
                 this.$reviewAppService.provideAppFeedback()
                 this.$ionic.modalController.dismiss()
-              }
+              },
             },
           ],
         })
         .then(a => a.present())
     },
-    async goodExperience () {
+    async goodExperience() {
       if (!this.isWeb) {
-        this.$ionic.alertController
+        return this.$ionic.alertController
           .create({
             header: 'Rate & Review',
             message: 'Please, rate our app and write a review to help us reach more people',
@@ -70,7 +70,7 @@ export default {
                 handler: () => {
                   this.$reviewAppService.setReviewDone()
                   this.$ionic.modalController.dismiss()
-                }
+                },
               },
               'Maybe later',
               {
@@ -78,7 +78,7 @@ export default {
                 handler: () => {
                   this.$reviewAppService.suggestAppReview()
                   this.$ionic.modalController.dismiss()
-                }
+                },
               },
             ],
           })
