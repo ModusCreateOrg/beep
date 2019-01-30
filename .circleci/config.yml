@@ -113,23 +113,23 @@ jobs:
 
     working_directory: ~/repo
 
-      steps:
-        - checkout
+    steps:
+      - checkout
 
-        - restore_cache: *restore-npm-cache
+      - restore_cache: *restore-npm-cache
 
-        - run:
-            name: Install Node modules
-            command: npm i -ci
-        - run:
-            name: Run the app
-            command: npm run serve &
-        - run:
-            name: Install tests modules
-            command: cd tests_root/wdio && npm i -ci
-        - run:
-            name: Run e2e tests
-            command: cd tests_root/wdio && npm run test:ci
+      - run:
+          name: Install Node modules
+          command: npm i -ci
+      - run:
+          name: Run the app
+          command: npm run serve &
+      - run:
+          name: Install tests modules
+          command: cd tests_root/wdio && npm i -ci
+      - run:
+          name: Run e2e tests
+          command: cd tests_root/wdio && npm run test:ci
 
 workflows:
   version: 2
