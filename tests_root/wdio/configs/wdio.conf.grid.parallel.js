@@ -1,7 +1,7 @@
 const configBase = require('./wdio.conf');
 
 exports.config = Object.assign({}, configBase.config, {
-  host: 'hub',
+  host: 'localhost',
   port: 4444,
   path: '/wd/hub',
   protocol: 'http',
