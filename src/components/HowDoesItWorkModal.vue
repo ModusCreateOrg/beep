@@ -3,7 +3,7 @@
     <div>
       <p>
         Every day, over 4 million online data records are stolen or lost.
-        Beep tells you if your online accounts have been stolen in any of these data breaches.
+        <a href="https://labs.moduscreate.com/beep-vue-ionic-hybrid-mobile-app" class="link">Beep</a> tells you if your online accounts have been stolen in any of these data breaches.
         Just enter your email address, username, or password, and we’ll tell you if it's been hacked.
       </p>
 
@@ -14,7 +14,7 @@
 
       <h1>Pioneering Vue.js as a New Backend for Ionic</h1>
       <p>
-        Beep is one of the first apps built on Vue.JS and Ionic Framework.
+        <a href="https://labs.moduscreate.com/beep-vue-ionic-hybrid-mobile-app" class="link">Beep</a> is one of the first apps built on <a href="https://github.com/ionic-team/ionic/pull/15801" class="link">Vue.JS and Ionic Framework</a>.
         With this combination, PHP developers no longer have to struggle with
         Angular to build cross platform Ionic apps. We even built our own router.
       </p>
@@ -23,7 +23,7 @@
         <span>Hash Protected</span>
       </h1>
       <p>
-        We've made sure that Beep won't end up yet another name on the list of data breaches.&nbsp;
+        We've made sure that <a href="https://labs.moduscreate.com/beep-vue-ionic-hybrid-mobile-app" class="link">Beep</a> won't end up yet another name on the list of data breaches.&nbsp;
         How? We hash all of your passwords and account information.
         In other words, we never store your passwords in plain text.
         Instead, we transform your password into a really, really long code and then, we send only the first five characters of that code to a server.

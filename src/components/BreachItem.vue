@@ -2,7 +2,7 @@
   <ion-item @click="viewBreach">
     <ion-avatar slot="start">
       <div class="img-holder">
-        <img :src="this.$breachesService.getImageURL(breach)" :alt="breach.Title"/>
+        <img :src="breach.LogoPath" :alt="breach.Title"/>
       </div>
       <div class="avatar-shadow"/>
     </ion-avatar>
@@ -40,7 +40,6 @@ export default {
 <style scoped>
 ion-item {
   --padding-start: 0;
-  --inner-padding-end: 0;
   --ion-color-shade: rgba(0, 0, 0, 0.15);
   --inner-border-width: 0;
   --border-width: 0 0 0.55px 0;

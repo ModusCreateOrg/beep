@@ -11,6 +11,18 @@
   --ion-padding: 0;
 }
 
+:root ion-back-button {
+  --color: var(--beep-danger);
+}
+
+:root ion-button,
+:root ion-button.button-clear,
+:root ion-button.button.button-clear.button-md.button-clear-md {
+  --color: var(--beep-danger);
+  --color-activated: var(--beep-danger);
+  text-transform: none;
+}
+
 :root[mode='md'] {
   --ion-font-family: Arial, sans-serif;
 }
@@ -58,6 +70,21 @@ div[style].cloned-input {
 .hash-protected-img {
   float: left;
   width: 1.25rem;
+}
+a.link {
+  text-decoration: none;
+  color: var(--beep-secondary);
+}
+
+.link {
+  border-bottom: 1px solid var(--beep-secondary);
+  transition-duration: 0.2s;
+}
+
+.link:hover {
+  cursor: pointer;
+  color: var(--beep-primary);
+  border-color: var(--beep-primary);
 }
 
 body,

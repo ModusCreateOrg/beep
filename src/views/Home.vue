@@ -2,20 +2,19 @@
   <ion-page class="ion-page">
     <ion-header>
       <ion-toolbar>
-        <img src="../images/Beep-Logo.svg" class="logo" alt="Beep logo"/>
+        <img src="../images/Beep-Logo.svg" class="logo" alt="Beep logo">
       </ion-toolbar>
     </ion-header>
     <ion-content class="content">
-      <h1>
-        Check if you've<br>
-        been hacked
+      <h1>Check if you've
+        <br>been hacked
       </h1>
       <div class="buttons">
         <div class="btn-holder" @click="goToAcc">
           <div class="square-btn">
             <div class="square-btn-content">
               <div class="square-btn-icon">
-                <img src="../images/Icon-Account.svg" alt="Account logo"/>
+                <img src="../images/Icon-Account.svg" alt="Account logo">
               </div>
               <div class="square-btn-text">Account</div>
             </div>
@@ -26,7 +25,7 @@
           <div class="square-btn">
             <div class="square-btn-content">
               <div class="square-btn-icon">
-                <img src="../images/Icon-Password.svg" alt="Password logo"/>
+                <img src="../images/Icon-Password.svg" alt="Password logo">
               </div>
               <div class="square-btn-text">Password</div>
             </div>
@@ -35,7 +34,7 @@
         </div>
       </div>
       <div class="footer">
-        <h2 @click="goToHelp"><span>How does it work?</span></h2>
+        <h2 @click="goToHelp"><span class="link">How does it work?</span></h2>
         <h2 @click="share" v-if="!$isWeb"><span>Share this app</span></h2>
       </div>
       <div class="app-store-btns" v-if="$isWeb">
@@ -60,7 +59,7 @@ export default {
   mixins: [hasModal],
   data() {
     return {
-      backEvent: null,
+      backEvent: {},
     }
   },
   methods: {
@@ -71,11 +70,9 @@ export default {
       this.$router.push('/pwd')
     },
     handleHardwareBackButton() {
-      if (this.isModalOpen) {
-        return this.$ionic.modalController.dismiss()
+      if (!this.isModalOpen) {
+        App.exitApp()
       }
-
-      App.exitApp()
     },
     goToHelp() {
       this.toggleModal()
@@ -93,12 +90,11 @@ export default {
     this.modal = () => import('@/components/HowDoesItWorkModal.vue')
   },
   created() {
-    this.backEvent = App.addListener('backButton', this.handleHardwareBackButton).catch(
-      this.$helpers.err
-    )
+    this.backEvent = App.addListener('backButton', this.handleHardwareBackButton)
+    this.backEvent.catch(this.$helpers.err)
   },
-  destroyed() {
-    if (this.backEvent && this.backEvent.remove) {
+  beforeDestroy() {
+    if (this.backEvent.remove) {
       this.backEvent.remove()
     }
   },

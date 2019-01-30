@@ -1,4 +1,4 @@
-<template>
+  <template>
   <ion-page class="ion-page">
     <ion-header>
       <ion-toolbar>
@@ -62,6 +62,7 @@ export default {
 ion-page {
   text-align: center;
   --ion-text-color: var(--beep-light);
+  --ion-background-color: var(--beep-success);
 }
 
 ion-toolbar {
@@ -69,11 +70,7 @@ ion-toolbar {
 }
 
 ion-back-button {
-  --ion-color-base: var(--beep-light);
-}
-
-ion-content {
-  background-color: var(--beep-success);
+  --color: var(--beep-light);
 }
 
 h1 {

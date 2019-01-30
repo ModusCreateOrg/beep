@@ -12,7 +12,7 @@
         <ion-item>
           <ion-avatar slot="start">
             <div class="img-holder">
-              <img :src="this.$breachesService.getImageURL(breach)" :alt="breach.Title"/>
+              <img :src="breach.LogoPath" :alt="breach.Title"/>
             </div>
             <div class="avatar-shadow"/>
           </ion-avatar>
@@ -99,7 +99,7 @@ ion-button.button.button-clear.button-md.button-clear-md {
 }
 
 ion-back-button {
-  --ion-color-base: var(--beep-primary);
+  --color: var(--beep-danger);
 }
 
 ion-list {
