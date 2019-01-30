@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "description": "Automated end-to-end tests for Beep using WebdriverIO.",
   "scripts": {
-    "test:local:chrome": "wdio ./configs/wdio.conf.local.chrome.js"
+    "test:local:chrome": "wdio ./configs/wdio.conf.local.chrome.js",
+    "test:ci": "wdio ./configs/wdio.conf.ci.js"
   },
   "keywords": [
     "automation",
