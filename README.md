@@ -138,6 +138,13 @@ npm run build
 
 This will create files and assets in the `dist/` directory
 
+### Run on Android
+
+```sh
+cd android
+./gradlew installDebug
+```
+
 # Ionic Vue
 
 <img src="https://res.cloudinary.com/modus-labs/image/upload/w_560/v1535019553/labs/logo-ionic-vue.svg"
@@ -164,6 +171,8 @@ An in-depth description is provided by Capacitor's documentation
 
 # Tests
 
+## Unit tests
+
 To run the test suite execute:
 
 ```sh
@@ -173,6 +182,23 @@ npm test
 This will confirm that any changes made to the original code did not break any existing functionality.
 
 To extend the test suite create a new file in `tests/unit/` such as `new-feature.spec.js`
+
+## Automated end-to-end tests
+
+To run the end-to-end automated tests install the necessary dependencies by executing:
+
+```
+cd tests_root/wdio && npm install
+```
+
+Next make sure that Chrome browser is installed on the machine. At the moment the tests are configured to run only in Chrome. In the future support for other browsers will be added.
+Before actually starting the scripts make sure that the Beep web app is either running locally or a `baseUrl` is added in the `wdio.conf.js` file. By default it's running on `localhost:8080`.
+
+Finally, the following command needs to be executed:
+
+```
+npm run test:ui
+```
 
 # Linting
 

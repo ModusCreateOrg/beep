@@ -1,11 +1,12 @@
 {
   "name": "@modus/beep",
-  "version": "0.1.0",
+  "version": "1.0.4",
   "description": "A security oriented project showcasing the power of Ionic4 and Vuejs",
   "author": "Michael Tintiuc <michael.tintiuc@moduscreate.com>",
   "user": "michaeltintiuc",
   "license": "MIT",
   "repository": "github:ModusCreateOrg/beep",
+  "main": "dist/index.html",
   "bugs": {
     "url": "https://github.com/ModusCreateOrg/beep/issues"
   },
@@ -14,23 +15,25 @@
     "npm": ">= 5.0.0"
   },
   "scripts": {
+    "start": "npm run build",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit",
-    "build-android": "npx cap sync android && npx cap copy android",
-    "build-ios": "npx cap sync ios && npx cap copy ios",
-    "build-native": "npm run build && npm run build-android npm run build-ios"
+    "test:ui": "cd tests_root/wdio && npm run test:local:chrome",
+    "build-android": "npm run build && npx cap sync android && npx cap copy android",
+    "build-ios": "npm run build && npx cap sync && npx cap copy ios",
+    "build-native": "npm run build-android && npm run build-ios"
   },
   "dependencies": {
     "@capacitor/android": "1.0.0-beta.11",
     "@capacitor/cli": "1.0.0-beta.11",
     "@capacitor/core": "1.0.0-beta.11",
     "@capacitor/ios": "1.0.0-beta.11",
+    "cordova-plugin-market": "git+https://github.com/xmartlabs/cordova-plugin-market.git",
     "@ionic/core": "4.0.0-rc.3",
     "@modus/ionic-vue": "^1.2.2",
     "axios": "0.18.0",
-    "cordova-plugin-market": "git+https://github.com/xmartlabs/cordova-plugin-market.git",
     "register-service-worker": "^1.5.2",
     "sha1": "1.1.1",
     "vue": "^2.5.22",

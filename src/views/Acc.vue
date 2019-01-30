@@ -105,7 +105,8 @@ export default {
             this.$router.push('/safe')
             return
           }
-          this.showError()
+
+          this.showBlockedError()
         })
         .then(() => {
           this.account = ''
@@ -113,6 +114,16 @@ export default {
           loading.dismiss()
           return
         })
+    },
+    showBlockedError() {
+      return this.$ionic.alertController
+        .create({
+          header: 'Request blocked',
+          message:
+            'Your request was blocked by the <a href="https://haveibeenpwned.com/" target="_blank">API service provider</a>',
+          buttons: ['OK'],
+        })
+        .then(e => e.present())
     },
     showError() {
       return this.$ionic.alertController
