@@ -82,8 +82,8 @@ export default {
         title: 'Share Beep!',
         text: 'Help others to keep safe',
         url: 'https://beep.modus.app/',
-        dialogTitle: 'Spread the word'
-      });
+        dialogTitle: 'Spread the word',
+      })
     },
   },
   mounted() {
@@ -209,7 +209,8 @@ h2 span {
   border-bottom: 1px solid var(--beep-secondary);
 }
 
-.footer, .app-store-btns {
+.footer,
+.app-store-btns {
   display: inline-flex;
   width: 100%;
   justify-content: center;
@@ -242,7 +243,7 @@ h2 span {
 }
 
 /* Small Devices, Tablets */
-@media only screen and (min-width : 768px) {
+@media only screen and (min-width: 768px) {
   .app-store-btns a {
     max-width: 260px;
   }
@@ -254,14 +255,12 @@ h2 span {
     width: 235px;
   }
 }
-    
+
 /* Medium Devices, Desktops */
-@media only screen and (min-width : 992px) {
-    
+@media only screen and (min-width: 992px) {
 }
-    
+
 /* Large Devices, Wide Screens */
-@media only screen and (min-width : 1200px) {
-    
+@media only screen and (min-width: 1200px) {
 }
 </style>
