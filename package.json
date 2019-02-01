@@ -16,7 +16,7 @@
   },
   "scripts": {
     "start": "npm run build",
-    "serve": "vue-cli-service serve",
+    "serve": "vue-cli-service serve & node src/proxy.js",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit",
