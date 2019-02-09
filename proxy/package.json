@@ -1,0 +1,17 @@
+{
+  "name": "beep-proxy",
+  "version": "1.0.0",
+  "description": "A simple proxy for Beep",
+  "author": "Michael Tintiuc <michael.tintiuc@moduscreate.com>",
+  "user": "michaeltintiuc",
+  "license": "MIT",
+  "main": "prod.js",
+  "devDependencies": {
+    "claudia": "^5.4.0"
+  },
+  "dependencies": {
+    "aws-serverless-express": "^3.3.5",
+    "express": "^4.16.4",
+    "request": "^2.88.0"
+  }
+}
