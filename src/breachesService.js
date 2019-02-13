@@ -4,7 +4,7 @@ export default {
   breaches: [],
   filter: '',
   account: '',
-  baseApiURL: helpers.env('PROXY_ACC_HOST') + '/breachedaccount/',
+  baseApiURL: helpers.env('PROXY_HOST') + '/api/v2/breachedaccount/',
   clear() {
     this.breaches = []
     this.filter = ''

@@ -94,7 +94,7 @@ export default {
       this.showPwd = !this.showPwd
     },
     getURL(hashPart) {
-      return this.$helpers.env('PROXY_PWD_HOST') + '/range/' + hashPart
+      return this.$helpers.env('PROXY_HOST') + '/range/' + hashPart
     },
     checkHash(event) {
       if (event) {
