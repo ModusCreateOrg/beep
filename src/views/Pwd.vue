@@ -63,8 +63,6 @@ import hasModal from '@/mixins/hasModal'
 import network from '@/mixins/network'
 import reviewAppModal from '@/mixins/reviewAppModal'
 
-const baseURL = 'https://api.pwnedpasswords.com/range/'
-
 export default {
   name: 'Pwd',
   mixins: [hasModal, network, reviewAppModal],
@@ -96,7 +94,7 @@ export default {
       this.showPwd = !this.showPwd
     },
     getURL(hashPart) {
-      return baseURL + hashPart
+      return this.$helpers.env('PROXY_HOST') + '/range/' + hashPart
     },
     checkHash(event) {
       if (event) {
