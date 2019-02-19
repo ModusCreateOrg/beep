@@ -2,9 +2,8 @@
 node_modules
 /dist
 
-# local env files
-.env.local
-.env.*.local
+# env files
+.env.*
 
 electron/
 
@@ -41,3 +40,7 @@ android/signing/*
 
 # automated end-to-end tests
 tests_root/wdio/errorShots/*
+
+# serverless
+claudia.json
+proxy/claudia.json

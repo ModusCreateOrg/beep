@@ -33,9 +33,18 @@
           </div>
         </div>
       </div>
-      <h2 @click="goToHelp">
-        <span class="link">How does it work?</span>
-      </h2>
+      <div class="footer">
+        <h2 @click="goToHelp"><span class="link">How does it work?</span></h2>
+        <h2 @click="share" v-if="!$isWeb"><span>Share this app</span></h2>
+      </div>
+      <div class="app-store-btns" v-if="$isWeb">
+        <a href="https://mdus.co/beepios" target="_blank">
+            <img src="../images/app-store-badge.svg" class="ios" />
+        </a>
+        <a href="https://mdus.co/beepandroid" target="_blank">
+            <img src="../images/google-play-badge.png" />
+        </a>
+      </div>
     </ion-content>
   </ion-page>
 </template>
@@ -43,7 +52,7 @@
 <script>
 import hasModal from '@/mixins/hasModal'
 import { Plugins } from '@capacitor/core'
-const { App } = Plugins
+const { App, Share } = Plugins
 
 export default {
   name: 'Home',
@@ -67,6 +76,14 @@ export default {
     },
     goToHelp() {
       this.toggleModal()
+    },
+    async share() {
+      await Share.share({
+        title: 'Share Beep!',
+        text: 'Help others to keep safe',
+        url: 'https://beep.modus.app/',
+        dialogTitle: 'Spread the word',
+      })
     },
   },
   mounted() {
@@ -181,16 +198,69 @@ h1 {
 
 h2 {
   height: 10vh;
-  margin-top: 23vh;
+  margin-top: 13vh;
   font-size: 18px;
   font-weight: 300;
   letter-spacing: -0.48px;
   display: inline-block;
 }
 
+h2 span {
+  border-bottom: 1px solid var(--beep-secondary);
+}
+
+.footer,
+.app-store-btns {
+  display: inline-flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.footer h2 {
+  text-align: center;
+  flex: 1;
+}
+
+.app-store-btns a {
+  /* width: 200px; */
+  flex: 1;
+  max-width: 160px;
+  margin-bottom: 25px;
+}
+
+.app-store-btns a img {
+  width: 150px;
+}
+
+.app-store-btns a img.ios {
+  width: 135px;
+}
+
 @media screen and (min-height: 650px) {
   h1 {
     font-size: 40px;
   }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width: 768px) {
+  .app-store-btns a {
+    max-width: 260px;
+  }
+  .app-store-btns a img {
+    width: 250px;
+  }
+
+  .app-store-btns a img.ios {
+    width: 235px;
+  }
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width: 992px) {
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width: 1200px) {
 }
 </style>

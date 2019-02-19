@@ -61,12 +61,11 @@ import sha1 from 'sha1'
 import axios from 'axios'
 import hasModal from '@/mixins/hasModal'
 import network from '@/mixins/network'
-
-const baseURL = 'https://api.pwnedpasswords.com/range/'
+import reviewAppModal from '@/mixins/reviewAppModal'
 
 export default {
   name: 'Pwd',
-  mixins: [hasModal, network],
+  mixins: [hasModal, network, reviewAppModal],
   data() {
     return {
       pwd: '',
@@ -87,6 +86,7 @@ export default {
   },
   mounted() {
     this.modal = () => import('@/components/HashProtectedModal.vue')
+    this.tryPromptAppReview()
     this.$breachesService.clear()
   },
   methods: {
@@ -94,7 +94,7 @@ export default {
       this.showPwd = !this.showPwd
     },
     getURL(hashPart) {
-      return baseURL + hashPart
+      return this.$helpers.env('PROXY_HOST') + '/range/' + hashPart
     },
     checkHash(event) {
       if (event) {
@@ -120,6 +120,7 @@ export default {
         .get(this.getURL(hash.substr(0, 5)))
         .then(res => {
           const count = this.search(hash.substr(5).toUpperCase(), res.data)
+          this.$reviewAppService.registerCheck()
           if (count > 0) {
             this.$router.push(`/unsafe?count=${count}`)
           } else {

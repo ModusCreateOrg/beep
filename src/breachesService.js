@@ -1,8 +1,10 @@
+import helpers from './helpers'
+
 export default {
   breaches: [],
   filter: '',
   account: '',
-  baseApiURL: 'https://haveibeenpwned.com/api/v2/breachedaccount/',
+  baseApiURL: helpers.env('PROXY_HOST') + '/api/v2/breachedaccount/',
   clear() {
     this.breaches = []
     this.filter = ''

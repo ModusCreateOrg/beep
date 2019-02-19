@@ -1,11 +1,12 @@
 {
   "name": "@modus/beep",
-  "version": "0.1.0",
+  "version": "1.0.5",
   "description": "A security oriented project showcasing the power of Ionic4 and Vuejs",
   "author": "Michael Tintiuc <michael.tintiuc@moduscreate.com>",
   "user": "michaeltintiuc",
   "license": "MIT",
   "repository": "github:ModusCreateOrg/beep",
+  "main": "dist/index.html",
   "bugs": {
     "url": "https://github.com/ModusCreateOrg/beep/issues"
   },
@@ -14,7 +15,8 @@
     "npm": ">= 5.0.0"
   },
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "start": "npm run build",
+    "serve": "vue-cli-service serve & node ./proxy.js",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit",
@@ -28,8 +30,9 @@
     "@capacitor/cli": "1.0.0-beta.11",
     "@capacitor/core": "1.0.0-beta.11",
     "@capacitor/ios": "1.0.0-beta.11",
-    "@ionic/core": "4.0.0-rc.3",
-    "@modus/ionic-vue": "^1.2.2",
+    "cordova-plugin-market": "git+https://github.com/xmartlabs/cordova-plugin-market.git",
+    "@ionic/core": "4.0.1",
+    "@modus/ionic-vue": "^1.2.7",
     "axios": "0.18.0",
     "register-service-worker": "^1.5.2",
     "sha1": "1.1.1",
@@ -48,6 +51,8 @@
     "babel-jest": "^23.6.0",
     "bodymovin": "^4.13.0",
     "eslint-plugin-promise": "3.8.0",
+    "express": "^4.16.4",
+    "request": "^2.88.0",
     "vue-template-compiler": "^2.5.22"
   }
 }

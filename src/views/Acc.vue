@@ -46,10 +46,12 @@
 <script>
 import axios from 'axios'
 import network from '@/mixins/network'
+import hasModal from '@/mixins/hasModal'
+import reviewAppModal from '@/mixins/reviewAppModal'
 
 export default {
   name: 'Acc',
-  mixins: [network],
+  mixins: [network, hasModal, reviewAppModal],
   data() {
     return {
       account: '',
@@ -62,6 +64,7 @@ export default {
     },
   },
   mounted() {
+    this.tryPromptAppReview()
     this.$breachesService.clear()
   },
   methods: {
@@ -89,6 +92,7 @@ export default {
         .get(this.getURL())
         .then(response => {
           this.$breachesService.breaches = response.data
+          this.$reviewAppService.registerCheck()
           this.$router.push('/breaches')
 
           return response
@@ -97,10 +101,12 @@ export default {
           // 404 means account not pwned
           this.$breachesService.breaches = []
           if (err.response && err.response.status === 404) {
+            this.$reviewAppService.registerCheck()
             this.$router.push('/safe')
             return
           }
-          this.showError()
+
+          this.showBlockedError()
         })
         .then(() => {
           this.account = ''
@@ -108,6 +114,16 @@ export default {
           loading.dismiss()
           return
         })
+    },
+    showBlockedError() {
+      return this.$ionic.alertController
+        .create({
+          header: 'Request blocked',
+          message:
+            'Your request was blocked by the <a href="https://haveibeenpwned.com/" target="_blank">API service provider</a>',
+          buttons: ['OK'],
+        })
+        .then(e => e.present())
     },
     showError() {
       return this.$ionic.alertController
