@@ -1,40 +1,32 @@
-@Home_Screen
-Feature: Home Screen of Beep Web App
-  As a User
-  I want to be taken through appropriate screen
-  so that I can Test Account and Password
+@Account_Screen
+Feature: Account screen of Beep web app
+  As a user of Beep web app
+  I want to be able to provide my username on the Account page
+  So that I know if my account data has been compromised
 
-  @S1 @manual
-  Scenario: Verification of fields on screen
-    Given User is on Web App Home screen
-    When User opens https://beep.modus.app/#/
-    Then User should see "Account field"
-    Then User should see "Password field"
-    Then User should see "How does it work"
+  @S1 @automated
+  Scenario: The user can navigate to the Account page
+    Given The user loads the Beep web app homepage
+    When The user selects the Account button
+    Then The user should be on the Account page
+    Then The user should see the Your username or email text field
+    Then The user should see the Check button
 
   @S2 @manual
-  Scenario: Verification of Validations on "Account field"
-    Given User is on Home screen of Web App
-    When User clicks on "Account field"
-    Then User should be on https://beep.modus.app/#/acc Page
-    Then User should see "Your username or email" text box
-    Then User should see "Check" option
-
-  @S3 @manual
   Scenario: Functionality of "Your username or email" text box
     Given User is on https://beep.modus.app/#/acc Page
     When User taps inside "Your username or email" text box
     Then User should see a cursor
     Then User should be able to type
 
-  @S4 @manual
+  @S3 @manual
   Scenario: Acceptance of data by"Your username or email" text box
     Given User is on https://beep.modus.app/acc Page
     When User taps inside "Your username or email" text box
     Then User should be able to add User name
     Then User should be able to add Email ID
 
-  @S5.1 @manual
+  @S4.1 @manual
   Scenario: Activation of "Check" option
     Given User is on "https://beep.modus.app"
     Given User clicks on "Account field"
@@ -42,14 +34,14 @@ Feature: Home Screen of Beep Web App
     Then User should be on https://beep.modus.app/acc Page
     Then User should see deactivated "Check" option
 
-  @S5.2 @Manual
+  @S4.2 @Manual
   Scenario: Activation of "Check" option
     Given User is on https://beep.modus.app/#/acc Page
     When User taps inside "Your username or email" text box
     When User doesn't type anything in "Your username or email" text box
     Then User should see deactivated "Check" option
 
-  @S5.3 @Manual
+  @S4.3 @Manual
   Scenario: Activation of "Check" option
     Given User is on https://beep.modus.app/#/acc Page
     When User taps inside "Your username or email" text box
@@ -57,7 +49,7 @@ Feature: Home Screen of Beep Web App
     Then User should see deactivated "Check" option
 
 
-  @S5.4 @Manual
+  @S4.4 @Manual
   Scenario: Action when click on deactivated "Check" option
     Given User is on https://beep.modus.app/#/acc Page
     When User taps inside "Your username or email" text box
@@ -67,7 +59,7 @@ Feature: Home Screen of Beep Web App
     Then User should "Check" option deactivated only
     Then User should see no validation and change for "Your username or email" text box
 
-  @S5.5 @Manual
+  @S4.5 @Manual
   Scenario: Action when click on deactivated "Check" option
     Given User is on https://beep.modus.app/#/acc Page
     When User taps inside "Your username or email" text box
@@ -76,7 +68,7 @@ Feature: Home Screen of Beep Web App
     Then User should "Check" option deactivated only
     Then User should see no validation and change for "Your username or email" text box
 
-  @S6.1 @manual
+  @S5.1 @manual
   Scenario: Verification of a non hacked Email ID
     Given User is on https://beep.modus.app/#/acc Page
     When User taps inside "Your username or email" text box
@@ -85,7 +77,7 @@ Feature: Home Screen of Beep Web App
     Then User should redirects to "https://beep.modus.app/#/safe" Page
     Then User should see "Congratulations! Your account has not been compromised" message
 
-  @S6.2 @manual
+  @S5.2 @manual
   Scenario: Verification of a non hacked Username
     Given User is on https://beep.modus.app/#/acc Page
     When User taps inside "Your username or email" text box
@@ -94,7 +86,7 @@ Feature: Home Screen of Beep Web App
     Then User should redirects to "https://beep.modus.app/#/safe" Page
     Then User should see "Congratulations! Your account has not been compromised" message
 
-  @S6.3 @manual
+  @S5.3 @manual
   Scenario: Verification of a hacked Email ID
     Given User is on https://beep.modus.app/#/acc Page
     When User taps inside "Your username or email" text box
@@ -103,7 +95,7 @@ Feature: Home Screen of Beep Web App
     Then User should redirects to "https://beep.modus.app/#/breaches" Page
     Then User should display of websites from where it had been hacked
 
-  @S6.4 @manual
+  @S5.4 @manual
   Scenario: Verification of a hacked Username
     Given User is on https://beep.modus.app/#/acc Page
     When User taps inside "Your username or email" text box
@@ -112,14 +104,14 @@ Feature: Home Screen of Beep Web App
     Then User should redirects to "https://beep.modus.app/#/breaches" Page
     Then User should display of websites from where it had been hacked
 
-  @S6.5 @manual
+  @S5.5 @manual
   Scenario: Verification of a invalid Email ID or Username
     Given User is on https://beep.modus.app/#/acc Page
     When User taps inside "Your username or email" text box
     When User enters a invalid Username or Email ID
     Then User should see a validation message
 
-  @S7 @manual
+  @S6 @manual
   Scenario: Verification on "back" button from Acc. Page
     Given User is on "https://beep.modus.app" Page
     When User click on left back button
