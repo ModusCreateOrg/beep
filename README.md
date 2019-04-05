@@ -87,6 +87,16 @@ You can create an iOS-specific build by executing:
 npm run build-ios
 ```
 
+To create a local build file execute the following:
+
+```sh
+npx cap open android
+```
+
+xCode will open. Here _archive_  the app and _Distribute App_ for development.<br />
+You will be asked where to save the exported _.ipa_ file.
+
+
 ## Android build
 
 You will need [Android SDK](https://developer.android.com/studio/).
@@ -112,6 +122,15 @@ After the SDK is setup you can create an Android-specific build by executing:
 ```sh
 npm run build-android
 ```
+
+To create a local build file execute the following:
+
+```sh
+npx cap open android
+```
+
+Android Studio will open. Here execute the `app` Run Configuration in _debug_ mode.<br />
+The _.apk_ file can be found under: `app/build/outputs/apk/debug/app-debug.apk`.
 
 To create a production or debug APK you will need to [sign your app](https://developer.android.com/studio/publish/app-signing).
 For a local debug build we have provided an example file
