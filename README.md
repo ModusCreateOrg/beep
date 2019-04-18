@@ -93,7 +93,8 @@ To create a local build file execute the following:
 npx cap open android
 ```
 
-xCode will open. Here _archive_  the app and _Distribute App_ for development.<br />
+xCode will open. Here _archive_  the app and _Distribute App_ for development.
+
 You will be asked where to save the exported _.ipa_ file.
 
 
