@@ -130,7 +130,8 @@ To create a local build file execute the following:
 npx cap open android
 ```
 
-Android Studio will open. Here execute the `app` Run Configuration in _debug_ mode.<br />
+Android Studio will open. Here execute the `app` Run Configuration in _debug_ mode.
+
 The _.apk_ file can be found under: `app/build/outputs/apk/debug/app-debug.apk`.
 
 To create a production or debug APK you will need to [sign your app](https://developer.android.com/studio/publish/app-signing).
