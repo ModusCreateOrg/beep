@@ -70,7 +70,7 @@ jobs:
           name: Run Gimbal
           command: gimbal
       - store_artifacts:
-        path: ./artifacts
+          path: ./artifacts
 
   sonarqube:
     <<: *defaults
