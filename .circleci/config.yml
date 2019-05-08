@@ -130,4 +130,9 @@ workflows:
           requires:
             - build-pwa
 
-      - sonarqube
+      - sonarqube:
+          filters:
+            branches:
+              # only from canonical repository
+              # https://stackoverflow.com/a/5334825/358804
+              only: /^(?!pull\/).*$/
