@@ -130,6 +130,7 @@ workflows:
             - install-dependencies
 
       - gimbal:
+          context: deploy-creds
           requires:
             - build-pwa
 
