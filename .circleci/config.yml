@@ -16,8 +16,7 @@ aliases:
       - v3-dist-
 
 defaults: &defaults
-  # need to use full path if using different docker images
-  working_directory: /home/circleci/repo
+  working_directory: /home/circleci/repo # need to use full path if using different docker images
   docker:
     - image: circleci/node:10
 
@@ -90,7 +89,7 @@ jobs:
       - run: echo "Scan complete, data sent to sonarcloud"
 
   build-ios:
-    <<: *defaults
+    working_directory: /home/circleci/repo
     macos:
       xcode: '9.4.0'
     steps:
@@ -106,7 +105,6 @@ jobs:
             - ios
 
   deploy-testflight:
-    <<: *defaults
     macos:
       xcode: '9.4.0'
     working_directory: /home/circleci/repo/ios/App
