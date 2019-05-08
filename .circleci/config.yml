@@ -15,13 +15,15 @@ aliases:
       - v3-dist-master
       - v3-dist-
 
+defaults: &defaults
+  working_directory: /home/circleci/repo # need to use full path if using different docker images
+  docker:
+    - image: circleci/node:10
+
 version: 2
 jobs:
   install-dependencies:
-    docker:
-      - image: circleci/node:8.10
-
-    working_directory: ~/repo
+    <<: *defaults
 
     steps:
       - checkout
@@ -38,10 +40,7 @@ jobs:
             - node_modules
 
   build-pwa:
-    docker:
-      - image: circleci/node:8.10
-
-    working_directory: ~/repo
+    <<: *defaults
 
     steps:
       - checkout
@@ -60,11 +59,21 @@ jobs:
           paths:
             - dist
 
-  sonarqube:
+  gimbal:
+    <<: *defaults
     docker:
-      - image: circleci/node:8.10
+      - image: moduscreate/gimbal:1.0.4
+    steps:
+      - checkout
+      - restore_cache: *restore-dist-cache
+      - run:
+          name: Run Gimbal
+          command: gimbal
+      - store_artifacts:
+          path: ./artifacts
 
-    working_directory: ~/repo
+  sonarqube:
+    <<: *defaults
 
     steps:
       - checkout
@@ -76,13 +85,16 @@ jobs:
       - run: echo "sonar.host.url=https://sonarcloud.io" > sonar-scanner-3.2.0.1227-linux/conf/sonar-scanner.properties
       - run: echo "sonar.login=$sonarqubekey" >> sonar-project.properties
       - run: echo "sonar.organization=$sonarorg" >> sonar-project.properties
-      - run: sonar-scanner-3.2.0.1227-linux/bin/sonar-scanner
+      - run:
+          name: Run SonarQube
+          command: |
+            [[ -z "$sonarqubekey" || -z "$sonarorg" ]] && exit 0 || sonar-scanner-3.2.0.1227-linux/bin/sonar-scanner
       - run: echo "Scan complete, data sent to sonarcloud"
 
   build-ios:
+    working_directory: /home/circleci/repo
     macos:
       xcode: '9.4.0'
-    working_directory: ~/repo
     steps:
       - checkout
       - restore_cache: *restore-npm-cache
@@ -98,7 +110,7 @@ jobs:
   deploy-testflight:
     macos:
       xcode: '9.4.0'
-    working_directory: ~/repo/ios/App
+    working_directory: /home/circleci/repo/ios/App
     shell: /bin/bash --login -o pipefail
     steps:
       - restore_cache: *restore-ios-cache
@@ -116,5 +128,9 @@ workflows:
       - build-pwa:
           requires:
             - install-dependencies
+
+      - gimbal:
+          requires:
+            - build-pwa
 
       - sonarqube
