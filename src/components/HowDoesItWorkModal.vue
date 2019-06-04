@@ -1,5 +1,5 @@
 <template>
-  <modal>
+  <Modal>
     <div>
       <p>
         Every day, over 4 million online data records are stolen or lost.
@@ -36,7 +36,7 @@
           alt="Modus Labs Logo"/>
       </a>
     </div>
-  </modal>
+  </Modal>
 </template>
 
 <script>

@@ -15,7 +15,7 @@
     <ion-content padding>
       <div class="counter">{{ breaches.length }} results found</div>
       <ion-list>
-        <breach-item
+        <BreachItem
           v-for="(breach, index) in breaches"
           :key="index"
           :breach="breach"/>
