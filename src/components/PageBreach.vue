@@ -71,7 +71,7 @@
 export default {
   name: 'PageBreach',
   props: {
-    breach_name: {
+    breachName: {
       type: String,
       default: '',
     },
@@ -79,7 +79,7 @@ export default {
   data() {
     return {
       breach: this.$breachesService.breaches.find(breach => {
-        return breach.Name === this.breach_name
+        return breach.Name === this.breachName
       }),
     }
   },

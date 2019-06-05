@@ -15,7 +15,7 @@ export default new IonicVueRouter({
     {
       path: '/breaches/:name',
       component: () => import('./components/PageBreach.vue'),
-      props: route => ({ breach_name: route.params.name }),
+      props: route => ({ breachName: route.params.name }),
     },
     {
       path: '/unsafe',
