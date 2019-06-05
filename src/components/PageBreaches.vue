@@ -5,12 +5,13 @@
         <ion-buttons slot="start">
           <ion-back-button default-href="/acc" />
         </ion-buttons>
-        <ion-title v-html="account"/>
+        <ion-title v-html="account" />
       </ion-toolbar>
       <ion-searchbar
         :value="filter"
         type="email"
-        @ionChange="filterChanged"/>
+        @ionChange="filterChanged"
+      />
     </ion-header>
     <ion-content padding>
       <div class="counter">{{ breaches.length }} results found</div>
@@ -18,7 +19,8 @@
         <PageBreachesItem
           v-for="(breach, index) in breaches"
           :key="index"
-          :breach="breach"/>
+          :breach="breach"
+        />
       </ion-list>
     </ion-content>
   </ion-page>

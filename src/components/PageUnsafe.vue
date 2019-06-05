@@ -8,15 +8,17 @@
       </ion-toolbar>
     </ion-header>
     <ion-content
+      padding
       class="content"
-      padding>
+    >
       <h1>Caution!</h1>
       <h2>This password has been<br>compromised across</h2>
       <h1
         class="count"
-        v-html="count"/>
+        v-html="count"
+      />
       <h2 class="count-text">websites</h2>
-      <div id="lottie"></div>
+      <div id="lottie" />
       <h3 @click="goToHelp">
         <span>What should you do?</span>
       </h3>
