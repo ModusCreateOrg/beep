@@ -1,5 +1,5 @@
 <template>
-  <modal className="feedback-modal">
+  <Modal className="feedback-modal">
     <div>
       <h1>Did you like<br/>using BEEP?</h1>
       <h3>Please help us improve<br/>by leaving your feedback</h3>
@@ -14,7 +14,7 @@
         </a>
       </div>
     </div>
-  </modal>
+  </Modal>
 </template>
 
 <script>
