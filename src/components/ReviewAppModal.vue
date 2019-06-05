@@ -1,5 +1,5 @@
 <template>
-  <Modal className="feedback-modal">
+  <BaseModal className="feedback-modal">
     <div>
       <h1>Did you like<br/>using BEEP?</h1>
       <h3>Please help us improve<br/>by leaving your feedback</h3>
@@ -14,17 +14,17 @@
         </a>
       </div>
     </div>
-  </Modal>
+  </BaseModal>
 </template>
 
 <script>
-import Modal from './Modal.vue'
+import BaseModal from './BaseModal.vue'
 import helpers from '../helpers'
 
 export default {
   name: 'ReviewAppModal',
   components: {
-    Modal,
+    BaseModal,
   },
   data() {
     return {

@@ -64,7 +64,7 @@ import network from '@/mixins/network'
 import reviewAppModal from '@/mixins/reviewAppModal'
 
 export default {
-  name: 'Pwd',
+  name: 'PagePwd',
   mixins: [hasModal, network, reviewAppModal],
   data() {
     return {

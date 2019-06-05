@@ -34,7 +34,7 @@ import toggleStatusbarColor from '@/mixins/toggleStatusbarColor'
 import hasModal from '@/mixins/hasModal'
 
 export default {
-  name: 'Unsafe',
+  name: 'PageUnsafe',
   mixins: [hasModal, toggleStatusbarColor],
   props: {
     count: {
