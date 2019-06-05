@@ -1,67 +1,45 @@
 <template>
-  <ion-page class="ion-page">
-    <ion-header>
-      <ion-toolbar>
-        <ion-buttons slot="start">
-          <ion-back-button default-href="/" />
-        </ion-buttons>
-        <ion-title>Check Account</ion-title>
-        <ion-buttons slot="end">
-          <ion-button
-            clear
-            :disabled="!isValidAccount"
-            @click="checkAccount"
-          >
-            <span v-if="requestPending">
-              <ion-spinner />
-            </span>
-            <span v-else>Check</span>
-          </ion-button>
-        </ion-buttons>
-      </ion-toolbar>
-    </ion-header>
-    <ion-content padding class="content">
-      <h1>
-        Enter any username or email and<br>
-        we'll check if it's been hacked<br>
-      </h1>
-      <div class="input-holder">
-        <form
-          action="#"
-          @submit.prevent="checkAccount"
-        >
-          <ion-item>
-            <ion-label padding>Your username or email</ion-label>
-          </ion-item>
-          <ion-item>
-            <ion-input
-              :value="account"
-              large
-              type="email"
-              placeholder="Username or email"
-              @input="account = $event.target.value"
-              @keydown.enter="checkAccount"
-            />
-          </ion-item>
-          <input
-            type="submit"
-            class="form-submit-button"
-          />
-        </form>
-      </div>
-    </ion-content>
-  </ion-page>
+  <BasePageCheckForHack
+    title="Check Account"
+    :is-valid="isValidAccount"
+    :request-pending="requestPending"
+    @check-for-hack="sendRequest"
+  >
+    <template slot="subtitle">
+      Enter any username or email and<br>
+      we'll check if it's been hacked<br>
+    </template>
+
+    <template slot="input-form">
+      <ion-item>
+        <ion-label padding>Your username or email</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-input
+          :value="account"
+          large
+          type="email"
+          placeholder="Username or email"
+          @input="account = $event.target.value"
+          @keydown.enter="sendRequest"
+        />
+      </ion-item>
+    </template>
+  </BasePageCheckForHack>
 </template>
 
 <script>
 import axios from 'axios'
-import network from '@/mixins/network'
 import hasModal from '@/mixins/hasModal'
 import reviewAppModal from '@/mixins/reviewAppModal'
+import BasePageCheckForHack from './BasePageCheckForHack';
 
 export default {
   name: 'PageAcc',
-  mixins: [network, hasModal, reviewAppModal],
+  components: {
+    BasePageCheckForHack,
+  },
+  mixins: [hasModal, reviewAppModal],
   data() {
     return {
       account: '',
@@ -80,15 +58,6 @@ export default {
   methods: {
     getURL() {
       return this.$breachesService.baseApiURL + encodeURIComponent(this.account)
-    },
-    checkAccount() {
-      if (!this.checkNetworkStatus()) {
-        return this.showNetworkAlert()
-      }
-
-      if (!this.requestPending && this.isValidAccount) {
-        this.sendRequest()
-      }
     },
     async sendRequest() {
       const loading = await this.$ionic.loadingController.create()
@@ -147,49 +116,3 @@ export default {
   },
 }
 </script>
-
-<style scoped>
-ion-spinner * {
-  stroke: white;
-}
-
-h1 {
-  color: var(--ion-dark-transparent);
-  width: 100%;
-  font-size: 12px;
-  font-weight: normal;
-  letter-spacing: -0.29px;
-  line-height: 1.4;
-  text-align: center;
-}
-
-ion-item {
-  --border-style: none;
-  --padding-start: 7%;
-  --ion-text-color: var(--beep-secondary);
-  --inner-border-width: 0;
-}
-
-ion-input {
-  height: 56px;
-  font-size: 25px;
-  color: var(--beep-secondary);
-  font-weight: 300;
-  letter-spacing: -0.63px;
-  line-height: 25px;
-}
-
-ion-label {
-  width: 100%;
-  margin: 10px 8px -15px 0;
-  color: var(--beep-secondary);
-  font-size: 18px;
-  letter-spacing: -0.43px;
-  line-height: 18px;
-}
-
-.form-submit-button {
-  visibility: hidden;
-  position: absolute;
-}
-</style>
