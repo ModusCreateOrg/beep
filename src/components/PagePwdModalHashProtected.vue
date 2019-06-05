@@ -19,7 +19,7 @@
 import BaseModal from './BaseModal.vue'
 
 export default {
-  name: 'HashProtectedModal',
+  name: 'PagePwdModalHashProtected',
   components: {
     BaseModal,
   },

@@ -85,7 +85,7 @@ export default {
     },
   },
   mounted() {
-    this.modal = () => import('@/components/HashProtectedModal.vue')
+    this.modal = () => import('@/components/PagePwdModalHashProtected.vue')
     this.tryPromptAppReview()
     this.$breachesService.clear()
   },

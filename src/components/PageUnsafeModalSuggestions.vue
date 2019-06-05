@@ -28,7 +28,7 @@
 import BaseModal from './BaseModal.vue'
 
 export default {
-  name: 'WhatShouldYouDoModal',
+  name: 'PageUnsafeModalSuggestions',
   components: {
     BaseModal,
   },

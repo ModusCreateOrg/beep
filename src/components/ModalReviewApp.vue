@@ -22,7 +22,7 @@ import BaseModal from './BaseModal.vue'
 import helpers from '../helpers'
 
 export default {
-  name: 'ReviewAppModal',
+  name: 'ModalReviewApp',
   components: {
     BaseModal,
   },
