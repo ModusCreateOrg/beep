@@ -28,7 +28,7 @@
 import toggleStatusbarColor from '@/mixins/toggleStatusbarColor'
 
 export default {
-  name: 'Breaches',
+  name: 'PageBreaches',
   components: {
     BreachItem: () => import('@/components/BreachItem.vue'),
   },

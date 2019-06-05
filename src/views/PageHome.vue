@@ -55,7 +55,7 @@ import { Plugins } from '@capacitor/core'
 const { App, Share } = Plugins
 
 export default {
-  name: 'Home',
+  name: 'PageHome',
   mixins: [hasModal],
   data() {
     return {

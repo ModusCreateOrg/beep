@@ -1,5 +1,5 @@
 <template>
-  <Modal>
+  <BaseModal>
     <div>
       <p>
         Every day, over 4 million online data records are stolen or lost.
@@ -36,16 +36,16 @@
           alt="Modus Labs Logo"/>
       </a>
     </div>
-  </Modal>
+  </BaseModal>
 </template>
 
 <script>
-import Modal from './Modal.vue'
+import BaseModal from './BaseModal.vue'
 
 export default {
   name: 'HowDoesItWorkModal',
   components: {
-    Modal,
+    BaseModal,
   },
 }
 </script>
