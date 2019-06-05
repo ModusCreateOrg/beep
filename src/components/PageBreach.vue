@@ -69,9 +69,9 @@
 
 <script>
 export default {
-  name: 'Breach',
+  name: 'PageBreach',
   props: {
-    breach_name: {
+    breachName: {
       type: String,
       default: '',
     },
@@ -79,7 +79,7 @@ export default {
   data() {
     return {
       breach: this.$breachesService.breaches.find(breach => {
-        return breach.Name === this.breach_name
+        return breach.Name === this.breachName
       }),
     }
   },
@@ -202,7 +202,7 @@ h2 {
 }
 
 /* iPhone support
- * first selector: X/Xs/X-MAX 
+ * first selector: X/Xs/X-MAX
  * second selector: XR
  */
 @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape),

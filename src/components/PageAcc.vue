@@ -50,7 +50,7 @@ import hasModal from '@/mixins/hasModal'
 import reviewAppModal from '@/mixins/reviewAppModal'
 
 export default {
-  name: 'Acc',
+  name: 'PageAcc',
   mixins: [network, hasModal, reviewAppModal],
   data() {
     return {

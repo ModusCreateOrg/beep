@@ -64,7 +64,7 @@ import network from '@/mixins/network'
 import reviewAppModal from '@/mixins/reviewAppModal'
 
 export default {
-  name: 'Pwd',
+  name: 'PagePwd',
   mixins: [hasModal, network, reviewAppModal],
   data() {
     return {
@@ -85,7 +85,7 @@ export default {
     },
   },
   mounted() {
-    this.modal = () => import('@/components/HashProtectedModal.vue')
+    this.modal = () => import('@/components/PagePwdModalHashProtected.vue')
     this.tryPromptAppReview()
     this.$breachesService.clear()
   },

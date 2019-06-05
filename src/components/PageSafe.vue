@@ -27,7 +27,7 @@
 import toggleStatusbarColor from '@/mixins/toggleStatusbarColor'
 
 export default {
-  name: 'Safe',
+  name: 'PageSafe',
   mixins: [toggleStatusbarColor],
   data() {
     return {

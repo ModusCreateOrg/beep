@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import { IonicVueRouter } from '@modus/ionic-vue'
-import Home from './views/Home.vue'
+import PageHome from './components/PageHome.vue'
 
 Vue.use(IonicVueRouter)
 
@@ -8,20 +8,20 @@ export default new IonicVueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
-    { path: '/', component: Home },
-    { path: '/acc', component: () => import('./views/Acc.vue') },
-    { path: '/pwd', component: () => import('./views/Pwd.vue') },
-    { path: '/breaches', component: () => import('./views/Breaches.vue') },
+    { path: '/', component: PageHome },
+    { path: '/acc', component: () => import('./components/PageAcc.vue') },
+    { path: '/pwd', component: () => import('./components/PagePwd.vue') },
+    { path: '/breaches', component: () => import('./components/PageBreaches.vue') },
     {
       path: '/breaches/:name',
-      component: () => import('./views/Breach.vue'),
-      props: route => ({ breach_name: route.params.name }),
+      component: () => import('./components/PageBreach.vue'),
+      props: route => ({ breachName: route.params.name }),
     },
     {
       path: '/unsafe',
-      component: () => import('./views/Unsafe.vue'),
+      component: () => import('./components/PageUnsafe.vue'),
       props: route => ({ count: Number(route.query.count) }),
     },
-    { path: '/safe', component: () => import('./views/Safe.vue') },
+    { path: '/safe', component: () => import('./components/PageSafe.vue') },
   ],
 })

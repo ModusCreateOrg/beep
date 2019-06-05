@@ -1,5 +1,5 @@
 <template>
-  <modal>
+  <BaseModal>
     <div>
       <h1>What Should You Do?</h1>
       <p>
@@ -21,16 +21,16 @@
         <li>Don't use your name, address, or any other personal information</li>
       </ul>
     </div>
-  </modal>
+  </BaseModal>
 </template>
 
 <script>
-import Modal from './Modal.vue'
+import BaseModal from './BaseModal.vue'
 
 export default {
-  name: 'WhatShouldYouDoModal',
+  name: 'PageUnsafeModalSuggestions',
   components: {
-    Modal,
+    BaseModal,
   },
 }
 </script>

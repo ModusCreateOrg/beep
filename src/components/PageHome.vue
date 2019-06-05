@@ -55,7 +55,7 @@ import { Plugins } from '@capacitor/core'
 const { App, Share } = Plugins
 
 export default {
-  name: 'Home',
+  name: 'PageHome',
   mixins: [hasModal],
   data() {
     return {
@@ -87,7 +87,7 @@ export default {
     },
   },
   mounted() {
-    this.modal = () => import('@/components/HowDoesItWorkModal.vue')
+    this.modal = () => import('@/components/PageHomeModalHowItWorks.vue')
   },
   created() {
     this.backEvent = App.addListener('backButton', this.handleHardwareBackButton)

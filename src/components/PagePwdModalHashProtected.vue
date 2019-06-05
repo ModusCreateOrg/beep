@@ -1,5 +1,5 @@
 <template>
-  <modal>
+  <BaseModal>
     <div>
       <h1 class="hash-protected">
         <img class="hash-protected-img" src="../images/Icon-Hash-Protected.svg" alt="Hash protected"/>
@@ -12,16 +12,16 @@
       Instead, we transform your password into a really, really long code and then, we send only the first five characters of that code to a server.
       </p>
     </div>
-  </modal>
+  </BaseModal>
 </template>
 
 <script>
-import Modal from './Modal.vue'
+import BaseModal from './BaseModal.vue'
 
 export default {
-  name: 'HashProtectedModal',
+  name: 'PagePwdModalHashProtected',
   components: {
-    Modal,
+    BaseModal,
   },
 }
 </script>
