@@ -50,7 +50,7 @@ export default {
   },
   mounted() {
     this.loadAnimation()
-    this.modal = () => import('@/components/WhatShouldYouDoModal.vue')
+    this.modal = () => import('@/components/PageUnsafeModalSuggestions.vue')
     document.querySelector('meta[name="theme-color"]').content = '#FF5C5D'
   },
   beforeRouteLeave(to, from, next) {

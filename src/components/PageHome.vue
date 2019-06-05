@@ -87,7 +87,7 @@ export default {
     },
   },
   mounted() {
-    this.modal = () => import('@/components/HowDoesItWorkModal.vue')
+    this.modal = () => import('@/components/PageHomeModalHowItWorks.vue')
   },
   created() {
     this.backEvent = App.addListener('backButton', this.handleHardwareBackButton)
