@@ -27,8 +27,14 @@
 export default {
   name: 'BaseModal',
   props: {
-    title: { type: String, default: '' },
-    className: { type: String, default: '' },
+    title: {
+      type: String,
+      default: '',
+    },
+    className: {
+      type: String,
+      default: '',
+    },
   },
   methods: {
     closeModal() {
