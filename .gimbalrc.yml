@@ -3,8 +3,6 @@ configs:
     threshold:
       Documents: 12
       Frames: 6
-      JSHeapTotalSize: 13000000
-      JSHeapUsedSize: 8500000
       LayoutCount: 10
       Nodes: 500
       RecalcStyleCount: 7
