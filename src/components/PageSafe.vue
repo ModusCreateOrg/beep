@@ -8,14 +8,18 @@
       </ion-toolbar>
     </ion-header>
     <ion-content
+      padding
       class="content"
-      padding>
+    >
       <h1>Congratulations!</h1>
-      <h2 v-html="buildSubtitle()"/>
+      <h2 v-html="buildSubtitle()" />
       <h3 @click="check">
         <span>Check Another {{ isAccount ? 'Account' : 'Password' }}</span>
       </h3>
-      <img src="../images/Icon-Character-Positive.svg" alt="Character positive"/>
+      <img
+        src="../images/Icon-Character-Positive.svg"
+        alt="Character positive"
+      />
       <h3 @click="next">
         <span>Next: Check {{ isAccount ? 'Password' : 'Account' }}</span>
       </h3>

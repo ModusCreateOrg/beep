@@ -7,23 +7,33 @@
         </ion-buttons>
         <ion-title>Check Password</ion-title>
         <ion-buttons slot="end">
-          <ion-button :disabled="!isValidPwd" clear @click="checkHash">
+          <ion-button
+            clear
+            :disabled="!isValidPwd"
+            @click="checkHash"
+          >
             <span v-if="requestPending">
-              <ion-spinner/>
+              <ion-spinner />
             </span>
             <span v-else>Check</span>
           </ion-button>
         </ion-buttons>
       </ion-toolbar>
     </ion-header>
-    <ion-content class="content" padding>
+    <ion-content
+      padding
+      class="content"
+    >
       <h1>
         Don't worry.<br>
         Your password is hash protected and<br>
         we won't store it anywhere.<br>
       </h1>
       <div class="input-holder">
-        <form @submit.prevent="checkHash" action="#">
+        <form
+          action="#"
+          @submit.prevent="checkHash"
+        >
           <ion-item>
             <ion-label padding>Your password</ion-label>
           </ion-item>
@@ -39,16 +49,27 @@
             <img
               v-show="isValidPwd"
               slot="end"
-              @click="togglePwdType"
               :src="showHideImagePath"
-              alt="Show password"/>
+              alt="Show password"
+              @click="togglePwdType"
+            />
           </ion-item>
-          <input type="submit" class="form-submit-button"/>
+          <input
+            type="submit"
+            class="form-submit-button"
+          />
         </form>
       </div>
-      <div class="hash-protected-holder" @click="goToHelp">
+      <div
+        class="hash-protected-holder"
+        @click="goToHelp"
+      >
         <div class="hash-protected-inner">
-          <img class="hash-protected-img" src="../images/Icon-Hash-Protected.svg" alt="Hash protected"/>
+          <img
+            class="hash-protected-img"
+            src="../images/Icon-Hash-Protected.svg"
+            alt="Hash protected"
+          />
           <span>Hash protected</span>
         </div>
       </div>

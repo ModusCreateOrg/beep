@@ -7,9 +7,13 @@
         </ion-buttons>
         <ion-title>Check Account</ion-title>
         <ion-buttons slot="end">
-          <ion-button :disabled="!isValidAccount" clear @click="checkAccount">
+          <ion-button
+            clear
+            :disabled="!isValidAccount"
+            @click="checkAccount"
+          >
             <span v-if="requestPending">
-              <ion-spinner/>
+              <ion-spinner />
             </span>
             <span v-else>Check</span>
           </ion-button>
@@ -22,7 +26,10 @@
         we'll check if it's been hacked<br>
       </h1>
       <div class="input-holder">
-        <form @submit.prevent="checkAccount" action="#">
+        <form
+          action="#"
+          @submit.prevent="checkAccount"
+        >
           <ion-item>
             <ion-label padding>Your username or email</ion-label>
           </ion-item>
@@ -36,7 +43,10 @@
               @keydown.enter="checkAccount"
             />
           </ion-item>
-          <input type="submit" class="form-submit-button"/>
+          <input
+            type="submit"
+            class="form-submit-button"
+          />
         </form>
       </div>
     </ion-content>

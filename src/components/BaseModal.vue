@@ -3,13 +3,23 @@
     <ion-header>
       <ion-toolbar :class="className">
         <ion-buttons slot="start">
-          <ion-button @click="closeModal" :class="className">
-            <ion-icon size="large" name="close"/>
+          <ion-button
+            @click="closeModal"
+            :class="className"
+          >
+            <ion-icon
+              size="large"
+              name="close"
+            />
           </ion-button>
         </ion-buttons>
         <ion-title>{{ title }}</ion-title>
         <ion-buttons slot="end">
-          <ion-button clear @click="closeModal" :class="className">
+          <ion-button
+            clear
+            :class="className"
+            @click="closeModal"
+          >
             Done
           </ion-button>
         </ion-buttons>

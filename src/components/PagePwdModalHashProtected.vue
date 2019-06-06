@@ -2,14 +2,18 @@
   <BaseModal>
     <div>
       <h1 class="hash-protected">
-        <img class="hash-protected-img" src="../images/Icon-Hash-Protected.svg" alt="Hash protected"/>
+        <img
+          class="hash-protected-img"
+          src="../images/Icon-Hash-Protected.svg"
+          alt="Hash protected"
+        />
         <span>Hash Protected</span>
       </h1>
       <p>
-      We've made sure that Beep won't end up yet another name on the list of data breaches.
-      How? We hash all of your passwords and account information.
-      In other words, we never store your passwords in plain text.
-      Instead, we transform your password into a really, really long code and then, we send only the first five characters of that code to a server.
+        We've made sure that Beep won't end up yet another name on the list of data breaches.
+        How? We hash all of your passwords and account information.
+        In other words, we never store your passwords in plain text.
+        Instead, we transform your password into a really, really long code and then, we send only the first five characters of that code to a server.
       </p>
     </div>
   </BaseModal>
