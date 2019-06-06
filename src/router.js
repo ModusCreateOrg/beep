@@ -9,8 +9,8 @@ export default new IonicVueRouter({
   base: process.env.BASE_URL,
   routes: [
     { path: '/', component: PageHome },
-    { path: '/acc', component: () => import('./components/PageAcc.vue') },
-    { path: '/pwd', component: () => import('./components/PagePwd.vue') },
+    { path: '/acc', component: () => import('./components/PageCheckAccount.vue') },
+    { path: '/pwd', component: () => import('./components/PageCheckPassword.vue') },
     { path: '/breaches', component: () => import('./components/PageBreaches.vue') },
     {
       path: '/breaches/:name',
