@@ -1,92 +1,69 @@
 <template>
-  <ion-page class="ion-page">
-    <ion-header>
-      <ion-toolbar>
-        <ion-buttons slot="start">
-          <ion-back-button default-href="/" />
-        </ion-buttons>
-        <ion-title>Check Password</ion-title>
-        <ion-buttons slot="end">
-          <ion-button
-            clear
-            :disabled="!isValidPwd"
-            @click="checkHash"
-          >
-            <span v-if="requestPending">
-              <ion-spinner />
-            </span>
-            <span v-else>Check</span>
-          </ion-button>
-        </ion-buttons>
-      </ion-toolbar>
-    </ion-header>
-    <ion-content
-      padding
-      class="content"
+  <BasePageCheckForHack
+    title="Check Password"
+    :is-valid="isValidPwd"
+    :request-pending="requestPending"
+    @check-for-hack="sendRequest"
+  >
+    <template slot="subtitle">
+      Don't worry.<br>
+      Your password is hash protected and<br>
+      we won't store it anywhere.<br>
+    </template>
+
+    <template slot="input-form">
+      <ion-item>
+        <ion-label padding>Your password</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-input
+          :type="pwdType"
+          :value="pwd"
+          large
+          placeholder="••••••"
+          @input="pwd = $event.target.value"
+          @keydown.enter="sendRequest"
+        />
+        <img
+          v-show="isValidPwd"
+          slot="end"
+          :src="showHideImagePath"
+          alt="Show password"
+          @click="togglePwdType"
+        />
+      </ion-item>
+    </template>
+
+    <div
+      slot="end"
+      class="hash-protected-holder"
+      @click="goToHelp"
     >
-      <h1>
-        Don't worry.<br>
-        Your password is hash protected and<br>
-        we won't store it anywhere.<br>
-      </h1>
-      <div class="input-holder">
-        <form
-          action="#"
-          @submit.prevent="checkHash"
-        >
-          <ion-item>
-            <ion-label padding>Your password</ion-label>
-          </ion-item>
-          <ion-item>
-            <ion-input
-              :type="pwdType"
-              :value="pwd"
-              large
-              placeholder="••••••"
-              @input="pwd = $event.target.value"
-              @keydown.enter="checkHash"
-            />
-            <img
-              v-show="isValidPwd"
-              slot="end"
-              :src="showHideImagePath"
-              alt="Show password"
-              @click="togglePwdType"
-            />
-          </ion-item>
-          <input
-            type="submit"
-            class="form-submit-button"
-          />
-        </form>
+      <div class="hash-protected-inner">
+        <img
+          class="hash-protected-img"
+          src="../images/Icon-Hash-Protected.svg"
+          alt="Hash protected"
+        />
+        <span>Hash protected</span>
       </div>
-      <div
-        class="hash-protected-holder"
-        @click="goToHelp"
-      >
-        <div class="hash-protected-inner">
-          <img
-            class="hash-protected-img"
-            src="../images/Icon-Hash-Protected.svg"
-            alt="Hash protected"
-          />
-          <span>Hash protected</span>
-        </div>
-      </div>
-    </ion-content>
-  </ion-page>
+    </div>
+  </BasePageCheckForHack>
 </template>
 
 <script>
 import sha1 from 'sha1'
 import axios from 'axios'
 import hasModal from '@/mixins/hasModal'
-import network from '@/mixins/network'
 import reviewAppModal from '@/mixins/reviewAppModal'
+import BasePageCheckForHack from './BasePageCheckForHack';
 
 export default {
   name: 'PagePwd',
-  mixins: [hasModal, network, reviewAppModal],
+  components: {
+    BasePageCheckForHack,
+  },
+  mixins: [hasModal, reviewAppModal],
   data() {
     return {
       pwd: '',
@@ -116,19 +93,6 @@ export default {
     },
     getURL(hashPart) {
       return this.$helpers.env('PROXY_HOST') + '/range/' + hashPart
-    },
-    checkHash(event) {
-      if (event) {
-        event.preventDefault()
-      }
-
-      if (!this.checkNetworkStatus()) {
-        return this.showNetworkAlert()
-      }
-
-      if (this.isValidPwd && !this.requestPending) {
-        this.sendRequest()
-      }
     },
     async sendRequest() {
       const hash = sha1(this.pwd)
@@ -184,58 +148,6 @@ export default {
 </script>
 
 <style scoped>
-ion-spinner * {
-  stroke: white;
-}
-
-h1 {
-  width: 100%;
-  color: var(--ion-dark-transparent);
-  font-size: 12px;
-  letter-spacing: -0.29px;
-  line-height: 15px;
-  text-align: center;
-  font-weight: normal;
-}
-
-ion-item {
-  --border-style: none;
-  --padding-start: 7%;
-  --ion-text-color: var(--beep-secondary);
-  --inner-border-width: 0;
-}
-
-ion-input[type='password'] {
-  height: 56px;
-  font-size: 25px;
-  font-weight: 300;
-  letter-spacing: -0.63px;
-  line-height: 25px;
-}
-
-ion-input[type='text'] {
-  height: 56px;
-  font-size: 25px;
-  color: var(--beep-secondary);
-  font-weight: 300;
-  letter-spacing: -0.63px;
-  line-height: 25px;
-}
-
-ion-label {
-  width: 100%;
-  margin: 10px 8px -15px 0;
-  color: var(--beep-secondary);
-  font-size: 18px;
-  letter-spacing: -0.43px;
-  line-height: 18px;
-}
-
-.form-submit-button {
-  visibility: hidden;
-  position: absolute;
-}
-
 .input-holder img {
   height: 20px;
 }
