@@ -34,7 +34,6 @@
       </ion-item>
     </template>
 
-
     <div
       slot="end"
       class="hash-protected-holder"
