@@ -8,8 +8,9 @@
         <ion-title v-html="account" />
       </ion-toolbar>
       <ion-searchbar
-        :value="filter"
+        class="beep-searchbar"
         type="email"
+        :value="filter"
         @ionChange="filterChanged"
       />
     </ion-header>
@@ -62,23 +63,6 @@ export default {
 }
 </script>
 
-<style>
-.searchbar-input {
-  color: var(--beep-light) !important;
-  background-color: rgba(0, 0, 0, 0.15) !important;
-}
-
-.searchbar-search-icon {
-  color: var(--beep-light) !important;
-}
-
-.searchbar-clear-icon,
-.searchbar-clear-button,
-.searchbar-input::placeholder {
-  color: rgba(255, 255, 255, 0.7) !important;
-}
-</style>
-
 <style scoped>
 ion-toolbar {
   text-align: center;
@@ -86,7 +70,12 @@ ion-toolbar {
   color: var(--beep-light);
 }
 
-ion-searchbar {
+.beep-searchbar {
+  --background: rgba(0, 0, 0, 0.15);
+  --color: var(--beep-light);
+  --icon-color: var(--beep-light);
+  --clear-button-color: rgba(255, 255, 255, 0.7);
+  --placeholder-color: rgba(255, 255, 255, 0.7);
   background-color: var(--beep-primary);
 }
 
