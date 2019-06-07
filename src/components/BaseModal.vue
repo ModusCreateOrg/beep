@@ -1,11 +1,11 @@
 <template>
   <div>
     <ion-header>
-      <ion-toolbar :class="className">
+      <ion-toolbar class="beep-modal-toolbar">
         <ion-buttons slot="start">
           <ion-button
             @click="closeModal"
-            :class="className"
+            class="beep-toolbar-button"
           >
             <ion-icon
               size="large"
@@ -17,7 +17,7 @@
         <ion-buttons slot="end">
           <ion-button
             clear
-            :class="className"
+            class="beep-toolbar-button"
             @click="closeModal"
           >
             Done
@@ -25,8 +25,8 @@
         </ion-buttons>
       </ion-toolbar>
     </ion-header>
-    <ion-content padding :class="className">
-      <div class="modal-content">
+    <ion-content padding class="beep-modal-content">
+      <div class="beep-modal-content-padding">
         <slot />
       </div>
     </ion-content>
@@ -41,10 +41,6 @@ export default {
       type: String,
       default: '',
     },
-    className: {
-      type: String,
-      default: '',
-    },
   },
   methods: {
     closeModal() {
@@ -55,7 +51,18 @@ export default {
 </script>
 
 <style scoped>
-.modal-content {
+.beep-modal-toolbar {
+  --ion-color-base: var(--beep-light);
+}
+
+.beep-toolbar-button,
+.beep-toolbar-button.button-clear {
+  --color: var(--beep-primary);
+  --color-activated: var(--beep-primary);
+  text-transform: none;
+}
+
+.beep-modal-content-padding {
   padding: 5vh 20px;
 }
 
@@ -65,35 +72,9 @@ export default {
  */
 @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape),
   only screen and (min-device-width: 414px) and (max-device-width: 767px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
-  .modal-content {
+  .beep-modal-content-padding {
     padding-right: env(safe-area-inset-right);
     padding-left: env(safe-area-inset-left);
   }
-}
-
-ion-toolbar {
-  --ion-color-base: var(--beep-light);
-}
-
-ion-button,
-ion-button.button-clear,
-ion-button.button.button-clear.button-md.button-clear-md {
-  --ion-color-base: var(--beep-primary);
-  text-transform: none;
-}
-
-ion-toolbar.feedback-modal {
-  --background: var(--beep-secondary);
-  color: var(--beep-primary);
-}
-ion-content.feedback-modal {
-  --background: var(--beep-secondary);
-  text-align: center;
-}
-ion-back-button.feedback-modal {
-  color: var(--beep-primary);
-}
-ion-button.feedback-modal {
-  color: var(--beep-primary);
 }
 </style>

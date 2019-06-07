@@ -29,6 +29,7 @@
           slot="end"
           :src="showHideImagePath"
           alt="Show password"
+          class="toggle-password-img"
           @click="togglePwdType"
         />
       </ion-item>
@@ -148,14 +149,14 @@ export default {
 </script>
 
 <style scoped>
-.input-holder img {
+.toggle-password-img {
   height: 20px;
 }
 
 .hash-protected-holder {
   position: absolute;
   bottom: var(--ion-safe-area-bottom, 20px);
-  padding-left: 7%;
+  padding: 0 0 16px 7%;
 }
 
 .hash-protected-holder .hash-protected-inner {

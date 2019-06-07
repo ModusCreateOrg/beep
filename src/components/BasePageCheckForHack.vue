@@ -9,6 +9,7 @@
         <ion-buttons slot="end">
           <ion-button
             clear
+            class="check-button"
             :disabled="!isValid"
             @click="checkForHack"
           >
@@ -21,11 +22,11 @@
 
     <ion-content
       padding
-      class="content"
+      class="check-hack-content"
     >
-      <h1>
+      <div class="check-hack-subtitle">
         <slot name="subtitle" />
-      </h1>
+      </div>
       <div class="input-holder">
         <form
           action="#"
@@ -35,7 +36,7 @@
 
           <input
             type="submit"
-            class="form-submit-button"
+            class="check-hack-submit"
           />
         </form>
       </div>
@@ -83,11 +84,11 @@ export default {
 </script>
 
 <style scoped>
-ion-spinner * {
-  stroke: white;
+.check-button.button-disabled {
+  --color: var(--beep-light-dark);
 }
 
-h1 {
+.check-hack-subtitle {
   color: var(--ion-dark-transparent);
   width: 100%;
   font-size: 12px;
@@ -97,14 +98,14 @@ h1 {
   text-align: center;
 }
 
-ion-item {
+.check-hack-content ion-item {
   --border-style: none;
   --padding-start: 7%;
   --ion-text-color: var(--beep-secondary);
   --inner-border-width: 0;
 }
 
-ion-label {
+.check-hack-content ion-label {
   width: 100%;
   margin: 10px 8px -15px 0;
   color: var(--beep-secondary);
@@ -113,7 +114,7 @@ ion-label {
   line-height: 18px;
 }
 
-ion-input {
+.check-hack-content ion-input {
   height: 56px;
   font-size: 25px;
   color: var(--beep-secondary);
@@ -122,9 +123,8 @@ ion-input {
   line-height: 25px;
 }
 
-.form-submit-button {
+.check-hack-submit {
   visibility: hidden;
   position: absolute;
 }
-
 </style>
