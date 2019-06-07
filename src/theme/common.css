@@ -31,6 +31,17 @@
   --ion-font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Roboto', sans-serif;
 }
 
+:root .beep-color-light {
+  --color: var(--beep-light);
+}
+
+.beep-breach-item {
+  --padding-start: 0;
+  --ion-color-shade: rgba(0, 0, 0, 0.15);
+  --inner-border-width: 0;
+  --border-width: 0 0 0.55px 0;
+}
+
 ion-toolbar {
   --ion-toolbar-background-color: var(--beep-light);
 }
@@ -93,7 +104,7 @@ html {
 }
 
 /* iPhone support
- * first selector: X/Xs/X-MAX 
+ * first selector: X/Xs/X-MAX
  * second selector: XR
  */
 @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3),

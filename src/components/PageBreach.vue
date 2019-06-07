@@ -1,41 +1,20 @@
 <template>
-  <ion-page class="ion-page">
+  <ion-page class="ion-page beep-breach">
     <ion-header>
-      <ion-toolbar>
+      <ion-toolbar class="beep-breach-toolbar">
         <ion-buttons slot="start">
-          <ion-back-button />
+          <ion-back-button class="beep-back-button" />
         </ion-buttons>
       </ion-toolbar>
     </ion-header>
     <ion-content padding>
       <ion-list>
-        <ion-item>
-          <ion-avatar slot="start">
-            <div class="img-holder">
-              <img
-                :src="breach.LogoPath"
-                :alt="breach.Title"
-              />
-            </div>
-            <div class="avatar-shadow" />
-          </ion-avatar>
-          <ion-label>
-            <h1>
-              {{ breach.Title }}&nbsp;
-              <img
-                v-show="breach.IsVerified"
-                src="../images/Icon-Verified-Checkmark.svg"
-                alt="Braech verified"
-              />
-            </h1>
-            <h2 v-html="this.$breachesService.formatDomain(breach.Domain)" />
-          </ion-label>
-        </ion-item>
+        <PageBreachesItem :breach="breach" />
       </ion-list>
       <div class="information-content">
-        <h1>Information</h1>
-        <ion-list>
-          <ion-item class="info-item">
+        <h1 class="beep-breach-header">Information</h1>
+        <ion-list class="beep-breach-info">
+          <ion-item class="beep-breach-item beep-breach-info-item">
             <span slot="start">Date of breach</span>
             <span
               slot="end"
@@ -43,7 +22,7 @@
               v-html="this.$breachesService.formatDate(breach.BreachDate)"
             />
           </ion-item>
-          <ion-item class="info-item">
+          <ion-item class="beep-breach-item beep-breach-info-item">
             <span slot="start">Date added</span>
             <span
               slot="end"
@@ -51,7 +30,7 @@
               v-html="this.$breachesService.formatDate(breach.AddedDate)"
             />
           </ion-item>
-          <ion-item class="info-item">
+          <ion-item class="beep-breach-item beep-breach-info-item">
             <span slot="start">Date of change</span>
             <span
               slot="end"
@@ -59,7 +38,7 @@
               v-html="this.$breachesService.formatDate(breach.ModifiedDate)"
             />
           </ion-item>
-          <ion-item class="info-item">
+          <ion-item class="beep-breach-item beep-breach-info-item">
             <span slot="start">Number of breached accounts</span>
             <span
               slot="end"
@@ -68,8 +47,11 @@
             />
           </ion-item>
         </ion-list>
-        <h1>Description</h1>
-        <p v-html="breach.Description" />
+        <h1 class="beep-breach-header">Description</h1>
+        <p
+          class="beep-breach-description"
+          v-html="breach.Description"
+        />
       </div>
     </ion-content>
   </ion-page>
@@ -78,6 +60,9 @@
 <script>
 export default {
   name: 'PageBreach',
+  components: {
+    PageBreachesItem: () => import('@/components/PageBreachesItem.vue'),
+  },
   props: {
     breachName: {
       type: String,
@@ -94,100 +79,38 @@ export default {
 }
 </script>
 
+<style>
+.beep-breach .beep-breach-avatar {
+  height: 120px;
+  width: 120px;
+}
+</style>
+
 <style scoped>
-ion-toolbar {
+.beep-breach-toolbar {
   --ion-color-base: var(--beep-light);
 }
 
-ion-button,
-ion-button.button-clear,
-ion-button.button.button-clear.button-md.button-clear-md {
-  --ion-color-base: var(--beep-primary);
-  text-transform: none;
-}
-
-ion-back-button {
+.beep-back-button {
   --color: var(--beep-danger);
 }
 
-ion-list {
+.beep-breach-info {
   margin-bottom: 10px;
 }
 
-ion-item {
-  --padding-start: 0;
-  --inner-padding-end: 0;
-  --ion-color-shade: rgba(0, 0, 0, 0.15);
-  --inner-border-width: 0;
-  --border-width: 0 0 0.55px 0;
-}
-
-ion-avatar {
-  position: relative;
-  height: 120px;
-  width: 120px;
-  margin: 20px;
-  border-radius: 5px;
-  background-color: #f7f7f7;
-  display: table;
-}
-
-.avatar-shadow {
-  position: absolute;
-  height: 70%;
-  width: 70%;
-  z-index: -1;
-  top: 35%;
-  left: 15%;
-  border-radius: 5px;
-  background-color: rgba(0, 0, 0, 0.2);
-  -webkit-filter: blur(5px);
-  -moz-filter: blur(5px);
-  -o-filter: blur(5px);
-  -ms-filter: blur(5px);
-  filter: blur(5px);
-}
-
-ion-avatar .img-holder {
-  display: table-cell;
-  vertical-align: middle;
-  text-align: center;
-}
-
-ion-avatar .img-holder img {
-  max-width: 70%;
-  min-width: 1px;
-  max-height: 70%;
-  -o-object-fit: contain;
-  object-fit: contain;
-  border-radius: 0;
-  overflow: visible;
-}
-
-h1 {
-  height: 22px;
-  color: var(--beep-light-dark);
-  font-size: 18px;
-  font-weight: bold;
-  letter-spacing: -0.43px;
-  line-height: 22px;
-}
-
-h1 img {
-  margin-left: 5px;
-  margin-bottom: -3px;
-  width: 1.25rem;
-}
-
-p {
-  color: var(--beep-light-dark);
+.beep-breach-info-item {
+  color: rgba(1, 1, 1, 0.5);
   font-size: 14px;
   letter-spacing: -0.34px;
-  line-height: 26px;
+  line-height: 17px;
 }
 
-h2 {
-  height: 26px;
+.beep-breach-item {
+  --inner-padding-end: 0;
+}
+
+.beep-breach-description {
   color: var(--beep-light-dark);
   font-size: 14px;
   letter-spacing: -0.34px;
@@ -196,13 +119,6 @@ h2 {
 
 .information-content {
   padding: 20px;
-}
-
-.info-item {
-  color: rgba(1, 1, 1, 0.5);
-  font-size: 14px;
-  letter-spacing: -0.34px;
-  line-height: 17px;
 }
 
 .info-date {

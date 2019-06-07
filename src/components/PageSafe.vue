@@ -3,7 +3,10 @@
     <ion-header>
       <ion-toolbar>
         <ion-buttons slot="start">
-          <ion-back-button default-href="/pwd" />
+          <ion-back-button
+            class="beep-color-light"
+            default-href="/pwd"
+          />
         </ion-buttons>
       </ion-toolbar>
     </ion-header>
@@ -71,10 +74,6 @@ ion-page {
 
 ion-toolbar {
   --background: var(--beep-success);
-}
-
-ion-back-button {
-  --color: var(--beep-light);
 }
 
 h1 {

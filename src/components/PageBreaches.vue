@@ -1,14 +1,17 @@
 <template>
   <ion-page class="ion-page">
-    <ion-header>
-      <ion-toolbar>
+    <ion-header class="beep-breaches-header">
+      <ion-toolbar class="beep-breaches-toolbar">
         <ion-buttons slot="start">
-          <ion-back-button default-href="/acc" />
+          <ion-back-button
+            class="beep-color-light"
+            default-href="/acc"
+          />
         </ion-buttons>
         <ion-title v-html="account" />
       </ion-toolbar>
       <ion-searchbar
-        class="beep-searchbar"
+        class="beep-searchbar beep-safe-padding"
         type="email"
         :value="filter"
         @ionChange="filterChanged"
@@ -16,12 +19,19 @@
     </ion-header>
     <ion-content padding>
       <div class="counter">{{ breaches.length }} results found</div>
-      <ion-list>
+      <ion-list class="beep-safe-padding">
         <PageBreachesItem
           v-for="(breach, index) in breaches"
           :key="index"
           :breach="breach"
-        />
+          :show-full-details="true"
+        >
+          <ion-icon
+            slot="end"
+            class="beep-breach-item-icon"
+            name="arrow-forward"
+          />
+        </PageBreachesItem>
       </ion-list>
     </ion-content>
   </ion-page>
@@ -64,10 +74,14 @@ export default {
 </script>
 
 <style scoped>
-ion-toolbar {
-  text-align: center;
+.beep-breaches-header {
+  box-shadow: 0 1px 4px 0 rgba(255, 92, 93, 0.5), 0 1px 4px 0 rgba(0, 0, 0, 0.3);
+}
+
+.beep-breaches-toolbar {
   --background: var(--beep-danger);
   color: var(--beep-light);
+  text-align: center;
 }
 
 .beep-searchbar {
@@ -77,19 +91,6 @@ ion-toolbar {
   --clear-button-color: rgba(255, 255, 255, 0.7);
   --placeholder-color: rgba(255, 255, 255, 0.7);
   background-color: var(--beep-primary);
-}
-
-ion-header {
-  box-shadow: 0 1px 4px 0 rgba(255, 92, 93, 0.5), 0 1px 4px 0 rgba(0, 0, 0, 0.3);
-}
-
-ion-button {
-  --ion-color-base: var(--beep-light);
-  text-transform: none;
-}
-
-ion-back-button {
-  --color: var(--beep-light);
 }
 
 .counter {
@@ -103,14 +104,17 @@ ion-back-button {
   padding: 7px 10px;
 }
 
+.beep-breach-item-icon {
+  color: #c7c7cc;
+}
+
 /* iPhone support
  * first selector: X/Xs/X-MAX
  * second selector: XR
  */
 @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape),
   only screen and (min-device-width: 414px) and (max-device-width: 767px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
-  ion-list,
-  ion-searchbar {
+  .beep-safe-padding {
     padding-right: env(safe-area-inset-right);
     padding-left: env(safe-area-inset-left);
   }
