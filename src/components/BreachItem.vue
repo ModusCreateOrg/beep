@@ -42,7 +42,7 @@
 
 <script>
 export default {
-  name: 'PageBreachesItem',
+  name: 'BreachItem',
   props: {
     breach: {
       type: Object,

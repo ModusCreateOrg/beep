@@ -20,7 +20,7 @@
     <ion-content padding>
       <div class="counter">{{ breaches.length }} results found</div>
       <ion-list class="beep-safe-padding">
-        <PageBreachesItem
+        <BreachItem
           v-for="(breach, index) in breaches"
           :key="index"
           :breach="breach"
@@ -31,7 +31,7 @@
             class="beep-breach-item-icon"
             name="arrow-forward"
           />
-        </PageBreachesItem>
+        </BreachItem>
       </ion-list>
     </ion-content>
   </ion-page>
@@ -43,7 +43,7 @@ import toggleStatusbarColor from '@/mixins/toggleStatusbarColor'
 export default {
   name: 'PageBreaches',
   components: {
-    PageBreachesItem: () => import('@/components/PageBreachesItem.vue'),
+    BreachItem: () => import('@/components/BreachItem.vue'),
   },
   mixins: [toggleStatusbarColor],
   data() {

@@ -3,7 +3,7 @@
     <div>
       <h1 class="hash-protected">
         <img
-          class="hash-protected-img"
+          class="beep-inline-icon"
           src="../images/Icon-Hash-Protected.svg"
           alt="Hash protected"
         />

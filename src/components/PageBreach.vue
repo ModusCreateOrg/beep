@@ -9,7 +9,7 @@
     </ion-header>
     <ion-content padding>
       <ion-list>
-        <PageBreachesItem :breach="breach" />
+        <BreachItem :breach="breach" />
       </ion-list>
       <div class="information-content">
         <h1 class="beep-breach-header">Information</h1>
@@ -61,7 +61,7 @@
 export default {
   name: 'PageBreach',
   components: {
-    PageBreachesItem: () => import('@/components/PageBreachesItem.vue'),
+    BreachItem: () => import('@/components/BreachItem.vue'),
   },
   props: {
     breachName: {
