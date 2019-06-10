@@ -37,7 +37,7 @@
 
     <div
       slot="end"
-      class="beep-disclaimer"
+      class="beep-disclaimer beep-link"
       @click="goToHelp"
     >
       <img
@@ -155,15 +155,9 @@ export default {
   position: absolute;
   bottom: var(--ion-safe-area-bottom, 20px);
   padding: 0 0 16px 7%;
-  color: var(--beep-secondary);
   font-size: 18px;
   font-weight: 300;
   letter-spacing: -0.43px;
   line-height: 25px;
-  text-decoration: underline;
-}
-
-.beep-disclaimer .beep-inline-icon {
-  margin-right: 6px;
 }
 </style>

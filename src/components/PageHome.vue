@@ -46,7 +46,7 @@
           class="beep-footer-link"
           @click="goToHelp"
         >
-          <span class="link">How does it work?</span>
+          <span class="beep-link">How does it work?</span>
         </h2>
         <h2
           v-if="!$isWeb"

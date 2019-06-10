@@ -1,7 +1,7 @@
   <template>
   <ion-page class="ion-page">
     <ion-header>
-      <ion-toolbar>
+      <ion-toolbar class="beep-result-toolbar">`
         <ion-buttons slot="start">
           <ion-back-button
             class="beep-color-light"
@@ -14,17 +14,27 @@
       padding
       class="content"
     >
-      <h1>Congratulations!</h1>
-      <h2 v-html="buildSubtitle()" />
-      <h3 @click="check">
-        <span>Check Another {{ isAccount ? 'Account' : 'Password' }}</span>
+      <h1 class="beep-result-title">Congratulations!</h1>
+      <h2
+        class="beep-result-subtitle"
+        v-html="buildSubtitle()"
+      />
+      <h3
+        class="beep-result-action beep-link"
+        @click="check"
+      >
+        Check Another {{ isAccount ? 'Account' : 'Password' }}
       </h3>
       <img
+        class="bee"
         src="../images/Icon-Character-Positive.svg"
         alt="Character positive"
       />
-      <h3 @click="next">
-        <span>Next: Check {{ isAccount ? 'Password' : 'Account' }}</span>
+      <h3
+        class="beep-result-action beep-link"
+        @click="next"
+      >
+        Next: Check {{ isAccount ? 'Password' : 'Account' }}
       </h3>
     </ion-content>
   </ion-page>
@@ -66,65 +76,23 @@ export default {
 </script>
 
 <style scoped>
-ion-page {
-  text-align: center;
+.ion-page {
   --ion-text-color: var(--beep-light);
   --ion-background-color: var(--beep-success);
+  text-align: center;
 }
 
-ion-toolbar {
+.beep-result-toolbar {
   --background: var(--beep-success);
 }
 
-h1 {
-  height: 8vh;
-  margin-top: 5vh;
-  font-size: 35px;
-  font-weight: bold;
-  letter-spacing: -1px;
-  display: inline-block;
-}
-
-h2 {
-  height: 10vh;
-  margin-top: 0;
+.beep-result-subtitle {
   margin-bottom: 2vh;
-  font-size: 16px;
-  font-weight: normal;
-  line-height: 1.5;
 }
 
-img {
+.bee {
   height: 45vh;
   margin-top: 2vh;
   margin-bottom: 2vh;
-}
-
-h3 {
-  margin: 0 auto;
-  height: 5vh;
-  font-size: 16px;
-  font-weight: 300;
-  letter-spacing: -0.48px;
-  line-height: 16px;
-}
-
-span {
-  border-bottom: 1px solid #fff;
-}
-
-@media screen and (min-height: 650px) {
-  h1 {
-    font-size: 40px;
-  }
-
-  h2 {
-    font-size: 20px;
-  }
-
-  h3 {
-    font-size: 20px;
-    line-height: 20px;
-  }
 }
 </style>
