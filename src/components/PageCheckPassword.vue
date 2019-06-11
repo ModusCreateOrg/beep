@@ -55,7 +55,7 @@ import sha1 from 'sha1'
 import axios from 'axios'
 import hasModal from '@/mixins/hasModal'
 import reviewAppModal from '@/mixins/reviewAppModal'
-import BasePageCheckForHack from './BasePageCheckForHack';
+import BasePageCheckForHack from './BasePageCheckForHack'
 
 export default {
   name: 'PagePwd',

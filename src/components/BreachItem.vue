@@ -55,9 +55,12 @@ export default {
   },
   computed: {
     breachItemActions() {
-      return this.showFullDetails
-        ? {click: () => this.$router.push('/breaches/' + this.breach.Name)}
-        : {}
+      return this.showFullDetails ? { click: () => this.goToBreachDetail() } : {}
+    },
+  },
+  methods: {
+    goToBreachDetail() {
+      this.$router.push('/breaches/' + this.breach.Name)
     },
   },
 }
