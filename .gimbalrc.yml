@@ -15,7 +15,7 @@ configs:
       seo: 90
   size:
     - path: ./dist/css/app.*.css
-      maxSize: 1.4 KB
+      maxSize: 1.6 KB
     - path: ./dist/css/chunk-vendors.*.css
       maxSize: 3.75 KB
     # ugly path coming up to no match chunk-vendors file
