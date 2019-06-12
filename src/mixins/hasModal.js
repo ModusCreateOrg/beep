@@ -12,20 +12,20 @@ export default {
     next(!this.isModalOpen)
   },
   methods: {
-    toggleModal(modalComponent = null) {
+    async toggleModal(modalComponent = null) {
+      let response = Promise.resolve()
+
       if (!this.isModalOpen) {
-        this.isModalOpen = !this.isModalOpen
-        return this.openModal(modalComponent)
+        const modal = await this.$ionic.modalController.create({
+          component: modalComponent || this.modal,
+        })
+        modal.present()
+        response = modal.onDidDismiss().then(this.toggleModal)
       }
+
       this.isModalOpen = !this.isModalOpen
-      return Promise.resolve()
-    },
-    async openModal(modalComponent = null) {
-      const modal = await this.$ionic.modalController.create({
-        component: modalComponent || this.modal,
-      })
-      modal.present()
-      return modal.onDidDismiss().then(this.toggleModal)
+
+      return response
     },
   },
 }

@@ -1,30 +1,30 @@
 <template>
-  <modal className="feedback-modal">
+  <BaseModal className="feedback-modal">
     <div>
       <h1>Did you like<br/>using BEEP?</h1>
       <h3>Please help us improve<br/>by leaving your feedback</h3>
       <div class="bees-container">
         <a @click="badExperience">
-          <img src="../images/Bee-Not-Happy-Avatar@2x.svg"/>
+          <img src="../images/Bee-Not-Happy-Avatar@2x.svg" />
           <div>Not Really</div>
         </a>
         <a @click="goodExperience">
-          <img src="../images/Bee-Happy-Avatar@2x.svg"/>
+          <img src="../images/Bee-Happy-Avatar@2x.svg" />
           <div>Love It!</div>
         </a>
       </div>
     </div>
-  </modal>
+  </BaseModal>
 </template>
 
 <script>
-import Modal from './Modal.vue'
+import BaseModal from './BaseModal.vue'
 import helpers from '../helpers'
 
 export default {
-  name: 'ReviewAppModal',
+  name: 'ModalReviewApp',
   components: {
-    Modal,
+    BaseModal,
   },
   data() {
     return {

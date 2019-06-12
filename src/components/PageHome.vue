@@ -2,47 +2,80 @@
   <ion-page class="ion-page">
     <ion-header>
       <ion-toolbar>
-        <img src="../images/Beep-Logo.svg" class="logo" alt="Beep logo">
+        <img
+          src="../images/Beep-Logo.svg"
+          class="logo"
+          alt="Beep logo"
+        />
       </ion-toolbar>
     </ion-header>
     <ion-content class="content">
-      <h1>Check if you've
-        <br>been hacked
-      </h1>
+      <h1>Check if you've<br>been hacked</h1>
       <div class="buttons">
-        <div class="btn-holder" @click="goToAcc">
+        <div
+          class="btn-holder"
+          @click="goToAcc"
+        >
           <div class="square-btn">
             <div class="square-btn-content">
               <div class="square-btn-icon">
-                <img src="../images/Icon-Account.svg" alt="Account logo">
+                <img
+                  src="../images/Icon-Account.svg"
+                  alt="Account logo"
+                />
               </div>
               <div class="square-btn-text">Account</div>
             </div>
-            <div class="square-btn-shadow"/>
+            <div class="square-btn-shadow" />
           </div>
         </div>
-        <div class="btn-holder" @click="goToPwd">
+        <div
+          class="btn-holder"
+          @click="goToPwd"
+        >
           <div class="square-btn">
             <div class="square-btn-content">
               <div class="square-btn-icon">
-                <img src="../images/Icon-Password.svg" alt="Password logo">
+                <img
+                  src="../images/Icon-Password.svg"
+                  alt="Password logo"
+                />
               </div>
               <div class="square-btn-text">Password</div>
             </div>
-            <div class="square-btn-shadow"/>
+            <div class="square-btn-shadow" />
           </div>
         </div>
       </div>
       <div class="footer">
-        <h2 @click="goToHelp"><span class="link">How does it work?</span></h2>
-        <h2 @click="share" v-if="!$isWeb"><span>Share this app</span></h2>
+        <h2 @click="goToHelp">
+          <span class="link">How does it work?</span>
+        </h2>
+        <h2
+          v-if="!$isWeb"
+          @click="share"
+        >
+          <span>Share this app</span>
+        </h2>
       </div>
-      <div class="app-store-btns" v-if="$isWeb">
-        <a href="https://mdus.co/beepios" target="_blank">
-            <img src="../images/app-store-badge.svg" class="ios" />
+      <div
+        v-if="$isWeb"
+        class="app-store-btns"
+      >
+        <a
+          href="https://mdus.co/beepios"
+          target="_blank"
+        >
+          <img
+            src="../images/app-store-badge.svg"
+            class="ios"
+          />
         </a>
-        <a href="https://mdus.co/beepandroid" target="_blank">
-            <img src="../images/google-play-badge.png" />
+        <a
+          href="https://mdus.co/beepandroid"
+          target="_blank"
+        >
+          <img src="../images/google-play-badge.png" />
         </a>
       </div>
     </ion-content>
@@ -55,7 +88,7 @@ import { Plugins } from '@capacitor/core'
 const { App, Share } = Plugins
 
 export default {
-  name: 'Home',
+  name: 'PageHome',
   mixins: [hasModal],
   data() {
     return {
@@ -87,7 +120,7 @@ export default {
     },
   },
   mounted() {
-    this.modal = () => import('@/components/HowDoesItWorkModal.vue')
+    this.modal = () => import('@/components/PageHomeModalHowItWorks.vue')
   },
   created() {
     this.backEvent = App.addListener('backButton', this.handleHardwareBackButton)

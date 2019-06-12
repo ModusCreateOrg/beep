@@ -3,13 +3,23 @@
     <ion-header>
       <ion-toolbar :class="className">
         <ion-buttons slot="start">
-          <ion-button @click="closeModal" :class="className">
-            <ion-icon size="large" name="close"/>
+          <ion-button
+            @click="closeModal"
+            :class="className"
+          >
+            <ion-icon
+              size="large"
+              name="close"
+            />
           </ion-button>
         </ion-buttons>
         <ion-title>{{ title }}</ion-title>
         <ion-buttons slot="end">
-          <ion-button clear @click="closeModal" :class="className">
+          <ion-button
+            clear
+            :class="className"
+            @click="closeModal"
+          >
             Done
           </ion-button>
         </ion-buttons>
@@ -25,10 +35,16 @@
 
 <script>
 export default {
-  name: 'Modal',
+  name: 'BaseModal',
   props: {
-    title: { type: String, default: '' },
-    className: { type: String, default: '' },
+    title: {
+      type: String,
+      default: '',
+    },
+    className: {
+      type: String,
+      default: '',
+    },
   },
   methods: {
     closeModal() {
@@ -44,7 +60,7 @@ export default {
 }
 
 /* iPhone support
- * first selector: X/Xs/X-MAX 
+ * first selector: X/Xs/X-MAX
  * second selector: XR
  */
 @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape),

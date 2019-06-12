@@ -5,20 +5,23 @@
         <ion-buttons slot="start">
           <ion-back-button default-href="/acc" />
         </ion-buttons>
-        <ion-title v-html="account"/>
+        <ion-title v-html="account" />
       </ion-toolbar>
       <ion-searchbar
-        :value="filter"
+        class="beep-searchbar"
         type="email"
-        @ionChange="filterChanged"/>
+        :value="filter"
+        @ionChange="filterChanged"
+      />
     </ion-header>
     <ion-content padding>
       <div class="counter">{{ breaches.length }} results found</div>
       <ion-list>
-        <breach-item
+        <PageBreachesItem
           v-for="(breach, index) in breaches"
           :key="index"
-          :breach="breach"/>
+          :breach="breach"
+        />
       </ion-list>
     </ion-content>
   </ion-page>
@@ -28,9 +31,9 @@
 import toggleStatusbarColor from '@/mixins/toggleStatusbarColor'
 
 export default {
-  name: 'Breaches',
+  name: 'PageBreaches',
   components: {
-    BreachItem: () => import('@/components/BreachItem.vue'),
+    PageBreachesItem: () => import('@/components/PageBreachesItem.vue'),
   },
   mixins: [toggleStatusbarColor],
   data() {
@@ -60,23 +63,6 @@ export default {
 }
 </script>
 
-<style>
-.searchbar-input {
-  color: var(--beep-light) !important;
-  background-color: rgba(0, 0, 0, 0.15) !important;
-}
-
-.searchbar-search-icon {
-  color: var(--beep-light) !important;
-}
-
-.searchbar-clear-icon,
-.searchbar-clear-button,
-.searchbar-input::placeholder {
-  color: rgba(255, 255, 255, 0.7) !important;
-}
-</style>
-
 <style scoped>
 ion-toolbar {
   text-align: center;
@@ -84,7 +70,12 @@ ion-toolbar {
   color: var(--beep-light);
 }
 
-ion-searchbar {
+.beep-searchbar {
+  --background: rgba(0, 0, 0, 0.15);
+  --color: var(--beep-light);
+  --icon-color: var(--beep-light);
+  --clear-button-color: rgba(255, 255, 255, 0.7);
+  --placeholder-color: rgba(255, 255, 255, 0.7);
   background-color: var(--beep-primary);
 }
 

@@ -1,4 +1,4 @@
-import reviewAppModal from '@/components/ReviewAppModal.vue'
+import reviewAppModal from '@/components/ModalReviewApp.vue'
 
 export default {
   data() {

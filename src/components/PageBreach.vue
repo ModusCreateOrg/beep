@@ -3,7 +3,7 @@
     <ion-header>
       <ion-toolbar>
         <ion-buttons slot="start">
-          <ion-back-button/>
+          <ion-back-button />
         </ion-buttons>
       </ion-toolbar>
     </ion-header>
@@ -12,9 +12,12 @@
         <ion-item>
           <ion-avatar slot="start">
             <div class="img-holder">
-              <img :src="breach.LogoPath" :alt="breach.Title"/>
+              <img
+                :src="breach.LogoPath"
+                :alt="breach.Title"
+              />
             </div>
-            <div class="avatar-shadow"/>
+            <div class="avatar-shadow" />
           </ion-avatar>
           <ion-label>
             <h1>
@@ -22,9 +25,10 @@
               <img
                 v-show="breach.IsVerified"
                 src="../images/Icon-Verified-Checkmark.svg"
-                alt="Braech verified"/>
+                alt="Braech verified"
+              />
             </h1>
-            <h2 v-html="this.$breachesService.formatDomain(breach.Domain)"/>
+            <h2 v-html="this.$breachesService.formatDomain(breach.Domain)" />
           </ion-label>
         </ion-item>
       </ion-list>
@@ -36,32 +40,36 @@
             <span
               slot="end"
               class="info-date"
-              v-html="this.$breachesService.formatDate(breach.BreachDate)"/>
+              v-html="this.$breachesService.formatDate(breach.BreachDate)"
+            />
           </ion-item>
           <ion-item class="info-item">
             <span slot="start">Date added</span>
             <span
               slot="end"
               class="info-date"
-              v-html="this.$breachesService.formatDate(breach.AddedDate)"/>
+              v-html="this.$breachesService.formatDate(breach.AddedDate)"
+            />
           </ion-item>
           <ion-item class="info-item">
             <span slot="start">Date of change</span>
             <span
               slot="end"
               class="info-date"
-              v-html="this.$breachesService.formatDate(breach.ModifiedDate)"/>
+              v-html="this.$breachesService.formatDate(breach.ModifiedDate)"
+            />
           </ion-item>
           <ion-item class="info-item">
             <span slot="start">Number of breached accounts</span>
             <span
               slot="end"
               class="info-date"
-              v-html="breach.PwnCount"/>
+              v-html="breach.PwnCount"
+            />
           </ion-item>
         </ion-list>
         <h1>Description</h1>
-        <p v-html="breach.Description"/>
+        <p v-html="breach.Description" />
       </div>
     </ion-content>
   </ion-page>
@@ -69,9 +77,9 @@
 
 <script>
 export default {
-  name: 'Breach',
+  name: 'PageBreach',
   props: {
-    breach_name: {
+    breachName: {
       type: String,
       default: '',
     },
@@ -79,7 +87,7 @@ export default {
   data() {
     return {
       breach: this.$breachesService.breaches.find(breach => {
-        return breach.Name === this.breach_name
+        return breach.Name === this.breachName
       }),
     }
   },
@@ -202,7 +210,7 @@ h2 {
 }
 
 /* iPhone support
- * first selector: X/Xs/X-MAX 
+ * first selector: X/Xs/X-MAX
  * second selector: XR
  */
 @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape),

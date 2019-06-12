@@ -8,15 +8,17 @@
       </ion-toolbar>
     </ion-header>
     <ion-content
+      padding
       class="content"
-      padding>
+    >
       <h1>Caution!</h1>
       <h2>This password has been<br>compromised across</h2>
       <h1
         class="count"
-        v-html="count"/>
+        v-html="count"
+      />
       <h2 class="count-text">websites</h2>
-      <div id="lottie"></div>
+      <div id="lottie" />
       <h3 @click="goToHelp">
         <span>What should you do?</span>
       </h3>
@@ -34,7 +36,7 @@ import toggleStatusbarColor from '@/mixins/toggleStatusbarColor'
 import hasModal from '@/mixins/hasModal'
 
 export default {
-  name: 'Unsafe',
+  name: 'PageUnsafe',
   mixins: [hasModal, toggleStatusbarColor],
   props: {
     count: {
@@ -50,7 +52,7 @@ export default {
   },
   mounted() {
     this.loadAnimation()
-    this.modal = () => import('@/components/WhatShouldYouDoModal.vue')
+    this.modal = () => import('@/components/PageUnsafeModalSuggestions.vue')
     document.querySelector('meta[name="theme-color"]').content = '#FF5C5D'
   },
   beforeRouteLeave(to, from, next) {

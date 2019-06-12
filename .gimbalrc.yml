@@ -1,0 +1,55 @@
+configs:
+  heap-snapshot:
+    threshold:
+      Documents: 12
+      Frames: 6
+      LayoutCount: 10
+      Nodes: 500
+      RecalcStyleCount: 7
+  lighthouse:
+    threshold:
+      accessibility: 50
+      'best-practices': 90
+      performance: 50
+      pwa: 100
+      seo: 90
+  size:
+    - path: ./dist/css/app.*.css
+      maxSize: 1.4 KB
+    - path: ./dist/css/chunk-vendors.*.css
+      maxSize: 3.75 KB
+    # ugly path coming up to no match chunk-vendors file
+    - path: ./dist/css/chunk-{a,b,c,d,e,f,0,1,2,3,4,5,6,7,8,9}*.*.css
+      maxSize: 1 KB
+    - path: ./dist/js/app.*.js
+      maxSize: 1 MB
+    - path: ./dist/js/chunk-vendors.*.js
+      maxSize: 110 KB
+    # ugly path coming up to no match chunk-vendors file
+    - path: ./dist/js/chunk-{a,b,c,d,e,f,0,1,2,3,4,5,6,7,8,9}*.*.js
+      maxSize: 70 KB
+    - path: ./dist/
+      maxSize: 13 MB
+  unused-source:
+    threshold:
+      - path: /css/app.*.css
+        maxSize: 30%
+      - path: /css/chunk*.css
+        maxSize: 85%
+      - path: /js/app.*.js
+        maxSize: 30%
+      - path: /js/chunk-vendors.*.js
+        maxSize: 35%
+      # ugly path coming up to no match chunk-vendors file
+      - path: /js/chunk-{a,b,c,d,e,f,0,1,2,3,4,5,6,7,8,9}*.*.js
+        maxSize: 35%
+      - path: /
+        maxSize: 40%
+
+outputs:
+  html: ./artifacts/gimbal.html
+  json: ./artifacts/gimbal.json
+  markdown: ./artifacts/gimbal.md
+
+jobs:
+  - audit --build-dir dist
