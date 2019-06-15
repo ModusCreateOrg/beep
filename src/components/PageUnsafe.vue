@@ -1,9 +1,12 @@
 <template>
   <ion-page class="ion-page">
     <ion-header>
-      <ion-toolbar>
+      <ion-toolbar class="beep-result-toolbar">
         <ion-buttons slot="start">
-          <ion-back-button default-href="/pwd" />
+          <ion-back-button
+            class="beep-color-light"
+            default-href="/pwd"
+          />
         </ion-buttons>
       </ion-toolbar>
     </ion-header>
@@ -11,18 +14,24 @@
       padding
       class="content"
     >
-      <h1>Caution!</h1>
-      <h2>This password has been<br>compromised across</h2>
+      <h1 class="beep-result-title">Caution!</h1>
+      <h2 class="beep-result-subtitle">This password has been<br>compromised across</h2>
       <h1
-        class="count"
+        class="beep-result-title count"
         v-html="count"
       />
-      <h2 class="count-text">websites</h2>
+      <h2 class="beep-result-subtitle count-text">websites</h2>
       <div id="lottie" />
-      <h3 @click="goToHelp">
+      <h3
+        class="beep-result-action beep-link"
+        @click="goToHelp"
+      >
         <span>What should you do?</span>
       </h3>
-      <h3 @click="goToAcc">
+      <h3
+        class="beep-result-action beep-link"
+        @click="goToAcc"
+      >
         <span>Next: Check Account</span>
       </h3>
     </ion-content>
@@ -84,28 +93,14 @@ export default {
 </script>
 
 <style scoped>
-ion-page {
-  text-align: center;
+.ion-page {
   --ion-text-color: var(--beep-light);
   --ion-background-color: var(--beep-danger);
+  text-align: center;
 }
 
-ion-toolbar {
+.beep-result-toolbar {
   --background: var(--beep-danger);
-}
-
-ion-back-button {
-  --color: var(--beep-light);
-}
-
-h1 {
-  height: 8vh;
-  margin-top: 5vh;
-  margin-bottom: 0;
-  font-size: 35px;
-  font-weight: bold;
-  letter-spacing: -1px;
-  display: inline-block;
 }
 
 h1.count {
@@ -114,14 +109,6 @@ h1.count {
   font-size: 50px;
   font-weight: bold;
   letter-spacing: -1px;
-}
-
-h2 {
-  height: 10vh;
-  margin: 0;
-  font-size: 16px;
-  font-weight: normal;
-  line-height: 1.5;
 }
 
 h2.count-text {
@@ -133,36 +120,9 @@ h2.count-text {
   line-height: 1.5;
 }
 
-img {
-  height: 40vh;
-}
-
-h3 {
-  margin: 0 auto;
-  height: 5vh;
-  font-size: 16px;
-  font-weight: 300;
-  letter-spacing: -0.48px;
-  line-height: 16px;
-}
-
-h3 span {
-  border-bottom: 1px solid #fff;
-}
-
 @media screen and (min-height: 650px) {
-  h1 {
-    font-size: 40px;
-  }
-
-  h2,
   h2.count-text {
     font-size: 20px;
-  }
-
-  h3 {
-    font-size: 20px;
-    line-height: 20px;
   }
 }
 </style>

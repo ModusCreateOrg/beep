@@ -29,6 +29,7 @@
           slot="end"
           :src="showHideImagePath"
           alt="Show password"
+          class="toggle-password-img"
           @click="togglePwdType"
         />
       </ion-item>
@@ -36,17 +37,15 @@
 
     <div
       slot="end"
-      class="hash-protected-holder"
+      class="beep-disclaimer beep-link"
       @click="goToHelp"
     >
-      <div class="hash-protected-inner">
-        <img
-          class="hash-protected-img"
-          src="../images/Icon-Hash-Protected.svg"
-          alt="Hash protected"
-        />
-        <span>Hash protected</span>
-      </div>
+      <img
+        class="beep-inline-icon"
+        src="../images/Icon-Hash-Protected.svg"
+        alt="Hash protected"
+      />
+      Hash protected
     </div>
   </BasePageCheckForHack>
 </template>
@@ -56,7 +55,7 @@ import sha1 from 'sha1'
 import axios from 'axios'
 import hasModal from '@/mixins/hasModal'
 import reviewAppModal from '@/mixins/reviewAppModal'
-import BasePageCheckForHack from './BasePageCheckForHack';
+import BasePageCheckForHack from './BasePageCheckForHack'
 
 export default {
   name: 'PagePwd',
@@ -148,28 +147,17 @@ export default {
 </script>
 
 <style scoped>
-.input-holder img {
+.toggle-password-img {
   height: 20px;
 }
 
-.hash-protected-holder {
+.beep-disclaimer {
   position: absolute;
   bottom: var(--ion-safe-area-bottom, 20px);
-  padding-left: 7%;
-}
-
-.hash-protected-holder .hash-protected-inner {
-  line-height: 25px;
-  height: 25px;
-}
-
-.hash-protected-inner > span {
-  margin-left: 5px;
-  color: var(--beep-secondary);
+  padding: 0 0 16px 7%;
   font-size: 18px;
   font-weight: 300;
   letter-spacing: -0.43px;
-  line-height: 100%;
-  border-bottom: 1px solid var(--beep-secondary);
+  line-height: 25px;
 }
 </style>

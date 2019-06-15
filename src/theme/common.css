@@ -31,6 +31,100 @@
   --ion-font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Roboto', sans-serif;
 }
 
+:root .beep-color-light {
+  --color: var(--beep-light);
+}
+
+.beep-breach-item {
+  --padding-start: 0;
+  --ion-color-shade: rgba(0, 0, 0, 0.15);
+  --inner-border-width: 0;
+  --border-width: 0 0 0.55px 0;
+}
+
+.beep-modal-content-padding > h1 {
+  color: var(--beep-dark);
+  font-size: 24px;
+  font-weight: bold;
+  letter-spacing: -0.6px;
+}
+
+.beep-modal-content-padding > p,
+.beep-modal-content-padding > ul {
+  color: var(--beep-light-dark);
+  font-size: 14px;
+  letter-spacing: -0.34px;
+  line-height: 26px;
+  margin-bottom: 50px;
+}
+
+.beep-link {
+  color: var(--beep-secondary);
+  text-decoration: underline;
+  transition-duration: 0.2s;
+}
+
+.beep-link:hover {
+  cursor: pointer;
+  color: var(--beep-primary);
+}
+
+.beep-result-title {
+  height: 8vh;
+  margin-top: 5vh;
+  margin-bottom: 0;
+  font-size: 35px;
+  font-weight: bold;
+  letter-spacing: -1px;
+  display: inline-block;
+}
+
+.beep-result-subtitle {
+  height: 10vh;
+  margin: 0;
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 1.5;
+}
+
+.beep-result-action {
+  margin: 0 auto;
+  height: 5vh;
+  font-size: 16px;
+  font-weight: 300;
+  letter-spacing: -0.48px;
+  line-height: 16px;
+}
+
+.beep-result-action.beep-link {
+  color: var(--beep-light);
+}
+
+.beep-result-action.beep-link:hover {
+  opacity: 0.5;
+}
+
+@media screen and (min-height: 650px) {
+  .beep-result-title {
+    font-size: 40px;
+  }
+
+  .beep-result-subtitle {
+    font-size: 20px;
+  }
+
+  .beep-result-action {
+    font-size: 20px;
+    line-height: 20px;
+  }
+}
+
+.beep-inline-icon {
+  float: left;
+  width: 1.25rem;
+  margin-right: 0.5rem;
+}
+
 ion-toolbar {
   --ion-toolbar-background-color: var(--beep-light);
 }
@@ -67,33 +161,13 @@ div[style].cloned-input {
   opacity: 0 !important;
 }
 
-.hash-protected-img {
-  float: left;
-  width: 1.25rem;
-}
-a.link {
-  text-decoration: none;
-  color: var(--beep-secondary);
-}
-
-.link {
-  border-bottom: 1px solid var(--beep-secondary);
-  transition-duration: 0.2s;
-}
-
-.link:hover {
-  cursor: pointer;
-  color: var(--beep-primary);
-  border-color: var(--beep-primary);
-}
-
 body,
 html {
   height: 100vh;
 }
 
 /* iPhone support
- * first selector: X/Xs/X-MAX 
+ * first selector: X/Xs/X-MAX
  * second selector: XR
  */
 @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3),

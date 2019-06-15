@@ -10,46 +10,43 @@
       </ion-toolbar>
     </ion-header>
     <ion-content class="content">
-      <h1>Check if you've<br>been hacked</h1>
-      <div class="buttons">
+      <h1 class="beep-header">Check if you've<br>been hacked</h1>
+      <div class="beep-tiles">
         <div
-          class="btn-holder"
+          class="beep-tile"
           @click="goToAcc"
         >
-          <div class="square-btn">
-            <div class="square-btn-content">
-              <div class="square-btn-icon">
-                <img
-                  src="../images/Icon-Account.svg"
-                  alt="Account logo"
-                />
-              </div>
-              <div class="square-btn-text">Account</div>
-            </div>
-            <div class="square-btn-shadow" />
+          <div class="beep-tile-content">
+            <img
+              class="beep-tile-icon"
+              src="../images/Icon-Account.svg"
+              alt="Account logo"
+            />
+            Account
           </div>
+          <div class="beep-tile-shadow" />
         </div>
         <div
-          class="btn-holder"
+          class="beep-tile"
           @click="goToPwd"
         >
-          <div class="square-btn">
-            <div class="square-btn-content">
-              <div class="square-btn-icon">
-                <img
-                  src="../images/Icon-Password.svg"
-                  alt="Password logo"
-                />
-              </div>
-              <div class="square-btn-text">Password</div>
-            </div>
-            <div class="square-btn-shadow" />
+          <div class="beep-tile-content">
+            <img
+              class="beep-tile-icon"
+              src="../images/Icon-Password.svg"
+              alt="Password logo"
+            />
+            Password
           </div>
+          <div class="beep-tile-shadow" />
         </div>
       </div>
       <div class="footer">
-        <h2 @click="goToHelp">
-          <span class="link">How does it work?</span>
+        <h2
+          class="beep-footer-link"
+          @click="goToHelp"
+        >
+          <span class="beep-link">How does it work?</span>
         </h2>
         <h2
           v-if="!$isWeb"
@@ -63,19 +60,24 @@
         class="app-store-btns"
       >
         <a
+          class="app-store-link"
           href="https://mdus.co/beepios"
           target="_blank"
         >
           <img
+            class="app-store-btn ios"
             src="../images/app-store-badge.svg"
-            class="ios"
           />
         </a>
         <a
+          class="app-store-link"
           href="https://mdus.co/beepandroid"
           target="_blank"
         >
-          <img src="../images/google-play-badge.png" />
+          <img
+            class="app-store-btn"
+            src="../images/google-play-badge.png"
+          />
         </a>
       </div>
     </ion-content>
@@ -135,7 +137,7 @@ export default {
 </script>
 
 <style scoped>
-ion-page {
+.ion-page {
   text-align: center;
   --ion-text-color: var(--beep-secondary);
 }
@@ -145,7 +147,7 @@ ion-page {
   width: 2.8125rem;
 }
 
-h1 {
+.beep-header {
   height: 14vh;
   margin-top: 15vh;
   color: var(--beep-dark);
@@ -154,44 +156,52 @@ h1 {
   letter-spacing: -1px;
 }
 
-.buttons {
-  position: relative;
-  height: 19vh;
-  margin-top: 7vh;
-  margin-left: 8%;
+.beep-tiles {
+  display: flex;
+  justify-content: space-between;
+  min-height: 19vh;
   width: 84%;
-  clear: both;
+  max-width: 960px;
+  margin: 7vh auto 0;
 }
 
-.btn-holder {
+.beep-tile {
   position: relative;
-  float: left;
   width: 45%;
 }
 
-.btn-holder + .btn-holder {
-  margin-left: 10%;
-}
-
-.square-btn {
-  position: relative;
-  width: 100%;
-  border-radius: 5px;
-  background-color: var(--beep-light);
-  box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.1);
-}
-
-.square-btn:after {
+.beep-tile:after {
   content: '';
   display: block;
   padding-bottom: 100%;
 }
 
-.square-btn-shadow {
+.beep-tile-content {
   position: absolute;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  background-color: var(--beep-light);
+  box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.1);
+  color: var(--beep-dark);
+  font-size: calc(1.5vw + 1.5vh);
+  font-weight: 300;
+  letter-spacing: -0.48px;
+  text-align: center;
+}
+
+.beep-tile-icon {
+  display: block;
+  margin: 18% auto 10%;
+  height: 35%;
+}
+
+.beep-tile-shadow {
+  position: absolute;
+  z-index: 0;
   height: 80%;
   width: 80%;
-  z-index: -1;
   top: 25%;
   left: 10%;
   border-radius: 5px;
@@ -203,89 +213,47 @@ h1 {
   filter: blur(10px);
 }
 
-.square-btn-content {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-}
-
-.square-btn-icon {
-  margin-bottom: 10%;
-  margin-top: 15%;
-  width: 100%;
-  height: 35%;
-}
-
-.square-btn-icon img {
-  height: 100%;
-}
-
-.square-btn-text {
-  width: 100%;
-  color: var(--beep-dark);
-  font-size: 15px;
-  font-weight: 300;
-  letter-spacing: -0.48px;
-  line-height: 22px;
-}
-
-h2 {
+.beep-footer-link {
+  display: inline-block;
+  flex: 1;
   height: 10vh;
   margin-top: 13vh;
   font-size: 18px;
   font-weight: 300;
   letter-spacing: -0.48px;
-  display: inline-block;
-}
-
-h2 span {
-  border-bottom: 1px solid var(--beep-secondary);
+  text-align: center;
 }
 
 .footer,
 .app-store-btns {
-  display: inline-flex;
   width: 100%;
-  justify-content: center;
-}
-
-.footer h2 {
   text-align: center;
-  flex: 1;
 }
 
-.app-store-btns a {
-  /* width: 200px; */
-  flex: 1;
-  max-width: 160px;
+.app-store-link {
+  display: inline-block;
+  width: 160px;
   margin-bottom: 25px;
 }
 
-.app-store-btns a img {
-  width: 150px;
-}
-
-.app-store-btns a img.ios {
-  width: 135px;
+.app-store-btn {
+  height: 45px;
 }
 
 @media screen and (min-height: 650px) {
-  h1 {
+  .beep-header {
     font-size: 40px;
   }
 }
 
 /* Small Devices, Tablets */
 @media only screen and (min-width: 768px) {
-  .app-store-btns a {
-    max-width: 260px;
-  }
-  .app-store-btns a img {
-    width: 250px;
+  .app-store-link {
+    width: 260px;
   }
 
-  .app-store-btns a img.ios {
-    width: 235px;
+  .app-store-btn {
+    height: 75px;
   }
 }
 

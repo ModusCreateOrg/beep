@@ -1,6 +1,12 @@
 <template>
-  <ion-item @click="viewBreach">
-    <ion-avatar slot="start">
+  <ion-item
+    class="beep-breach-item"
+    v-on="breachItemActions"
+  >
+    <ion-avatar
+      slot="start"
+      class="beep-breach-avatar"
+    >
       <div class="img-holder">
         <img
           :src="breach.LogoPath"
@@ -10,35 +16,50 @@
       <div class="avatar-shadow" />
     </ion-avatar>
     <ion-label>
-      <h1>
+      <h1 class="beep-breach-header">
         {{ breach.Title }}
         <img
           v-show="breach.IsVerified"
+          class="beep-breach-verified"
           src="../images/Icon-Verified-Checkmark.svg"
-          alt="Verified breach"
+          alt="(Breach verified)"
         />
       </h1>
-      <p v-html="this.$breachesService.formatDate(breach.BreachDate)" />
-      <h2 v-html="this.$breachesService.formatDomain(breach.Domain)" />
+      <p
+        v-if="showFullDetails"
+        class="beep-breach-date"
+        v-html="this.$breachesService.formatDate(breach.BreachDate)"
+      />
+      <h2
+        class="beep-breach-domain"
+        v-html="this.$breachesService.formatDomain(breach.Domain)"
+      />
     </ion-label>
-    <ion-icon
-      slot="end"
-      name="arrow-forward"
-    />
+
+    <slot name="end" />
   </ion-item>
 </template>
 
 <script>
 export default {
-  name: 'PageBreachesItem',
+  name: 'BreachItem',
   props: {
     breach: {
       type: Object,
       default: () => {},
     },
+    showFullDetails: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  computed: {
+    breachItemActions() {
+      return this.showFullDetails ? { click: () => this.goToBreachDetail() } : {}
+    },
   },
   methods: {
-    viewBreach() {
+    goToBreachDetail() {
       this.$router.push('/breaches/' + this.breach.Name)
     },
   },
@@ -46,14 +67,7 @@ export default {
 </script>
 
 <style scoped>
-ion-item {
-  --padding-start: 0;
-  --ion-color-shade: rgba(0, 0, 0, 0.15);
-  --inner-border-width: 0;
-  --border-width: 0 0 0.55px 0;
-}
-
-ion-avatar {
+.beep-breach-avatar {
   position: relative;
   height: 80px;
   width: 80px;
@@ -63,7 +77,7 @@ ion-avatar {
   display: table;
 }
 
-.avatar-shadow {
+.beep-breach-avatar .avatar-shadow {
   position: absolute;
   height: 70%;
   width: 70%;
@@ -79,13 +93,13 @@ ion-avatar {
   filter: blur(5px);
 }
 
-ion-avatar .img-holder {
+.beep-breach-avatar .img-holder {
   display: table-cell;
   vertical-align: middle;
   text-align: center;
 }
 
-ion-avatar .img-holder img {
+.beep-breach-avatar .img-holder > img {
   max-width: 70%;
   min-width: 1px;
   max-height: 70%;
@@ -95,7 +109,7 @@ ion-avatar .img-holder img {
   overflow: visible;
 }
 
-h1 {
+.beep-breach-header {
   height: 22px;
   color: var(--beep-light-dark);
   font-size: 18px;
@@ -104,22 +118,15 @@ h1 {
   line-height: 22px;
 }
 
-h1 img {
+.beep-breach-header .beep-breach-verified {
   margin-left: 5px;
   margin-bottom: -3px;
   width: 1.25rem;
+  font-weight: normal;
+  font-size: 80%;
 }
 
-p {
-  height: 15px;
-  color: var(--ion-dark-transparent);
-  font-size: 12px;
-  letter-spacing: -0.29px;
-  line-height: 15px;
-  margin-bottom: 10px;
-}
-
-h2 {
+.beep-breach-domain {
   height: 26px;
   color: var(--beep-light-dark);
   font-size: 14px;
@@ -127,7 +134,12 @@ h2 {
   line-height: 26px;
 }
 
-ion-icon {
-  --ion-color-base: #c7c7cc;
+.beep-breach-date {
+  height: 15px;
+  color: var(--ion-dark-transparent);
+  font-size: 12px;
+  letter-spacing: -0.29px;
+  line-height: 15px;
+  margin-bottom: 10px;
 }
 </style>

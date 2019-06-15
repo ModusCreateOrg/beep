@@ -1,14 +1,20 @@
 <template>
-  <BaseModal className="feedback-modal">
+  <BaseModal class="feedback-modal">
     <div>
-      <h1>Did you like<br/>using BEEP?</h1>
-      <h3>Please help us improve<br/>by leaving your feedback</h3>
-      <div class="bees-container">
-        <a @click="badExperience">
+      <h1 class="feedback-title">Did you like<br/>using BEEP?</h1>
+      <h3 class="feedback-subtitle">Please help us improve<br/>by leaving your feedback</h3>
+      <div class="feedback-options-container">
+        <a
+          class="feedback-option"
+          @click="badExperience"
+        >
           <img src="../images/Bee-Not-Happy-Avatar@2x.svg" />
           <div>Not Really</div>
         </a>
-        <a @click="goodExperience">
+        <a
+          class="feedback-option"
+          @click="goodExperience"
+        >
           <img src="../images/Bee-Happy-Avatar@2x.svg" />
           <div>Love It!</div>
         </a>
@@ -93,7 +99,7 @@ export default {
 </script>
 
 <style scoped>
-h1 {
+.feedback-title {
   color: var(--beep-light);
   font-size: 34px;
   font-weight: bold;
@@ -101,7 +107,8 @@ h1 {
   line-height: 1.3;
   margin-bottom: 25px;
 }
-h3 {
+
+.feedback-subtitle {
   margin: 0 auto;
   color: var(--beep-light);
   height: 5vh;
@@ -110,21 +117,41 @@ h3 {
   letter-spacing: -0.48px;
   line-height: 22px;
 }
-.bees-container {
+
+.feedback-options-container {
   margin-top: 80px;
   width: 100%;
 }
-a {
+
+.feedback-option {
   float: left;
   width: 50%;
   cursor: pointer;
 }
-a img {
+
+.feedback-option > img {
   height: 125px;
 }
-a div {
+
+.feedback-option > div {
   margin-top: 10px;
   color: var(--beep-light);
   font-weight: lighter;
+}
+</style>
+
+<style>
+.feedback-modal .beep-modal-toolbar {
+  --background: var(--beep-secondary);
+  --color: var(--beep-primary);
+}
+
+.feedback-modal .beep-modal-content {
+  --background: var(--beep-secondary);
+  text-align: center;
+}
+
+.feedback-modal ion-back-button.activated {
+  --color: var(--beep-primary);
 }
 </style>
