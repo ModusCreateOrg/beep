@@ -1,4 +1,4 @@
-  <template>
+<template>
   <ion-page class="ion-page">
     <ion-header>
       <ion-toolbar class="beep-result-toolbar">`
@@ -64,9 +64,9 @@ export default {
     next() {
       if (this.isAccount) {
         this.$router.replace('/pwd')
-        return
+      } else {
+        this.$router.replace('/acc')
       }
-      this.$router.replace('/acc')
     },
     check() {
       this.$router.back()

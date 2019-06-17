@@ -51,8 +51,8 @@
 </template>
 
 <script>
-import sha1 from 'sha1'
 import axios from 'axios'
+import sha1 from 'sha1'
 import hasModal from '@/mixins/hasModal'
 import reviewAppModal from '@/mixins/reviewAppModal'
 import BasePageCheckForHack from './BasePageCheckForHack'

@@ -98,14 +98,14 @@ export default {
   text-align: center;
 }
 
-.check-hack-content ion-item {
+.check-hack-content ion-item.item {
   --border-style: none;
   --padding-start: 7%;
   --ion-text-color: var(--beep-secondary);
   --inner-border-width: 0;
 }
 
-.check-hack-content ion-label {
+.check-hack-content .item-label > ion-label {
   width: 100%;
   margin: 10px 8px -15px 0;
   color: var(--beep-secondary);
@@ -114,7 +114,7 @@ export default {
   line-height: 18px;
 }
 
-.check-hack-content ion-input {
+.check-hack-content .item-input > ion-input {
   height: 56px;
   font-size: 25px;
   color: var(--beep-secondary);

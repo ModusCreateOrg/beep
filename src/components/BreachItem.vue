@@ -28,11 +28,11 @@
       <p
         v-if="showFullDetails"
         class="beep-breach-date"
-        v-html="this.$breachesService.formatDate(breach.BreachDate)"
+        v-html="$breachesService.formatDate(breach.BreachDate)"
       />
       <h2
         class="beep-breach-domain"
-        v-html="this.$breachesService.formatDomain(breach.Domain)"
+        v-html="$breachesService.formatDomain(breach.Domain)"
       />
     </ion-label>
 
@@ -46,7 +46,7 @@ export default {
   props: {
     breach: {
       type: Object,
-      default: () => {},
+      default: () => ({}),
     },
     showFullDetails: {
       type: Boolean,

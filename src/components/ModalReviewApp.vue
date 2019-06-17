@@ -38,14 +38,6 @@ export default {
     }
   },
   methods: {
-    async goToReview() {
-      await this.$reviewAppService.suggestAppReview()
-      this.$ionic.modalController.dismiss()
-    },
-    async provideFeedback() {
-      await this.$reviewAppService.provideAppFeedback()
-      this.$ionic.modalController.dismiss()
-    },
     async badExperience() {
       return this.$ionic.alertController
         .create({

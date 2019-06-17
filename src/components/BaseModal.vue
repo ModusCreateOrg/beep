@@ -25,7 +25,10 @@
         </ion-buttons>
       </ion-toolbar>
     </ion-header>
-    <ion-content padding class="beep-modal-content">
+    <ion-content
+      padding
+      class="beep-modal-content"
+    >
       <div class="beep-modal-content-padding">
         <slot />
       </div>

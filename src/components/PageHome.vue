@@ -97,6 +97,18 @@ export default {
       backEvent: {},
     }
   },
+  created() {
+    this.backEvent = App.addListener('backButton', this.handleHardwareBackButton)
+    this.backEvent.catch(this.$helpers.err)
+  },
+  mounted() {
+    this.modal = () => import('@/components/PageHomeModalHowItWorks.vue')
+  },
+  beforeDestroy() {
+    if (this.backEvent.remove) {
+      this.backEvent.remove()
+    }
+  },
   methods: {
     goToAcc() {
       this.$router.push('/acc')
@@ -120,18 +132,6 @@ export default {
         dialogTitle: 'Spread the word',
       })
     },
-  },
-  mounted() {
-    this.modal = () => import('@/components/PageHomeModalHowItWorks.vue')
-  },
-  created() {
-    this.backEvent = App.addListener('backButton', this.handleHardwareBackButton)
-    this.backEvent.catch(this.$helpers.err)
-  },
-  beforeDestroy() {
-    if (this.backEvent.remove) {
-      this.backEvent.remove()
-    }
   },
 }
 </script>
