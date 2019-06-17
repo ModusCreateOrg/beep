@@ -117,7 +117,7 @@ To create a production or debug APK you will need to [sign your app](https://dev
 For a local debug build we have provided an example file
 
 ```sh
-mv android/signing/keystore.properties.example android/signing/keystore.properties
+cp android/signing/keystore.properties.example android/signing/keystore.properties
 ```
 
 This will rename the example file and allow you to proceed with the build process.
