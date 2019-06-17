@@ -8,10 +8,22 @@ export default new IonicVueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
-    { path: '/', component: PageHome },
-    { path: '/acc', component: () => import('./components/PageCheckAccount.vue') },
-    { path: '/pwd', component: () => import('./components/PageCheckPassword.vue') },
-    { path: '/breaches', component: () => import('./components/PageBreaches.vue') },
+    {
+      path: '/',
+      component: PageHome,
+    },
+    {
+      path: '/acc',
+      component: () => import('./components/PageCheckAccount.vue'),
+    },
+    {
+      path: '/pwd',
+      component: () => import('./components/PageCheckPassword.vue'),
+    },
+    {
+      path: '/breaches',
+      component: () => import('./components/PageBreaches.vue'),
+    },
     {
       path: '/breaches/:name',
       component: () => import('./components/PageBreach.vue'),
@@ -22,6 +34,9 @@ export default new IonicVueRouter({
       component: () => import('./components/PageUnsafe.vue'),
       props: route => ({ count: Number(route.query.count) }),
     },
-    { path: '/safe', component: () => import('./components/PageSafe.vue') },
+    {
+      path: '/safe',
+      component: () => import('./components/PageSafe.vue'),
+    },
   ],
 })
