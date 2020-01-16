@@ -212,6 +212,12 @@ To run a check the project for any lint errors execute:
 npm run lint
 ```
 
+E2E testing on mobile devices is brought to you by [CrossBrowserTesting](https://crossbrowsertesting.com).
+
+<p align="left">
+<a href="https://crossbrowsertesting.com"><img src="./.github/CrossBrowserTesting-logo.svg" height="60" alt="CrossBrowserTesting"/></a>
+</p>
+
 # Modus Create
 
 [Modus Create](https://moduscreate.com) is a digital product consultancy. We use a distributed team of the best talent in the world to offer a full suite of digital product design-build services; ranging from consumer facing apps, to digital migration, to agile development training, and business transformation.
