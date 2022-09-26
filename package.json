@@ -27,7 +27,7 @@
   },
   "dependencies": {
     "@capacitor/android": "1.0.0-beta.11",
-    "@capacitor/cli": "1.0.0-beta.11",
+    "@capacitor/cli": "1.5.3",
     "@capacitor/core": "1.0.0-beta.11",
     "@capacitor/ios": "1.0.0-beta.11",
     "cordova-plugin-market": "git+https://github.com/xmartlabs/cordova-plugin-market.git",
