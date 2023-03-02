@@ -25,6 +25,6 @@
     "p-retry": "^3.0.1",
     "wdio-cucumber-framework": "^2.2.8",
     "wdio-spec-reporter": "^0.1.5",
-    "webdriverio": "^4.14.2"
+    "webdriverio": "^8.5.1"
   }
 }
